@@ -1,33 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://carpentries.github.io/workbench-template-md/CODE_OF_CONDUCT.html</loc>
+    <loc>https://learntodiscover.github.io/Networks/01-networks_1.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-md/LICENSE.html</loc>
+    <loc>https://learntodiscover.github.io/Networks/02-networks_2.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-md/index.html</loc>
+    <loc>https://learntodiscover.github.io/Networks/03-networks_3.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-md/instructor/CODE_OF_CONDUCT.html</loc>
+    <loc>https://learntodiscover.github.io/Networks/CODE_OF_CONDUCT.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-md/instructor/LICENSE.html</loc>
+    <loc>https://learntodiscover.github.io/Networks/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-md/instructor/index.html</loc>
+    <loc>https://learntodiscover.github.io/Networks/aio.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-md/instructor/introduction.html</loc>
+    <loc>https://learntodiscover.github.io/Networks/images.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-md/instructor/profiles.html</loc>
+    <loc>https://learntodiscover.github.io/Networks/index.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-md/introduction.html</loc>
+    <loc>https://learntodiscover.github.io/Networks/instructor/01-networks_1.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-md/profiles.html</loc>
+    <loc>https://learntodiscover.github.io/Networks/instructor/02-networks_2.html</loc>
+  </url>
+  <url>
+    <loc>https://learntodiscover.github.io/Networks/instructor/03-networks_3.html</loc>
+  </url>
+  <url>
+    <loc>https://learntodiscover.github.io/Networks/instructor/CODE_OF_CONDUCT.html</loc>
+  </url>
+  <url>
+    <loc>https://learntodiscover.github.io/Networks/instructor/LICENSE.html</loc>
+  </url>
+  <url>
+    <loc>https://learntodiscover.github.io/Networks/instructor/aio.html</loc>
+  </url>
+  <url>
+    <loc>https://learntodiscover.github.io/Networks/instructor/images.html</loc>
+  </url>
+  <url>
+    <loc>https://learntodiscover.github.io/Networks/instructor/index.html</loc>
+  </url>
+  <url>
+    <loc>https://learntodiscover.github.io/Networks/instructor/instructor-notes.html</loc>
+  </url>
+  <url>
+    <loc>https://learntodiscover.github.io/Networks/instructor/introduction.html</loc>
+  </url>
+  <url>
+    <loc>https://learntodiscover.github.io/Networks/instructor/key-points.html</loc>
+  </url>
+  <url>
+    <loc>https://learntodiscover.github.io/Networks/instructor/profiles.html</loc>
+  </url>
+  <url>
+    <loc>https://learntodiscover.github.io/Networks/instructor-notes.html</loc>
+  </url>
+  <url>
+    <loc>https://learntodiscover.github.io/Networks/introduction.html</loc>
+  </url>
+  <url>
+    <loc>https://learntodiscover.github.io/Networks/key-points.html</loc>
+  </url>
+  <url>
+    <loc>https://learntodiscover.github.io/Networks/profiles.html</loc>
   </url>
 </urlset>
