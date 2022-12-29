@@ -2,48 +2,28 @@
 title: Setup
 ---
 
-Setup instructions live in this document. Please specify the tools and the data
-sets the Learner needs to have installed.
 
 ## Data Sets
 
-Download the [data zip file](data/data.zip) and unzip it to your Desktop
+Please download the [data zip file](data/data.zip) and unzip it to your Desktop. It contains:
 
-## Software Setup
+:::::::::::::::: checklist
 
-::::::::::::::::::::::::::::::::::::::: discussion
-
-### Details
-
-Setup for different systems can be presented in dropdown menus via a `solution`
-tag. They will join to this discussion block, so you can give a general overview
-of the software used in this lesson here and fill out the individual operating
-systems (and potentially add more, e.g. online setup) in the solutions blocks.
-
-:::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::: solution
-
-### Windows
-
-Use PuTTY
-
-:::::::::::::::::::::::::
-
-:::::::::::::::: solution
-
-### MacOS
-
-Use Terminal.app
-
-:::::::::::::::::::::::::
+## Data files
+- [celegans131labels_50.csv](data/celegans131labels_50.csv)
+- [celegans131matrix_50.csv](data/celegans131matrix_50.csv)
+- [celegans131positions_50.csv](data/celegans131positions_50.csv)
+- [celegans277labels.csv](data/celegans277labels.csv)
+- [celegans277matrix_bipartite.csv](data/celegans277matrix_bipartite.csv)
+- [celegans277positions.csv](data/celegans277positions.csv)
+- [celegans277positions.txt](data/celegans277positions.txt)
+- [Stool_sparse_matrix_names.txt](data/Stool_sparse_matrix_names.txt)
+- [miserables.json](data/miserables.json)
+- [bn-mouse_visual-cortex_1.edges](data/bn-mouse_visual-cortex_1.edges)
 
 
-:::::::::::::::: solution
+::::::::::::::::
 
-### Linux
+The code assumes a path to the data files as '/data/...' or '\data\...', respectively. Please create a subfolder called 'data' in your current directory and put the data files in it. 
 
-Use Terminal
-
-:::::::::::::::::::::::::
 
