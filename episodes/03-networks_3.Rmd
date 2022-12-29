@@ -203,7 +203,7 @@ print('Average clustering coefficient:', mean(list(nx.clustering(MouseCortex).va
 ```{python}
 import json
 
-with open('data/miserables.JSON', 'r') as myfile:
+with open('data/miserables.json', 'r') as myfile:
     
     data=myfile.read()
     
