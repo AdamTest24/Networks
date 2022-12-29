@@ -76,11 +76,11 @@ print(rm)
 ```
 
 ```{.output}
-[[0 1 0 0 1]
- [1 1 1 1 0]
- [1 1 0 1 1]
- [0 0 0 0 0]
- [1 0 0 0 1]]
+[[0 0 1 0 0]
+ [0 0 1 0 1]
+ [1 0 0 0 0]
+ [1 0 1 1 1]
+ [0 0 0 0 1]]
 ```
 
 Function $randint$ from the numpy module $random$ is used to create an array or matrix filled with integers.
@@ -233,13 +233,7 @@ p2 = 0.5
 lobster = nx.random_lobster(50, 0.9, 0.5)
 
 nx.draw(lobster, with_labels=True)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): ModuleNotFoundError: No module named 'scipy'
-```
-
-```python
 show()
 ```
 
@@ -598,7 +592,7 @@ show()
 
 ```{.output}
 <BarContainer object of 8 artists>
-<networkx.classes.graph.Graph object at 0x7f14827b4220>
+<networkx.classes.graph.Graph object at 0x7ff46a026a10>
 (0.0, 1.0, 0.0, 1.0)
 ```
 
@@ -660,23 +654,8 @@ show()
 
 ```{.output}
 <BarContainer object of 28 artists>
-<networkx.classes.graph.Graph object at 0x7f148284e320>
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): ModuleNotFoundError: No module named 'scipy'
-```
-
-```{.output}
+<networkx.classes.graph.Graph object at 0x7ff469f754e0>
 (0.0, 1.0, 0.0, 1.0)
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): networkx.exception.NetworkXError: Node 100 has no position.
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): KeyError: 125
 ```
 
 <img src="fig/02-networks_2-rendered-unnamed-chunk-23-15.png" width="672" style="display: block; margin: auto;" />
@@ -1123,7 +1102,7 @@ nx.draw_networkx_edges(neuronGraph, pos);
 
 ```{.output}
 <BarContainer object of 14 artists>
-<networkx.classes.graph.Graph object at 0x7f14803df400>
+<networkx.classes.graph.Graph object at 0x7ff469f74b50>
 (0.0, 1.0, 0.0, 1.0)
 ```
 ::::::::::::::::::::: 

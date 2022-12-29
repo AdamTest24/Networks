@@ -132,7 +132,6 @@
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#data-sets">Data Sets</a></li>
-<li><a href="#software-setup">Software Setup</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
         
@@ -215,64 +214,29 @@ any links that you are not going to use.
 
 
       
-
-<p>Setup instructions live in this document. Please specify the tools and the data sets the Learner needs to have installed.</p>
 <section id="data-sets"><h2 class="section-heading">Data Sets</h2>
-<hr class="half-width"><p>Download the <a href="data/data.zip">data zip file</a> and unzip it to your Desktop</p>
-</section><section id="software-setup"><h2 class="section-heading">Software Setup</h2>
-<hr class="half-width"><div id="discussion1" class="callout discussion">
+<hr class="half-width"><p>Please download the <a href="data/data.zip">data zip file</a> and unzip it to your Desktop. It contains:</p>
+<div id="checklist1" class="callout checklist">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="check-square"></i>
 </div>
-<div id="details" class="callout-inner">
-<h3 class="callout-title">Details</h3>
+<div id="data-files" class="callout-inner">
+<h3 class="callout-title">Data files</h3>
 <div class="callout-content">
-<p>Setup for different systems can be presented in dropdown menus via a <code>solution</code> tag. They will join to this discussion block, so you can give a general overview of the software used in this lesson here and fill out the individual operating systems (and potentially add more, e.g. online setup) in the solutions blocks.</p>
+<ul><li><a href="data/celegans131labels_50.csv">celegans131labels_50.csv</a></li>
+<li><a href="data/celegans131matrix_50.csv">celegans131matrix_50.csv</a></li>
+<li><a href="data/celegans131positions_50.csv">celegans131positions_50.csv</a></li>
+<li><a href="data/celegans277labels.csv">celegans277labels.csv</a></li>
+<li><a href="data/celegans277matrix_bipartite.csv">celegans277matrix_bipartite.csv</a></li>
+<li><a href="data/celegans277positions.csv">celegans277positions.csv</a></li>
+<li><a href="data/celegans277positions.txt">celegans277positions.txt</a></li>
+<li><a href="data/Stool_sparse_matrix_names.txt">Stool_sparse_matrix_names.txt</a></li>
+<li><a href="data/miserables.json">miserables.json</a></li>
+<li><a href="data/bn-mouse_visual-cortex_1.edges">bn-mouse_visual-cortex_1.edges</a></li>
+</ul></div>
 </div>
 </div>
-</div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1">
-  Windows
-  </h4>
-</button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
-<div class="accordion-body">
-<p>Use PuTTY</p>
-</div>
-</div>
-</div>
-</div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2">
-  MacOS
-  </h4>
-</button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
-<div class="accordion-body">
-<p>Use Terminal.app</p>
-</div>
-</div>
-</div>
-</div>
-<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
-  <h4 class="accordion-header" id="headingSolution3">
-  Linux
-  </h4>
-</button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
-<div class="accordion-body">
-<p>Use Terminal</p>
-</div>
-</div>
-</div>
-</div>
+<p>The code assumes a path to the data files as ‘/data/…’ or ‘...’, respectively. Please create a subfolder called ‘data’ in your current directory and put the data files in it.</p>
 <!-- 
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use. 

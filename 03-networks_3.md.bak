@@ -235,53 +235,23 @@ Average clustering coefficient: 0.04942528735632184
 ```python
 import json
 
-with open('data/miserables.JSON', 'r') as myfile:
+with open('data/miserables.json', 'r') as myfile:
     
     data=myfile.read()
     
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): FileNotFoundError: [Errno 2] No such file or directory: 'data/miserables.JSON'
-```
-
-```python
 miserables = json.loads(data)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'data' is not defined
-```
-
-```python
 miserablesNetwork = nx.json_graph.node_link_graph(miserables)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'miserables' is not defined
-```
-
-```python
 miserablesNetworkLayout = nx.circular_layout(miserablesNetwork)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'miserablesNetwork' is not defined
-```
-
-```python
 fig, ax = subplots(figsize=(12,12))
 
 nx.draw(miserablesNetwork, miserablesNetworkLayout,
         node_size=3000,
         with_labels=True)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'miserablesNetwork' is not defined
-```
-
-```python
 fig.tight_layout()
 
 show()

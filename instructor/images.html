@@ -350,38 +350,38 @@ Data are imported from text files. In this case, it is not a CSV file. Rather, t
 <p style="text-align: justify;">
 If you check the file, you will see that the first entry is ‘1.0’. This is because all self-correlations are (trivially) equal to one. We replace those diagonal values with 0 to avoid (nonsensical) self-connections in the network.
 </p>
-<div class="codewrapper sourceCode" id="cb50">
+<div class="codewrapper sourceCode" id="cb40">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>gutbact      <span class="op">=</span> read_csv(<span class="st">'data/Stool_sparse_adj_matrix.txt'</span>, </span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>                        header<span class="op">=</span><span class="va">None</span>, delimiter<span class="op">=</span><span class="st">'</span><span class="ch">\t</span><span class="st">'</span>, dtype<span class="op">=</span><span class="st">"float64"</span>)</span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>gutbactNames <span class="op">=</span> read_csv(<span class="st">'data/Stool_sparse_matrix_names.txt'</span>, </span>
-<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>                        header<span class="op">=</span><span class="va">None</span>)</span>
-<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>gutbact<span class="op">=</span> gutbact.to_numpy()</span>
-<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>fill_diagonal(gutbact, <span class="dv">0</span>)</span>
-<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a>gutbactNames<span class="op">=</span> gutbactNames.to_dict()</span>
-<span id="cb50-12"><a href="#cb50-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-13"><a href="#cb50-13" aria-hidden="true" tabindex="-1"></a>gutbactLabels <span class="op">=</span> gutbactNames[<span class="dv">0</span>]</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>gutbact      <span class="op">=</span> read_csv(<span class="st">'data/Stool_sparse_adj_matrix.txt'</span>, </span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>                        header<span class="op">=</span><span class="va">None</span>, delimiter<span class="op">=</span><span class="st">'</span><span class="ch">\t</span><span class="st">'</span>, dtype<span class="op">=</span><span class="st">"float64"</span>)</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>gutbactNames <span class="op">=</span> read_csv(<span class="st">'data/Stool_sparse_matrix_names.txt'</span>, </span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>                        header<span class="op">=</span><span class="va">None</span>)</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>gutbact<span class="op">=</span> gutbact.to_numpy()</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>fill_diagonal(gutbact, <span class="dv">0</span>)</span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>gutbactNames<span class="op">=</span> gutbactNames.to_dict()</span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>gutbactLabels <span class="op">=</span> gutbactNames[<span class="dv">0</span>]</span></code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb51">
+<div class="codewrapper sourceCode" id="cb41">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>gutbactGraph <span class="op">=</span> nx.from_numpy_matrix(gutbact)</span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>gutbactLayout <span class="op">=</span> nx.circular_layout(gutbactGraph)</span>
-<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">16</span>,<span class="dv">16</span>))</span>
-<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a>nx.draw(gutbactGraph, gutbactLayout, </span>
-<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a>        node_size<span class="op">=</span><span class="dv">3000</span>,</span>
-<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a>        node_color<span class="op">=</span><span class="st">'r'</span>,</span>
-<span id="cb51-10"><a href="#cb51-10" aria-hidden="true" tabindex="-1"></a>        labels<span class="op">=</span>gutbactLabels)</span>
-<span id="cb51-11"><a href="#cb51-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-12"><a href="#cb51-12" aria-hidden="true" tabindex="-1"></a>show()        </span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>gutbactGraph <span class="op">=</span> nx.from_numpy_matrix(gutbact)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>gutbactLayout <span class="op">=</span> nx.circular_layout(gutbactGraph)</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">16</span>,<span class="dv">16</span>))</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>nx.draw(gutbactGraph, gutbactLayout, </span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>        node_size<span class="op">=</span><span class="dv">3000</span>,</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>        node_color<span class="op">=</span><span class="st">'r'</span>,</span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>        labels<span class="op">=</span>gutbactLabels)</span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>show()        </span></code></pre>
 </div>
 <figure><img src="../fig/03-networks_3-rendered-unnamed-chunk-27-21.png" width="1536" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
 This gives us the correlation network from the stool samples, with nodes labelled by the OTU number. However, this doesn’t look much like the data from the article, partly as there are so many edges. The reason is that any number in the network matrix that is not equal to zero is interpreted as an edge. Thus, essentially the graph is fully connected.
@@ -396,28 +396,28 @@ In the paper, Friedman and Alm (2012), the edges are taken from the correlations
 <p style="text-align: justify;">
 To threshold the correlation matrix in Python, we select matrix values between -0.3 and 0.3, and replace them with 0. Then we convert this thresholded network matrix to a graph and plot it.
 </p>
-<div class="codewrapper sourceCode" id="cb52">
+<div class="codewrapper sourceCode" id="cb42">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> where, logical_and</span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>threshold <span class="op">=</span> <span class="fl">0.3</span></span>
-<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>gutbact_threshold <span class="op">=</span> where(logical_and(gutbact<span class="op">&gt;=-</span>threshold , gutbact<span class="op">&lt;=</span>threshold), <span class="dv">0</span>, gutbact)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> where, logical_and</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>threshold <span class="op">=</span> <span class="fl">0.3</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>gutbact_threshold <span class="op">=</span> where(logical_and(gutbact<span class="op">&gt;=-</span>threshold , gutbact<span class="op">&lt;=</span>threshold), <span class="dv">0</span>, gutbact)</span></code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb53">
+<div class="codewrapper sourceCode" id="cb43">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>gutbactGraph <span class="op">=</span> nx.from_numpy_matrix(gutbact_threshold)</span>
-<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">16</span>,<span class="dv">16</span>))</span>
-<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>nx.draw(gutbactGraph, gutbactLayout, </span>
-<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>        node_size<span class="op">=</span><span class="dv">3000</span>,</span>
-<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a>        node_color<span class="op">=</span><span class="st">'r'</span>,</span>
-<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a>        labels<span class="op">=</span>gutbactLabels)</span>
-<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb53-10"><a href="#cb53-10" aria-hidden="true" tabindex="-1"></a>show()        </span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>gutbactGraph <span class="op">=</span> nx.from_numpy_matrix(gutbact_threshold)</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">16</span>,<span class="dv">16</span>))</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>nx.draw(gutbactGraph, gutbactLayout, </span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>        node_size<span class="op">=</span><span class="dv">3000</span>,</span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>        node_color<span class="op">=</span><span class="st">'r'</span>,</span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>        labels<span class="op">=</span>gutbactLabels)</span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>show()        </span></code></pre>
 </div>
 <figure><img src="../fig/03-networks_3-rendered-unnamed-chunk-29-23.png" width="1536" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
 This network only displays edges where strong correlations were found and this is how Friedman and Alm obtained their graphs. Note that the network structure now is a function of the chosen threshold. Smaller thresholds yield more edges, higher thresholds fewer edges. Choosing the right threshold may be difficult and needs further thought.
