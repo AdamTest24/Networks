@@ -242,13 +242,13 @@
 <figure id="example-protein-protein-interactions"><h2 class="section-heading">Example: Protein-protein interactions</h2>
 <hr class="half-width">
 <p style="text-align: justify;">
-Protein-protein interactions (PPIs) (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2891586/" class="external-link">PLoS: Protein–Protein Interactions</a>) refer to specific and function physical contact between proteins in vivo. Interactions may be dependant on biological context, organism, definition of interaction, and many other factors. An example of some PPIs can be seen below.
+Protein-protein interactions (PPIs) (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2891586/" class="external-link">PLoS: Protein–Protein Interactions</a>) refer to specific functional or physical contact between proteins in vivo. Interactions may be dependent on biological context, organism, definition of interaction, and many other factors. An example of PPIs can be seen below.
 </p>
 <img src="fig/mazG.png" class="figure mx-auto d-block"><p style="text-align: justify;">
-PPIs may be visualised as a network, in order to give greater context to the protein interactions, and see how changes to one protein may affect another protein several steps removed. A PPI network can be modelled via a graph in which the nodes represent the proteins and the edges represent interactions; an edge from node A to node B indicates protein B interacts with protein A. The diagram above shows the PPI network centred around the protein <span class="math inline">\(mazG\)</span> in <em>Escherichia coli K12 MG1655</em>. This is part of a toxin-antitoxin system. These systems generally encode pairs of <em>toxin</em> and inhibitory <em>antitoxin</em> proteins, are transmitted by plasmids, and likely serve several biological functions including stress tolerance and genome stabilisation. <span class="math inline">\(mazG\)</span> regulates the type II toxin-antitoxin system shown in this network, where <span class="math inline">\(mazF\)</span> is the toxin and <span class="math inline">\(mazE\)</span> is the antitoxin. More details on the proteins in this network can be seen on STRING-DB (<a href="https://version-11-0b.string-db.org/cgi/network?networkId=b6lw5pU2DeQm" class="external-link">STRING-DB: mazG in E. coli</a>.
+PPIs may be conceptualised as a network, in order to give greater context to the protein interactions, and to see how changes to one protein may affect another protein several steps removed. A PPI network can be modelled via a graph in which the nodes represent the proteins and the edges represent interactions: an edge from node A to node B indicates protein B interacts with protein A. The diagram above shows the PPI network centred around the protein <span class="math inline">\(mazG\)</span> in <em>Escherichia coli K12 MG1655</em>. This is part of a toxin-antitoxin system. These systems generally encode pairs of <em>toxin</em> and inhibitory <em>antitoxin</em> proteins, are transmitted by plasmids, and likely serve several biological functions including stress tolerance and genome stabilisation. <span class="math inline">\(mazG\)</span> regulates the type II toxin-antitoxin system shown in this network, where <span class="math inline">\(mazF\)</span> is the toxin and <span class="math inline">\(mazE\)</span> is the antitoxin. More details on the proteins in this network can be seen on STRING-DB (<a href="https://version-11-0b.string-db.org/cgi/network?networkId=b6lw5pU2DeQm" class="external-link">STRING-DB: mazG in E. coli</a>.
 </p>
 <p style="text-align: justify;">
-At the end of the example we are going to use Python to draw this PPI network, before this however, we shall begin with some small examples to familiarise you with the elements and properties of small graphs.
+At the end of this lesson we are going to use Python to draw this PPI network. Before this however, we shall begin with some examples to familiarise you with the elements and properties of graphs.
 </p>
 </figure><hr>
 <h3 id="01-networks_1-figure-2">Figure 2</h3>
@@ -350,38 +350,62 @@ Data are imported from text files. In this case, it is not a CSV file. Rather, t
 <p style="text-align: justify;">
 If you check the file, you will see that the first entry is ‘1.0’. This is because all self-correlations are (trivially) equal to one. We replace those diagonal values with 0 to avoid (nonsensical) self-connections in the network.
 </p>
-<div class="codewrapper sourceCode" id="cb40">
+<div class="codewrapper sourceCode" id="cb63">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>gutbact      <span class="op">=</span> read_csv(<span class="st">'data/Stool_sparse_adj_matrix.txt'</span>, </span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>                        header<span class="op">=</span><span class="va">None</span>, delimiter<span class="op">=</span><span class="st">'</span><span class="ch">\t</span><span class="st">'</span>, dtype<span class="op">=</span><span class="st">"float64"</span>)</span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>gutbactNames <span class="op">=</span> read_csv(<span class="st">'data/Stool_sparse_matrix_names.txt'</span>, </span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>                        header<span class="op">=</span><span class="va">None</span>)</span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>gutbact<span class="op">=</span> gutbact.to_numpy()</span>
-<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>fill_diagonal(gutbact, <span class="dv">0</span>)</span>
-<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>gutbactNames<span class="op">=</span> gutbactNames.to_dict()</span>
-<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>gutbactLabels <span class="op">=</span> gutbactNames[<span class="dv">0</span>]</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>gutbact      <span class="op">=</span> read_csv(<span class="st">'data/Stool_sparse_adj_matrix.txt'</span>, </span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>                        header<span class="op">=</span><span class="va">None</span>, delimiter<span class="op">=</span><span class="st">'</span><span class="ch">\t</span><span class="st">'</span>, dtype<span class="op">=</span><span class="st">"float64"</span>)</span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>gutbactNames <span class="op">=</span> read_csv(<span class="st">'data/Stool_sparse_matrix_names.txt'</span>, </span>
+<span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a>                        header<span class="op">=</span><span class="va">None</span>)</span>
+<span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-7"><a href="#cb63-7" aria-hidden="true" tabindex="-1"></a>gutbact<span class="op">=</span> gutbact.to_numpy()</span>
+<span id="cb63-8"><a href="#cb63-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-9"><a href="#cb63-9" aria-hidden="true" tabindex="-1"></a>fill_diagonal(gutbact, <span class="dv">0</span>)</span>
+<span id="cb63-10"><a href="#cb63-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-11"><a href="#cb63-11" aria-hidden="true" tabindex="-1"></a>gutbactNames<span class="op">=</span> gutbactNames.to_dict()</span>
+<span id="cb63-12"><a href="#cb63-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-13"><a href="#cb63-13" aria-hidden="true" tabindex="-1"></a>gutbactLabels <span class="op">=</span> gutbactNames[<span class="dv">0</span>]</span></code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb41">
+<div class="codewrapper sourceCode" id="cb64">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>gutbactGraph <span class="op">=</span> nx.from_numpy_matrix(gutbact)</span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>gutbactLayout <span class="op">=</span> nx.circular_layout(gutbactGraph)</span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">16</span>,<span class="dv">16</span>))</span>
-<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>nx.draw(gutbactGraph, gutbactLayout, </span>
-<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>        node_size<span class="op">=</span><span class="dv">3000</span>,</span>
-<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>        node_color<span class="op">=</span><span class="st">'r'</span>,</span>
-<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>        labels<span class="op">=</span>gutbactLabels)</span>
-<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>show()        </span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>gutbactGraph <span class="op">=</span> nx.from_numpy_matrix(gutbact)</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): AttributeError: module 'networkx' has no attribute 'from_numpy_matrix'</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb66">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>gutbactLayout <span class="op">=</span> nx.circular_layout(gutbactGraph)</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'gutbactGraph' is not defined</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb68">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">16</span>,<span class="dv">16</span>))</span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>nx.draw(gutbactGraph, gutbactLayout, </span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>        node_size<span class="op">=</span><span class="dv">3000</span>,</span>
+<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a>        node_color<span class="op">=</span><span class="st">'r'</span>,</span>
+<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a>        labels<span class="op">=</span>gutbactLabels)</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'gutbactGraph' is not defined</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb70">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>show()        </span></code></pre>
 </div>
 <figure><img src="fig/03-networks_3-rendered-unnamed-chunk-27-21.png" width="1536" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
 This gives us the correlation network from the stool samples, with nodes labelled by the OTU number. However, this doesn’t look much like the data from the article, partly as there are so many edges. The reason is that any number in the network matrix that is not equal to zero is interpreted as an edge. Thus, essentially the graph is fully connected.
@@ -396,28 +420,45 @@ In the paper, Friedman and Alm (2012), the edges are taken from the correlations
 <p style="text-align: justify;">
 To threshold the correlation matrix in Python, we select matrix values between -0.3 and 0.3, and replace them with 0. Then we convert this thresholded network matrix to a graph and plot it.
 </p>
-<div class="codewrapper sourceCode" id="cb42">
+<div class="codewrapper sourceCode" id="cb71">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> where, logical_and</span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>threshold <span class="op">=</span> <span class="fl">0.3</span></span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>gutbact_threshold <span class="op">=</span> where(logical_and(gutbact<span class="op">&gt;=-</span>threshold , gutbact<span class="op">&lt;=</span>threshold), <span class="dv">0</span>, gutbact)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> where, logical_and</span>
+<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a>threshold <span class="op">=</span> <span class="fl">0.3</span></span>
+<span id="cb71-4"><a href="#cb71-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-5"><a href="#cb71-5" aria-hidden="true" tabindex="-1"></a>gutbact_threshold <span class="op">=</span> where(logical_and(gutbact<span class="op">&gt;=-</span>threshold , gutbact<span class="op">&lt;=</span>threshold), <span class="dv">0</span>, gutbact)</span></code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb43">
+<div class="codewrapper sourceCode" id="cb72">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>gutbactGraph <span class="op">=</span> nx.from_numpy_matrix(gutbact_threshold)</span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">16</span>,<span class="dv">16</span>))</span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>nx.draw(gutbactGraph, gutbactLayout, </span>
-<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>        node_size<span class="op">=</span><span class="dv">3000</span>,</span>
-<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>        node_color<span class="op">=</span><span class="st">'r'</span>,</span>
-<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>        labels<span class="op">=</span>gutbactLabels)</span>
-<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>show()        </span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>gutbactGraph <span class="op">=</span> nx.from_numpy_matrix(gutbact_threshold)</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): AttributeError: module 'networkx' has no attribute 'from_numpy_matrix'</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb74">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">16</span>,<span class="dv">16</span>))</span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a>nx.draw(gutbactGraph, gutbactLayout, </span>
+<span id="cb74-4"><a href="#cb74-4" aria-hidden="true" tabindex="-1"></a>        node_size<span class="op">=</span><span class="dv">3000</span>,</span>
+<span id="cb74-5"><a href="#cb74-5" aria-hidden="true" tabindex="-1"></a>        node_color<span class="op">=</span><span class="st">'r'</span>,</span>
+<span id="cb74-6"><a href="#cb74-6" aria-hidden="true" tabindex="-1"></a>        labels<span class="op">=</span>gutbactLabels)</span>
+<span id="cb74-7"><a href="#cb74-7" aria-hidden="true" tabindex="-1"></a>        </span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'gutbactGraph' is not defined</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb76">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>show()        </span></code></pre>
 </div>
 <figure><img src="fig/03-networks_3-rendered-unnamed-chunk-29-23.png" width="1536" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
 This network only displays edges where strong correlations were found and this is how Friedman and Alm obtained their graphs. Note that the network structure now is a function of the chosen threshold. Smaller thresholds yield more edges, higher thresholds fewer edges. Choosing the right threshold may be difficult and needs further thought.
@@ -475,7 +516,7 @@ any links that you are not going to use.
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
         <p>Built with <a href="https://github.com/carpentries/sandpaper" class="external-link">sandpaper (0.9.0)</a>,
-      <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.3.2)</a>,
+      <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.4.1)</a>,
       and <a href="https://github.com/carpentries/varnish" class="external-link">varnish (0.1.4)</a>.</p>
 			</div>
 		</footer>
@@ -497,9 +538,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://learntodiscover.github.io/Networks/images.html",
   "identifier": "https://learntodiscover.github.io/Networks/images.html",
-  "dateCreated": "2022-12-29",
-  "dateModified": "2022-12-29",
-  "datePublished": "2022-12-29"
+  "dateCreated": "2023-01-09",
+  "dateModified": "2023-01-09",
+  "datePublished": "2023-01-09"
 }
 
   </script><script>
