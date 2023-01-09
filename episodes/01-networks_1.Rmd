@@ -1,5 +1,5 @@
 ---
-title: "Networks - Part 1"
+title: "Networks - Introduction"
 teaching: 60
 exercises: 60
 ---
