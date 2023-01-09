@@ -1,5 +1,5 @@
 ---
-title: "Networks - Part 2"
+title: "Networks - Quantification"
 teaching: 60
 exercises: 60
 ---
@@ -76,11 +76,11 @@ print(rm)
 ```
 
 ```{.output}
-[[1 0 1 0 1]
- [0 0 1 0 1]
- [1 0 0 0 0]
- [0 1 0 1 1]
- [0 1 0 0 1]]
+[[0 1 1 0 1]
+ [1 0 0 0 1]
+ [1 0 0 0 1]
+ [0 1 0 1 0]
+ [0 0 1 0 0]]
 ```
 
 Function $randint$ from the numpy module $random$ is used to create an array or matrix filled with integers.
@@ -622,7 +622,7 @@ show()
 
 ```{.output}
 <BarContainer object of 8 artists>
-<networkx.classes.graph.Graph object at 0x7ffb90a69ab0>
+<networkx.classes.graph.Graph object at 0x7f3fc4ec4ee0>
 (0.0, 1.0, 0.0, 1.0)
 ```
 
@@ -684,7 +684,7 @@ show()
 
 ```{.output}
 <BarContainer object of 28 artists>
-<networkx.classes.graph.Graph object at 0x7ffb90a1e410>
+<networkx.classes.graph.Graph object at 0x7f3fc4c437c0>
 (0.0, 1.0, 0.0, 1.0)
 ```
 

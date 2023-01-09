@@ -1,5 +1,5 @@
 ---
-title: "Networks - Part 3"
+title: "Networks - Applications"
 teaching: 60
 exercises: 60
 ---
