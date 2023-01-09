@@ -5,15 +5,15 @@ exercises: 60
 ---
 [**Download Chapter pdf**](01-networks_1.md.pdf)
 
-[**Download Chapter notebook (ipynb)**](01-networks_1.md.pdf)
+[**Download Chapter notebook (ipynb)**](01-networks_1.ipynb)
 
 [<span style="color: rgb(255, 0, 0);">**Mandatory Lesson Feedback Survey**</span>](https://docs.google.com/forms/d/e/1FAIpQLSdr0capF7jloJhPH3Pki1B3LZoKOG16poOpuVJ7SL2LkwLHQA/viewform?pli=1)
 
 
 ::::::::::::::::::::::::::::::::::::: questions 
 
-- How a graph is represented?
-- What are ways to visualise graphs?
+- How are graphs represented?
+- How are graphs visualised?
 - What are common types of graphs? 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -22,7 +22,7 @@ exercises: 60
 - Explaining nodes and edges represent networks
 - The network matrix formalism
 - Visualising graphs
-- Understanding directed and bipartite graphs
+- Understanding undirected, directed and bipartite graphs
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 <br>
@@ -51,34 +51,34 @@ exercises: 60
 
 ## Example: Protein-protein interactions
 <p style='text-align: justify;'>
-Protein-protein interactions (PPIs) ([PLoS: Protein–Protein Interactions](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2891586/)) refer to specific and function physical contact between proteins in vivo. Interactions may be dependant on biological context, organism, definition of interaction, and many other factors. An example of some PPIs can be seen below.
+Protein-protein interactions (PPIs) ([PLoS: Protein–Protein Interactions](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2891586/)) refer to specific functional or physical contact between proteins in vivo. Interactions may be dependent on biological context, organism, definition of interaction, and many other factors. An example of PPIs can be seen below.
 </p>
 
 ![](fig/mazG.png)
 <p style='text-align: justify;'>
-PPIs may be visualised as a network, in order to give greater context to the protein interactions, and see how changes to one protein may affect another protein several steps removed. A PPI network can be modelled via a graph in which the nodes represent the proteins and the edges represent interactions; an edge from node A to node B indicates protein B interacts with protein A. The diagram above shows the PPI network centred around the protein $mazG$ in *Escherichia coli K12 MG1655*. This is part of a toxin-antitoxin system. These systems generally encode pairs of *toxin* and inhibitory *antitoxin* proteins, are transmitted by plasmids, and likely serve several biological functions including stress tolerance and genome stabilisation. $mazG$ regulates the type II toxin-antitoxin system shown in this network, where $mazF$ is the toxin and $mazE$ is the antitoxin. More details on the proteins in this network can be seen on STRING-DB ([STRING-DB: mazG in E. coli](https://version-11-0b.string-db.org/cgi/network?networkId=b6lw5pU2DeQm).
+PPIs may be conceptualised as a network, in order to give greater context to the protein interactions, and to see how changes to one protein may affect another protein several steps removed. A PPI network can be modelled via a graph in which the nodes represent the proteins and the edges represent interactions: an edge from node A to node B indicates protein B interacts with protein A. The diagram above shows the PPI network centred around the protein $mazG$ in *Escherichia coli K12 MG1655*. This is part of a toxin-antitoxin system. These systems generally encode pairs of *toxin* and inhibitory *antitoxin* proteins, are transmitted by plasmids, and likely serve several biological functions including stress tolerance and genome stabilisation. $mazG$ regulates the type II toxin-antitoxin system shown in this network, where $mazF$ is the toxin and $mazE$ is the antitoxin. More details on the proteins in this network can be seen on STRING-DB ([STRING-DB: mazG in E. coli](https://version-11-0b.string-db.org/cgi/network?networkId=b6lw5pU2DeQm).
 </p>
 <p style='text-align: justify;'>
-At the end of the example we are going to use Python to draw this PPI network, before this however, we shall begin with some small examples to familiarise you with the elements and properties of small graphs. 
+At the end of this lesson we are going to use Python to draw this PPI network. Before this however, we shall begin with some examples to familiarise you with the elements and properties of graphs. 
 </p>
 
 ## An Introduction to Networks
 
 ### **What is a graph?**
 <p style='text-align: justify;'>
-A graph is an object in mathematics for describing relationships between objects. An simple example of a visual representation of a graph is given below.
+A graph is an object in mathematics to describe relationships between objects. A simple example of a visual representation of a graph is given below.
 </p>
 
 ![](fig/simple_graph2.png)
 
 <p style='text-align: justify;'>
-This graph contains three objects or **nodes** or **vertices** and three links called **edges** or **arcs** between the nodes. Graphs can be used to represent networks. For a formal definition of a graph see, e.g. the [Wikipedia entry](https://en.wikipedia.org/wiki/Graph_theory).
+This graph contains three objects - **nodes** or **vertices** - and three links - **edges** or **arcs** - between the nodes. Graphs can be used to represent networks. For a formal definition of a graph see, e.g. the [Wikipedia entry](https://en.wikipedia.org/wiki/Graph_theory).
 </p>
 <p style='text-align: justify;'>
-If the above graph represented a protein-protein interaction network then the nodes would represent three proteins and the edges represent interactions between them. To add further proteins, you add new nodes to the network. To include further dependencies, you add edges.
+If the above graph represented a protein-protein interaction network then the nodes would represent three proteins and the edges represent interactions between them. To add further proteins, you add new nodes to the network. To include further dependencies (when there are more nodes), you add edges.
 </p>
 
-We shall see below how we can build and modify such a network, and how to represent networks in Python.
+We shall see below how we can build, modify and represent networks in Python.
 
 ### **NetworkX**
 
@@ -96,7 +96,7 @@ from matplotlib.pyplot import show
 
 ### **Nodes and Edges**
 <p style='text-align: justify;'>
-Nodes are a basic unit of data, and are linked to other nodes by edges, which show the way(s) in which the nodes are related. In NetworkX, a range of Python objects, including numbers, text strings, and other networks can be nodes.
+Nodes are a basic unit of network data, and are linked to other nodes by edges, which show the way(s) in which the nodes are connected or related. In NetworkX, a range of Python objects, including numbers, text strings, and networks can be nodes.
 </p>
 
 Let's start by creating an empty graph object and then add some nodes to it.
@@ -139,7 +139,7 @@ print(firstGraph.edges)
 ```
 
 <p style='text-align: justify;'>
-Here we created edges between Nodes A and B, A and C, and B and C, and printed a list of these edges. We can also get a summary of how many nodes and edges out graph currently has. At this stage, our graph should have three nodes and three edges. Here is how to check that in NetworkX.
+Here we created edges between Nodes A and B, A and C, and B and C, and printed a list of these edges. We can also get a summary of how many nodes and edges our graph currently has. At this stage, our graph should have three nodes and three edges. Here is how to check that in NetworkX.
 </p>
 
 
@@ -179,7 +179,7 @@ With the default settings, we get a triangle with three blue nodes in the corner
 To make the graph less abstract, we can add labels to the nodes. This is done setting up a dictionary where we use as `keys` the names given to the nodes when they were set up. The single `value` is the label to be used for the display.
 </p>
 <p style='text-align: justify;'>
-Through NetworkX we can also dictate the way the nodes are positioned by setting a _layout_. There are many options, and we're using the spiral layout as an example. For a list of layout options, please check the [NetworkX documentation](https://networkx.org/documentation/stable/reference/drawing.html#module-networkx.drawing.layout).
+Through NetworkX we can also dictate the way the nodes are positioned by setting a _layout_. There are many options, and we are using the *spiral* layout as an example. For a list of layout options, please check the [NetworkX documentation](https://networkx.org/documentation/stable/reference/drawing.html#module-networkx.drawing.layout).
 </p>
 
 
@@ -237,7 +237,7 @@ show()
 <img src="fig/01-networks_1-rendered-unnamed-chunk-9-5.png" width="672" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
-You may want to alter the appearance of your graph in different ways. Let's say you want the nodes to be red, you achieve this by using the keyword argument `node_color`.
+You may want to alter the appearance of your graph in different ways. Let's say you want the nodes to be red: you achieve this by using the keyword argument `node_color`.
 </p>
 
 
@@ -356,7 +356,7 @@ Now we shall see how a $3 \times 3$ square matrix can represent a graph with thr
 ![](fig/matrix_vis.png)
 
 <p style='text-align: justify;'>
-This matrix can represent a graph with three nodes. The value of 1 in the first row and the second column indicates that there is an **edge** from node $A$ to node $B$. Therefore the row position indicates the node that an edge emanates from and the column position indicates the node that the edge ends on. 
+This matrix can represent a graph with three nodes. The value of 1 in the first row and the second column indicates that there is an **edge** from node $A$ to node $B$. Therefore, the row position indicates the node that an edge emanates from and the column position indicates the node that the edge ends on. 
 </p>
 
 We can see that there are four edges in this graph:
@@ -408,11 +408,29 @@ new_matrix[0, 1] = 1
 new_matrix[1, 0] = 1 
 
 new_graph = nx.from_numpy_matrix(new_matrix)
+```
 
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): AttributeError: module 'networkx' has no attribute 'from_numpy_matrix'
+```
+
+```python
 newLayout = nx.spiral_layout(new_graph)
+```
 
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'new_graph' is not defined
+```
+
+```python
 nx.draw(new_graph, newLayout)
+```
 
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'new_graph' is not defined
+```
+
+```python
 show()
 ```
 
@@ -425,8 +443,8 @@ We haven't specified labels. We can specify the labels using a dictionary. Let u
 list(new_graph.nodes)
 ```
 
-```{.output}
-[0, 1, 2]
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'new_graph' is not defined
 ```
 
 By default, the nodes are given the names of their indices. We can refer to these indices and assign labels.
@@ -448,6 +466,13 @@ We can now draw the graph again, and specify the new labels A, B, and C.
 nx.draw(new_graph, newLayout,
         labels=newLabels)
         
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'new_graph' is not defined
+```
+
+```python
 show()       
 ```
 
@@ -457,7 +482,7 @@ show()
 There are many different options available for drawing graphs. Use `help(nx.draw)` to get a description of the options available for the graph as a whole, the nodes and the edges. 
 </p>
 <p style='text-align: justify;'>
-We shall first experiment with the graph layout. Converting a mathematical description of a graph, ie an adjacency matrix, to a graphical description is a difficult problem, especially for large graphs. The algorithms that perform this operation are known as graph layout algorithms and NetworkX has over five different ones. We used `spiral_layout` to produce the drawing above. Further specifications can be made within each layout, and you can access the details with $help$.
+We shall first experiment with the graph layout. Converting a mathematical description of a graph, i.e. an adjacency matrix, to a graphical description is a difficult problem, especially for large graphs. The algorithms that perform this operation are known as graph layout algorithms and NetworkX has many of them implemented. We used `spiral_layout` to produce the drawing above. Further specifications can be made within each layout, and you can access the details with $help$.
 </p>
 
 Some graph layout algorithms have a random component such as the initial position of the nodes. This means that different realisations of the layouts will not be identical. 
@@ -480,10 +505,22 @@ Some graph layout algorithms have a random component such as the initial positio
 
 ```python
 newLayout = nx.shell_layout(new_graph)
+```
 
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'new_graph' is not defined
+```
+
+```python
 nx.draw(new_graph, newLayout,
         labels=newLabels)
+```
 
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'new_graph' is not defined
+```
+
+```python
 show()
 ```
 
@@ -498,9 +535,21 @@ show()
 
 ```python
 newLayout = nx.random_layout(new_graph)
+```
 
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'new_graph' is not defined
+```
+
+```python
 nx.draw(new_graph, newLayout)
+```
 
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'new_graph' is not defined
+```
+
+```python
 show()
 # The layout of this graph changes each time you run the code.
 ```
@@ -523,7 +572,13 @@ n[1, 2] = 1
 n[1, 3] = 1 
 
 new = nx.from_numpy_matrix(n)
+```
 
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): AttributeError: module 'networkx' has no attribute 'from_numpy_matrix'
+```
+
+```python
 newLabels = {
     0: 'V',
     1: 'X',
@@ -532,10 +587,23 @@ newLabels = {
 }
 
 newLayout = nx.spectral_layout(new)
+```
 
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'new' is not defined
+```
+
+```python
 nx.draw(new, newLayout, 
         labels=newLabels)
         
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'new' is not defined
+```
+
+```python
 show()        
 ```
 
@@ -553,9 +621,21 @@ Now we are going to look at some ways to access and change some properties, or a
 
 ```python
 new_graph = nx.from_numpy_matrix(new_matrix)
+```
 
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): AttributeError: module 'networkx' has no attribute 'from_numpy_matrix'
+```
+
+```python
 newLayout = nx.random_layout(new_graph)
+```
 
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'new_graph' is not defined
+```
+
+```python
 newLabels = {
     0: 'A',
     1: 'B',
@@ -567,24 +647,37 @@ nx.draw(new_graph, newLayout,
         node_color='gold', 
         node_shape="H", 
         node_size=2000)
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'new_graph' is not defined
+```
+
+```python
 show()
 ```
 
 <img src="fig/01-networks_1-rendered-unnamed-chunk-22-19.png" width="672" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
-You may want to add another node, but only have it connected to one of the existing nodes. Here we add a new node, which is the number 3 because Python indexes from zero. You can print the nodes, and see that you now have four. 
+You may want to add another node, but only have it connected to one of the existing nodes. Here we add a new node, which is the number 3 (because Python indexes from zero). You can print the nodes and see that you now have four. 
 </p>
 
 
 ```python
 new_graph.add_node(3)
+```
 
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'new_graph' is not defined
+```
+
+```python
 print(new_graph.nodes)
 ```
 
-```{.output}
-[0, 1, 2, 3]
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'new_graph' is not defined
 ```
 
 <p style='text-align: justify;'>
@@ -594,6 +687,13 @@ We may want to set a new layout for this graph and update the labels to call the
 
 ```python
 newLayout = nx.random_layout(new_graph)
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'new_graph' is not defined
+```
+
+```python
 newLabels = {
     0: 'A',
     1: 'B',
@@ -606,14 +706,20 @@ nx.draw(new_graph, newLayout,
         node_color='gold', 
         node_shape="H", 
         node_size=800);
+```
 
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'new_graph' is not defined
+```
+
+```python
 show()
 ```
 
 <img src="fig/01-networks_1-rendered-unnamed-chunk-24-21.png" width="672" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
-We discussed above changing the colour of the nodes in our graph. There are several ways you can specify colour in Python ([matplotlib: node shapes](https://matplotlib.org/3.1.1/api/markers_api.html)). The RGB format is one of these methods used for specifying a colour. The colour is specified via an array of length 3 containing the relative amounts of Red, Green and Blue. Red is specified via $[[1, 0, 0]]$, blue via $[[0, 0, 1]]$ and green via $[[0, 1, 0]]$. As special cases, $[[0, 0, 0]]$ will give you black, and $[[1, 1, 1]]$ will give white. 
+We discussed above changing the colour of the nodes in our graph. There are several ways you can specify colour in Python ([matplotlib: node shapes](https://matplotlib.org/3.1.1/api/markers_api.html)). The RGB format is one of these methods used for specifying a colour. The colour is specified via an array of length 3 containing the relative amounts of Red, Green, and Blue. Red is specified via $[[1, 0, 0]]$, blue via $[[0, 0, 1]]$ and green via $[[0, 1, 0]]$. As special cases, $[[0, 0, 0]]$ will give you black, and $[[1, 1, 1]]$ will give white. 
 </p>
 
 ::::::::::::::::::::::::::::::: challenge 
@@ -630,13 +736,25 @@ Add an edge to the network to connect the isolated node D to e.g. node A.
 
 ```python
 new_graph.add_edge(3, 0)
+```
 
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'new_graph' is not defined
+```
+
+```python
 nx.draw(new_graph, newLayout,
         labels=newLabels, 
         node_color='gold', 
         node_shape="H", 
         node_size=800);
+```
 
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'new_graph' is not defined
+```
+
+```python
 show()        
 ```
 
@@ -647,7 +765,7 @@ show()
 ::::::::::::::::::::::::::::::: 
 
 <p style='text-align: justify;'>
-Instead of altering individual elements of a matrix with zeroes (as we have done above) you can also create a graph directly from a Numpy array array. You set up a nested list and convert it to a Numpy array using `array`.
+Instead of altering individual elements of a matrix with zeroes (as we have done above) you can also create a graph directly from a Numpy array. You set up a nested list and convert it to a Numpy array using `array`.
 </p>
 
 
@@ -660,11 +778,29 @@ matrixFromArray =  array([[0, 1, 0, 0],
                           [1, 0, 1, 0]])
 
 my_graph = nx.from_numpy_matrix(matrixFromArray)
+```
 
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): AttributeError: module 'networkx' has no attribute 'from_numpy_matrix'
+```
+
+```python
 my_graphLayout = nx.spring_layout(my_graph)
+```
 
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'my_graph' is not defined
+```
+
+```python
 nx.draw(my_graph, my_graphLayout)
+```
 
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'my_graph' is not defined
+```
+
+```python
 show()
 ```
 
@@ -687,10 +823,19 @@ nx.draw(my_graph, newLayout,
         node_color=[[0, 1, 1]], 
         node_shape="D", 
         node_size=800)
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'my_graph' is not defined
+```
+
+```python
 show()
 ```
 
 <img src="fig/01-networks_1-rendered-unnamed-chunk-27-27.png" width="672" style="display: block; margin: auto;" />
+
+A number of prototypic networks are the fully connected network (each node is connected to all other nodes); the random network (each node is connected to a random subset of other nodes); and the Watts-Strogatz network (a network with a combination of systematically and randomly assigned edges). They are demonstrated in a video tutorial accompanying this Lesson.
 
 :::::::::::::::::
 
@@ -698,10 +843,10 @@ show()
 
 ## Directed graphs
 <p style='text-align: justify;'>
-So far, we have been working with _undirected_ graphs: all the edges between the nodes were independent of the direction in which they were set up and thus represented as lines without arrowheads. Such networks are also referred to as _bidirectional_. For some systems, such as biochemical reactions or the food web we looked at earlier, a _directed_ graph is more suited, and gives us more detail on the relationships represented in the network.
+So far, we have been working with _undirected_ graphs: all the edges between the nodes were independent of the direction in which they were set up and thus represented as lines without arrowheads. Such networks are also referred to as _bidirectional_. For some systems, such as biochemical reactions, a _directed_ graph is more suited, and gives us more detail on the relationships represented in the network.
 </p>
 <p style='text-align: justify;'>
-In NetworkX, directed graphs are handled using the class `DiGraph`. We can make a simple DiGraph by importing a matrix as above, but specifying that is is a directed graph.
+In NetworkX, directed graphs are handled using the class `DiGraph`. We can make a simple DiGraph by importing a matrix as above, but specifying that it is a directed graph.
 </p>
 
 
@@ -712,9 +857,21 @@ directedMatrix =  array([[0, 1, 0, 1],
                          [1, 1, 0, 0]])
     
 directed = nx.from_numpy_matrix(directedMatrix, create_using=nx.DiGraph)
+```
 
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): AttributeError: module 'networkx' has no attribute 'from_numpy_matrix'
+```
+
+```python
 directedLayout = nx.spiral_layout(directed)
+```
 
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'directed' is not defined
+```
+
+```python
 directedLabels = {
     0: 'A',
     1: 'B',
@@ -724,14 +881,20 @@ directedLabels = {
 
 nx.draw(directed, directedLayout, 
         labels=directedLabels)
+```
 
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'directed' is not defined
+```
+
+```python
 show()
 ```
 
 <img src="fig/01-networks_1-rendered-unnamed-chunk-28-29.png" width="672" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
-You'll be able to see in this graph that the edges now have arrow tips indicating the direction of the edge. The edge between node A and node D has an arrow tip on each end, indicating that edge is bidirectional. Node B is connected to itself.
+You'll be able to see in this graph that the edges now have arrow tips indicating the direction of the edge. The edge between node A and node D has an arrow tip on each end, indicating that edge is bidirectional. Node B is also connected to itself.
 </p>
 <p style='text-align: justify;'>
 In NetworkX convention an edge is set up in a network matrix in the direction row $\rightarrow$ column. Thus, a given row tells us which edges leave the node with that row number. A given column tells us which edges arrive at the node with that column number. Thus the bidirectional edge between node A and node D is given by directedMatrix$_{3,0}$ and directedMatrix$_{0,3}$ both being equal to 1. 
@@ -759,9 +922,21 @@ directedMatrix =  array([[0, 1, 0, 1],
 directedMatrix[3, 2] = 1 
     
 directed = nx.from_numpy_matrix(directedMatrix, create_using=nx.DiGraph)
+```
 
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): AttributeError: module 'networkx' has no attribute 'from_numpy_matrix'
+```
+
+```python
 directedLayout = nx.spiral_layout(directed)
+```
 
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'directed' is not defined
+```
+
+```python
 directedLabels = {
     0: 'A',
     1: 'B',
@@ -771,6 +946,13 @@ directedLabels = {
 
 nx.draw(directed, directedLayout, 
         labels=directedLabels)
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'directed' is not defined
+```
+
+```python
 show()
 ```
 
@@ -782,7 +964,7 @@ show()
 
 ## Bipartite graphs
 <p style='text-align: justify;'>
-Bipartite graphs are another graph type supported by NetworkX. These are networks which are made up of two groups of nodes which connect to nodes in the other group, but not with other nodes in the same group. Some ecological, biomedical, and epidemiological networks may be represented by bipartite networks. In NetworkX there is not a specific bipartite class of graphs, but both the undirected and directed methods we have used earlier may be used to represent bipartite graphs. However, it is recommend to add an attribute to the nodes in your two groups to help you differentiate them. The convention in NetworkX is to assign one group of nodes an attribute of 0, and the other an attribute of 1.
+Bipartite graphs are another graph type supported by NetworkX. These are networks which are made up of two groups of nodes which connect to nodes in the other group, but not with other nodes in the same group. Some ecological, biomedical, and epidemiological networks may be represented by bipartite networks. In NetworkX there is not a specific bipartite class of graphs, but both the undirected and directed methods we have used earlier may be used to represent bipartite graphs. However, it is recommended to add an attribute to the nodes in your two groups to help you differentiate them. The convention in NetworkX is to assign one group of nodes an attribute of 0, and the other an attribute of 1.
 </p>
 
 
@@ -806,7 +988,7 @@ myBipartite.add_edges_from([('h', 'q'),
 ```
 
 <p style='text-align: justify;'>
-Here, we set up a bipartite network with 8 nodes. The 0 group has nodes $'h', 'i', 'j', 'k'$, and the 1 group has nodes $'q', 'r', 's', 't'$. The edges we have specified link nodes from the two groups with each other, but not to any nodes within their own group. NetworkX has a function to check your nodes are connected. 
+Here, we set up a bipartite network with 8 nodes. The 0 group has nodes $'h', 'i', 'j', 'k'$, and the 1 group has nodes $'q', 'r', 's', 't'$. The specified edges link nodes from the two groups with each other, but not to any nodes within their own group. NetworkX has a function to check your nodes are connected. 
 </p>
 
 
@@ -849,7 +1031,7 @@ show()
 <img src="fig/01-networks_1-rendered-unnamed-chunk-33-33.png" width="672" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
-This might not looks like a a bipartite network! But if you check the edges you set up earlier, this is bipartite as no node has an edge with another node in each group. If we want to to look more like a classic bipartite network, we can use the attributes we set up earlier and the module $networkx.algorithms$ to make a custom layout and more clearly visualise the bipartite nature of this graph.
+This might not look like a bipartite network! But if you check the edges you set up earlier, this is bipartite as no node has an edge with another node in each group. If we want it to look more like a classic bipartite network, we can use the attributes we set up earlier and the module $networkx.algorithms$ to make a custom layout and more clearly visualise the bipartite nature of this graph.
 </p>
 
 
@@ -978,15 +1160,34 @@ ppi[9, 10] = 1
 ppi[0, 10] = 1
 
 ppiGraph = nx.from_numpy_matrix(ppi)
+```
 
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): AttributeError: module 'networkx' has no attribute 'from_numpy_matrix'
+```
+
+```python
 ppiLayout = nx.spring_layout(ppiGraph)
+```
 
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ppiGraph' is not defined
+```
+
+```python
 nx.draw(ppiGraph, ppiLayout, 
               labels=ppiLabels, 
               node_size=1800, 
               node_color='lightseagreen', 
               node_shape="8")
               
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ppiGraph' is not defined
+```
+
+```python
 show()              
 ```
 
