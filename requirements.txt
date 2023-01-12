@@ -1,5 +1,5 @@
 pandas
-networkx
+networkx==2.8.8
 matplotlib
 jupytext
 nibabel

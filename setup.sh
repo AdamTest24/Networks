@@ -4,7 +4,6 @@ pip install jupytext
 
 pip install nibabel
 
-pip install networkx
 
 mkdir -p ~/.virtualenvs/
 
