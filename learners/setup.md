@@ -2,6 +2,15 @@
 title: Setup
 ---
 
+## Package Installation
+To install the `networkx` package, run the following command on terminal.
+
+```
+pip install networkx==2.8.8
+```
+
+Note: The newer version (3.0) of this package has depreciated some of the functions being used in the lesson. The newer functions needs to be fully tested before update. Therefore, its recommnded to use the version 2.8.8.
+
 
 ## Data Sets
 
