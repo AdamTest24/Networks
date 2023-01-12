@@ -105,31 +105,13 @@ Now we can create a graph, specify a layout, and plot the network.
 
 ```python
 neuronGraph = nx.from_numpy_matrix(neurons)   
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): AttributeError: module 'networkx' has no attribute 'from_numpy_matrix'
-```
-
-```python
 neuronLayout = nx.random_layout(neuronGraph, seed=123)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'neuronGraph' is not defined
-```
-
-```python
 nx.draw(neuronGraph, neuronLayout, 
         node_size=1000,
         labels = neuronLabels)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'neuronGraph' is not defined
-```
-
-```python
 show()
 ```
 
@@ -149,13 +131,6 @@ nx.draw(neuronGraph, neuronPositions,
         node_size=1000,
         labels = neuronLabels)
         
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'neuronGraph' is not defined
-```
-
-```python
 show()        
 ```
 
@@ -369,15 +344,7 @@ show()
 ```
 
 ```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): AttributeError: module 'networkx' has no attribute 'from_numpy_matrix'
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'thisgraph' is not defined
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'thisgraph' is not defined
+Error in py_call_impl(callable, dots$args, dots$keywords): KeyError: 5
 ```
 
 <img src="fig/03-networks_3-rendered-unnamed-chunk-12-9.png" width="1152" style="display: block; margin: auto;" />
@@ -414,18 +381,6 @@ nx.draw(thisgraph, thisgraphLayout,
         labels=thisgraphLabels)
 
 show()
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): AttributeError: module 'networkx' has no attribute 'from_numpy_matrix'
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'thisgraph' is not defined
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'thisgraph' is not defined
 ```
 
 <img src="fig/03-networks_3-rendered-unnamed-chunk-13-11.png" width="1152" style="display: block; margin: auto;" />
@@ -587,10 +542,6 @@ myBipartiteLabels = neuronNames[0]
 myBipartite = nx.from_numpy_matrix(neurons) 
 ```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): AttributeError: module 'networkx' has no attribute 'from_numpy_matrix'
-```
-
 <p style='text-align: justify;'>
 Here we import the bipartite module from NetworkX, and then import the bipartite 277 neuron adjacency matrix and list of neuron names, in the same method as previously. Next, we use the bipartite convention in NetworkX to designate which nodes are in the $0$ group, and which are in the $1$ group. There are several ways to make a graph bipartite, here this is done by listing the node numbers of the 146 neurons and adding the attribute $'bipartite' = 0$, and listing the node numbers of the 131 neurons and adding the attribute $'bipartite' = 1$.
 </p>
@@ -612,13 +563,6 @@ myBipartite.add_nodes_from([
 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 
 275, 276], bipartite=0)
                           
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'myBipartite' is not defined
-```
-
-```python
 myBipartite.add_nodes_from([
   4,   5,   6,   7,   8,   9,  10,  11,  12,  15,  16, 
  18,  19,  20,  37,  38,  39,  40,  41,  42,  43,  44,  
@@ -634,10 +578,6 @@ myBipartite.add_nodes_from([
 225, 226, 227, 228, 229, 230, 231, 232, 233, 234], bipartite=1)
 ```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'myBipartite' is not defined
-```
-
 We can confirm that the network is bipartite.
 
 
@@ -645,8 +585,8 @@ We can confirm that the network is bipartite.
 nx.bipartite.is_bipartite(myBipartite)
 ```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'myBipartite' is not defined
+```{.output}
+True
 ```
 
 Next, we continue to use the bipartite convention introduced above to define the two bipartite groups, and set up a custom colouring list by group.
@@ -667,22 +607,6 @@ nx.draw(myBipartite, pos,
         labels=myBipartiteLabels, 
         node_color=color_list)
 show()
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'myBipartite' is not defined
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'myBipartite' is not defined
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'myBipartite' is not defined
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'myBipartite' is not defined
 ```
 
 <img src="fig/03-networks_3-rendered-unnamed-chunk-24-17.png" width="960" style="display: block; margin: auto;" />
@@ -711,13 +635,7 @@ nx.draw(myBipartite, neuronPositions,
         node_size=3000, 
         labels=myBipartiteLabels, 
         node_color=color_list)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'myBipartite' is not defined
-```
-
-```python
 fig.tight_layout()
 
 show()
@@ -761,34 +679,16 @@ gutbactLabels = gutbactNames[0]
 
 ```python
 gutbactGraph = nx.from_numpy_matrix(gutbact)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): AttributeError: module 'networkx' has no attribute 'from_numpy_matrix'
-```
-
-```python
 gutbactLayout = nx.circular_layout(gutbactGraph)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'gutbactGraph' is not defined
-```
-
-```python
 fig, ax = subplots(figsize=(16,16))
 
 nx.draw(gutbactGraph, gutbactLayout, 
         node_size=3000,
         node_color='r',
         labels=gutbactLabels)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'gutbactGraph' is not defined
-```
-
-```python
 show()        
 ```
 
@@ -818,13 +718,7 @@ gutbact_threshold = where(logical_and(gutbact>=-threshold , gutbact<=threshold),
 
 ```python
 gutbactGraph = nx.from_numpy_matrix(gutbact_threshold)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): AttributeError: module 'networkx' has no attribute 'from_numpy_matrix'
-```
-
-```python
 fig, ax = subplots(figsize=(16,16))
 
 nx.draw(gutbactGraph, gutbactLayout, 
@@ -832,13 +726,6 @@ nx.draw(gutbactGraph, gutbactLayout,
         node_color='r',
         labels=gutbactLabels)
         
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'gutbactGraph' is not defined
-```
-
-```python
 show()        
 ```
 

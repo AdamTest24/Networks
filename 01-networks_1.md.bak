@@ -408,29 +408,11 @@ new_matrix[0, 1] = 1
 new_matrix[1, 0] = 1 
 
 new_graph = nx.from_numpy_matrix(new_matrix)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): AttributeError: module 'networkx' has no attribute 'from_numpy_matrix'
-```
-
-```python
 newLayout = nx.spiral_layout(new_graph)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'new_graph' is not defined
-```
-
-```python
 nx.draw(new_graph, newLayout)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'new_graph' is not defined
-```
-
-```python
 show()
 ```
 
@@ -443,8 +425,8 @@ We haven't specified labels. We can specify the labels using a dictionary. Let u
 list(new_graph.nodes)
 ```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'new_graph' is not defined
+```{.output}
+[0, 1, 2]
 ```
 
 By default, the nodes are given the names of their indices. We can refer to these indices and assign labels.
@@ -466,13 +448,6 @@ We can now draw the graph again, and specify the new labels A, B, and C.
 nx.draw(new_graph, newLayout,
         labels=newLabels)
         
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'new_graph' is not defined
-```
-
-```python
 show()       
 ```
 
@@ -505,22 +480,10 @@ Some graph layout algorithms have a random component such as the initial positio
 
 ```python
 newLayout = nx.shell_layout(new_graph)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'new_graph' is not defined
-```
-
-```python
 nx.draw(new_graph, newLayout,
         labels=newLabels)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'new_graph' is not defined
-```
-
-```python
 show()
 ```
 
@@ -535,21 +498,9 @@ show()
 
 ```python
 newLayout = nx.random_layout(new_graph)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'new_graph' is not defined
-```
-
-```python
 nx.draw(new_graph, newLayout)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'new_graph' is not defined
-```
-
-```python
 show()
 # The layout of this graph changes each time you run the code.
 ```
@@ -572,13 +523,7 @@ n[1, 2] = 1
 n[1, 3] = 1 
 
 new = nx.from_numpy_matrix(n)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): AttributeError: module 'networkx' has no attribute 'from_numpy_matrix'
-```
-
-```python
 newLabels = {
     0: 'V',
     1: 'X',
@@ -587,23 +532,10 @@ newLabels = {
 }
 
 newLayout = nx.spectral_layout(new)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'new' is not defined
-```
-
-```python
 nx.draw(new, newLayout, 
         labels=newLabels)
         
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'new' is not defined
-```
-
-```python
 show()        
 ```
 
@@ -621,21 +553,9 @@ Now we are going to look at some ways to access and change some properties, or a
 
 ```python
 new_graph = nx.from_numpy_matrix(new_matrix)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): AttributeError: module 'networkx' has no attribute 'from_numpy_matrix'
-```
-
-```python
 newLayout = nx.random_layout(new_graph)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'new_graph' is not defined
-```
-
-```python
 newLabels = {
     0: 'A',
     1: 'B',
@@ -647,13 +567,6 @@ nx.draw(new_graph, newLayout,
         node_color='gold', 
         node_shape="H", 
         node_size=2000)
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'new_graph' is not defined
-```
-
-```python
 show()
 ```
 
@@ -666,18 +579,12 @@ You may want to add another node, but only have it connected to one of the exist
 
 ```python
 new_graph.add_node(3)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'new_graph' is not defined
-```
-
-```python
 print(new_graph.nodes)
 ```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'new_graph' is not defined
+```{.output}
+[0, 1, 2, 3]
 ```
 
 <p style='text-align: justify;'>
@@ -687,13 +594,6 @@ We may want to set a new layout for this graph and update the labels to call the
 
 ```python
 newLayout = nx.random_layout(new_graph)
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'new_graph' is not defined
-```
-
-```python
 newLabels = {
     0: 'A',
     1: 'B',
@@ -706,13 +606,7 @@ nx.draw(new_graph, newLayout,
         node_color='gold', 
         node_shape="H", 
         node_size=800);
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'new_graph' is not defined
-```
-
-```python
 show()
 ```
 
@@ -736,25 +630,13 @@ Add an edge to the network to connect the isolated node D to e.g. node A.
 
 ```python
 new_graph.add_edge(3, 0)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'new_graph' is not defined
-```
-
-```python
 nx.draw(new_graph, newLayout,
         labels=newLabels, 
         node_color='gold', 
         node_shape="H", 
         node_size=800);
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'new_graph' is not defined
-```
-
-```python
 show()        
 ```
 
@@ -778,29 +660,11 @@ matrixFromArray =  array([[0, 1, 0, 0],
                           [1, 0, 1, 0]])
 
 my_graph = nx.from_numpy_matrix(matrixFromArray)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): AttributeError: module 'networkx' has no attribute 'from_numpy_matrix'
-```
-
-```python
 my_graphLayout = nx.spring_layout(my_graph)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'my_graph' is not defined
-```
-
-```python
 nx.draw(my_graph, my_graphLayout)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'my_graph' is not defined
-```
-
-```python
 show()
 ```
 
@@ -823,13 +687,6 @@ nx.draw(my_graph, newLayout,
         node_color=[[0, 1, 1]], 
         node_shape="D", 
         node_size=800)
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'my_graph' is not defined
-```
-
-```python
 show()
 ```
 
@@ -857,21 +714,9 @@ directedMatrix =  array([[0, 1, 0, 1],
                          [1, 1, 0, 0]])
     
 directed = nx.from_numpy_matrix(directedMatrix, create_using=nx.DiGraph)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): AttributeError: module 'networkx' has no attribute 'from_numpy_matrix'
-```
-
-```python
 directedLayout = nx.spiral_layout(directed)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'directed' is not defined
-```
-
-```python
 directedLabels = {
     0: 'A',
     1: 'B',
@@ -881,13 +726,7 @@ directedLabels = {
 
 nx.draw(directed, directedLayout, 
         labels=directedLabels)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'directed' is not defined
-```
-
-```python
 show()
 ```
 
@@ -922,21 +761,9 @@ directedMatrix =  array([[0, 1, 0, 1],
 directedMatrix[3, 2] = 1 
     
 directed = nx.from_numpy_matrix(directedMatrix, create_using=nx.DiGraph)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): AttributeError: module 'networkx' has no attribute 'from_numpy_matrix'
-```
-
-```python
 directedLayout = nx.spiral_layout(directed)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'directed' is not defined
-```
-
-```python
 directedLabels = {
     0: 'A',
     1: 'B',
@@ -946,13 +773,6 @@ directedLabels = {
 
 nx.draw(directed, directedLayout, 
         labels=directedLabels)
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'directed' is not defined
-```
-
-```python
 show()
 ```
 
@@ -1160,34 +980,15 @@ ppi[9, 10] = 1
 ppi[0, 10] = 1
 
 ppiGraph = nx.from_numpy_matrix(ppi)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): AttributeError: module 'networkx' has no attribute 'from_numpy_matrix'
-```
-
-```python
 ppiLayout = nx.spring_layout(ppiGraph)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ppiGraph' is not defined
-```
-
-```python
 nx.draw(ppiGraph, ppiLayout, 
               labels=ppiLabels, 
               node_size=1800, 
               node_color='lightseagreen', 
               node_shape="8")
               
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ppiGraph' is not defined
-```
-
-```python
 show()              
 ```
 
