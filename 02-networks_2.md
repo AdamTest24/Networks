@@ -76,11 +76,11 @@ print(rm)
 ```
 
 ```{.output}
-[[1 1 0 1 0]
- [0 0 0 0 0]
- [1 0 1 1 1]
- [0 0 0 0 1]
- [1 1 0 0 1]]
+[[1 0 1 1 1]
+ [0 1 1 0 0]
+ [1 0 0 1 1]
+ [1 1 1 0 1]
+ [1 0 1 0 1]]
 ```
 
 Function $randint$ from the numpy module $random$ is used to create an array or matrix filled with integers.
@@ -293,33 +293,14 @@ matrixFromArray =  array([[0, 1, 0, 0],
                           [1, 0, 1, 0]])
 
 my_graph = nx.from_numpy_matrix(matrixFromArray, create_using=nx.DiGraph)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): AttributeError: module 'networkx' has no attribute 'from_numpy_matrix'
-```
-
-```python
 my_graphLayout = nx.spring_layout(my_graph, seed=11)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'my_graph' is not defined
-```
-
-```python
 nx.draw(my_graph, my_graphLayout, 
         node_size=1000,
         arrowsize=20,
         with_labels=True
        )
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'my_graph' is not defined
-```
-
-```python
 show()
 ```
 
@@ -361,18 +342,12 @@ The in degree is calculated, which is the sum over all columns, and the out degr
 
 ```python
 mygraph = nx.from_numpy_matrix(mymatrix, create_using=nx.DiGraph)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): AttributeError: module 'networkx' has no attribute 'from_numpy_matrix'
-```
-
-```python
 mygraph.in_degree
 ```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'mygraph' is not defined
+```{.output}
+InDegreeView({0: 3, 1: 1, 2: 2, 3: 1, 4: 2})
 ```
 
 
@@ -380,8 +355,8 @@ Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'mygr
 mygraph.out_degree
 ```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'mygraph' is not defined
+```{.output}
+OutDegreeView({0: 2, 1: 3, 2: 1, 3: 1, 4: 2})
 ```
 
 <p style='text-align: justify;'>
@@ -394,13 +369,7 @@ This graph can also be visualised to confirm the in and out degree of each node.
 
 ```python
 mygraphLayout = nx.spectral_layout(mygraph)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'mygraph' is not defined
-```
-
-```python
 mygraphLabels = {
     0: 'Node 0',
     1: 'Node 1',
@@ -415,13 +384,6 @@ nx.draw(mygraph, mygraphLayout,
         node_size = 2000, 
         arrowsize=25, 
         arrowstyle='->')
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'mygraph' is not defined
-```
-
-```python
 show()
 ```
 
@@ -480,10 +442,6 @@ print(rm_15)
 rm_15_Graph = nx.from_numpy_matrix(rm_15, create_using=nx.DiGraph)
 ```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): AttributeError: module 'networkx' has no attribute 'from_numpy_matrix'
-```
-
 
 :::::::::::::::::
 
@@ -502,10 +460,21 @@ for ind, deg in rm_15_Graph.in_degree:
 
 ```{.output}
 Index     In Degree
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'rm_15_Graph' is not defined
+   0         6
+   1         9
+   2         8
+   3         6
+   4         10
+   5         8
+   6         6
+   7         7
+   8         7
+   9         6
+   10         8
+   11         4
+   12         7
+   13         6
+   14         7
 ```
 
 
@@ -520,10 +489,21 @@ for ind, deg in rm_15_Graph.out_degree:
 
 ```{.output}
 Index    Out Degree
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'rm_15_Graph' is not defined
+   0         5
+   1         6
+   2         11
+   3         10
+   4         6
+   5         7
+   6         8
+   7         6
+   8         5
+   9         8
+   10         6
+   11         9
+   12         6
+   13         6
+   14         6
 ```
 
 :::::::::::::::::
@@ -546,10 +526,6 @@ rm_mat = randint(0, 2, size=(10, 10))
 rm_net = nx.from_numpy_matrix(rm_mat)
 ```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): AttributeError: module 'networkx' has no attribute 'from_numpy_matrix'
-```
-
 The degree distribution can be plotted using NetworkX and matplotlib, here plotted simply with the `hist` plot.
 
 
@@ -557,13 +533,7 @@ The degree distribution can be plotted using NetworkX and matplotlib, here plott
 fig, ax = subplots()
 
 ax.hist(dict(rm_net.degree()).values(), bins=10);
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'rm_net' is not defined
-```
-
-```python
 ax.set_title("Degree Distribution", fontsize=20)
 ax.set_ylabel("Count", fontsize=16)
 ax.set_xlabel("Degree", fontsize=16);
@@ -622,7 +592,7 @@ show()
 
 ```{.output}
 <BarContainer object of 8 artists>
-<networkx.classes.graph.Graph object at 0x7f95825e1630>
+<networkx.classes.graph.Graph object at 0x7f99cbca82b0>
 (0.0, 1.0, 0.0, 1.0)
 ```
 
@@ -684,7 +654,7 @@ show()
 
 ```{.output}
 <BarContainer object of 28 artists>
-<networkx.classes.graph.Graph object at 0x7f9582211810>
+<networkx.classes.graph.Graph object at 0x7f99c99cd870>
 (0.0, 1.0, 0.0, 1.0)
 ```
 
@@ -747,14 +717,6 @@ nx.draw(myRandom, node_color='y', with_labels=True)
 show()
 ```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): AttributeError: module 'networkx' has no attribute 'from_numpy_matrix'
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'myRandom' is not defined
-```
-
 <img src="fig/02-networks_2-rendered-unnamed-chunk-24-17.png" width="672" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
@@ -766,8 +728,8 @@ We can now use NetworkX to learn more about this graph. To print a list of the c
 print(nx.clustering(myRandom))
 ```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'myRandom' is not defined
+```{.output}
+{0: 0.5714285714285714, 1: 0.5238095238095238, 2: 0.8, 3: 0.6666666666666666, 4: 0.8, 5: 0.6, 6: 0.8095238095238095, 7: 0.7142857142857143, 8: 0.6071428571428571, 9: 0.8095238095238095}
 ```
 
 With slightly nicer formatting:
@@ -779,8 +741,17 @@ for ind, cc in dict(nx.clustering(myRandom)).items():
     print(ind, '   ', cc)
 ```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'myRandom' is not defined
+```{.output}
+0     0.5714285714285714
+1     0.5238095238095238
+2     0.8
+3     0.6666666666666666
+4     0.8
+5     0.6
+6     0.8095238095238095
+7     0.7142857142857143
+8     0.6071428571428571
+9     0.8095238095238095
 ```
 
 To extract the clustering coefficients from the result as a Python list:
@@ -790,18 +761,12 @@ To extract the clustering coefficients from the result as a Python list:
 from numpy import around
 
 clustcoeffs = list(dict(nx.clustering(myRandom)).values())
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'myRandom' is not defined
-```
-
-```python
 print(around(clustcoeffs, 2))
 ```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'clustcoeffs' is not defined
+```{.output}
+[0.57 0.52 0.8  0.67 0.8  0.6  0.81 0.71 0.61 0.81]
 ```
 
 You can also obtain the average clustering coefficient across your graph directly from NetworkX:
@@ -811,8 +776,8 @@ You can also obtain the average clustering coefficient across your graph directl
 print(nx.average_clustering(myRandom))
 ```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'myRandom' is not defined
+```{.output}
+0.6902380952380953
 ```
 
 The number shows that in this graph there is a comparatively high propability of the neighbours of a node to be connected among themselves. 
@@ -828,8 +793,8 @@ For illustration, here is how we can find out the shortest path of our graph $my
 print(nx.shortest_path(myRandom, source=0, target=1))
 ```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'myRandom' is not defined
+```{.output}
+[0, 2, 1]
 ```
 
 <p style='text-align: justify;'>
@@ -839,21 +804,20 @@ The shortest path from node 0 to node 1 is via node with index 2. This shows tha
 
 ```python
 my_shortest_paths = nx.all_shortest_paths(myRandom, source=0, target=1)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'myRandom' is not defined
-```
-
-```python
 for path in my_shortest_paths:
     
     print(path)
     
 ```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'my_shortest_paths' is not defined
+```{.output}
+[0, 2, 1]
+[0, 3, 1]
+[0, 4, 1]
+[0, 6, 1]
+[0, 9, 1]
+[0, 5, 1]
 ```
 
 There are six possibilities to get from node 0 to node 1 via one intermediate node. 
@@ -865,8 +829,8 @@ As a summery of the network, we can find the _average shortest path length_:
 print(round(nx.average_shortest_path_length(myRandom), 2))
 ```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'myRandom' is not defined
+```{.output}
+1.29
 ```
 
 ::::::::::::::::::::::::::::::: challenge 
@@ -885,8 +849,8 @@ Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'myRa
 print(round(nx.average_shortest_path_length(rm_15_Graph), 2))
 ```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'rm_15_Graph' is not defined
+```{.output}
+1.54
 ```
 
 :::::::::::::::::
@@ -896,20 +860,19 @@ Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'rm_1
 
 ```python
 my_shortest_paths = nx.all_shortest_paths(rm_15_Graph, source=2, target=8)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'rm_15_Graph' is not defined
-```
-
-```python
 for path in my_shortest_paths:
     
     print(path)
 ```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'my_shortest_paths' is not defined
+```{.output}
+[2, 4, 8]
+[2, 5, 8]
+[2, 6, 8]
+[2, 10, 8]
+[2, 11, 8]
+[2, 14, 8]
 ```
 
 :::::::::::::::::
@@ -923,20 +886,23 @@ _Centrality_ can be used to determine the most _important_ node or nodes in a gr
 
 ```python
 my_centralities = nx.degree_centrality(myRandom)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'myRandom' is not defined
-```
-
-```python
 for index, centr in dict(my_centralities).items():
     
     print(index, '  ', round(centr, 2))
 ```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'my_centralities' is not defined
+```{.output}
+0    0.78
+1    0.78
+2    0.67
+3    0.67
+4    0.89
+5    0.78
+6    1.0
+7    0.78
+8    1.11
+9    1.0
 ```
 
 This produces a dictionary of nodes followed by the centrality value. In this graph, node 8 is the most 'important' node (according to this definition).
@@ -972,30 +938,14 @@ neuronNames = neuronNames.to_dict()
 
 neuronLabels = neuronNames[0]
 neuronGraph  = nx.from_numpy_matrix(neurons)   
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): AttributeError: module 'networkx' has no attribute 'from_numpy_matrix'
-```
-
-```python
 neuronLayout = nx.random_layout(neuronGraph)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'neuronGraph' is not defined
-```
-
-```python
 nx.draw(neuronGraph, neuronLayout, 
         node_size=1500,
         node_color='turquoise',
         labels = neuronLabels
        )
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'neuronGraph' is not defined
 ```
 
 We can examine this network similar to the way we did for our earlier, smaller networks.
@@ -1007,8 +957,8 @@ For instance, we can confirm the (reduced) number of nodes.
 neuronGraph.number_of_nodes()
 ```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'neuronGraph' is not defined
+```{.output}
+50
 ```
 
 <p style='text-align: justify;'>
@@ -1048,10 +998,7 @@ print(neuronGraph.number_of_edges())
 
 ```{.output}
 Number of Edges
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'neuronGraph' is not defined
+186
 ```
 
 ::::::::::::::::::::: 
@@ -1068,10 +1015,7 @@ print(nx.average_clustering(neuronGraph))
 
 ```{.output}
 Clustering Coefficients
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'neuronGraph' is not defined
+0.3174194694194694
 ```
 ::::::::::::::::::::: 
 
@@ -1087,10 +1031,7 @@ print(nx.degree_centrality(neuronGraph))
 
 ```{.output}
 Degree Centrality
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'neuronGraph' is not defined
+{0: 0.08163265306122448, 1: 0.14285714285714285, 2: 0.26530612244897955, 3: 0.24489795918367346, 4: 0.061224489795918366, 5: 0.061224489795918366, 6: 0.2040816326530612, 7: 0.22448979591836732, 8: 0.32653061224489793, 9: 0.1020408163265306, 10: 0.1020408163265306, 11: 0.16326530612244897, 12: 0.14285714285714285, 13: 0.061224489795918366, 14: 0.22448979591836732, 15: 0.24489795918367346, 16: 0.08163265306122448, 17: 0.08163265306122448, 18: 0.16326530612244897, 19: 0.2040816326530612, 20: 0.12244897959183673, 21: 0.1020408163265306, 22: 0.02040816326530612, 23: 0.02040816326530612, 24: 0.1020408163265306, 25: 0.08163265306122448, 26: 0.1020408163265306, 27: 0.08163265306122448, 28: 0.22448979591836732, 29: 0.24489795918367346, 30: 0.2857142857142857, 31: 0.2857142857142857, 32: 0.22448979591836732, 33: 0.24489795918367346, 34: 0.2040816326530612, 35: 0.24489795918367346, 36: 0.14285714285714285, 37: 0.12244897959183673, 38: 0.18367346938775508, 39: 0.2040816326530612, 40: 0.061224489795918366, 41: 0.1020408163265306, 42: 0.16326530612244897, 43: 0.12244897959183673, 44: 0.12244897959183673, 45: 0.18367346938775508, 46: 0.18367346938775508, 47: 0.1020408163265306, 48: 0.1020408163265306, 49: 0.02040816326530612}
 ```
 ::::::::::::::::::::: 
 
@@ -1106,10 +1047,7 @@ print(nx.average_shortest_path_length(neuronGraph))
 
 ```{.output}
 Average shortest path length
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'neuronGraph' is not defined
+2.3518367346938778
 ```
 ::::::::::::::::::::: 
 
@@ -1125,10 +1063,7 @@ print([p for p in nx.all_shortest_paths(neuronGraph, source=4, target=44)])
 
 ```{.output}
 Shortest path length between N4 and N44
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'neuronGraph' is not defined
+[[4, 15, 42, 44]]
 ```
 ::::::::::::::::::::: 
 
@@ -1165,32 +1100,10 @@ nx.draw_networkx_nodes(neuronGraph, pos, node_size=30, node_color='r')
 nx.draw_networkx_edges(neuronGraph, pos);
 ```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'neuronGraph' is not defined
-```
-
 ```{.output}
-<BarContainer object of 28 artists>
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'neuronGraph' is not defined
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'neuronGraph' is not defined
-```
-
-```{.output}
+<BarContainer object of 14 artists>
+<networkx.classes.graph.Graph object at 0x7f99c3435b10>
 (0.0, 1.0, 0.0, 1.0)
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'neuronGraph' is not defined
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'neuronGraph' is not defined
 ```
 ::::::::::::::::::::: 
 
