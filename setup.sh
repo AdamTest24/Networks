@@ -4,6 +4,8 @@ pip install jupytext
 
 pip install nibabel
 
+pip install networkx
+
 mkdir -p ~/.virtualenvs/
 
 python3 -m venv ~/.virtualenvs/r-env
