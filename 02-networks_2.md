@@ -76,11 +76,11 @@ print(rm)
 ```
 
 ```{.output}
-[[1 0 1 1 1]
- [0 1 1 0 0]
- [1 0 0 1 1]
- [1 1 1 0 1]
- [1 0 1 0 1]]
+[[0 1 0 1 1]
+ [1 1 1 1 0]
+ [0 1 0 1 0]
+ [1 0 0 0 1]
+ [1 1 0 0 0]]
 ```
 
 Function $randint$ from the numpy module $random$ is used to create an array or matrix filled with integers.
@@ -592,7 +592,7 @@ show()
 
 ```{.output}
 <BarContainer object of 8 artists>
-<networkx.classes.graph.Graph object at 0x7f99cbca82b0>
+<networkx.classes.graph.Graph object at 0x7fd539420430>
 (0.0, 1.0, 0.0, 1.0)
 ```
 
@@ -654,7 +654,7 @@ show()
 
 ```{.output}
 <BarContainer object of 28 artists>
-<networkx.classes.graph.Graph object at 0x7f99c99cd870>
+<networkx.classes.graph.Graph object at 0x7fd5396b0790>
 (0.0, 1.0, 0.0, 1.0)
 ```
 
@@ -1102,7 +1102,7 @@ nx.draw_networkx_edges(neuronGraph, pos);
 
 ```{.output}
 <BarContainer object of 14 artists>
-<networkx.classes.graph.Graph object at 0x7f99c3435b10>
+<networkx.classes.graph.Graph object at 0x7fd5379c00a0>
 (0.0, 1.0, 0.0, 1.0)
 ```
 ::::::::::::::::::::: 
