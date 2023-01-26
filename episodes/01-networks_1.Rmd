@@ -95,7 +95,9 @@ library(reticulate)
 # virtualenv_create("r-env", python_version = version)
 # Requirement already satisfied: setuptools in /Users/sabaferdous/.virtualenvs/r-env/lib/python3.10/site-packages (58.1.0)
 # virtualenv_install(envname = "r-env", "pandas", "matplotlib", "sklearn")
-use_virtualenv("r-env")
+
+## use_virtualenv("r-env")
+use_python("/Users/sabaferdous/envL2D/bin/python3")
 ```
 
 ```{python}
@@ -572,7 +574,7 @@ matrixFromArray =  array([[0, 1, 0, 0],
                           [1, 0, 1, 1], 
                           [1, 0, 1, 0]])
 
-my_graph = nx.from_numpy_matrix(matrixFromArray)
+my_graph = nx.from_numpy_matrix(matrixFromArray, create_using=nx.DiGraph())
 
 my_graphLayout = nx.spring_layout(my_graph)
 
