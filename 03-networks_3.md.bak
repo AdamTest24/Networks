@@ -293,7 +293,7 @@ neurons = read_csv('data/celegans131mtrix_50.csv', header=None, dtype="float64")
 ```
 
 ```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): FileNotFoundError: [Errno 2] No such file or directory: 'data/celegans131mtrix_50.csv'
+Error: FileNotFoundError: [Errno 2] No such file or directory: 'data/celegans131mtrix_50.csv'
 ```
 
 ::::::::::::::::::::::::::::::: challenge 
@@ -344,7 +344,7 @@ show()
 ```
 
 ```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): KeyError: 5
+Error: KeyError: 5
 ```
 
 <img src="fig/03-networks_3-rendered-unnamed-chunk-12-9.png" width="1152" style="display: block; margin: auto;" />
@@ -431,15 +431,15 @@ show()
 ```
 
 ```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): networkx.exception.NetworkXError: Graph is not bipartite.
+Error: networkx.exception.NetworkXError: Graph is not bipartite.
 ```
 
 ```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'basegroup' is not defined
+Error: NameError: name 'basegroup' is not defined
 ```
 
 ```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'bipartiteLayout' is not defined
+Error: NameError: name 'bipartiteLayout' is not defined
 ```
 
 <img src="fig/03-networks_3-rendered-unnamed-chunk-16-13.png" width="1152" style="display: block; margin: auto;" />
