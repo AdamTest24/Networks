@@ -659,7 +659,7 @@ matrixFromArray =  array([[0, 1, 0, 0],
                           [1, 0, 1, 1], 
                           [1, 0, 1, 0]])
 
-my_graph = nx.from_numpy_matrix(matrixFromArray)
+my_graph = nx.from_numpy_matrix(matrixFromArray, create_using=nx.DiGraph())
 
 my_graphLayout = nx.spring_layout(my_graph)
 

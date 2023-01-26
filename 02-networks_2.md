@@ -13,8 +13,8 @@ exercises: 60
 ::::::::::::::::::::::::::::::::::::: questions 
 
 - How to generate test matrices using NetworkX?
-- what is purpose of node degree and degree distribution?
-- Can a network be quantified?
+- What is the purpose of the node degree and the degree distribution?
+- How can a network be quantified?
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
@@ -41,7 +41,7 @@ exercises: 60
 
 ## Prerequisites
 
-- [Introduction to netwerks](01-networks_1.Rmd)
+- [Introduction to Networks](01-networks_1.Rmd)
 
 ::::::::::::::::::
 
@@ -56,7 +56,7 @@ from matplotlib.pyplot import subplots, show
 
 ## Generating Test Matrices
 <p style='text-align: justify;'> 
-NetworkX has a number of ways to create matrices with given specifications. We have seen in Lesson 1 that e.g. `zeros((5,5))` creates a $5\times 5$ matrix filled with zeroes. This speeds up the creation of a network matrix with few non-zero entries. Similarly one can start with function `ones` from Numppy to create a network with few zero entries.
+NetworkX has a number of ways to create matrices with given specifications. We have seen in the previous lesson that e.g. `zeros((5,5))` creates a $5\times 5$ matrix filled with zeroes. This speeds up the creation of a network matrix with only a few non-zero entries. Similarly, one can start with function `ones` from Numpy to create a network with few zero entries.
 </p>
 <p style='text-align: justify;'>
 However, to test network code we would like to be able to easily create test matrices without having to fill in the information about the edges manually. Typically, one wants to quickly create an arbitrary number of realisations to study e.g. a distribution of network properties.
@@ -76,31 +76,32 @@ print(rm)
 ```
 
 ```{.output}
-[[0 1 0 1 1]
- [1 1 1 1 0]
- [0 1 0 1 0]
+[[0 1 1 0 0]
  [1 0 0 0 1]
- [1 1 0 0 0]]
+ [0 0 1 1 0]
+ [0 1 0 0 0]
+ [0 0 1 1 0]]
 ```
 
 Function $randint$ from the numpy module $random$ is used to create an array or matrix filled with integers.
+
 <p style='text-align: justify;'>
-The first argument, composed of two numbers, tells it which integers to use. The first number is the smallest integer, the second number is the largest integer plus one. The first two numbers are work as $(a, b+1)$ so this function will produce numbers (N) in range specified as: $a <= N <= b$. In our case entering $(0, 2)$ will produce zeroes and ones. With $(1, 10)$, all integers from 1 to 9 will be used, all with equal probability. 
+The first two arguments, two integer numbers, specify which integers to use. The first number is the smallest integer, the second number is the largest integer plus one. The first two numbers work as $(a, b+1)$ so this function will produce numbers (N) in range specified as: $a <= N <= b$. In our case entering $(0, 2)$ will produce zeroes and ones. With $(1, 10)$, all integers from 1 to 9 will be used, all with equal probability. 
 </p>
 <p style='text-align: justify;'>
-The second argument specifies the dimensions of the matrix. In our case we want a $nodes\times nodes$ matrix for a specified number of nodes. The output of the code will look different at each function call because each time you execute the code, Python will assign the zeroes and ones randomly.
+The keyword argument `size` specifies the dimensions of the matrix. In our case we want a $nodes\times nodes$ matrix for a specified number of nodes. The output of the code will look different at each function call because each time you execute the code, Python will assign the zeroes and ones randomly.
 </p>
 <p style='text-align: justify;'>
-There are many ways to create network matrices with different specifications. These can be used to test the null hypothesis about experimental data. For example, one can generate networks with the same amount of nodes and edges as an experimental network but with random assignment of edges to test whether the observed connections are likely to be due to chance. Some biological networks seem to have the so-called ['small world' property](https://en.wikipedia.org/wiki/Small-world_network), where in spite of relatively few connections there are quick ways to get from a node to any other node by tracing a path along combinations of edges.
+There are many ways to create network matrices with different specifications. These can be used to test null hypotheses about experimental data. For example, one can generate networks with the same amount of nodes and edges as in an experimental network but with random assignment of edges to test whether the observed connections are likely to be due to chance. Some biological networks seem to have the so-called ['small world' property](https://en.wikipedia.org/wiki/Small-world_network), where in spite of relatively few connections there are quick ways to get from one node to any other node by tracing a path along combinations of edges.
 </p>
 <p style='text-align: justify;'>
-There is a way to have Python return the same random numbers when using functions like $randint$ by using the $seed$ function (also from the module $random$). Reproducibility is central to coding, and functions such as this facilitate reproducibility.
+There is a way to have Python return the *same* random numbers when using functions like $randint$ by using the $seed$ function (also from the module $random$). Reproducibility is central to coding, and functions such as this facilitate reproducibility.
 </p>
 <p style='text-align: justify;'>
 The command $seed(1)$ sets the value of the 'seed' used to initialise the random number generator to $1$. The choice of seed value is arbitrary. The important thing is that specifying a value will mean the random number results are reproducible.
 </p>
 <p style='text-align: justify;'>
-When we specify a starting seed value for the number generator it still produces random numbers, but will produce the same random numbers each time. To test this run the following example:
+When we specify a starting seed value for the number generator it still produces random numbers but will produce the same set of random numbers each time the code is executed. To test this run the following example:
 </p>
 
 
@@ -141,7 +142,7 @@ print(rm2)
  [0 1 0 0 1]]
 ```
 
-Since we set the same (arbitrary) seed for both of these random matrices, both calls produce the same pattern of 1s and 0s. The results are identical:
+Since we set the same (arbitrary) seed for both of these function calls, both produce the same pattern of 1s and 0s. The results are identical:
 
 
 ```python
@@ -160,7 +161,7 @@ array([[ True,  True,  True,  True,  True],
 
 ## Do it Yourself
 
-Create a $n\times m$ matrix with randomly distributed integers from 1 to 6 so simulate a group of 3 players throwing a dice 20 times.
+Create a $n\times m$ matrix with randomly distributed integers from 1 to 6 to simulate a group of 3 players throwing a dice 20 times.
 
 ::::::::::::::::: solution
 	
@@ -223,6 +224,7 @@ Some stochastic graphs can also be generated simply within NetworkX.  A random l
 
 
 ```python
+
 nodes = 50
 
 # p1: Probability of adding an edge to the backbone
@@ -230,9 +232,11 @@ nodes = 50
 p1 = 0.9
 p2 = 0.5
 
-lobster = nx.random_lobster(50, 0.9, 0.5)
+lobster = nx.random_lobster(nodes, 0.9, 0.5)
 
-nx.draw(lobster, with_labels=True)
+layout = nx.spiral_layout(lobster)
+
+nx.draw(lobster, layout, with_labels=True)
 
 show()
 ```
@@ -306,7 +310,7 @@ show()
 
 <img src="fig/02-networks_2-rendered-unnamed-chunk-10-7.png" width="672" style="display: block; margin: auto;" />
 
-As we discussed in the previous section, an edge is set up in a network matrix in the direction (from) row $\rightarrow$ (to) column. Consider the following network matrix. 
+As we discussed in the previous lesson, an edge is set up in a network matrix in the direction (from) row $\rightarrow$ (to) column. Consider the following network matrix. 
 
 
 ```python
@@ -363,7 +367,7 @@ OutDegreeView({0: 2, 1: 3, 2: 1, 3: 1, 4: 2})
 The output is viewed as a list of nodes with each node followed by the in/out degree. For example, the first node (node 0) has an in degree of 3 (edges from nodes 1, 2 and 4) and out degree 2 (edges to nodes 1 and 2). If the matrix is symmetric, the in degree and the out degree arrays will be identical. In this case we simply refer to the degree.
 </p>
 <p style='text-align: justify;'>
-This graph can also be visualised to confirm the in and out degree of each node. I've also added a few new customisation options here in the graph, which you can find and amend using the NetworkX documentation.
+This graph can also be visualised to confirm the in and out degree of each node. We have also added a few new customisation options here in the graph, which you can find and amend using the NetworkX documentation.
 </p>
 
 
@@ -511,7 +515,7 @@ Index    Out Degree
 
 ## Degree distribution
 <p style='text-align: justify;'>
-It is straightforward to look at the degrees of a network with only a few nodes. However, for large networks with many nodes, the degree will be an array with as many numbers as there are nodes. This requires a more convenient way to summarise this information. An often used solution is to look at the _degree distribution_. 
+It is straightforward to look at the degrees of a network with only a few nodes. However, for large networks with many nodes, the degree will be an array with as many numbers as there are nodes. This requires a more convenient way to summarise this information. An often-used solution is to look at the _degree distribution_. 
 </p>
 The degree distribution is normally presented as a histogram showing how many times a given degree was found in that network.
 
@@ -530,13 +534,21 @@ The degree distribution can be plotted using NetworkX and matplotlib, here plott
 
 
 ```python
+
+# xticks, xticklabels as to integers
+
+degs = dict(rm_net.degree()).values()
+
 fig, ax = subplots()
 
-ax.hist(dict(rm_net.degree()).values(), bins=10);
+ax.hist(degs, bins=10);
 
 ax.set_title("Degree Distribution", fontsize=20)
 ax.set_ylabel("Count", fontsize=16)
 ax.set_xlabel("Degree", fontsize=16);
+
+ax.set_xticks([d for d in degs])
+ax.set_xticklabels(degs)
 
 show()
 ```
@@ -592,13 +604,13 @@ show()
 
 ```{.output}
 <BarContainer object of 8 artists>
-<networkx.classes.graph.Graph object at 0x7fd539420430>
+<networkx.classes.graph.Graph object at 0x7f60248d46d0>
 (0.0, 1.0, 0.0, 1.0)
 ```
 
 <img src="fig/02-networks_2-rendered-unnamed-chunk-22-13.png" width="672" style="display: block; margin: auto;" />
 
-This example plots the degree distribution, showing, for example, that 11 nodes in this network have no edges. From the overlaid graph, you can verify that.
+This example plots the degree distribution, showing, for example, that 11 nodes in this network have no edges. You can verify that from the overlaid graph (isolated red dots).
 
 Note how the degree with highest probability (2) reflects the choice of edge probability of 2%.
 
@@ -654,7 +666,7 @@ show()
 
 ```{.output}
 <BarContainer object of 28 artists>
-<networkx.classes.graph.Graph object at 0x7fd5396b0790>
+<networkx.classes.graph.Graph object at 0x7f6024576ef0>
 (0.0, 1.0, 0.0, 1.0)
 ```
 
@@ -674,7 +686,7 @@ show()
 ## Other Graph Properties
 ### **Clustering coefficient**
 <p style='text-align: justify;'>
-As an example of a more complex quantitative measure, we will look at the clustering coefficient.  
+As an example of a more complex quantitative measure, we take the clustering coefficient.  
 We will look at its formula and discuss extreme cases to understand what useful information the measure is supposed to convey. We then practice the use of creating test matrices and do calculations of clustering coefficients of the corresponding networks. 
 </p>
 
@@ -701,14 +713,19 @@ $e=\frac{ k(k-1)}{ 2 }$ and $C_u = 1$. The clustering coefficient therefore tell
 </p>
 We can use random test graphs, as we made earlier, to explore clustering coefficients in NetworkX. Here we'll make a 10 by 10 random graph, setting a seed so it's reproducible.
 
+To avoid any self-connections, we put the diagonal of the matrix equal to zero.
+
 
 ```python
+from numpy import fill_diagonal
+
 seed_number = 4
 nodes = 10
 
 seed(seed_number)
 
 rm_graph = randint(0, 2, size=(nodes, nodes))
+fill_diagonal(rm_graph, 0)
 
 myRandom = nx.from_numpy_matrix(rm_graph) 
 
@@ -780,11 +797,11 @@ print(nx.average_clustering(myRandom))
 0.6902380952380953
 ```
 
-The number shows that in this graph there is a comparatively high propability of the neighbours of a node to be connected among themselves. 
+The number shows that in this graph there is a comparatively high (more than 50%) probability of the neighbours of a node to be connected among themselves. 
 
 ### **Path length**
 <p style='text-align: justify;'>
-Simply put, the __path length__ refers to the distance between two nodes in a graph, calculated as the number of edges to get from one to another. More specific information about a graph can be found by measures that build on the path length, such as _shortest path length_, _average shortest path length_, and the _shortest path length from node to all reachable nodes_.
+Simply put, the __path length__ refers to the distance between two nodes in a graph, calculated as the number of edges to get from one to the other. More specific information about a graph can be found by measures that build on the path length, such as the _shortest path length_, _average shortest path length_, and the _shortest path length from node to all reachable nodes_.
 </p>
 For illustration, here is how we can find out the shortest path of our graph $myRandom$ from node 0 to node 1. The output is the sequence of nodes along this shortest path. 
 
@@ -822,7 +839,7 @@ for path in my_shortest_paths:
 
 There are six possibilities to get from node 0 to node 1 via one intermediate node. 
 
-As a summery of the network, we can find the _average shortest path length_:
+As a single summary quantity of a network, we can find the _average shortest path length_:
 
 
 ```python
@@ -880,7 +897,7 @@ for path in my_shortest_paths:
 
 ### **Centrality**
 <p style='text-align: justify;'>
-_Centrality_ can be used to determine the most _important_ node or nodes in a graph. In a network such as a protein-protein interaction network, this would be the protein which interacts with most other proteins in the system. The centrality of each nodes in a network is calculated as the fraction of nodes in the graph with which is connects.
+_Centrality_ can be used to determine the most _important_ node or nodes in a graph. In a network such as a protein-protein interaction network, this would be the protein which interacts with most other proteins in the system. The centrality of each node in a network is calculated as the fraction of nodes in the graph with which is connects.
 </p>
 
 
@@ -896,34 +913,34 @@ for index, centr in dict(my_centralities).items():
 0    0.78
 1    0.78
 2    0.67
-3    0.67
-4    0.89
-5    0.78
-6    1.0
+3    0.44
+4    0.67
+5    0.56
+6    0.78
 7    0.78
-8    1.11
-9    1.0
+8    0.89
+9    0.78
 ```
 
 This produces a dictionary of nodes followed by the centrality value. In this graph, node 8 is the most 'important' node (according to this definition).
 
 ## Analysing a biological network
 <p style='text-align: justify;'>
-*Caenorhabditis elegans* (*C. elegans*) is a nematode, and is commonly used as model organism to study developmental biology, and specifically neuronal development. It is one of the simplest organisms with a nervous system, which makes it particularly suited to this research. The majority of _C. elegans_ are hermaphrodites. The developmental trajectory of each somatic cell (in hermaphrodites 959, in males 1031) has been been identified, and is generally consistent between worms. The complete connectome (neuronal map) has been published, originally by White, Southgate, Thomson, and Brenner in 1986, and continues to be researched. Here, nodes represent neurons and edges represent synapses.
+*Caenorhabditis elegans* (*C. elegans*) is a nematode used as model organism to study developmental biology, and specifically neuronal development. It is one of the simplest organisms with a nervous system, which makes it particularly suited for this research. The majority of _C. elegans_ individuals are hermaphrodites. The developmental trajectory of each somatic cell (in hermaphrodites 959, in males 1031) has been identified, and is generally consistent between worms. The complete connectome (neuronal map) has been published, originally by White, Southgate, Thomson, and Brenner in 1986, and continues to be researched. Here, we take nodes to represent neurons and edges to represent synapses.
 </p>
 
 ### **Getting a network matrix from Dynamic Connectome lab**
 <p style='text-align: justify;'>
-In this final section we want to benefit from network information that is stored in freely available databases.
+In this final section we want to benefit from network information that is stored in a freely available database.
 There are a number of databases that include information about interactions. In the context of biochemical 
 reaction networks, two prominent examples are the ([KEGG database](http://www.genome.jp/kegg/pathway.html/))
 and the ([Reactome database](http://www.reactome.org/)). In the previous lesson, we have used an example from the [STRING database](https://string-db.org) which contained data about protein-protein interactions (PPI). Other examples are the [BioGrid Database of Protein, Genetic and Chemical Interactions](https://thebiogrid.org) and the [IntAct Molecular Interaction Database](https://www.ebi.ac.uk/legacy-intact/). 
 </p>
 <p style='text-align: justify;'>
-Some researchers also make their data freely available upon publication. In this section we are going to use some simplified data from the [Dynamic Connectome lab](https://www.dynamic-connectome.org/) on the neuronal networks of _C. elegans_. For simplicity, these data have been edited so only the first 50 of the 131 neurons are included. The Python Pandas library is used to import this data easily. First, we import the adjacency matrix showing how these neurons connect to each other, and a file giving the name of each neuron.
+Some researchers also make their data freely available upon publication. In this section we are going to use some simplified data from the [Dynamic Connectome lab](https://www.dynamic-connectome.org/) on the neuronal networks of _C. elegans_. For simplicity, these data have been edited such that only the first 50 of the 131 neurons are included. The Python Pandas library is used to import this data. First, we import the adjacency matrix showing how these neurons connect to each other, and a file containing the name of each neuron.
 </p>
 <p style='text-align: justify;'>
-Then, we convert the adjacency matrix to the numpy format, and the labels into a dictionary. We then save the labels (each neuron has a name!) in the NetworkX node label format, and convert the adjacency matrix into the NetworkX format. Finally, we give the graph the layout $random$, and draw it.
+Then, we convert the adjacency matrix to the Numpy format, and the labels into a dictionary. We then save the labels (each neuron has a name!) in the NetworkX node label format, and convert the adjacency matrix into the NetworkX format. Finally, we give the graph the layout $random$, and draw it.
 </p>
 
 
@@ -962,7 +979,7 @@ neuronGraph.number_of_nodes()
 ```
 
 <p style='text-align: justify;'>
-Using the techniques we examined above, we can interrogate various aspects of this real-world network, such as finding the node with the greatest centrality, assess the average path length, and find out the clustering coefficient.
+Using the techniques we introduced above, we can interrogate various aspects of this real-world network, such as finding the node with the greatest centrality, assess the average path length, and find out the clustering coefficients.
 </p>
 
 ## Exercises
@@ -972,7 +989,7 @@ Using the techniques we examined above, we can interrogate various aspects of th
 
 # Assignment
 
-1. Compute the number of edges in this _C. elegans_ neuron network.
+1. Compute the number of edges in the above _C. elegans_ neuron network.
 
 2. Compute the average clustering coefficient across this network.
 
@@ -1090,21 +1107,23 @@ ax.set_xticklabels(deg);
 # draw graph in inset
 axes([0.4, 0.4, 0.5, 0.5])
 
-neuronGraph.subgraph(sorted(nx.connected_components(neuronGraph), key=len, reverse=True)[0])
+neuronGraph.subgraph(sorted(nx.connected_components(neuronGraph), key=len, reverse=True)[0]);
 
 pos = nx.spring_layout(neuronGraph, seed=2)
 
 axis("off")
 
-nx.draw_networkx_nodes(neuronGraph, pos, node_size=30, node_color='r')
+nx.draw_networkx_nodes(neuronGraph, pos, node_size=30, node_color='r');
 nx.draw_networkx_edges(neuronGraph, pos);
+show()
 ```
 
 ```{.output}
 <BarContainer object of 14 artists>
-<networkx.classes.graph.Graph object at 0x7fd5379c00a0>
 (0.0, 1.0, 0.0, 1.0)
 ```
+
+<img src="fig/02-networks_2-rendered-unnamed-chunk-42-19.png" width="672" style="display: block; margin: auto;" />
 ::::::::::::::::::::: 
 
 ::::::::::::::::::::::::::::::::::::::::
@@ -1114,11 +1133,11 @@ nx.draw_networkx_edges(neuronGraph, pos);
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
-- The function `randint` creates matrices with randomly assigned edges.
-- NetworkX can produce interesting graphs like; `Petersen`, `lobster` and `caterpillar` graphs. 
+- The function `randint` creates matrices with randomly assigned integers which are represented as edges.
+- NetworkX can produce interesting graphs like: `Petersen`, `lobster` and `caterpillar` graphs. 
 - In a symmetric matrix, the `in degree` and the `out degree` arrays are identical. 
-- Large networks are simplified using `degree distribution`.
-- Some of the key graph properties include clustering coefficient, path length and centrality. 
+- Large networks can be quantified using e.g. ` the degree distribution`.
+- Some of the key graph properties include the clustering coefficient, path length, and centrality. 
 
 :::::::::::::::::::::::::::::::
 
