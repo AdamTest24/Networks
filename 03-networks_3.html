@@ -224,7 +224,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Networks - Applications</h1>
-        <p> Last updated on 2023-01-26 | 
+        <p> Last updated on 2023-02-01 | 
         
         <a href="https://github.com/LearnToDiscover/Networks.git/edit/main/episodes/03-networks_3.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -246,7 +246,7 @@
 <div class="card-body">
 <div class="inner">
 <h3 class="card-title">Questions</h3>
-<ul><li>What are different ways of importing data in NetworkX?</li>
+<ul><li>What ways are there to import data into NetworkX?</li>
 <li>What are the common file import error?</li>
 <li>How to troubleshoot the import errors?</li>
 </ul></div>
@@ -258,6 +258,7 @@
 <h3 class="card-title">Objectives</h3>
 <ul><li>Reviewing data import</li>
 <li>Understanding troubleshooting of common errors in data import</li>
+<li>Handling a bipartite network</li>
 <li>Applying network concepts to real-world datasets</li>
 </ul></div>
 </div>
@@ -290,13 +291,13 @@
 </div>
 <section id="importing-data-into-networkx"><h2 class="section-heading">Importing data into NetworkX</h2>
 <hr class="half-width"><p style="text-align: justify;">
-In the previous two lessons we have looked at the basics of NetworkX, created some networks, analysed various properties of networks, and practised these techniques with the pre-prepared <em>C. elegans</em> dataset. If you want to use NetworkX with data of your own, you’ll need to import your data in a compatible way. Specifically, you need to be able to import data from different original data formats.
+In the previous lessons we have looked at the basics of NetworkX, created some networks, analysed various network properties, and practised these techniques with the pre-prepared <em>C. elegans</em> dataset. If you want to use NetworkX with data of your own, you’ll need to import your data in a compatible way. Specifically, you need to be able to import data from different original data formats.
 </p>
 <div class="section level3">
 <h3 id="csv-format"><strong>CSV Format</strong><a class="anchor" aria-label="anchor" href="#csv-format"></a></h3>
-<p>‘.csv’ indicates a very common file format, <a href="https://en.wikipedia.org/wiki/Comma-separated_values" class="external-link">comma separated values</a>. We used it in the previous lesson to import the simplified <em>C. elegans</em> neuronal network.</p>
+<p><code>.csv</code> indicates a very common file format, <a href="https://en.wikipedia.org/wiki/Comma-separated_values" class="external-link">comma separated values</a>. We used it in the previous lesson to import the <em>C. elegans</em> neuronal network.</p>
 <p style="text-align: justify;">
-The network data ‘celegans131matrix_50.csv’ is simply a large adjacency matrix of 0s and 1s, with no further information. The ‘celegans131labels_50.csv’ file contains the list of neuron names, which we used to label the nodes. We’ll have a look in more detail at how this import works. We use Pandas functions as a simple way to import a CSV file. (There are of course other ways.)
+The network data ‘celegans131matrix_50.csv’ is simply a large adjacency matrix of 0s and 1s, with no further information. The ‘celegans131labels_50.csv’ file contains the list of neuron names, which we used to label the nodes. We’ll have a look in more detail at how this import works. We use Pandas functions as a simple way to import a CSV file. (There are, of course, other ways.)
 </p>
 <p>Here is the import of the data for the first 50 neurons.</p>
 <div class="codewrapper sourceCode" id="cb2">
@@ -333,7 +334,7 @@ We import the CSV network file as before. We specify with a keyword argument tha
 <pre class="output" tabindex="0"><code>{0: 'ADFL', 1: 'ADFR', 2: 'ADLL', 3: 'ADLR', 4: 'AFDL', 5: 'AFDR', 6: 'AIAL', 7: 'AIAR', 8: 'AIBR', 9: 'AINL', 10: 'AINR', 11: 'AIZL', 12: 'AIZR', 13: 'ALA', 14: 'ASEL', 15: 'ASER', 16: 'ASGL', 17: 'ASGR', 18: 'ASHL', 19: 'ASHR', 20: 'ASIL', 21: 'ASIR', 22: 'ASJL', 23: 'ASJR', 24: 'ASKL', 25: 'ASKR', 26: 'AUAL', 27: 'AUAR', 28: 'AVAL', 29: 'AVAR', 30: 'AVBL', 31: 'AVBR', 32: 'AVDL', 33: 'AVDR', 34: 'AVEL', 35: 'AVER', 36: 'AVHL', 37: 'AVHR', 38: 'AVJL', 39: 'AVJR', 40: 'AVL', 41: 'AWAL', 42: 'AWAR', 43: 'AWBL', 44: 'AWBR', 45: 'AWCL', 46: 'AWCR', 47: 'BAGL', 48: 'BAGR', 49: 'CEPDL'}</code></pre>
 </div>
 <p style="text-align: justify;">
-Dictionaries associate keys with values. You may remember we previously created a dictionary to assign labels to nodes. Here we convert the <code>neuron_Names</code> dataframe into a dictionary the neuron (node) indices are the keys and the corresponding neuron (node) names are the values. As the function <code>to_dict</code> wraps the dictionary within a dictionary, we obtain the plain labels dictionary by referring to index ‘0’.
+Dictionaries associate keys with values. You may remember we previously created a dictionary to assign labels to nodes. Here we convert the <code>neuron_Names</code> dataframe into a dictionary: the neuron (node) indices are the keys and the corresponding neuron (node) names are the values. As the function <code>to_dict</code> wraps the dictionary within a dictionary, we obtain the plain labels dictionary by referring to index ‘0’.
 </p>
 <p>Now we can create a graph, specify a layout, and plot the network.</p>
 <div class="codewrapper sourceCode" id="cb6">
@@ -343,14 +344,14 @@ Dictionaries associate keys with values. You may remember we previously created 
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>neuronLayout <span class="op">=</span> nx.random_layout(neuronGraph, seed<span class="op">=</span><span class="dv">123</span>)</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>nx.draw(neuronGraph, neuronLayout, </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>nx.draw_networkx(neuronGraph, neuronLayout, </span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        node_size<span class="op">=</span><span class="dv">1000</span>,</span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        labels <span class="op">=</span> neuronLabels)</span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="fig/03-networks_3-rendered-unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
-In this particular case we also have other metadata that can be used for visualisation and analysis. In our case, we have the file ‘celegans131positions_50.csv’ - which contains information on how the nodes relate to each other in 2-D space. We can include this information to replace the layout.
+In this particular case, we also have other metadata that can be used for visualisation and analysis. In our case, we have the file ‘celegans131positions_50.csv’ - which contains information on how the nodes relate to each other in 2-D space. We can include this information to replace the layout.
 </p>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -373,7 +374,7 @@ In this particular case we also have other metadata that can be used for visuali
 <div id="do-it-yourself" class="callout-inner">
 <h3 class="callout-title">Do it Yourself</h3>
 <div class="callout-content">
-<p>Find the nodes indices of the sensory neurons named ‘BAGL’ and ‘BAGR’.</p>
+<p>Find the node indices of the sensory neurons named ‘BAGL’ and ‘BAGR’.</p>
 </div>
 </div>
 </div>
@@ -384,7 +385,7 @@ In this particular case we also have other metadata that can be used for visuali
   DIY ANSWER
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -448,7 +449,7 @@ Place the file ‘bn-mouse_visual-cortex_1.edges’ in your working directory. I
   DIY ANSWER
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -552,7 +553,7 @@ There are many other files formats that contain network data. For a list of Netw
   DIY ANSWER
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>You’ll see this error if something has gone wrong in the way you’ve instructed Python to find your file. This may be that you’ve mis-typed the file name, or the file isn’t in your working directory. Here, the file is present in the working directory, but there’s a typo in the file name.</p>
 <div class="codewrapper sourceCode" id="cb17">
@@ -614,7 +615,7 @@ There are many other files formats that contain network data. For a list of Netw
   DIY ANSWER
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>If you look at the error message, it first flags <strong>5: ‘F’,</strong>, and ends with an error about labels. We’ve included too many node labels: 6 labels for five nodes. This is easily corrected by taking one label out.</p>
 <div class="codewrapper sourceCode" id="cb20">
@@ -648,7 +649,7 @@ There are many other files formats that contain network data. For a list of Netw
 </div>
 <div class="section level3">
 <h3 id="graph-is-not-bipartite"><strong>Graph is not bipartite</strong><a class="anchor" aria-label="anchor" href="#graph-is-not-bipartite"></a></h3>
-<p>Here we generate a bipartite graph, and try to plot it.</p>
+<p>Here we generate a bipartite graph and try to plot it.</p>
 <div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -721,7 +722,7 @@ There are many other files formats that contain network data. For a list of Netw
   DIY ANSWER
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <p>In this instance, the error message is very clear: you can’t plot a graph with a bipartite layout if the graph isn’t bipartite. This would have also been evident if I hadn’t just checked that the graph was connected, but also that it was bipartite.</p>
 <div class="codewrapper sourceCode" id="cb28">
@@ -809,7 +810,7 @@ We have made available this modified version of the 277 neuron matrix, with no e
 <span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>myBipartite <span class="op">=</span> nx.from_numpy_matrix(neurons) </span></code></pre>
 </div>
 <p style="text-align: justify;">
-Here we import the bipartite module from NetworkX, and then import the bipartite 277 neuron adjacency matrix and list of neuron names, in the same method as previously. Next, we use the bipartite convention in NetworkX to designate which nodes are in the <span class="math inline">\(0\)</span> group, and which are in the <span class="math inline">\(1\)</span> group. There are several ways to make a graph bipartite, here this is done by listing the node numbers of the 146 neurons and adding the attribute <span class="math inline">\('bipartite' = 0\)</span>, and listing the node numbers of the 131 neurons and adding the attribute <span class="math inline">\('bipartite' = 1\)</span>.
+Here we import the bipartite module from NetworkX, and then import the bipartite 277 neuron adjacency matrix and list of neuron names, with the same method as previously. Next, we use the bipartite convention in NetworkX to designate which nodes are in the <span class="math inline">\(0\)</span> group, and which are in the <span class="math inline">\(1\)</span> group. There are several ways to make a graph bipartite, here this is done by listing the node numbers of the 146 neurons and adding the attribute <span class="math inline">\('bipartite' = 0\)</span>, and listing the node numbers of the 131 neurons and adding the attribute <span class="math inline">\('bipartite' = 1\)</span>.
 </p>
 <div class="codewrapper sourceCode" id="cb35">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -892,7 +893,7 @@ Here we import the bipartite module from NetworkX, and then import the bipartite
   DIY ANSWER
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
 <p>The 2D positions are contained in the file ‘celegans277positions.csv’. After the import of the file, they can be extracted into a variable using <code>values</code>. The positions then need to replace the original layout values (called ‘pos’ above).</p>
 <div class="codewrapper sourceCode" id="cb39">
@@ -967,7 +968,7 @@ This gives us the correlation network from the stool samples, with nodes labelle
 <div class="section level3">
 <h3 id="functional-networks"><strong>Functional Networks</strong><a class="anchor" aria-label="anchor" href="#functional-networks"></a></h3>
 <p style="text-align: justify;">
-In the paper, Friedman and Alm (2012), the edges are taken from the correlations coefficients of the correlation matrix. I.e. they define the correlation matrix as a network matrix. But the entries of the correlation matrix are not 0s and 1s as we have used so far. Instead they are real numbers between -1 and 1. What Friedman and Alm did to obtain meaningful edges was to pick a threshold correlation, e.g. <span class="math inline">\(|cc| = 0.3\)</span> and set any matrix entry with absolute value smaller than the threshold as 0. All other values are left as they are. Because anything non-zero will be interpreted as an edge, this means that they only plot edges where the correlation coefficient is greater than 0.3 or less than -0.3. Such networks are referred to as _functional networks.
+In the paper, Friedman and Alm (2012), the edges are taken from the correlation coefficients of the correlation matrix. I.e. they define the correlation matrix as a network matrix. But the entries of the correlation matrix are not 0s and 1s as we have used so far. Instead they are real numbers between -1 and 1. What Friedman and Alm did to obtain meaningful edges was to pick a threshold correlation, e.g. <span class="math inline">\(|cc| = 0.3\)</span> and set any matrix entry with absolute value smaller than the threshold as 0. All other values are left as they are. Because anything non-zero will be interpreted as an edge, this means that they only plot edges where the correlation coefficient is greater than 0.3 or less than -0.3. Such networks are referred to as <em>functional networks</em>.
 </p>
 <p style="text-align: justify;">
 To threshold the correlation matrix in Python, we select matrix values between -0.3 and 0.3, and replace them with 0. Then we convert this thresholded network matrix to a graph and plot it.
@@ -1056,7 +1057,7 @@ any links that you are not going to use.
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
         <p>Built with <a href="https://github.com/LearnToDiscover/sandpaper/tree/l2d" class="external-link">sandpaper (0.9.0)</a>,
-        <a href="https://github.com/carpentries/pegboard/tree/6cccdeef3b04b6556e2b3787e3391dc9fd7e579c" class="external-link">pegboard (0.4.3)</a>,
+        <a href="https://github.com/carpentries/pegboard/tree/e815ea1a34f6eda01a3c9ab9643e35aa051e1938" class="external-link">pegboard (0.4.3)</a>,
       and <a href="https://github.com/LearnToDiscover/varnish/tree/c72a9c21616682c29279523e56b331ed24509f1c" class="external-link">varnish (0.2.14)</a>.</p>
 			</div>
 		</footer></div> <!-- / div.container -->
@@ -1077,9 +1078,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://learntodiscover.github.io/Networks/03-networks_3.html",
   "identifier": "https://learntodiscover.github.io/Networks/03-networks_3.html",
-  "dateCreated": "2023-01-26",
-  "dateModified": "2023-01-26",
-  "datePublished": "2023-01-26"
+  "dateCreated": "2023-02-01",
+  "dateModified": "2023-02-01",
+  "datePublished": "2023-02-01"
 }
 
   </script><script>

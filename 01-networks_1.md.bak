@@ -94,6 +94,10 @@ import networkx as nx
 from matplotlib.pyplot import show
 ```
 
+```{.output}
+Matplotlib is building the font cache; this may take a moment.
+```
+
 ### **Nodes and Edges**
 <p style='text-align: justify;'>
 Nodes are a basic unit of network data, and are linked to other nodes by edges, which show the way(s) in which the nodes are connected or related. In NetworkX, a range of Python objects, including numbers, text strings, and networks can be nodes.

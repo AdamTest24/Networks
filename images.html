@@ -413,7 +413,7 @@ This gives us the correlation network from the stool samples, with nodes labelle
 <strong>Functional Networks</strong><a class="anchor" aria-label="anchor" href="#functional-networks"></a>
 </h3>
 <p style="text-align: justify;">
-In the paper, Friedman and Alm (2012), the edges are taken from the correlations coefficients of the correlation matrix. I.e. they define the correlation matrix as a network matrix. But the entries of the correlation matrix are not 0s and 1s as we have used so far. Instead they are real numbers between -1 and 1. What Friedman and Alm did to obtain meaningful edges was to pick a threshold correlation, e.g. <span class="math inline">\(|cc| = 0.3\)</span> and set any matrix entry with absolute value smaller than the threshold as 0. All other values are left as they are. Because anything non-zero will be interpreted as an edge, this means that they only plot edges where the correlation coefficient is greater than 0.3 or less than -0.3. Such networks are referred to as _functional networks.
+In the paper, Friedman and Alm (2012), the edges are taken from the correlation coefficients of the correlation matrix. I.e. they define the correlation matrix as a network matrix. But the entries of the correlation matrix are not 0s and 1s as we have used so far. Instead they are real numbers between -1 and 1. What Friedman and Alm did to obtain meaningful edges was to pick a threshold correlation, e.g. <span class="math inline">\(|cc| = 0.3\)</span> and set any matrix entry with absolute value smaller than the threshold as 0. All other values are left as they are. Because anything non-zero will be interpreted as an edge, this means that they only plot edges where the correlation coefficient is greater than 0.3 or less than -0.3. Such networks are referred to as <em>functional networks</em>.
 </p>
 <p style="text-align: justify;">
 To threshold the correlation matrix in Python, we select matrix values between -0.3 and 0.3, and replace them with 0. Then we convert this thresholded network matrix to a graph and plot it.
@@ -503,7 +503,7 @@ any links that you are not going to use.
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
         <p>Built with <a href="https://github.com/LearnToDiscover/sandpaper/tree/l2d" class="external-link">sandpaper (0.9.0)</a>,
-        <a href="https://github.com/carpentries/pegboard/tree/6cccdeef3b04b6556e2b3787e3391dc9fd7e579c" class="external-link">pegboard (0.4.3)</a>,
+        <a href="https://github.com/carpentries/pegboard/tree/e815ea1a34f6eda01a3c9ab9643e35aa051e1938" class="external-link">pegboard (0.4.3)</a>,
       and <a href="https://github.com/LearnToDiscover/varnish/tree/c72a9c21616682c29279523e56b331ed24509f1c" class="external-link">varnish (0.2.14)</a>.</p>
 			</div>
 		</footer>
@@ -525,9 +525,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://learntodiscover.github.io/Networks/images.html",
   "identifier": "https://learntodiscover.github.io/Networks/images.html",
-  "dateCreated": "2023-01-26",
-  "dateModified": "2023-01-26",
-  "datePublished": "2023-01-26"
+  "dateCreated": "2023-02-01",
+  "dateModified": "2023-02-01",
+  "datePublished": "2023-02-01"
 }
 
   </script><script>
