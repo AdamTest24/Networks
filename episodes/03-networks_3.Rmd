@@ -12,7 +12,7 @@ exercises: 60
 
 ::::::::::::::::::::::::::::::::::::: questions 
 
-- What are different ways of importing data in NetworkX?
+- What ways are there to import data into NetworkX?
 - What are the common file import error?
 - How to troubleshoot the import errors?
 
@@ -22,6 +22,7 @@ exercises: 60
 
 - Reviewing data import 
 - Understanding troubleshooting of common errors in data import
+- Handling a bipartite network
 - Applying network concepts to real-world datasets
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
@@ -56,15 +57,15 @@ from matplotlib.pyplot import subplots, show
 
 ## Importing data into NetworkX
 <p style='text-align: justify;'> 
-In the previous two lessons we have looked at the basics of NetworkX, created some networks, analysed various properties of networks, and practised these techniques with the pre-prepared _C. elegans_ dataset. If you want to use NetworkX with data of your own, you'll need to import your data in a compatible way. Specifically, you need to be able to import data from different original data formats.
+In the previous lessons we have looked at the basics of NetworkX, created some networks, analysed various network properties, and practised these techniques with the pre-prepared _C. elegans_ dataset. If you want to use NetworkX with data of your own, you'll need to import your data in a compatible way. Specifically, you need to be able to import data from different original data formats.
 </p>
 
 ### **CSV Format**
 
-'.csv' indicates a very common file format, [comma separated values](https://en.wikipedia.org/wiki/Comma-separated_values). We used it in the previous lesson to import the simplified *C. elegans* neuronal network.
+`.csv` indicates a very common file format, [comma separated values](https://en.wikipedia.org/wiki/Comma-separated_values). We used it in the previous lesson to import the *C. elegans* neuronal network.
 
 <p style='text-align: justify;'>
-The network data 'celegans131matrix_50.csv' is simply a large adjacency matrix of 0s and 1s, with no further information. The 'celegans131labels_50.csv' file contains the list of neuron names, which we used to label the nodes. We'll have a look in more detail at how this import works. We use Pandas functions as a simple way to import a CSV file. (There are of course other ways.)
+The network data 'celegans131matrix_50.csv' is simply a large adjacency matrix of 0s and 1s, with no further information. The 'celegans131labels_50.csv' file contains the list of neuron names, which we used to label the nodes. We'll have a look in more detail at how this import works. We use Pandas functions as a simple way to import a CSV file. (There are, of course, other ways.)
 </p>
 
 Here is the import of the data for the first 50 neurons.
@@ -91,7 +92,7 @@ print(neuronLabels)
 ```
 
 <p style='text-align: justify;'>
-Dictionaries associate keys with values.  You may remember we previously created a dictionary to assign labels to nodes. Here we convert the `neuron_Names` dataframe into a dictionary the neuron (node) indices are the keys and the corresponding neuron (node) names are the values. As the function `to_dict` wraps the dictionary within a dictionary, we obtain the plain labels dictionary by referring to index '0'. 
+Dictionaries associate keys with values.  You may remember we previously created a dictionary to assign labels to nodes. Here we convert the `neuron_Names` dataframe into a dictionary: the neuron (node) indices are the keys and the corresponding neuron (node) names are the values. As the function `to_dict` wraps the dictionary within a dictionary, we obtain the plain labels dictionary by referring to index '0'. 
 </p>
 
 Now we can create a graph, specify a layout, and plot the network.
@@ -101,7 +102,7 @@ neuronGraph = nx.from_numpy_matrix(neurons)
 
 neuronLayout = nx.random_layout(neuronGraph, seed=123)
 
-nx.draw(neuronGraph, neuronLayout, 
+nx.draw_networkx(neuronGraph, neuronLayout, 
         node_size=1000,
         labels = neuronLabels)
 
@@ -109,7 +110,7 @@ show()
 ```
 
 <p style='text-align: justify;'>
-In this particular case we also have other metadata that can be used for visualisation and analysis. In our case, we have the file 'celegans131positions_50.csv' - which contains information on how the nodes relate to each other in 2-D space. We can include this information to replace the layout.
+In this particular case, we also have other metadata that can be used for visualisation and analysis. In our case, we have the file 'celegans131positions_50.csv' - which contains information on how the nodes relate to each other in 2-D space. We can include this information to replace the layout.
 </p>
 
 ```{python}
@@ -130,7 +131,7 @@ The two BAG nodes to the right of the display are the (right and left) [sensory 
 
 ## Do it Yourself
 
-Find the nodes indices of the sensory neurons named 'BAGL' and 'BAGR'.
+Find the node indices of the sensory neurons named 'BAGL' and 'BAGR'.
 
 ::::::::::::::::: solution
 	
@@ -342,7 +343,7 @@ show()
 
 ### **Graph is not bipartite**
 
-Here we generate a bipartite graph, and try to plot it.
+Here we generate a bipartite graph and try to plot it.
 
 ```{python, results = "hold"}
 thisBipartite = nx.Graph()
@@ -462,7 +463,7 @@ myBipartite = nx.from_numpy_matrix(neurons)
 ```
 
 <p style='text-align: justify;'>
-Here we import the bipartite module from NetworkX, and then import the bipartite 277 neuron adjacency matrix and list of neuron names, in the same method as previously. Next, we use the bipartite convention in NetworkX to designate which nodes are in the $0$ group, and which are in the $1$ group. There are several ways to make a graph bipartite, here this is done by listing the node numbers of the 146 neurons and adding the attribute $'bipartite' = 0$, and listing the node numbers of the 131 neurons and adding the attribute $'bipartite' = 1$.
+Here we import the bipartite module from NetworkX, and then import the bipartite 277 neuron adjacency matrix and list of neuron names, with the same method as previously. Next, we use the bipartite convention in NetworkX to designate which nodes are in the $0$ group, and which are in the $1$ group. There are several ways to make a graph bipartite, here this is done by listing the node numbers of the 146 neurons and adding the attribute $'bipartite' = 0$, and listing the node numbers of the 131 neurons and adding the attribute $'bipartite' = 1$.
 </p>
 
 ```{python}
@@ -603,7 +604,7 @@ This gives us the correlation network from the stool samples, with nodes labelle
 
 ### **Functional Networks**
 <p style='text-align: justify;'>
-In the paper, Friedman and Alm (2012), the edges are taken from the correlations coefficients of the correlation matrix. I.e. they define the correlation matrix as a network matrix. But the entries of the correlation matrix are not 0s and 1s as we have used so far. Instead they are real numbers between -1 and 1.  What Friedman and Alm did to obtain meaningful edges was to pick a threshold correlation, e.g. $|cc| = 0.3$ and set any matrix entry with absolute value smaller than the threshold as 0. All other values are left as they are. Because anything non-zero will be interpreted as an edge, this means that they only plot edges where the correlation coefficient is greater than 0.3 or less than -0.3. Such networks are referred to as _functional networks. 
+In the paper, Friedman and Alm (2012), the edges are taken from the correlation coefficients of the correlation matrix. I.e. they define the correlation matrix as a network matrix. But the entries of the correlation matrix are not 0s and 1s as we have used so far. Instead they are real numbers between -1 and 1.  What Friedman and Alm did to obtain meaningful edges was to pick a threshold correlation, e.g. $|cc| = 0.3$ and set any matrix entry with absolute value smaller than the threshold as 0. All other values are left as they are. Because anything non-zero will be interpreted as an edge, this means that they only plot edges where the correlation coefficient is greater than 0.3 or less than -0.3. Such networks are referred to as _functional networks_. 
 </p>
 <p style='text-align: justify;'>
 To threshold the correlation matrix in Python, we select matrix values between -0.3 and 0.3, and replace them with 0. Then we convert this thresholded network matrix to a graph and plot it. 
