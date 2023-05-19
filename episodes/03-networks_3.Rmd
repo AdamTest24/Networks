@@ -36,14 +36,6 @@ exercises: 60
 - [Networks - Part 2](02-networks_2.Rmd)
 ::::::::::::::::::
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-library(reticulate)
-use_virtualenv("r-env")
-##use_python("/Users/sabaferdous/envL2D/bin/python3")
-```
-
-
 ```{python}
 import networkx as nx
 

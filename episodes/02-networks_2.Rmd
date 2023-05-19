@@ -45,14 +45,6 @@ exercises: 60
 
 ::::::::::::::::::
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-library(reticulate)
-##use_python("/Users/sabaferdous/envL2D/bin/python3")
-use_virtualenv("r-env")
-
-```
-
 ```{python}
 import networkx as nx
 
