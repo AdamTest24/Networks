@@ -3,10 +3,23 @@
     "Version": "4.3.0",
     "Repositories": [
       {
+        "Name": "carpentries",
+        "URL": "https://carpentries.r-universe.dev"
+      },
+      {
+        "Name": "carpentries_archive",
+        "URL": "https://carpentries.github.io/drat"
+      },
+      {
         "Name": "CRAN",
-        "URL": "https://cloud.r-project.org"
+        "URL": "https://cran.rstudio.com"
       }
     ]
+  },
+  "Python": {
+    "Version": "3.10.6",
+    "Type": "virtualenv",
+    "Name": "./renv/profiles/lesson-requirements/renv/python/virtualenvs/renv-python-3.10"
   },
   "Packages": {
     "R6": {
