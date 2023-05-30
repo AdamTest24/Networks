@@ -77,11 +77,11 @@
   Networks
 </div>
 
-<aside class="col-md-12 lesson-progress"><div style="width: 100%" class="percentage">
-    100%
+<aside class="col-md-12 lesson-progress"><div style="width: 67%" class="percentage">
+    67%
   </div>
   <div class="progress l2d">
-    <div class="progress-bar l2d" role="progressbar" style="width: 100%" aria-valuenow="100" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar l2d" role="progressbar" style="width: 67%" aria-valuenow="67" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
     </div>
   </div>
 </aside><div class="container">
@@ -167,6 +167,7 @@
         <ul><li><a href="#importing-data-into-networkx">Importing data into NetworkX</a></li>
 <li><a href="#networkx-troubleshooting">NetworkX troubleshooting</a></li>
 <li><a href="#example-full-c.-elegans-neural-network">Example: Full <em>C. elegans</em> Neural Network</a></li>
+<li><a href="#example-microbiome-network">Example: Microbiome network</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
         
@@ -224,7 +225,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Networks - Applications</h1>
-        <p> Last updated on 2023-02-01 | 
+        <p> Last updated on 2023-05-30 | 
         
         <a href="https://github.com/LearnToDiscover/Networks.git/edit/main/episodes/03-networks_3.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -238,9 +239,12 @@
 
         
 
-<p><a href="03-networks_3.md.pdf"><strong>Download Chapter pdf</strong></a></p>
-<p><a href="03-networks_3.ipynb"><strong>Download Chapter notebook (ipynb)</strong></a></p>
-<p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdr0capF7jloJhPH3Pki1B3LZoKOG16poOpuVJ7SL2LkwLHQA/viewform?pli=1" class="external-link"><span style="color: rgb(255, 0, 0);"><strong>Mandatory Lesson Feedback Survey</strong></span></a></p>
+<p><a href="../03-networks_3.md.pdf"><strong>Download Chapter
+pdf</strong></a></p>
+<p><a href="../03-networks_3.ipynb"><strong>Download Chapter notebook
+(ipynb)</strong></a></p>
+<p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdr0capF7jloJhPH3Pki1B3LZoKOG16poOpuVJ7SL2LkwLHQA/viewform?pli=1" class="external-link"><span style="color: rgb(255, 0, 0);"><strong>Mandatory Lesson Feedback
+Survey</strong></span></a></p>
 <div class="overview card">
 <h2 class="card-header">Overview</h2>
 <div class="row g-0">
@@ -267,12 +271,13 @@
 </div>
 </div>
 </div>
-<div id="prereq1" class="callout prereq">
+<div id="prerequisites" class="callout prereq">
 <div class="callout-square">
 <i class="callout-icon" data-feather="check"></i>
 </div>
 <div id="prerequisites" class="callout-inner">
-<h3 class="callout-title">Prerequisites</h3>
+<h3 class="callout-title">Prerequisites<a class="anchor" aria-label="anchor" href="#prerequisites"></a>
+</h3>
 <div class="callout-content">
 <ul><li><a href="01-networks_1.html">Networks - Part 1</a></li>
 <li><a href="02-networks_2.html">Networks - Part 2</a></li>
@@ -291,15 +296,28 @@
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.pyplot <span class="im">import</span> subplots, show</span></code></pre>
 </div>
-<section id="importing-data-into-networkx"><h2 class="section-heading">Importing data into NetworkX</h2>
+<section id="importing-data-into-networkx"><h2 class="section-heading">Importing data into NetworkX<a class="anchor" aria-label="anchor" href="#importing-data-into-networkx"></a>
+</h2>
 <hr class="half-width"><p style="text-align: justify;">
-In the previous lessons we have looked at the basics of NetworkX, created some networks, analysed various network properties, and practised these techniques with the pre-prepared <em>C. elegans</em> dataset. If you want to use NetworkX with data of your own, you’ll need to import your data in a compatible way. Specifically, you need to be able to import data from different original data formats.
+In the previous lessons we have looked at the basics of NetworkX,
+created some networks, analysed various network properties, and
+practised these techniques with the pre-prepared <em>C. elegans</em>
+dataset. If you want to use NetworkX with data of your own, you’ll need
+to import your data in a compatible way. Specifically, you need to be
+able to import data from different original data formats.
 </p>
 <div class="section level3">
 <h3 id="csv-format"><strong>CSV Format</strong><a class="anchor" aria-label="anchor" href="#csv-format"></a></h3>
-<p><code>.csv</code> indicates a very common file format, <a href="https://en.wikipedia.org/wiki/Comma-separated_values" class="external-link">comma separated values</a>. We used it in the previous lesson to import the <em>C. elegans</em> neuronal network.</p>
+<p><code>.csv</code> indicates a very common file format, <a href="https://en.wikipedia.org/wiki/Comma-separated_values" class="external-link">comma
+separated values</a>. We used it in the previous lesson to import the
+<em>C. elegans</em> neuronal network.</p>
 <p style="text-align: justify;">
-The network data ‘celegans131matrix_50.csv’ is simply a large adjacency matrix of 0s and 1s, with no further information. The ‘celegans131labels_50.csv’ file contains the list of neuron names, which we used to label the nodes. We’ll have a look in more detail at how this import works. We use Pandas functions as a simple way to import a CSV file. (There are, of course, other ways.)
+The network data ‘celegans131matrix_50.csv’ is simply a large adjacency
+matrix of 0s and 1s, with no further information. The
+‘celegans131labels_50.csv’ file contains the list of neuron names, which
+we used to label the nodes. We’ll have a look in more detail at how this
+import works. We use Pandas functions as a simple way to import a CSV
+file. (There are, of course, other ways.)
 </p>
 <p>Here is the import of the data for the first 50 neurons.</p>
 <div class="codewrapper sourceCode" id="cb2">
@@ -317,7 +335,15 @@ The network data ‘celegans131matrix_50.csv’ is simply a large adjacency matr
 <pre class="output" tabindex="0"><code><span><span class="fl">50</span></span></code></pre>
 </div>
 <p style="text-align: justify;">
-We import the CSV network file as before. We specify with a keyword argument that there is no header, otherwise the first line in the file will be assumed to be a header and not parsed (handled) in the same way as the rest of the data. We also specify that the adjacency matrix is of data type <code>int</code>. (This does not necessarily have to be the case, see the Microbiome network below.) We then convert the <code>neurons</code> dataframe to a Numpy array. The <code>neuron_Names</code> can be imported in a similar way. They will need to be converted from a dataframe to a dictionary:
+We import the CSV network file as before. We specify with a keyword
+argument that there is no header, otherwise the first line in the file
+will be assumed to be a header and not parsed (handled) in the same way
+as the rest of the data. We also specify that the adjacency matrix is of
+data type <code>int</code>. (This does not necessarily have to be the
+case, see the Microbiome network below.) We then convert the
+<code>neurons</code> dataframe to a Numpy array. The
+<code>neuron_Names</code> can be imported in a similar way. They will
+need to be converted from a dataframe to a dictionary:
 </p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -336,9 +362,16 @@ We import the CSV network file as before. We specify with a keyword argument tha
 <pre class="output" tabindex="0"><code>{0: 'ADFL', 1: 'ADFR', 2: 'ADLL', 3: 'ADLR', 4: 'AFDL', 5: 'AFDR', 6: 'AIAL', 7: 'AIAR', 8: 'AIBR', 9: 'AINL', 10: 'AINR', 11: 'AIZL', 12: 'AIZR', 13: 'ALA', 14: 'ASEL', 15: 'ASER', 16: 'ASGL', 17: 'ASGR', 18: 'ASHL', 19: 'ASHR', 20: 'ASIL', 21: 'ASIR', 22: 'ASJL', 23: 'ASJR', 24: 'ASKL', 25: 'ASKR', 26: 'AUAL', 27: 'AUAR', 28: 'AVAL', 29: 'AVAR', 30: 'AVBL', 31: 'AVBR', 32: 'AVDL', 33: 'AVDR', 34: 'AVEL', 35: 'AVER', 36: 'AVHL', 37: 'AVHR', 38: 'AVJL', 39: 'AVJR', 40: 'AVL', 41: 'AWAL', 42: 'AWAR', 43: 'AWBL', 44: 'AWBR', 45: 'AWCL', 46: 'AWCR', 47: 'BAGL', 48: 'BAGR', 49: 'CEPDL'}</code></pre>
 </div>
 <p style="text-align: justify;">
-Dictionaries associate keys with values. You may remember we previously created a dictionary to assign labels to nodes. Here we convert the <code>neuron_Names</code> dataframe into a dictionary: the neuron (node) indices are the keys and the corresponding neuron (node) names are the values. As the function <code>to_dict</code> wraps the dictionary within a dictionary, we obtain the plain labels dictionary by referring to index ‘0’.
+Dictionaries associate keys with values. You may remember we previously
+created a dictionary to assign labels to nodes. Here we convert the
+<code>neuron_Names</code> dataframe into a dictionary: the neuron (node)
+indices are the keys and the corresponding neuron (node) names are the
+values. As the function <code>to_dict</code> wraps the dictionary within
+a dictionary, we obtain the plain labels dictionary by referring to
+index ‘0’.
 </p>
-<p>Now we can create a graph, specify a layout, and plot the network.</p>
+<p>Now we can create a graph, specify a layout, and plot the
+network.</p>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -353,7 +386,11 @@ Dictionaries associate keys with values. You may remember we previously created 
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="../fig/03-networks_3-rendered-unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
-In this particular case, we also have other metadata that can be used for visualisation and analysis. In our case, we have the file ‘celegans131positions_50.csv’ - which contains information on how the nodes relate to each other in 2-D space. We can include this information to replace the layout.
+In this particular case, we also have other metadata that can be used
+for visualisation and analysis. In our case, we have the file
+‘celegans131positions_50.csv’ - which contains information on how the
+nodes relate to each other in 2-D space. We can include this information
+to replace the layout.
 </p>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -368,15 +405,19 @@ In this particular case, we also have other metadata that can be used for visual
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        </span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>show()        </span></code></pre>
 </div>
-<figure><img src="../fig/03-networks_3-rendered-unnamed-chunk-5-3.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>The two BAG nodes to the right of the display are the (right and left) <a href="https://www.wormatlas.org/neurons/Individual%20Neurons/BAGframeset.html" class="external-link">sensory neurons used to monitor oxygen and carbon dioxide</a>.</p>
-<div id="challenge1" class="callout challenge">
+<figure><img src="../fig/03-networks_3-rendered-unnamed-chunk-5-3.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>The two BAG nodes to the right of the display are the (right and
+left) <a href="https://www.wormatlas.org/neurons/Individual%20Neurons/BAGframeset.html" class="external-link">sensory
+neurons used to monitor oxygen and carbon dioxide</a>.</p>
+<div id="do-it-yourself" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="do-it-yourself" class="callout-inner">
-<h3 class="callout-title">Do it Yourself</h3>
+<h3 class="callout-title">Do it Yourself<a class="anchor" aria-label="anchor" href="#do-it-yourself"></a>
+</h3>
 <div class="callout-content">
-<p>Find the node indices of the sensory neurons named ‘BAGL’ and ‘BAGR’.</p>
+<p>Find the node indices of the sensory neurons named ‘BAGL’ and
+‘BAGR’.</p>
 </div>
 </div>
 </div>
@@ -387,7 +428,7 @@ In this particular case, we also have other metadata that can be used for visual
   DIY ANSWER
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -412,12 +453,25 @@ In this particular case, we also have other metadata that can be used for visual
 <div class="section level3">
 <h3 id="networks-repository-list-of-edges"><strong>Networks Repository: List of Edges</strong><a class="anchor" aria-label="anchor" href="#networks-repository-list-of-edges"></a></h3>
 <p style="text-align: justify;">
-Network files in the <a href="http://networkrepository.com/index.php" class="external-link">Network Repository</a> are sourced from publications and provided in the ‘.edges’ format. These are plain text files. Let’s have a look at the network of a mouse visual cortex. You can find this at <a href="http://networkrepository.com/bn-mouse-visual-cortex-1.php" class="external-link">MOUSE-VISUAL-CORTEX-1</a>. You can either download the zip file from the database or use the file provided for this Lesson.
+Network files in the <a href="http://networkrepository.com/index.php" class="external-link">Network Repository</a> are
+sourced from publications and provided in the ‘.edges’ format. These are
+plain text files. Let’s have a look at the network of a mouse visual
+cortex. You can find this at <a href="http://networkrepository.com/bn-mouse-visual-cortex-1.php" class="external-link">MOUSE-VISUAL-CORTEX-1</a>.
+You can either download the zip file from the database or use the file
+provided for this Lesson.
 </p>
 <p style="text-align: justify;">
-Place the file ‘bn-mouse_visual-cortex_1.edges’ in your working directory. It can be helpful to first open it in any text-editor to see what the data look like. In this case, it is a list of two numbers per row, separated by a space. This is the list of (directed) edges. The first number indicating ‘from’, the second ‘to’. Nodes are not given explicitly but will be inferred from the indices.
+Place the file ‘bn-mouse_visual-cortex_1.edges’ in your working
+directory. It can be helpful to first open it in any text-editor to see
+what the data look like. In this case, it is a list of two numbers per
+row, separated by a space. This is the list of (directed) edges. The
+first number indicating ‘from’, the second ‘to’. Nodes are not given
+explicitly but will be inferred from the indices.
 </p>
-<p>Being a list of edges, we can import it into NetworkX as an <em>edgelist</em>, specifying that the nodes are given as integers. The result is a standard graph object which we can plot using <code>draw</code>.</p>
+<p>Being a list of edges, we can import it into NetworkX as an
+<em>edgelist</em>, specifying that the nodes are given as integers. The
+result is a standard graph object which we can plot using
+<code>draw</code>.</p>
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -433,14 +487,18 @@ Place the file ‘bn-mouse_visual-cortex_1.edges’ in your working directory. I
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>show()        </span></code></pre>
 </div>
 <figure><img src="../fig/03-networks_3-rendered-unnamed-chunk-7-5.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>To interpret the network, you can check it against the source, <a href="http://networkrepository.com/bn-mouse-visual-cortex-1.php" class="external-link">MOUSE-VISUAL-CORTEX-1</a>.</p>
-<div id="challenge2" class="callout challenge">
+<div id="do-it-yourself-1" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="do-it-yourself-1" class="callout-inner">
-<h3 class="callout-title">Do it Yourself</h3>
+<h3 class="callout-title">Do it Yourself<a class="anchor" aria-label="anchor" href="#do-it-yourself-1"></a>
+</h3>
 <div class="callout-content">
-<p>Network Repository provides some summary data on all their networks. Obtain the (i) number of nodes, (ii) number of edges, and (iii) average clustering coefficient and compare it to the data in <a href="https://networkrepository.com/bn-mouse-visual-cortex-1.php" class="external-link">their network summary</a>.</p>
+<p>Network Repository provides some summary data on all their networks.
+Obtain the (i) number of nodes, (ii) number of edges, and (iii) average
+clustering coefficient and compare it to the data in <a href="https://networkrepository.com/bn-mouse-visual-cortex-1.php" class="external-link">their
+network summary</a>.</p>
 </div>
 </div>
 </div>
@@ -451,7 +509,7 @@ Place the file ‘bn-mouse_visual-cortex_1.edges’ in your working directory. I
   DIY ANSWER
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -479,7 +537,11 @@ Average clustering coefficient: 0.04942528735632184</code></pre>
 <div class="section level3">
 <h3 id="json-format"><strong>JSON Format</strong><a class="anchor" aria-label="anchor" href="#json-format"></a></h3>
 <p style="text-align: justify;">
-<a href="https://en.wikipedia.org/wiki/JSON" class="external-link">JSON (JavaScript Object Notation)</a> is an open standard file format which is language independent and widely used. Here is an example code to import and display the network that contains <a href="http://konect.cc/networks/moreno_lesmis/" class="external-link">co-occurances of characters in Victor Hugo’s novel ‘Les Misérables’</a>.
+<a href="https://en.wikipedia.org/wiki/JSON" class="external-link">JSON (JavaScript Object
+Notation)</a> is an open standard file format which is language
+independent and widely used. Here is an example code to import and
+display the network that contains <a href="http://konect.cc/networks/moreno_lesmis/" class="external-link">co-occurances of
+characters in Victor Hugo’s novel ‘Les Misérables’</a>.
 </p>
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -507,8 +569,10 @@ Average clustering coefficient: 0.04942528735632184</code></pre>
 <span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/03-networks_3-rendered-unnamed-chunk-9-7.png" width="1152" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>As you can see, the ‘data’ variable contains the character names as node names.</p>
-<p>If you are curious, open the file with a text editor and check the entries.</p>
+<figure><img src="../fig/03-networks_3-rendered-unnamed-chunk-9-7.png" width="1152" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>As you can see, the ‘data’ variable contains the character names as
+node names.</p>
+<p>If you are curious, open the file with a text editor and check the
+entries.</p>
 <p>E.g. our file starts like this:</p>
 <pre><code>{
 
@@ -516,17 +580,27 @@ Average clustering coefficient: 0.04942528735632184</code></pre>
 
     {"id": "Myriel", "group": 1},</code></pre>
 <p style="text-align: justify;">
-As you can see, the style with curly brackets and colons immediately suggests the use of associative arrays (dictionary) once the data are within Python. The function <code>node_link_graph</code> provides an interface to handle the data as a NetworkX graph.
+As you can see, the style with curly brackets and colons immediately
+suggests the use of associative arrays (dictionary) once the data are
+within Python. The function <code>node_link_graph</code> provides an
+interface to handle the data as a NetworkX graph.
 </p>
 <p style="text-align: justify;">
-There are many other files formats that contain network data. For a list of NetworkX functions that allow import from and export to other file formats, see <a href="http://localhost:8888/lab/tree/Dropbox/Lessons_NetworkX" class="external-link">Reading and writing graphs</a>.
+There are many other files formats that contain network data. For a list
+of NetworkX functions that allow import from and export to other file
+formats, see <a href="http://localhost:8888/lab/tree/Dropbox/Lessons_NetworkX" class="external-link">Reading
+and writing graphs</a>.
 </p>
 </div>
-</section><section id="networkx-troubleshooting"><h2 class="section-heading">NetworkX troubleshooting</h2>
-<hr class="half-width"><p>There are many errors that may occur in the context of dealing with network data. We exemplify some common problems, to help find out how to diagnose and solve them.</p>
+</section><section id="networkx-troubleshooting"><h2 class="section-heading">NetworkX troubleshooting<a class="anchor" aria-label="anchor" href="#networkx-troubleshooting"></a>
+</h2>
+<hr class="half-width"><p>There are many errors that may occur in the context of dealing with
+network data. We exemplify some common problems, to help find out how to
+diagnose and solve them.</p>
 <div class="section level3">
 <h3 id="filenotfounderror"><strong>FileNotFoundError</strong><a class="anchor" aria-label="anchor" href="#filenotfounderror"></a></h3>
-<p>Here we try to import a CSV file which contains an adjacency matrix. We have checked that the file is present in the working directory.</p>
+<p>Here we try to import a CSV file which contains an adjacency matrix.
+We have checked that the file is present in the working directory.</p>
 <div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -537,12 +611,13 @@ There are many other files formats that contain network data. For a list of Netw
 </h3>
 <pre class="error" tabindex="0"><code>Error: FileNotFoundError: [Errno 2] No such file or directory: 'data/celegans131mtrix_50.csv'</code></pre>
 </div>
-<div id="challenge3" class="callout challenge">
+<div id="do-it-yourself-2" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="do-it-yourself-2" class="callout-inner">
-<h3 class="callout-title">Do it Yourself</h3>
+<h3 class="callout-title">Do it Yourself<a class="anchor" aria-label="anchor" href="#do-it-yourself-2"></a>
+</h3>
 <div class="callout-content">
 <p>What has gone wrong, and what is the solution?</p>
 </div>
@@ -555,9 +630,13 @@ There are many other files formats that contain network data. For a list of Netw
   DIY ANSWER
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
-<p>You’ll see this error if something has gone wrong in the way you’ve instructed Python to find your file. This may be that you’ve mis-typed the file name, or the file isn’t in your working directory. Here, the file is present in the working directory, but there’s a typo in the file name.</p>
+<p>You’ll see this error if something has gone wrong in the way you’ve
+instructed Python to find your file. This may be that you’ve mis-typed
+the file name, or the file isn’t in your working directory. Here, the
+file is present in the working directory, but there’s a typo in the file
+name.</p>
 <div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -570,7 +649,8 @@ There are many other files formats that contain network data. For a list of Netw
 </div>
 <div class="section level3">
 <h3 id="keyerror"><strong>KeyError</strong><a class="anchor" aria-label="anchor" href="#keyerror"></a></h3>
-<p>Here we generate a random adjacency matrix, specify how it should be plotted, and try to visualise it.</p>
+<p>Here we generate a random adjacency matrix, specify how it should be
+plotted, and try to visualise it.</p>
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -599,14 +679,16 @@ There are many other files formats that contain network data. For a list of Netw
 </h3>
 <pre class="error" tabindex="0"><code><span><span class="va">Error</span><span class="op">:</span> <span class="va">KeyError</span><span class="op">:</span> <span class="fl">5</span></span></code></pre>
 </div>
-<figure><img src="../fig/03-networks_3-rendered-unnamed-chunk-12-9.png" width="1152" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div id="challenge4" class="callout challenge">
+<figure><img src="../fig/03-networks_3-rendered-unnamed-chunk-12-9.png" width="1152" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div id="do-it-yourself-3" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="do-it-yourself-3" class="callout-inner">
-<h3 class="callout-title">Do it Yourself</h3>
+<h3 class="callout-title">Do it Yourself<a class="anchor" aria-label="anchor" href="#do-it-yourself-3"></a>
+</h3>
 <div class="callout-content">
-<p>Why does the call of <code>draw</code> throw an error, and what is the solution?</p>
+<p>Why does the call of <code>draw</code> throw an error, and what is
+the solution?</p>
 </div>
 </div>
 </div>
@@ -617,9 +699,12 @@ There are many other files formats that contain network data. For a list of Netw
   DIY ANSWER
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
-<p>If you look at the error message, it first flags <strong>5: ‘F’,</strong>, and ends with an error about labels. We’ve included too many node labels: 6 labels for five nodes. This is easily corrected by taking one label out.</p>
+<p>If you look at the error message, it first flags <strong>5:
+‘F’,</strong>, and ends with an error about labels. We’ve included too
+many node labels: 6 labels for five nodes. This is easily corrected by
+taking one label out.</p>
 <div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -706,14 +791,16 @@ There are many other files formats that contain network data. For a list of Netw
 </h3>
 <pre class="error" tabindex="0"><code>Error: NameError: name 'bipartiteLayout' is not defined</code></pre>
 </div>
-<figure><img src="../fig/03-networks_3-rendered-unnamed-chunk-16-13.png" width="1152" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div id="challenge5" class="callout challenge">
+<figure><img src="../fig/03-networks_3-rendered-unnamed-chunk-16-13.png" width="1152" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div id="do-it-yourself-4" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="do-it-yourself-4" class="callout-inner">
-<h3 class="callout-title">Do it Yourself</h3>
+<h3 class="callout-title">Do it Yourself<a class="anchor" aria-label="anchor" href="#do-it-yourself-4"></a>
+</h3>
 <div class="callout-content">
-<p>Why did this happen, what check can you do to avoid the problem, and how do you debug it?</p>
+<p>Why did this happen, what check can you do to avoid the problem, and
+how do you debug it?</p>
 </div>
 </div>
 </div>
@@ -724,9 +811,12 @@ There are many other files formats that contain network data. For a list of Netw
   DIY ANSWER
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
-<p>In this instance, the error message is very clear: you can’t plot a graph with a bipartite layout if the graph isn’t bipartite. This would have also been evident if I hadn’t just checked that the graph was connected, but also that it was bipartite.</p>
+<p>In this instance, the error message is very clear: you can’t plot a
+graph with a bipartite layout if the graph isn’t bipartite. This would
+have also been evident if I hadn’t just checked that the graph was
+connected, but also that it was bipartite.</p>
 <div class="codewrapper sourceCode" id="cb28">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -737,7 +827,9 @@ There are many other files formats that contain network data. For a list of Netw
 </h3>
 <pre class="output" tabindex="0"><code><span><span class="va">False</span></span></code></pre>
 </div>
-<p>There is one edge connecting two nodes within one group. If we either remove that edge, or change one of the nodes to the other group, it will be bipartite.</p>
+<p>There is one edge connecting two nodes within one group. If we either
+remove that edge, or change one of the nodes to the other group, it will
+be bipartite.</p>
 <div class="codewrapper sourceCode" id="cb30">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -785,16 +877,32 @@ There are many other files formats that contain network data. For a list of Netw
 </div>
 </div>
 </div>
-</section><section id="example-full-c.-elegans-neural-network"><h2 class="section-heading">Example: Full <em>C. elegans</em> Neural Network</h2>
-<hr class="half-width"><p>In the final part, we look at two publicly available networks that are of biomedical interest.</p>
+</section><section id="example-full-c.-elegans-neural-network"><h2 class="section-heading">Example: Full <em>C. elegans</em> Neural Network<a class="anchor" aria-label="anchor" href="#example-full-c.-elegans-neural-network"></a>
+</h2>
+<hr class="half-width"><p>In the final part, we look at two publicly available networks that
+are of biomedical interest.</p>
 <p style="text-align: justify;">
-In this first example we return to data about the neuronal connections in <em>C. elegans</em>. This time we are using the full 277 neuron dataset, which includes 131 frontal neurons. For the original version of the data, go to the (<a href="https://www.dynamic-connectome.org/" class="external-link">Dynamic Connectome</a>) website and select the Resources tab.
+In this first example we return to data about the neuronal connections
+in <em>C. elegans</em>. This time we are using the full 277 neuron
+dataset, which includes 131 frontal neurons. For the original version of
+the data, go to the (<a href="https://www.dynamic-connectome.org/" class="external-link">Dynamic Connectome</a>)
+website and select the Resources tab.
 </p>
 <p style="text-align: justify;">
-The data in the <span class="math inline">\(277 \times 277\)</span> network matrix in the celegans277.zip file contain the connections between the 131 neurons in the frontal network, and 146 in the remainder or the network. If the connections <em>within</em> each of these groups are severed, and the only remaining edges are between the two groups, this takes the form of a <em>bipartite graph</em>.
+The data in the <span class="math inline">\(277 \times 277\)</span>
+network matrix in the celegans277.zip file contain the connections
+between the 131 neurons in the frontal network, and 146 in the remainder
+or the network. If the connections <em>within</em> each of these groups
+are severed, and the only remaining edges are between the two groups,
+this takes the form of a <em>bipartite graph</em>.
 </p>
 <p style="text-align: justify;">
-We have made available this modified version of the 277 neuron matrix, with no edges within the 131 or the 146 neuron group, see file ‘celegans277matrix_bipartite.csv’. Note that bipartite networks do not work in NetworkX if any of the nodes are not connected. Also available for download is a list of neuron labels and spatial positions, files ‘celegans277labels.csv’ and ‘celegans277positions.csv’.
+We have made available this modified version of the 277 neuron matrix,
+with no edges within the 131 or the 146 neuron group, see file
+‘celegans277matrix_bipartite.csv’. Note that bipartite networks do not
+work in NetworkX if any of the nodes are not connected. Also available
+for download is a list of neuron labels and spatial positions, files
+‘celegans277labels.csv’ and ‘celegans277positions.csv’.
 </p>
 <div class="codewrapper sourceCode" id="cb34">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -812,7 +920,13 @@ We have made available this modified version of the 277 neuron matrix, with no e
 <span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>myBipartite <span class="op">=</span> nx.from_numpy_matrix(neurons) </span></code></pre>
 </div>
 <p style="text-align: justify;">
-Here we import the bipartite module from NetworkX, and then import the bipartite 277 neuron adjacency matrix and list of neuron names, with the same method as previously. Next, we use the bipartite convention in NetworkX to designate which nodes are in the <span class="math inline">\(0\)</span> group, and which are in the <span class="math inline">\(1\)</span> group. There are several ways to make a graph bipartite, here this is done by listing the node numbers of the 146 neurons and adding the attribute <span class="math inline">\('bipartite' = 0\)</span>, and listing the node numbers of the 131 neurons and adding the attribute <span class="math inline">\('bipartite' = 1\)</span>.
+Here we import the bipartite module from NetworkX, and then import the
+bipartite 277 neuron adjacency matrix and list of neuron names, with the
+same method as previously. Next, we use the bipartite convention in
+NetworkX to designate which nodes are in the <span class="math inline">\(0\)</span> group, and which are in the <span class="math inline">\(1\)</span> group. There are several ways to make a
+graph bipartite, here this is done by listing the node numbers of the
+146 neurons and adding the attribute <span class="math inline">\('bipartite' = 0\)</span>, and listing the
+node numbers of the 131 neurons and adding the attribute <span class="math inline">\('bipartite' = 1\)</span>.
 </p>
 <div class="codewrapper sourceCode" id="cb35">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -857,7 +971,9 @@ Here we import the bipartite module from NetworkX, and then import the bipartite
 </h3>
 <pre class="output" tabindex="0"><code><span><span class="va">True</span></span></code></pre>
 </div>
-<p>Next, we continue to use the bipartite convention introduced above to define the two bipartite groups, and set up a custom colouring list by group.</p>
+<p>Next, we continue to use the bipartite convention introduced above to
+define the two bipartite groups, and set up a custom colouring list by
+group.</p>
 <div class="codewrapper sourceCode" id="cb38">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -876,15 +992,20 @@ Here we import the bipartite module from NetworkX, and then import the bipartite
 <span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>        node_color<span class="op">=</span>color_list)</span>
 <span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/03-networks_3-rendered-unnamed-chunk-24-17.png" width="960" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>The graph shows in a preliminary way that there are certain preferred connections between the two sets, in this case between the frontal group and the rest of the neurons.</p>
-<div id="challenge6" class="callout challenge">
+<figure><img src="../fig/03-networks_3-rendered-unnamed-chunk-24-17.png" width="960" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>The graph shows in a preliminary way that there are certain preferred
+connections between the two sets, in this case between the frontal group
+and the rest of the neurons.</p>
+<div id="do-it-yourself-5" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="do-it-yourself-5" class="callout-inner">
-<h3 class="callout-title">Do it Yourself</h3>
+<h3 class="callout-title">Do it Yourself<a class="anchor" aria-label="anchor" href="#do-it-yourself-5"></a>
+</h3>
 <div class="callout-content">
-<p>Draw the bipartite neural network, coloured by group and positioned using the positional information from Dynamic Connectome in the file ‘celegans277positions.csv’.</p>
+<p>Draw the bipartite neural network, coloured by group and positioned
+using the positional information from Dynamic Connectome in the file
+‘celegans277positions.csv’.</p>
 </div>
 </div>
 </div>
@@ -895,9 +1016,12 @@ Here we import the bipartite module from NetworkX, and then import the bipartite
   DIY ANSWER
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
-<p>The 2D positions are contained in the file ‘celegans277positions.csv’. After the import of the file, they can be extracted into a variable using <code>values</code>. The positions then need to replace the original layout values (called ‘pos’ above).</p>
+<p>The 2D positions are contained in the file
+‘celegans277positions.csv’. After the import of the file, they can be
+extracted into a variable using <code>values</code>. The positions then
+need to replace the original layout values (called ‘pos’ above).</p>
 <div class="codewrapper sourceCode" id="cb39">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -920,16 +1044,34 @@ Here we import the bipartite module from NetworkX, and then import the bipartite
 </div>
 </div>
 </div>
-</section><figure id="example-microbiome-network"><h2 class="section-heading">Example: Microbiome network</h2>
+</section><section id="example-microbiome-network"><h2 class="section-heading">Example: Microbiome network<a class="anchor" aria-label="anchor" href="#example-microbiome-network"></a>
+</h2>
 <hr class="half-width"><p style="text-align: justify;">
-Microbiome data can be collected from a wide variety of environments, and is generally considered to be the bacterial, fungal, and viral components of a given environment. <a href="https://doi.org/10.1371/journal.pcbi.1002687" class="external-link">Friedman and Alm (2012)</a> used data from the <a href="https://www.nature.com/articles/nature11209" class="external-link">Human Microbiome Project</a> to calculate pairwise interaction correlations for each operational taxonomic unit (OTU). They then used Python and NetworkX to analyse and visualise several of these correlation datasets for each human body site. The challenge here is to extract network information about a graph from bivariate quantities like the correlation coefficient.
+Microbiome data can be collected from a wide variety of environments,
+and is generally considered to be the bacterial, fungal, and viral
+components of a given environment. <a href="https://doi.org/10.1371/journal.pcbi.1002687" class="external-link">Friedman and Alm
+(2012)</a> used data from the <a href="https://www.nature.com/articles/nature11209" class="external-link">Human Microbiome
+Project</a> to calculate pairwise interaction correlations for each
+operational taxonomic unit (OTU). They then used Python and NetworkX to
+analyse and visualise several of these correlation datasets for each
+human body site. The challenge here is to extract network information
+about a graph from bivariate quantities like the correlation
+coefficient.
 </p>
-<img src="../fig/microbiomenetworks.png" class="figure mx-auto d-block"> As the correlation data are open access, we can access them and derive the network.
+<img src="../fig/microbiomenetworks.png" class="figure"> As the correlation data are
+open access, we can access them and derive the network.
 <p style="text-align: justify;">
-Data are imported from text files. In this case, it is not a CSV file. Rather, the data are tab separated. We can adjust for this by specifying the keyword argument <code>delimiter</code> for tab. As the correlation coefficients are stored as decimal point numbers, we specify the keyword argument <code>dtype</code> as floating point ‘float64’.
+Data are imported from text files. In this case, it is not a CSV file.
+Rather, the data are tab separated. We can adjust for this by specifying
+the keyword argument <code>delimiter</code> for tab. As the correlation
+coefficients are stored as decimal point numbers, we specify the keyword
+argument <code>dtype</code> as floating point ‘float64’.
 </p>
 <p style="text-align: justify;">
-If you check the file, you will see that the first entry is ‘1.0’. This is because all self-correlations are (trivially) equal to one. We replace those diagonal values with 0 to avoid (nonsensical) self-connections in the network.
+If you check the file, you will see that the first entry is ‘1.0’. This
+is because all self-correlations are (trivially) equal to one. We
+replace those diagonal values with 0 to avoid (nonsensical)
+self-connections in the network.
 </p>
 <div class="codewrapper sourceCode" id="cb40">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -965,15 +1107,31 @@ If you check the file, you will see that the first entry is ‘1.0’. This is b
 <span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>show()        </span></code></pre>
 </div>
 <figure><img src="../fig/03-networks_3-rendered-unnamed-chunk-27-21.png" width="1536" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
-This gives us the correlation network from the stool samples, with nodes labelled by the OTU number. However, this doesn’t look much like the data from the article, partly as there are so many edges. The reason is that any number in the network matrix that is not equal to zero is interpreted as an edge. Thus, essentially the graph is fully connected.
+This gives us the correlation network from the stool samples, with nodes
+labelled by the OTU number. However, this doesn’t look much like the
+data from the article, partly as there are so many edges. The reason is
+that any number in the network matrix that is not equal to zero is
+interpreted as an edge. Thus, essentially the graph is fully connected.
 </p>
 <div class="section level3">
 <h3 id="functional-networks"><strong>Functional Networks</strong><a class="anchor" aria-label="anchor" href="#functional-networks"></a></h3>
 <p style="text-align: justify;">
-In the paper, Friedman and Alm (2012), the edges are taken from the correlation coefficients of the correlation matrix. I.e. they define the correlation matrix as a network matrix. But the entries of the correlation matrix are not 0s and 1s as we have used so far. Instead they are real numbers between -1 and 1. What Friedman and Alm did to obtain meaningful edges was to pick a threshold correlation, e.g. <span class="math inline">\(|cc| = 0.3\)</span> and set any matrix entry with absolute value smaller than the threshold as 0. All other values are left as they are. Because anything non-zero will be interpreted as an edge, this means that they only plot edges where the correlation coefficient is greater than 0.3 or less than -0.3. Such networks are referred to as <em>functional networks</em>.
+In the paper, Friedman and Alm (2012), the edges are taken from the
+correlation coefficients of the correlation matrix. I.e. they define the
+correlation matrix as a network matrix. But the entries of the
+correlation matrix are not 0s and 1s as we have used so far. Instead
+they are real numbers between -1 and 1. What Friedman and Alm did to
+obtain meaningful edges was to pick a threshold correlation, e.g. <span class="math inline">\(|cc| = 0.3\)</span> and set any matrix entry with
+absolute value smaller than the threshold as 0. All other values are
+left as they are. Because anything non-zero will be interpreted as an
+edge, this means that they only plot edges where the correlation
+coefficient is greater than 0.3 or less than -0.3. Such networks are
+referred to as <em>functional networks</em>.
 </p>
 <p style="text-align: justify;">
-To threshold the correlation matrix in Python, we select matrix values between -0.3 and 0.3, and replace them with 0. Then we convert this thresholded network matrix to a graph and plot it.
+To threshold the correlation matrix in Python, we select matrix values
+between -0.3 and 0.3, and replace them with 0. Then we convert this
+thresholded network matrix to a graph and plot it.
 </p>
 <div class="codewrapper sourceCode" id="cb42">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -999,27 +1157,49 @@ To threshold the correlation matrix in Python, we select matrix values between -
 <span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>show()        </span></code></pre>
 </div>
 <figure><img src="../fig/03-networks_3-rendered-unnamed-chunk-29-23.png" width="1536" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
-This network only displays edges where strong correlations were found and this is how Friedman and Alm obtained their graphs. Note that the network structure now is a function of the chosen threshold. Smaller thresholds yield more edges, higher thresholds fewer edges. Choosing the right threshold may be difficult and needs further thought.
+This network only displays edges where strong correlations were found
+and this is how Friedman and Alm obtained their graphs. Note that the
+network structure now is a function of the chosen threshold. Smaller
+thresholds yield more edges, higher thresholds fewer edges. Choosing the
+right threshold may be difficult and needs further thought.
 </p>
 <p style="text-align: justify;">
-The creation of networks from functional data opens a wide field of research: <em>any</em> interrelation matrix obtained with whatever metric can be interpreted as a network matrix and converted into a graph. As an example, see Figure 1 in <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3621511/" class="external-link">The Brain as a Complex System: Using Network Science as a Tool for Understanding the Brain</a> which describes the procedure for brain imaging.
+The creation of networks from functional data opens a wide field of
+research: <em>any</em> interrelation matrix obtained with whatever
+metric can be interpreted as a network matrix and converted into a
+graph. As an example, see Figure 1 in <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3621511/" class="external-link">The Brain
+as a Complex System: Using Network Science as a Tool for Understanding
+the Brain</a> which describes the procedure for brain imaging.
 </p>
 <p style="text-align: justify;">
-This concludes our set of Lessons on network handling in Python. For practice, try to find a database that touches on topics of your own interest. As an example, in the context of the human brain, there is a rich database at the <a href="http://www.humanconnectomeproject.org/data/" class="external-link">Human Connectome Database</a>. Each database will present its own challenges and obstacles. Nevertheless, it is worth to overcome those to be able to work with the data in Python. Eventually, all functions and dysfunctions observed in living systems are a consequence of interactions between components.
+This concludes our set of Lessons on network handling in Python. For
+practice, try to find a database that touches on topics of your own
+interest. As an example, in the context of the human brain, there is a
+rich database at the <a href="http://www.humanconnectomeproject.org/data/" class="external-link">Human Connectome
+Database</a>. Each database will present its own challenges and
+obstacles. Nevertheless, it is worth to overcome those to be able to
+work with the data in Python. Eventually, all functions and dysfunctions
+observed in living systems are a consequence of interactions between
+components.
 </p>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
 </div>
 <div class="callout-inner">
-<h3 class="callout-title">Keypoints</h3>
+<h3 class="callout-title">Keypoints<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
+</h3>
 <div class="callout-content">
 <ul><li>
-<code>.csv</code> is a common file format when importing network data.</li>
+<code>.csv</code> is a common file format when importing network
+data.</li>
 <li>
-<code>JSON</code> is another widely used standard file format which is language independent.</li>
+<code>JSON</code> is another widely used standard file format which
+is language independent.</li>
 <li>
-<code>FileNotFoundError</code>, <code>KeyError</code> and <code>Graph is not bipartite</code> are the most common file import errors.</li>
+<code>FileNotFoundError</code>, <code>KeyError</code> and
+<code>Graph is not bipartite</code> are the most common file import
+errors.</li>
 </ul></div>
 </div>
 </div>
@@ -1028,7 +1208,7 @@ Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use. 
  -->
 </div>
-</figure></div> <!-- / div.lesson-content -->
+</section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="../instructor/02-networks_2.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
         <a class="chapter-link float-end" href="../instructor/index.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
@@ -1058,9 +1238,9 @@ any links that you are not going to use.
         <p>Materials licensed under <a href="../LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/LearnToDiscover/sandpaper/tree/l2d" class="external-link">sandpaper (0.9.0)</a>,
-        <a href="https://github.com/carpentries/pegboard/tree/e815ea1a34f6eda01a3c9ab9643e35aa051e1938" class="external-link">pegboard (0.4.3)</a>,
-      and <a href="https://github.com/LearnToDiscover/varnish/tree/c72a9c21616682c29279523e56b331ed24509f1c" class="external-link">varnish (0.2.14)</a>.</p>
+        <p>Built with <a href="https://github.com/LearnToDiscover/sandpaper/tree/l2d" class="external-link">sandpaper (0.12.0.9000)</a>,
+        <a href="https://github.com/carpentries/pegboard/tree/3b06f4559892e31ff0a6bae1d838cd1ba6fd94fb" class="external-link">pegboard (0.5.3)</a>,
+      and <a href="https://github.com/LearnToDiscover/varnish/tree/f412e8bbc14a5110120155e1af9282842877c62f" class="external-link">varnish (0.2.14)</a>.</p>
 			</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -1073,16 +1253,16 @@ any links that you are not going to use.
   "@context": "https://schema.org",
   "@type": "TrainingMaterial",
   "@id": "https://learntodiscover.github.io/Networks/instructor/03-networks_3.html",
-  "dct:conformsTo": "https://bioschemas.org/profiles/TrainingMaterial/0.9-DRAFT-2020_12_08",
+  "dct:conformsTo": "https://bioschemas.org/profiles/TrainingMaterial/1.0-RELEASE",
   "description": "A Carpentries Lesson teaching foundational data and coding skills to researchers worldwide",
   "keywords": "software, data, lesson, The Carpentries",
   "name": "Networks - Applications",
   "creativeWorkStatus": "active",
   "url": "https://learntodiscover.github.io/Networks/instructor/03-networks_3.html",
   "identifier": "https://learntodiscover.github.io/Networks/instructor/03-networks_3.html",
-  "dateCreated": "2023-02-01",
-  "dateModified": "2023-02-01",
-  "datePublished": "2023-02-01"
+  "dateCreated": "2023-05-30",
+  "dateModified": "2023-05-30",
+  "datePublished": "2023-05-30"
 }
 
   </script><script>

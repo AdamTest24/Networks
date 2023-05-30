@@ -37,9 +37,6 @@ exercises: 60
 ::::::::::::::::::
 
 
-
-
-
 ```python
 import networkx as nx
 

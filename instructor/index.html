@@ -214,7 +214,8 @@
       <hr></nav><main id="main-content" class="main-content"><h1 class="schedule-heading">Summary and Schedule</h1>
       
 
-<p>This lesson was built with <a href="https://carpentries.github.io/sandpaper-docs" class="external-link">The Carpentries Workbench</a>.</p>
+<p>This lesson was built with <a href="https://carpentries.github.io/sandpaper-docs" class="external-link">The Carpentries
+Workbench</a>.</p>
 <!-- 
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use. 
@@ -223,34 +224,39 @@ any links that you are not going to use.
 
       <section id="schedule"><table class="table table schedule table-striped" role="presentation"><tbody><tr><td></td><td><a href="#setup">Setup Instructions</a></td><td> Download files required for the lesson</td>
           </tr><tr><td>
-<span class="visually-hidden">Duration: </span>00:00
+<span class="visually-hidden">Duration: </span>00h 00m
 </td>
 <td>
  1. <a href="01-networks_1.html">Networks - Introduction</a>
 </td>
 <td>
-How are graphs represented?<br>How are graphs visualised?<br>What are common types of graphs?<br>::::::::::::::::::::::::::::::::::::::::::::::::
+How are graphs represented?<br>How are graphs visualised?<br>What are
+common types of
+graphs?<br>::::::::::::::::::::::::::::::::::::::::::::::::
 </td>
 </tr><tr><td>
-<span class="visually-hidden">Duration: </span>02:00
+<span class="visually-hidden">Duration: </span>02h 00m
 </td>
 <td>
  2. <a href="02-networks_2.html">Networks - Quantification</a>
 </td>
 <td>
-How to generate test matrices using NetworkX?<br>What is the purpose of the node degree and the degree distribution?<br>How can a network be quantified?<br>::::::::::::::::::::::::::::::::::::::::::::::::
+How to generate test matrices using NetworkX?<br>What is the purpose of
+the node degree and the degree distribution?<br>How can a network be
+quantified?<br>::::::::::::::::::::::::::::::::::::::::::::::::
 </td>
 </tr><tr><td>
-<span class="visually-hidden">Duration: </span>04:00
+<span class="visually-hidden">Duration: </span>04h 00m
 </td>
 <td>
  3. <a href="03-networks_3.html">Networks - Applications</a>
 </td>
 <td>
-What ways are there to import data into NetworkX?<br>What are the common file import error?<br>How to troubleshoot the import errors?
+What ways are there to import data into NetworkX?<br>What are the
+common file import error?<br>How to troubleshoot the import errors?
 </td>
 </tr><tr><td>
-<span class="visually-hidden">Duration: </span>06:00
+<span class="visually-hidden">Duration: </span>06h 00m
 </td>
 <td>
 Finish
@@ -263,33 +269,43 @@ any links that you are not going to use.
  --></tbody></table><p>
       The actual schedule may vary slightly depending on the topics and exercises chosen by the instructor.
       </p>
-      </section><section id="setup"><section id="package-installation"><h2 class="section-heading">Package Installation</h2>
-<hr class="half-width"><p>To install the <code>networkx</code> package, run the following command on terminal.</p>
+      </section><section id="setup"><section id="package-installation"><h2 class="section-heading">Package Installation<a class="anchor" aria-label="anchor" href="#package-installation"></a>
+</h2>
+<hr class="half-width"><p>To install the <code>networkx</code> package, run the following
+command on terminal.</p>
 <pre><code>pip install networkx==2.8.8</code></pre>
-<p>Note: The newer version (3.0) of this package has depreciated some of the functions being used in the lesson. The newer functions needs to be fully tested before update. Therefore, its recommnded to use the version 2.8.8.</p>
-</section><section id="data-sets"><h2 class="section-heading">Data Sets</h2>
-<hr class="half-width"><p>Please download the <a href="data/data.zip">data zip file</a> and unzip it to your Desktop. It contains:</p>
-<div id="checklist1" class="callout checklist">
+<p>Note: The newer version (3.0) of this package has depreciated some of
+the functions being used in the lesson. The newer functions needs to be
+fully tested before update. Therefore, its recommnded to use the version
+2.8.8.</p>
+</section><section id="data-sets"><h2 class="section-heading">Data Sets<a class="anchor" aria-label="anchor" href="#data-sets"></a>
+</h2>
+<hr class="half-width"><p>Please download the <a href="../data/data.zip">data zip file</a> and
+unzip it to your Desktop. It contains:</p>
+<div id="data-files" class="callout checklist">
 <div class="callout-square">
 <i class="callout-icon" data-feather="check-square"></i>
 </div>
 <div id="data-files" class="callout-inner">
-<h3 class="callout-title">Data files</h3>
+<h3 class="callout-title">Data files<a class="anchor" aria-label="anchor" href="#data-files"></a>
+</h3>
 <div class="callout-content">
-<ul><li><a href="data/celegans131labels_50.csv">celegans131labels_50.csv</a></li>
-<li><a href="data/celegans131matrix_50.csv">celegans131matrix_50.csv</a></li>
-<li><a href="data/celegans131positions_50.csv">celegans131positions_50.csv</a></li>
-<li><a href="data/celegans277labels.csv">celegans277labels.csv</a></li>
-<li><a href="data/celegans277matrix_bipartite.csv">celegans277matrix_bipartite.csv</a></li>
-<li><a href="data/celegans277positions.csv">celegans277positions.csv</a></li>
-<li><a href="data/celegans277positions.txt">celegans277positions.txt</a></li>
-<li><a href="data/Stool_sparse_matrix_names.txt">Stool_sparse_matrix_names.txt</a></li>
-<li><a href="data/miserables.json">miserables.json</a></li>
-<li><a href="data/bn-mouse_visual-cortex_1.edges">bn-mouse_visual-cortex_1.edges</a></li>
+<ul><li><a href="../data/celegans131labels_50.csv">celegans131labels_50.csv</a></li>
+<li><a href="../data/celegans131matrix_50.csv">celegans131matrix_50.csv</a></li>
+<li><a href="../data/celegans131positions_50.csv">celegans131positions_50.csv</a></li>
+<li><a href="../data/celegans277labels.csv">celegans277labels.csv</a></li>
+<li><a href="../data/celegans277matrix_bipartite.csv">celegans277matrix_bipartite.csv</a></li>
+<li><a href="../data/celegans277positions.csv">celegans277positions.csv</a></li>
+<li><a href="../data/celegans277positions.txt">celegans277positions.txt</a></li>
+<li><a href="../data/Stool_sparse_matrix_names.txt">Stool_sparse_matrix_names.txt</a></li>
+<li><a href="../data/miserables.json">miserables.json</a></li>
+<li><a href="../data/bn-mouse_visual-cortex_1.edges">bn-mouse_visual-cortex_1.edges</a></li>
 </ul></div>
 </div>
 </div>
-<p>The code assumes a path to the data files as ‘data/…’ or ‘data\...’, respectively. To use this path, please create a subfolder called ‘data’ in your current directory and put the data files in it.</p>
+<p>The code assumes a path to the data files as ‘data/…’ or ‘data\...’,
+respectively. To use this path, please create a subfolder called ‘data’
+in your current directory and put the data files in it.</p>
 <!-- 
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use. 
@@ -321,9 +337,9 @@ any links that you are not going to use.
         <p>Materials licensed under <a href="../LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/LearnToDiscover/sandpaper/tree/l2d" class="external-link">sandpaper (0.9.0)</a>,
-        <a href="https://github.com/carpentries/pegboard/tree/e815ea1a34f6eda01a3c9ab9643e35aa051e1938" class="external-link">pegboard (0.4.3)</a>,
-      and <a href="https://github.com/LearnToDiscover/varnish/tree/c72a9c21616682c29279523e56b331ed24509f1c" class="external-link">varnish (0.2.14)</a>.</p>
+        <p>Built with <a href="https://github.com/LearnToDiscover/sandpaper/tree/l2d" class="external-link">sandpaper (0.12.0.9000)</a>,
+        <a href="https://github.com/carpentries/pegboard/tree/3b06f4559892e31ff0a6bae1d838cd1ba6fd94fb" class="external-link">pegboard (0.5.3)</a>,
+      and <a href="https://github.com/LearnToDiscover/varnish/tree/f412e8bbc14a5110120155e1af9282842877c62f" class="external-link">varnish (0.2.14)</a>.</p>
 			</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -336,16 +352,16 @@ any links that you are not going to use.
   "@context": "https://schema.org",
   "@type": "TrainingMaterial",
   "@id": "https://learntodiscover.github.io/Networks/instructor/index.html",
-  "dct:conformsTo": "https://bioschemas.org/profiles/TrainingMaterial/0.9-DRAFT-2020_12_08",
+  "dct:conformsTo": "https://bioschemas.org/profiles/TrainingMaterial/1.0-RELEASE",
   "description": "A Carpentries Lesson teaching foundational data and coding skills to researchers worldwide",
   "keywords": "software, data, lesson, The Carpentries",
   "name": "Networks",
   "creativeWorkStatus": "active",
   "url": "https://learntodiscover.github.io/Networks/instructor/index.html",
   "identifier": "https://learntodiscover.github.io/Networks/instructor/index.html",
-  "dateCreated": "2023-02-01",
-  "dateModified": "2023-02-01",
-  "datePublished": "2023-02-01"
+  "dateCreated": "2023-05-30",
+  "dateModified": "2023-05-30",
+  "datePublished": "2023-05-30"
 }
 
   </script><script>

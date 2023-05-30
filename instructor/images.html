@@ -259,18 +259,39 @@
 <section id="01-networks_1"><h2 class="section-heading"><a href="01-networks_1.html">Networks - Introduction</a></h2>
 <hr class="half-width">
 <h3 id="01-networks_1-figure-1">Figure 1</h3>
-<figure id="example-protein-protein-interactions"><h2 class="section-heading">Example: Protein-protein interactions</h2>
+<section id="example-protein-protein-interactions"><h2 class="section-heading">Example: Protein-protein interactions<a class="anchor" aria-label="anchor" href="#example-protein-protein-interactions"></a>
+</h2>
 <hr class="half-width">
 <p style="text-align: justify;">
-Protein-protein interactions (PPIs) (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2891586/" class="external-link">PLoS: Protein–Protein Interactions</a>) refer to specific functional or physical contact between proteins in vivo. Interactions may be dependent on biological context, organism, definition of interaction, and many other factors. An example of PPIs can be seen below.
+Protein-protein interactions (PPIs) (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2891586/" class="external-link">PLoS:
+Protein–Protein Interactions</a>) refer to specific functional or
+physical contact between proteins in vivo. Interactions may be dependent
+on biological context, organism, definition of interaction, and many
+other factors. An example of PPIs can be seen below.
 </p>
-<img src="../fig/mazG.png" class="figure mx-auto d-block"><p style="text-align: justify;">
-PPIs may be conceptualised as a network, in order to give greater context to the protein interactions, and to see how changes to one protein may affect another protein several steps removed. A PPI network can be modelled via a graph in which the nodes represent the proteins and the edges represent interactions: an edge from node A to node B indicates protein B interacts with protein A. The diagram above shows the PPI network centred around the protein <span class="math inline">\(mazG\)</span> in <em>Escherichia coli K12 MG1655</em>. This is part of a toxin-antitoxin system. These systems generally encode pairs of <em>toxin</em> and inhibitory <em>antitoxin</em> proteins, are transmitted by plasmids, and likely serve several biological functions including stress tolerance and genome stabilisation. <span class="math inline">\(mazG\)</span> regulates the type II toxin-antitoxin system shown in this network, where <span class="math inline">\(mazF\)</span> is the toxin and <span class="math inline">\(mazE\)</span> is the antitoxin. More details on the proteins in this network can be seen on STRING-DB (<a href="https://version-11-0b.string-db.org/cgi/network?networkId=b6lw5pU2DeQm" class="external-link">STRING-DB: mazG in E. coli</a>.
+<img src="../fig/mazG.png" class="figure"><p style="text-align: justify;">
+PPIs may be conceptualised as a network, in order to give greater
+context to the protein interactions, and to see how changes to one
+protein may affect another protein several steps removed. A PPI network
+can be modelled via a graph in which the nodes represent the proteins
+and the edges represent interactions: an edge from node A to node B
+indicates protein B interacts with protein A. The diagram above shows
+the PPI network centred around the protein <span class="math inline">\(mazG\)</span> in <em>Escherichia coli K12
+MG1655</em>. This is part of a toxin-antitoxin system. These systems
+generally encode pairs of <em>toxin</em> and inhibitory
+<em>antitoxin</em> proteins, are transmitted by plasmids, and likely
+serve several biological functions including stress tolerance and genome
+stabilisation. <span class="math inline">\(mazG\)</span> regulates the
+type II toxin-antitoxin system shown in this network, where <span class="math inline">\(mazF\)</span> is the toxin and <span class="math inline">\(mazE\)</span> is the antitoxin. More details on
+the proteins in this network can be seen on STRING-DB (<a href="https://version-11-0b.string-db.org/cgi/network?networkId=b6lw5pU2DeQm" class="external-link">STRING-DB:
+mazG in E. coli</a>.
 </p>
 <p style="text-align: justify;">
-At the end of this lesson we are going to use Python to draw this PPI network. Before this however, we shall begin with some examples to familiarise you with the elements and properties of graphs.
+At the end of this lesson we are going to use Python to draw this PPI
+network. Before this however, we shall begin with some examples to
+familiarise you with the elements and properties of graphs.
 </p>
-</figure><hr>
+</section><hr>
 <h3 id="01-networks_1-figure-2">Figure 2</h3>
 <figure><img src="../fig/simple_graph2.png" class="figure mx-auto d-block"></figure><hr>
 <h3 id="01-networks_1-figure-3">Figure 3</h3>
@@ -360,17 +381,35 @@ At the end of this lesson we are going to use Python to draw this PPI network. B
 <h3 id="03-networks_3-figure-10">Figure 10</h3>
 <figure><img src="../fig/03-networks_3-rendered-unnamed-chunk-25-19.png" width="960" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><hr>
 <h3 id="03-networks_3-figure-11">Figure 11</h3>
-<figure id="example-microbiome-network"><h2 class="section-heading">Example: Microbiome network</h2>
+<section id="example-microbiome-network"><h2 class="section-heading">Example: Microbiome network<a class="anchor" aria-label="anchor" href="#example-microbiome-network"></a>
+</h2>
 <hr class="half-width">
 <p style="text-align: justify;">
-Microbiome data can be collected from a wide variety of environments, and is generally considered to be the bacterial, fungal, and viral components of a given environment. <a href="https://doi.org/10.1371/journal.pcbi.1002687" class="external-link">Friedman and Alm (2012)</a> used data from the <a href="https://www.nature.com/articles/nature11209" class="external-link">Human Microbiome Project</a> to calculate pairwise interaction correlations for each operational taxonomic unit (OTU). They then used Python and NetworkX to analyse and visualise several of these correlation datasets for each human body site. The challenge here is to extract network information about a graph from bivariate quantities like the correlation coefficient.
+Microbiome data can be collected from a wide variety of environments,
+and is generally considered to be the bacterial, fungal, and viral
+components of a given environment. <a href="https://doi.org/10.1371/journal.pcbi.1002687" class="external-link">Friedman and Alm
+(2012)</a> used data from the <a href="https://www.nature.com/articles/nature11209" class="external-link">Human Microbiome
+Project</a> to calculate pairwise interaction correlations for each
+operational taxonomic unit (OTU). They then used Python and NetworkX to
+analyse and visualise several of these correlation datasets for each
+human body site. The challenge here is to extract network information
+about a graph from bivariate quantities like the correlation
+coefficient.
 </p>
-<img src="../fig/microbiomenetworks.png" class="figure mx-auto d-block"> As the correlation data are open access, we can access them and derive the network.
+<img src="../fig/microbiomenetworks.png" class="figure"> As the correlation data are
+open access, we can access them and derive the network.
 <p style="text-align: justify;">
-Data are imported from text files. In this case, it is not a CSV file. Rather, the data are tab separated. We can adjust for this by specifying the keyword argument <code>delimiter</code> for tab. As the correlation coefficients are stored as decimal point numbers, we specify the keyword argument <code>dtype</code> as floating point ‘float64’.
+Data are imported from text files. In this case, it is not a CSV file.
+Rather, the data are tab separated. We can adjust for this by specifying
+the keyword argument <code>delimiter</code> for tab. As the correlation
+coefficients are stored as decimal point numbers, we specify the keyword
+argument <code>dtype</code> as floating point ‘float64’.
 </p>
 <p style="text-align: justify;">
-If you check the file, you will see that the first entry is ‘1.0’. This is because all self-correlations are (trivially) equal to one. We replace those diagonal values with 0 to avoid (nonsensical) self-connections in the network.
+If you check the file, you will see that the first entry is ‘1.0’. This
+is because all self-correlations are (trivially) equal to one. We
+replace those diagonal values with 0 to avoid (nonsensical)
+self-connections in the network.
 </p>
 <div class="codewrapper sourceCode" id="cb40">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -406,17 +445,33 @@ If you check the file, you will see that the first entry is ‘1.0’. This is b
 <span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>show()        </span></code></pre>
 </div>
 <figure><img src="../fig/03-networks_3-rendered-unnamed-chunk-27-21.png" width="1536" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
-This gives us the correlation network from the stool samples, with nodes labelled by the OTU number. However, this doesn’t look much like the data from the article, partly as there are so many edges. The reason is that any number in the network matrix that is not equal to zero is interpreted as an edge. Thus, essentially the graph is fully connected.
+This gives us the correlation network from the stool samples, with nodes
+labelled by the OTU number. However, this doesn’t look much like the
+data from the article, partly as there are so many edges. The reason is
+that any number in the network matrix that is not equal to zero is
+interpreted as an edge. Thus, essentially the graph is fully connected.
 </p>
 <div class="section level3">
 <h3 id="functional-networks">
 <strong>Functional Networks</strong><a class="anchor" aria-label="anchor" href="#functional-networks"></a>
 </h3>
 <p style="text-align: justify;">
-In the paper, Friedman and Alm (2012), the edges are taken from the correlation coefficients of the correlation matrix. I.e. they define the correlation matrix as a network matrix. But the entries of the correlation matrix are not 0s and 1s as we have used so far. Instead they are real numbers between -1 and 1. What Friedman and Alm did to obtain meaningful edges was to pick a threshold correlation, e.g. <span class="math inline">\(|cc| = 0.3\)</span> and set any matrix entry with absolute value smaller than the threshold as 0. All other values are left as they are. Because anything non-zero will be interpreted as an edge, this means that they only plot edges where the correlation coefficient is greater than 0.3 or less than -0.3. Such networks are referred to as <em>functional networks</em>.
+In the paper, Friedman and Alm (2012), the edges are taken from the
+correlation coefficients of the correlation matrix. I.e. they define the
+correlation matrix as a network matrix. But the entries of the
+correlation matrix are not 0s and 1s as we have used so far. Instead
+they are real numbers between -1 and 1. What Friedman and Alm did to
+obtain meaningful edges was to pick a threshold correlation, e.g. <span class="math inline">\(|cc| = 0.3\)</span> and set any matrix entry with
+absolute value smaller than the threshold as 0. All other values are
+left as they are. Because anything non-zero will be interpreted as an
+edge, this means that they only plot edges where the correlation
+coefficient is greater than 0.3 or less than -0.3. Such networks are
+referred to as <em>functional networks</em>.
 </p>
 <p style="text-align: justify;">
-To threshold the correlation matrix in Python, we select matrix values between -0.3 and 0.3, and replace them with 0. Then we convert this thresholded network matrix to a graph and plot it.
+To threshold the correlation matrix in Python, we select matrix values
+between -0.3 and 0.3, and replace them with 0. Then we convert this
+thresholded network matrix to a graph and plot it.
 </p>
 <div class="codewrapper sourceCode" id="cb42">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -442,28 +497,50 @@ To threshold the correlation matrix in Python, we select matrix values between -
 <span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>show()        </span></code></pre>
 </div>
 <figure><img src="../fig/03-networks_3-rendered-unnamed-chunk-29-23.png" width="1536" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
-This network only displays edges where strong correlations were found and this is how Friedman and Alm obtained their graphs. Note that the network structure now is a function of the chosen threshold. Smaller thresholds yield more edges, higher thresholds fewer edges. Choosing the right threshold may be difficult and needs further thought.
+This network only displays edges where strong correlations were found
+and this is how Friedman and Alm obtained their graphs. Note that the
+network structure now is a function of the chosen threshold. Smaller
+thresholds yield more edges, higher thresholds fewer edges. Choosing the
+right threshold may be difficult and needs further thought.
 </p>
 <p style="text-align: justify;">
-The creation of networks from functional data opens a wide field of research: <em>any</em> interrelation matrix obtained with whatever metric can be interpreted as a network matrix and converted into a graph. As an example, see Figure 1 in <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3621511/" class="external-link">The Brain as a Complex System: Using Network Science as a Tool for Understanding the Brain</a> which describes the procedure for brain imaging.
+The creation of networks from functional data opens a wide field of
+research: <em>any</em> interrelation matrix obtained with whatever
+metric can be interpreted as a network matrix and converted into a
+graph. As an example, see Figure 1 in <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3621511/" class="external-link">The Brain
+as a Complex System: Using Network Science as a Tool for Understanding
+the Brain</a> which describes the procedure for brain imaging.
 </p>
 <p style="text-align: justify;">
-This concludes our set of Lessons on network handling in Python. For practice, try to find a database that touches on topics of your own interest. As an example, in the context of the human brain, there is a rich database at the <a href="http://www.humanconnectomeproject.org/data/" class="external-link">Human Connectome Database</a>. Each database will present its own challenges and obstacles. Nevertheless, it is worth to overcome those to be able to work with the data in Python. Eventually, all functions and dysfunctions observed in living systems are a consequence of interactions between components.
+This concludes our set of Lessons on network handling in Python. For
+practice, try to find a database that touches on topics of your own
+interest. As an example, in the context of the human brain, there is a
+rich database at the <a href="http://www.humanconnectomeproject.org/data/" class="external-link">Human Connectome
+Database</a>. Each database will present its own challenges and
+obstacles. Nevertheless, it is worth to overcome those to be able to
+work with the data in Python. Eventually, all functions and dysfunctions
+observed in living systems are a consequence of interactions between
+components.
 </p>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
 </div>
 <div class="callout-inner">
-<h3 class="callout-title">Keypoints</h3>
+<h3 class="callout-title">Keypoints<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
+</h3>
 <div class="callout-content">
 <ul>
 <li>
-<code>.csv</code> is a common file format when importing network data.</li>
+<code>.csv</code> is a common file format when importing network
+data.</li>
 <li>
-<code>JSON</code> is another widely used standard file format which is language independent.</li>
+<code>JSON</code> is another widely used standard file format which
+is language independent.</li>
 <li>
-<code>FileNotFoundError</code>, <code>KeyError</code> and <code>Graph is not bipartite</code> are the most common file import errors.</li>
+<code>FileNotFoundError</code>, <code>KeyError</code> and
+<code>Graph is not bipartite</code> are the most common file import
+errors.</li>
 </ul>
 </div>
 </div>
@@ -473,7 +550,7 @@ Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use. 
  -->
 </div>
-</figure><hr>
+</section><hr>
 <h3 id="03-networks_3-figure-12">Figure 12</h3>
 <figure><img src="../fig/03-networks_3-rendered-unnamed-chunk-27-21.png" width="1536" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><hr>
 <h3 id="03-networks_3-figure-13">Figure 13</h3>
@@ -502,9 +579,9 @@ any links that you are not going to use.
         <p>Materials licensed under <a href="../LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/LearnToDiscover/sandpaper/tree/l2d" class="external-link">sandpaper (0.9.0)</a>,
-        <a href="https://github.com/carpentries/pegboard/tree/e815ea1a34f6eda01a3c9ab9643e35aa051e1938" class="external-link">pegboard (0.4.3)</a>,
-      and <a href="https://github.com/LearnToDiscover/varnish/tree/c72a9c21616682c29279523e56b331ed24509f1c" class="external-link">varnish (0.2.14)</a>.</p>
+        <p>Built with <a href="https://github.com/LearnToDiscover/sandpaper/tree/l2d" class="external-link">sandpaper (0.12.0.9000)</a>,
+        <a href="https://github.com/carpentries/pegboard/tree/3b06f4559892e31ff0a6bae1d838cd1ba6fd94fb" class="external-link">pegboard (0.5.3)</a>,
+      and <a href="https://github.com/LearnToDiscover/varnish/tree/f412e8bbc14a5110120155e1af9282842877c62f" class="external-link">varnish (0.2.14)</a>.</p>
 			</div>
 		</footer>
 </div> <!-- / div.container -->
@@ -518,16 +595,16 @@ any links that you are not going to use.
   "@context": "https://schema.org",
   "@type": "TrainingMaterial",
   "@id": "https://learntodiscover.github.io/Networks/instructor/images.html",
-  "dct:conformsTo": "https://bioschemas.org/profiles/TrainingMaterial/0.9-DRAFT-2020_12_08",
+  "dct:conformsTo": "https://bioschemas.org/profiles/TrainingMaterial/1.0-RELEASE",
   "description": "A Carpentries Lesson teaching foundational data and coding skills to researchers worldwide",
   "keywords": "software, data, lesson, The Carpentries",
   "name": "All Images",
   "creativeWorkStatus": "active",
   "url": "https://learntodiscover.github.io/Networks/instructor/images.html",
   "identifier": "https://learntodiscover.github.io/Networks/instructor/images.html",
-  "dateCreated": "2023-02-01",
-  "dateModified": "2023-02-01",
-  "datePublished": "2023-02-01"
+  "dateCreated": "2023-05-30",
+  "dateModified": "2023-05-30",
+  "datePublished": "2023-05-30"
 }
 
   </script><script>
