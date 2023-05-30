@@ -87,15 +87,9 @@ We shall see below how we can build, modify and represent networks in Python.
 To use NetworkX and visualise your networks, you can import the whole package.
 
 
-
-
 ```python
 import networkx as nx
 from matplotlib.pyplot import show
-```
-
-```{.output}
-Matplotlib is building the font cache; this may take a moment.
 ```
 
 ### **Nodes and Edges**
