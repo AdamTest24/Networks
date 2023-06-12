@@ -231,7 +231,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Networks - Introduction</h1>
-        <p> Last updated on 2023-05-30 | 
+        <p> Last updated on 2023-06-12 | 
         
         <a href="https://github.com/LearnToDiscover/Networks.git/edit/main/episodes/01-networks_1.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -243,8 +243,6 @@
 
         
 
-<p><a href="01-networks_1.md.pdf"><strong>Download Chapter
-pdf</strong></a></p>
 <p><a href="01-networks_1.ipynb"><strong>Download Chapter notebook
 (ipynb)</strong></a></p>
 <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdr0capF7jloJhPH3Pki1B3LZoKOG16poOpuVJ7SL2LkwLHQA/viewform?pli=1" class="external-link"><span style="color: rgb(255, 0, 0);"><strong>Mandatory Lesson Feedback
@@ -492,7 +490,7 @@ documentation</a>.
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Node C'</span>: <span class="st">'C'</span>,</span>
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>nx.draw(firstGraph, firstGraphLayout, </span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>nx.draw(firstGraph, firstGraphLayout,</span>
 <span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>        labels<span class="op">=</span>firstGraphLabels)</span>
 <span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
@@ -541,7 +539,7 @@ the folder with the code.</p>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Node C'</span>: <span class="st">'C'</span>,</span>
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>nx.draw(firstGraph, firstGraphLayout, </span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>nx.draw(firstGraph, firstGraphLayout,</span>
 <span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>        labels<span class="op">=</span>firstGraphLabels)</span>
 <span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>savefig(<span class="st">'my_network.png'</span>, <span class="bu">format</span><span class="op">=</span><span class="st">'png'</span>)<span class="op">;</span></span>
@@ -556,8 +554,8 @@ keyword argument <code>node_color</code>.
 <div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>nx.draw(firstGraph, firstGraphLayout, </span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>        labels<span class="op">=</span>firstGraphLabels, </span>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>nx.draw(firstGraph, firstGraphLayout,</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>        labels<span class="op">=</span>firstGraphLabels,</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>        node_color<span class="op">=</span><span class="st">'r'</span>)</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
@@ -674,16 +672,16 @@ set the elements <span class="math inline">\(n_{0,1}=1\)</span>, <span class="ma
   DIY ANSWER
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> zeros((<span class="dv">4</span>,<span class="dv">4</span>))</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>n[<span class="dv">0</span>, <span class="dv">1</span>] <span class="op">=</span> <span class="dv">1</span> </span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>n[<span class="dv">1</span>, <span class="dv">2</span>] <span class="op">=</span> <span class="dv">1</span> </span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>n[<span class="dv">1</span>, <span class="dv">3</span>] <span class="op">=</span> <span class="dv">1</span> </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>n[<span class="dv">0</span>, <span class="dv">1</span>] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>n[<span class="dv">1</span>, <span class="dv">2</span>] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>n[<span class="dv">1</span>, <span class="dv">3</span>] <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(n)</span></code></pre>
 </div>
@@ -742,9 +740,9 @@ check the number of nodes and edges.</p>
   DIY ANSWER
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
-<pre><code>The graph has four nodes and three edges. 
+<pre><code>The graph has four nodes and three edges.
 $n_{0,1} $ or $n[0][1]$ is an edge from node 0 to node 1.
 $n_{1,2}$ or $n[1][2]$ is an edge from node 1 to node 2.
 $n_{1,3}$ or $n[1][3]$ is an edge from node 1 to node 3.</code></pre>
@@ -769,10 +767,10 @@ layout (as we did before) and then draw the graph.
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>new_matrix <span class="op">=</span> zeros((<span class="dv">3</span>,<span class="dv">3</span>))</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>new_matrix[<span class="dv">1</span>, <span class="dv">2</span>] <span class="op">=</span> <span class="dv">1</span> </span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>new_matrix[<span class="dv">2</span>, <span class="dv">0</span>] <span class="op">=</span> <span class="dv">1</span> </span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>new_matrix[<span class="dv">0</span>, <span class="dv">1</span>] <span class="op">=</span> <span class="dv">1</span> </span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>new_matrix[<span class="dv">1</span>, <span class="dv">0</span>] <span class="op">=</span> <span class="dv">1</span> </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>new_matrix[<span class="dv">1</span>, <span class="dv">2</span>] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>new_matrix[<span class="dv">2</span>, <span class="dv">0</span>] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>new_matrix[<span class="dv">0</span>, <span class="dv">1</span>] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>new_matrix[<span class="dv">1</span>, <span class="dv">0</span>] <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>new_graph <span class="op">=</span> nx.from_numpy_matrix(new_matrix)</span>
 <span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a></span>
@@ -814,8 +812,8 @@ C.</p>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>nx.draw(new_graph, newLayout,</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>        labels<span class="op">=</span>newLabels)</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>show()       </span></code></pre>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="fig/01-networks_1-rendered-unnamed-chunk-18-11.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
 There are many different options available for drawing graphs. Use
@@ -862,7 +860,7 @@ and <span class="math inline">\(Z\)</span>.</p></li>
   Q1
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb29">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -885,7 +883,7 @@ and <span class="math inline">\(Z\)</span>.</p></li>
   Q2
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb30">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -908,16 +906,16 @@ and <span class="math inline">\(Z\)</span>.</p></li>
   Q3
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb31">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> zeros((<span class="dv">4</span>,<span class="dv">4</span>))</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>n[<span class="dv">0</span>, <span class="dv">1</span>] <span class="op">=</span> <span class="dv">1</span> </span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>n[<span class="dv">1</span>, <span class="dv">2</span>] <span class="op">=</span> <span class="dv">1</span> </span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>n[<span class="dv">1</span>, <span class="dv">3</span>] <span class="op">=</span> <span class="dv">1</span> </span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>n[<span class="dv">0</span>, <span class="dv">1</span>] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>n[<span class="dv">1</span>, <span class="dv">2</span>] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>n[<span class="dv">1</span>, <span class="dv">3</span>] <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>new <span class="op">=</span> nx.from_numpy_matrix(n)</span>
 <span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a></span>
@@ -930,10 +928,10 @@ and <span class="math inline">\(Z\)</span>.</p></li>
 <span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>newLayout <span class="op">=</span> nx.spectral_layout(new)</span>
 <span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>nx.draw(new, newLayout, </span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>nx.draw(new, newLayout,</span>
 <span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>        labels<span class="op">=</span>newLabels)</span>
-<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a>show()        </span></code></pre>
+<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="fig/01-networks_1-rendered-unnamed-chunk-21-17.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure></div>
 </div>
@@ -964,9 +962,9 @@ time you run it, due to the layout algorithm.
 <span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>nx.draw(new_graph, newLayout,</span>
-<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>        labels<span class="op">=</span>newLabels, </span>
-<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>        node_color<span class="op">=</span><span class="st">'gold'</span>, </span>
-<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>        node_shape<span class="op">=</span><span class="st">"H"</span>, </span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>        labels<span class="op">=</span>newLabels,</span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>        node_color<span class="op">=</span><span class="st">'gold'</span>,</span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>        node_shape<span class="op">=</span><span class="st">"H"</span>,</span>
 <span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>        node_size<span class="op">=</span><span class="dv">2000</span>)</span>
 <span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
@@ -1006,9 +1004,9 @@ other nodes.
 <span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>nx.draw(new_graph, newLayout,</span>
-<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>        labels<span class="op">=</span>newLabels, </span>
-<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>        node_color<span class="op">=</span><span class="st">'gold'</span>, </span>
-<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>        node_shape<span class="op">=</span><span class="st">"H"</span>, </span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>        labels<span class="op">=</span>newLabels,</span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>        node_color<span class="op">=</span><span class="st">'gold'</span>,</span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>        node_shape<span class="op">=</span><span class="st">"H"</span>,</span>
 <span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>        node_size<span class="op">=</span><span class="dv">800</span>)<span class="op">;</span></span>
 <span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
@@ -1043,7 +1041,7 @@ e.g. node A.</p>
   DIY ANSWER
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb36">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1051,12 +1049,12 @@ e.g. node A.</p>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>new_graph.add_edge(<span class="dv">3</span>, <span class="dv">0</span>)</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>nx.draw(new_graph, newLayout,</span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>        labels<span class="op">=</span>newLabels, </span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>        node_color<span class="op">=</span><span class="st">'gold'</span>, </span>
-<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>        node_shape<span class="op">=</span><span class="st">"H"</span>, </span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>        labels<span class="op">=</span>newLabels,</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>        node_color<span class="op">=</span><span class="st">'gold'</span>,</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>        node_shape<span class="op">=</span><span class="st">"H"</span>,</span>
 <span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>        node_size<span class="op">=</span><span class="dv">800</span>)<span class="op">;</span></span>
 <span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>show()        </span></code></pre>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="fig/01-networks_1-rendered-unnamed-chunk-25-23.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure></div>
 </div>
@@ -1073,9 +1071,9 @@ array. You set up a nested list and convert it to a Numpy array using
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>matrixFromArray <span class="op">=</span>  array([[<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>], </span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>                          [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>], </span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>                          [<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>], </span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>matrixFromArray <span class="op">=</span>  array([[<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>],</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>                          [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>],</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>                          [<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>],</span>
 <span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>                          [<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>]])</span>
 <span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>my_graph <span class="op">=</span> nx.from_numpy_matrix(matrixFromArray, create_using<span class="op">=</span>nx.DiGraph())</span>
@@ -1107,15 +1105,15 @@ we mean the RGB colour <span class="math inline">\([[0, 1,
   DIY ANSWER
   </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb38">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>nx.draw(my_graph, newLayout,</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>        labels<span class="op">=</span>newLabels,</span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>        node_color<span class="op">=</span>[[<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>]], </span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>        node_shape<span class="op">=</span><span class="st">"D"</span>, </span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>        node_color<span class="op">=</span>[[<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>]],</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>        node_shape<span class="op">=</span><span class="st">"D"</span>,</span>
 <span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>        node_size<span class="op">=</span><span class="dv">800</span>)</span>
 <span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
@@ -1152,7 +1150,7 @@ as above, but specifying that it is a directed graph.
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>                         [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>],</span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>                         [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>],</span>
 <span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>                         [<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>]])</span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>directed <span class="op">=</span> nx.from_numpy_matrix(directedMatrix, create_using<span class="op">=</span>nx.DiGraph)</span>
 <span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>directedLayout <span class="op">=</span> nx.spiral_layout(directed)</span>
@@ -1164,7 +1162,7 @@ as above, but specifying that it is a directed graph.
 <span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a>    <span class="dv">3</span>: <span class="st">'D'</span>,</span>
 <span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a>nx.draw(directed, directedLayout, </span>
+<span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a>nx.draw(directed, directedLayout,</span>
 <span id="cb39-18"><a href="#cb39-18" aria-hidden="true" tabindex="-1"></a>        labels<span class="op">=</span>directedLabels)</span>
 <span id="cb39-19"><a href="#cb39-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-20"><a href="#cb39-20" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
@@ -1207,7 +1205,7 @@ node B.</p>
   DIY ANSWER
   </h4>
 </button>
-<div id="collapseSolution8" class="accordion-collapse collapse" aria-labelledby="headingSolution8" data-bs-parent="#accordionSolution8">
+<div id="collapseSolution8" class="accordion-collapse collapse" data-bs-parent="#accordionSolution8" aria-labelledby="headingSolution8">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb40">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1217,8 +1215,8 @@ node B.</p>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>                         [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>],</span>
 <span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>                         [<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>]])</span>
 <span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>directedMatrix[<span class="dv">3</span>, <span class="dv">2</span>] <span class="op">=</span> <span class="dv">1</span> </span>
-<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>directedMatrix[<span class="dv">3</span>, <span class="dv">2</span>] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>directed <span class="op">=</span> nx.from_numpy_matrix(directedMatrix, create_using<span class="op">=</span>nx.DiGraph)</span>
 <span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>directedLayout <span class="op">=</span> nx.spiral_layout(directed)</span>
@@ -1230,7 +1228,7 @@ node B.</p>
 <span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a>    <span class="dv">3</span>: <span class="st">'D'</span>,</span>
 <span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb40-18"><a href="#cb40-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-19"><a href="#cb40-19" aria-hidden="true" tabindex="-1"></a>nx.draw(directed, directedLayout, </span>
+<span id="cb40-19"><a href="#cb40-19" aria-hidden="true" tabindex="-1"></a>nx.draw(directed, directedLayout,</span>
 <span id="cb40-20"><a href="#cb40-20" aria-hidden="true" tabindex="-1"></a>        labels<span class="op">=</span>directedLabels)</span>
 <span id="cb40-21"><a href="#cb40-21" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
@@ -1264,12 +1262,12 @@ group of nodes an attribute of 0, and the other an attribute of 1.
 <span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>myBipartite.add_nodes_from([<span class="st">'q'</span>, <span class="st">'r'</span>, <span class="st">'s'</span>, <span class="st">'t'</span>], bipartite<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Add edges only between nodes of opposite node sets</span></span>
-<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>myBipartite.add_edges_from([(<span class="st">'h'</span>, <span class="st">'q'</span>), </span>
-<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>                            (<span class="st">'h'</span>, <span class="st">'r'</span>), </span>
-<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>                            (<span class="st">'i'</span>, <span class="st">'r'</span>), </span>
-<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>                            (<span class="st">'i'</span>, <span class="st">'s'</span>), </span>
-<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>                            (<span class="st">'j'</span>, <span class="st">'s'</span>), </span>
-<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>                            (<span class="st">'k'</span>, <span class="st">'q'</span>), </span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>myBipartite.add_edges_from([(<span class="st">'h'</span>, <span class="st">'q'</span>),</span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>                            (<span class="st">'h'</span>, <span class="st">'r'</span>),</span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>                            (<span class="st">'i'</span>, <span class="st">'r'</span>),</span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>                            (<span class="st">'i'</span>, <span class="st">'s'</span>),</span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>                            (<span class="st">'j'</span>, <span class="st">'s'</span>),</span>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>                            (<span class="st">'k'</span>, <span class="st">'q'</span>),</span>
 <span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a>                            (<span class="st">'h'</span>, <span class="st">'t'</span>)])</span></code></pre>
 </div>
 <p style="text-align: justify;">
@@ -1322,8 +1320,8 @@ the node labels.
 <span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>nx.draw(myBipartite, myBipartiteLayout,</span>
 <span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>        node_size<span class="op">=</span><span class="dv">2000</span>,</span>
 <span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>        with_labels<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>show()        </span></code></pre>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="fig/01-networks_1-rendered-unnamed-chunk-33-33.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
 This might not look like a bipartite network! But if you check the edges
@@ -1341,8 +1339,8 @@ graph.
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>bipartitePos <span class="op">=</span> nx.bipartite_layout(myBipartite, groupzero)</span>
 <span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>nx.draw(myBipartite, bipartitePos, </span>
-<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>        node_size<span class="op">=</span><span class="dv">2000</span>, </span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>nx.draw(myBipartite, bipartitePos,</span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>        node_size<span class="op">=</span><span class="dv">2000</span>,</span>
 <span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>        with_labels <span class="op">=</span> <span class="va">True</span>)</span>
 <span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
@@ -1362,7 +1360,7 @@ then be included in the plot.
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>color_list <span class="op">=</span> <span class="bu">list</span>()</span>
 <span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> attr <span class="kw">in</span> myBipartite.nodes.data(<span class="st">'bipartite'</span>):</span>
-<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>    color_list.append(color_dictionary[attr[<span class="dv">1</span>]])</span>
 <span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(color_list)</span></code></pre>
@@ -1375,13 +1373,13 @@ then be included in the plot.
 <div class="codewrapper sourceCode" id="cb50">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>nx.draw(myBipartite, bipartitePos, </span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>        node_size<span class="op">=</span><span class="dv">2000</span>, </span>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>nx.draw(myBipartite, bipartitePos,</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>        node_size<span class="op">=</span><span class="dv">2000</span>,</span>
 <span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>        font_size<span class="op">=</span><span class="dv">20</span>,</span>
-<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>        with_labels<span class="op">=</span><span class="va">True</span>, </span>
-<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>        node_color<span class="op">=</span>color_list) </span>
-<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>show()        </span></code></pre>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>        with_labels<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>        node_color<span class="op">=</span>color_list)</span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="fig/01-networks_1-rendered-unnamed-chunk-36-37.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
 A readable introduction to bipartite networks and their application to
@@ -1434,7 +1432,7 @@ did earlier.</p>
   Please check these solutions only after submitting the assignments.
   </h4>
 </button>
-<div id="collapseSolution9" class="accordion-collapse collapse" aria-labelledby="headingSolution9" data-bs-parent="#accordionSolution9">
+<div id="collapseSolution9" class="accordion-collapse collapse" data-bs-parent="#accordionSolution9" aria-labelledby="headingSolution9">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb51">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1456,10 +1454,10 @@ did earlier.</p>
 <span id="cb51-15"><a href="#cb51-15" aria-hidden="true" tabindex="-1"></a>    <span class="dv">7</span>: <span class="st">'pyrG'</span>,</span>
 <span id="cb51-16"><a href="#cb51-16" aria-hidden="true" tabindex="-1"></a>    <span class="dv">8</span>: <span class="st">'adk'</span>,</span>
 <span id="cb51-17"><a href="#cb51-17" aria-hidden="true" tabindex="-1"></a>    <span class="dv">9</span>: <span class="st">'cpdA'</span>,</span>
-<span id="cb51-18"><a href="#cb51-18" aria-hidden="true" tabindex="-1"></a>    <span class="dv">10</span>: <span class="st">'ygdH'</span>,   </span>
+<span id="cb51-18"><a href="#cb51-18" aria-hidden="true" tabindex="-1"></a>    <span class="dv">10</span>: <span class="st">'ygdH'</span>,</span>
 <span id="cb51-19"><a href="#cb51-19" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb51-20"><a href="#cb51-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-21"><a href="#cb51-21" aria-hidden="true" tabindex="-1"></a>ppi[<span class="dv">0</span>, <span class="dv">1</span>] <span class="op">=</span> <span class="dv">1</span> </span>
+<span id="cb51-21"><a href="#cb51-21" aria-hidden="true" tabindex="-1"></a>ppi[<span class="dv">0</span>, <span class="dv">1</span>] <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb51-22"><a href="#cb51-22" aria-hidden="true" tabindex="-1"></a>ppi[<span class="dv">2</span>, <span class="dv">1</span>] <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb51-23"><a href="#cb51-23" aria-hidden="true" tabindex="-1"></a>ppi[<span class="dv">0</span>, <span class="dv">2</span>] <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb51-24"><a href="#cb51-24" aria-hidden="true" tabindex="-1"></a>ppi[<span class="dv">2</span>, <span class="dv">3</span>] <span class="op">=</span> <span class="dv">1</span></span>
@@ -1484,13 +1482,13 @@ did earlier.</p>
 <span id="cb51-43"><a href="#cb51-43" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb51-44"><a href="#cb51-44" aria-hidden="true" tabindex="-1"></a>ppiLayout <span class="op">=</span> nx.spring_layout(ppiGraph)</span>
 <span id="cb51-45"><a href="#cb51-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-46"><a href="#cb51-46" aria-hidden="true" tabindex="-1"></a>nx.draw(ppiGraph, ppiLayout, </span>
-<span id="cb51-47"><a href="#cb51-47" aria-hidden="true" tabindex="-1"></a>              labels<span class="op">=</span>ppiLabels, </span>
-<span id="cb51-48"><a href="#cb51-48" aria-hidden="true" tabindex="-1"></a>              node_size<span class="op">=</span><span class="dv">1800</span>, </span>
-<span id="cb51-49"><a href="#cb51-49" aria-hidden="true" tabindex="-1"></a>              node_color<span class="op">=</span><span class="st">'lightseagreen'</span>, </span>
+<span id="cb51-46"><a href="#cb51-46" aria-hidden="true" tabindex="-1"></a>nx.draw(ppiGraph, ppiLayout,</span>
+<span id="cb51-47"><a href="#cb51-47" aria-hidden="true" tabindex="-1"></a>              labels<span class="op">=</span>ppiLabels,</span>
+<span id="cb51-48"><a href="#cb51-48" aria-hidden="true" tabindex="-1"></a>              node_size<span class="op">=</span><span class="dv">1800</span>,</span>
+<span id="cb51-49"><a href="#cb51-49" aria-hidden="true" tabindex="-1"></a>              node_color<span class="op">=</span><span class="st">'lightseagreen'</span>,</span>
 <span id="cb51-50"><a href="#cb51-50" aria-hidden="true" tabindex="-1"></a>              node_shape<span class="op">=</span><span class="st">"8"</span>)</span>
-<span id="cb51-51"><a href="#cb51-51" aria-hidden="true" tabindex="-1"></a>              </span>
-<span id="cb51-52"><a href="#cb51-52" aria-hidden="true" tabindex="-1"></a>show()              </span></code></pre>
+<span id="cb51-51"><a href="#cb51-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-52"><a href="#cb51-52" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="fig/01-networks_1-rendered-unnamed-chunk-37-39.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure></div>
 </div>
@@ -1507,7 +1505,7 @@ did earlier.</p>
 <ul><li>A Python package <code>NetworkX</code> is used for studying
 undirected and directed graphs.</li>
 <li>A function <code>savefig</code> is used to save a graph to a
-file.<br></li>
+file.</li>
 <li>
 <code>network matrix</code> or <code>adjacency matrix</code> is a
 generic way to create graphs as two dimensional array.</li>
@@ -1576,7 +1574,7 @@ any links that you are not going to use.
   "url": "https://learntodiscover.github.io/Networks/01-networks_1.html",
   "identifier": "https://learntodiscover.github.io/Networks/01-networks_1.html",
   "dateCreated": "2023-06-12",
-  "dateModified": "2023-05-30",
+  "dateModified": "2023-06-12",
   "datePublished": "2023-06-12"
 }
 

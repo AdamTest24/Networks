@@ -3,14 +3,13 @@ title: "Networks - Quantification"
 teaching: 60
 exercises: 60
 ---
-[**Download Chapter pdf**](02-networks_2.md.pdf)
 
 [**Download Chapter notebook (ipynb)**](02-networks_2.ipynb)
 
 [<span style="color: rgb(255, 0, 0);">**Mandatory Lesson Feedback Survey**</span>](https://docs.google.com/forms/d/e/1FAIpQLSdr0capF7jloJhPH3Pki1B3LZoKOG16poOpuVJ7SL2LkwLHQA/viewform?pli=1)
 
 
-::::::::::::::::::::::::::::::::::::: questions 
+::::::::::::::::::::::::::::::::::::: questions
 
 - How to generate test matrices using NetworkX?
 - What is the purpose of the node degree and the degree distribution?
@@ -37,7 +36,7 @@ exercises: 60
 </p>
 <br>
 
-:::::::::::::::::: prereq 
+:::::::::::::::::: prereq
 
 ## Prerequisites
 
@@ -53,7 +52,7 @@ from matplotlib.pyplot import subplots, show
 ```
 
 ## Generating Test Matrices
-<p style='text-align: justify;'> 
+<p style='text-align: justify;'>
 NetworkX has a number of ways to create matrices with given specifications. We have seen in the previous lesson that e.g. `zeros((5,5))` creates a $5\times 5$ matrix filled with zeroes. This speeds up the creation of a network matrix with only a few non-zero entries. Similarly, one can start with function `ones` from Numpy to create a network with few zero entries.
 </p>
 <p style='text-align: justify;'>
@@ -74,17 +73,17 @@ print(rm)
 ```
 
 ```{.output}
-[[1 0 1 0 0]
- [1 1 1 0 1]
- [0 0 0 1 1]
- [0 0 0 1 1]
- [1 1 1 0 1]]
+[[1 1 0 1 1]
+ [0 0 1 1 1]
+ [1 0 1 1 0]
+ [0 1 1 1 1]
+ [1 1 0 0 1]]
 ```
 
 Function $randint$ from the numpy module $random$ is used to create an array or matrix filled with integers.
 
 <p style='text-align: justify;'>
-The first two arguments, two integer numbers, specify which integers to use. The first number is the smallest integer, the second number is the largest integer plus one. The first two numbers work as $(a, b+1)$ so this function will produce numbers (N) in range specified as: $a <= N <= b$. In our case entering $(0, 2)$ will produce zeroes and ones. With $(1, 10)$, all integers from 1 to 9 will be used, all with equal probability. 
+The first two arguments, two integer numbers, specify which integers to use. The first number is the smallest integer, the second number is the largest integer plus one. The first two numbers work as $(a, b+1)$ so this function will produce numbers (N) in range specified as: $a <= N <= b$. In our case entering $(0, 2)$ will produce zeroes and ones. With $(1, 10)$, all integers from 1 to 9 will be used, all with equal probability.
 </p>
 <p style='text-align: justify;'>
 The keyword argument `size` specifies the dimensions of the matrix. In our case we want a $nodes\times nodes$ matrix for a specified number of nodes. The output of the code will look different at each function call because each time you execute the code, Python will assign the zeroes and ones randomly.
@@ -104,7 +103,7 @@ When we specify a starting seed value for the number generator it still produces
 
 
 ```python
-from numpy.random import seed 
+from numpy.random import seed
 
 seed(1)
 
@@ -155,14 +154,14 @@ array([[ True,  True,  True,  True,  True],
        [ True,  True,  True,  True,  True]])
 ```
 
-::::::::::::::::::::::::::::::: challenge 
+::::::::::::::::::::::::::::::: challenge
 
 ## Do it Yourself
 
 Create a $n\times m$ matrix with randomly distributed integers from 1 to 6 to simulate a group of 3 players throwing a dice 20 times.
 
 ::::::::::::::::: solution
-	
+
 ## DIY ANSWER
 
 ```python
@@ -199,7 +198,7 @@ print(throws)
 
 :::::::::::::::::
 
-::::::::::::::::::::::::::::::: 
+:::::::::::::::::::::::::::::::
 
 ## NetworkX graph types
 
@@ -245,15 +244,15 @@ show()
 The first argument is the number of nodes in the graph backbone, the second argument is the probability of adding an edge to this main backbone, and the third number gives the probability of adding further edges. Try running it several times, and with different values, to see how it changes.
 </p>
 
-::::::::::::::::::::::::::::::: challenge 
+::::::::::::::::::::::::::::::: challenge
 
 ## Do it Yourself
 
 
-Look up the NetworkX documentation, and use the tutorial to plot a [Tutte graph](https://en.wikipedia.org/wiki/Tutte_graph).	
-	
+Look up the NetworkX documentation, and use the tutorial to plot a [Tutte graph](https://en.wikipedia.org/wiki/Tutte_graph).
+
 ::::::::::::::::: solution
-	
+
 ## DIY ANSWER
 
 
@@ -264,23 +263,23 @@ layout = nx.spring_layout(tutte, seed=1)
 
 nx.draw(tutte, layout,
         with_labels=True)
-show()        
+show()
 ```
 
 <img src="fig/02-networks_2-rendered-unnamed-chunk-9-5.png" width="672" style="display: block; margin: auto;" />
 
 :::::::::::::::::
 
-::::::::::::::::::::::::::::::: 
+:::::::::::::::::::::::::::::::
 
 ## Node degree
 <p style='text-align: justify;'>
-Each node within a graph has a number of edges connected to it and this number is referred to as the node (or vertex) **degree**. For example, consider the protein-protein interation graph generated in the previous Lesson, Exercise 1.5. 
+Each node within a graph has a number of edges connected to it and this number is referred to as the node (or vertex) **degree**. For example, consider the protein-protein interation graph generated in the previous Lesson, Exercise 1.5.
 </p>
 
 ![](fig/mazG.png)
 
-The node representing the protein $adk$ has a degree of 4 and $era$ has a degree of 2. 
+The node representing the protein $adk$ has a degree of 4 and $era$ has a degree of 2.
 <p style='text-align: justify;'>
 Furthermore the degree in directed graphs (or digraphs) can be split into the **in degree** which counts the number of edges pointing *into* the node and **out degree** which counts the number of edges emanating *from* the node. In the graph generated for Exercise 1.5, the node with index 0 has an _out degree_ of 3, the node with index 0 has an _out degree_ of 3, the node with index 3 has an _in degree_ of 3, and the node with index 1 has a total degree of 4, with an _out degree_ of 2 and an _in degree_ of 2.
 </p>
@@ -289,16 +288,16 @@ Furthermore the degree in directed graphs (or digraphs) can be split into the **
 ```python
 from numpy import array
 
-matrixFromArray =  array([[0, 1, 0, 0], 
-                          [0, 1, 0, 1], 
-                          [1, 0, 1, 1], 
+matrixFromArray =  array([[0, 1, 0, 0],
+                          [0, 1, 0, 1],
+                          [1, 0, 1, 1],
                           [1, 0, 1, 0]])
 
 my_graph = nx.from_numpy_matrix(matrixFromArray, create_using=nx.DiGraph)
 
 my_graphLayout = nx.spring_layout(my_graph, seed=11)
 
-nx.draw(my_graph, my_graphLayout, 
+nx.draw(my_graph, my_graphLayout,
         node_size=1000,
         arrowsize=20,
         with_labels=True
@@ -308,16 +307,16 @@ show()
 
 <img src="fig/02-networks_2-rendered-unnamed-chunk-10-7.png" width="672" style="display: block; margin: auto;" />
 
-As we discussed in the previous lesson, an edge is set up in a network matrix in the direction (from) row $\rightarrow$ (to) column. Consider the following network matrix. 
+As we discussed in the previous lesson, an edge is set up in a network matrix in the direction (from) row $\rightarrow$ (to) column. Consider the following network matrix.
 
 
 ```python
 from numpy import array
 
-mymatrix =  array([[0, 1, 1, 0, 0], 
-                   [1, 0, 0, 1, 1], 
-                   [1, 0, 0, 0, 0], 
-                   [0, 0, 0, 0, 1], 
+mymatrix =  array([[0, 1, 1, 0, 0],
+                   [1, 0, 0, 1, 1],
+                   [1, 0, 0, 0, 0],
+                   [0, 0, 0, 0, 1],
                    [1, 0, 1, 0, 0]])
 
 print(mymatrix)
@@ -381,17 +380,17 @@ mygraphLabels = {
 }
 
 nx.draw(mygraph, mygraphLayout,
-        labels = mygraphLabels, 
+        labels = mygraphLabels,
         node_color = 'lavender',
-        node_size = 2000, 
-        arrowsize=25, 
+        node_size = 2000,
+        arrowsize=25,
         arrowstyle='->')
 show()
 ```
 
 <img src="fig/02-networks_2-rendered-unnamed-chunk-14-9.png" width="672" style="display: block; margin: auto;" />
 
-::::::::::::::::::::::::::::::: challenge 
+::::::::::::::::::::::::::::::: challenge
 
 ## Do it Yourself
 
@@ -401,9 +400,9 @@ show()
 
 3. Calculate the _in_ and _out degrees_ for this graph.
 
-	
+
 ::::::::::::::::: solution
-## Q1	
+## Q1
 
 ```python
 nodes = 15
@@ -438,7 +437,7 @@ print(rm_15)
 
 
 ::::::::::::::::: solution
-## Q2	
+## Q2
 
 ```python
 rm_15_Graph = nx.from_numpy_matrix(rm_15, create_using=nx.DiGraph)
@@ -449,14 +448,14 @@ rm_15_Graph = nx.from_numpy_matrix(rm_15, create_using=nx.DiGraph)
 
 
 ::::::::::::::::: solution
-## Q3	
+## Q3
 
 ```python
 # Printing in-degrees
 print('Index', '    In Degree')
 
 for ind, deg in rm_15_Graph.in_degree:
-    
+
     print('  ', ind, '       ', deg)
 ```
 
@@ -485,7 +484,7 @@ Index     In Degree
 print('Index', '   Out Degree')
 
 for ind, deg in rm_15_Graph.out_degree:
-    
+
     print('  ', ind, '       ', deg)
 ```
 
@@ -509,15 +508,15 @@ Index    Out Degree
 ```
 
 :::::::::::::::::
-::::::::::::::::::::::::::::::: 
+:::::::::::::::::::::::::::::::
 
 ## Degree distribution
 <p style='text-align: justify;'>
-It is straightforward to look at the degrees of a network with only a few nodes. However, for large networks with many nodes, the degree will be an array with as many numbers as there are nodes. This requires a more convenient way to summarise this information. An often-used solution is to look at the _degree distribution_. 
+It is straightforward to look at the degrees of a network with only a few nodes. However, for large networks with many nodes, the degree will be an array with as many numbers as there are nodes. This requires a more convenient way to summarise this information. An often-used solution is to look at the _degree distribution_.
 </p>
 The degree distribution is normally presented as a histogram showing how many times a given degree was found in that network.
 
-As an example, for a random $10\times 10$ matrix: 
+As an example, for a random $10\times 10$ matrix:
 
 
 ```python
@@ -602,7 +601,7 @@ show()
 
 ```{.output}
 <BarContainer object of 8 artists>
-<networkx.classes.graph.Graph object at 0x7facdca95900>
+<networkx.classes.graph.Graph object at 0x7f6e3f500040>
 (0.0, 1.0, 0.0, 1.0)
 ```
 
@@ -612,19 +611,19 @@ This example plots the degree distribution, showing, for example, that 11 nodes 
 
 Note how the degree with highest probability (2) reflects the choice of edge probability of 2%.
 
-::::::::::::::::::::::::::::::: challenge 
+::::::::::::::::::::::::::::::: challenge
 
 ## Do it Yourself
 
 1. Change the number of nodes to 1000 and check the maximum of the degree distribution. How does it depend on the number of nodes?
 
 2. The second argument in the generation of the graph gives the probability of edge creation. How do both the appearance of the network and the degree distribution change?
-	
-	
+
+
 ::::::::::::::::: solution
-	
+
 ## Q1
-``` degree_max = probab / nodes``` 
+``` degree_max = probab / nodes```
 
 
 ```python
@@ -664,7 +663,7 @@ show()
 
 ```{.output}
 <BarContainer object of 28 artists>
-<networkx.classes.graph.Graph object at 0x7facda6c5600>
+<networkx.classes.graph.Graph object at 0x7f6e3f83d6c0>
 (0.0, 1.0, 0.0, 1.0)
 ```
 
@@ -673,19 +672,19 @@ show()
 :::::::::::::::::
 
 ::::::::::::::::: solution
-	
+
 ## Q2
 
 > The edge probability determines how connected a graph is. The higher the probability, the more connected. With a probability of 1, a fully connected graph is created. The most frequenc degree is given by the above formula.
 
 :::::::::::::::::
-::::::::::::::::::::::::::::::: 
+:::::::::::::::::::::::::::::::
 
 ## Other Graph Properties
 ### **Clustering coefficient**
 <p style='text-align: justify;'>
-As an example of a more complex quantitative measure, we take the clustering coefficient.  
-We will look at its formula and discuss extreme cases to understand what useful information the measure is supposed to convey. We then practice the use of creating test matrices and do calculations of clustering coefficients of the corresponding networks. 
+As an example of a more complex quantitative measure, we take the clustering coefficient.
+We will look at its formula and discuss extreme cases to understand what useful information the measure is supposed to convey. We then practice the use of creating test matrices and do calculations of clustering coefficients of the corresponding networks.
 </p>
 
 :::::::::: callout
@@ -702,11 +701,11 @@ $C_u = \frac{ 2e }{ k(k-1) }$
 The __clustering coefficient__, here denoted by $C_u$, is a number that is calculated for a single node, $u$. For the calculation one needs to know the degree of the node, $k$. The degree represents the number of direct connections of the node. Nodes connected by an edge are referred to as nearest neighbours, or simply neighbours. Therefore, the degree is also equal to the number of neighbours. Finally, $e$ is the number of edges (connections) between the neighbours of $u$.
 </p>
 <p style='text-align: justify;'>
-The formula is derived as the number of edges between the neighbours divided by the maximally possible number of connections. The maximal number of possible connections of $k$ neighbours is $\frac{ k(k-1)}{2}$. There are $k\times k$ elements but if we leave out self-connections it becomes 
+The formula is derived as the number of edges between the neighbours divided by the maximally possible number of connections. The maximal number of possible connections of $k$ neighbours is $\frac{ k(k-1)}{2}$. There are $k\times k$ elements but if we leave out self-connections it becomes
 $k\times (k-1)$. As each edge is included twice (forward and backward) division by 2 gives the number of undirected connections.
 </p>
 <p style='text-align: justify;'>
-This yields some important properties: if there is no connection between any of the neighbours, then $e=0$ and $C_u = 0$. If all neighbours are maximally connected (each node connected to every other node), then 
+This yields some important properties: if there is no connection between any of the neighbours, then $e=0$ and $C_u = 0$. If all neighbours are maximally connected (each node connected to every other node), then
 $e=\frac{ k(k-1)}{ 2 }$ and $C_u = 1$. The clustering coefficient therefore tells us the extent to which neighbours of a node are connected among themselves. This definition is valid for undirected networks with no self-connections.
 </p>
 We can use random test graphs, as we made earlier, to explore clustering coefficients in NetworkX. Here we'll make a 10 by 10 random graph, setting a seed so it's reproducible.
@@ -725,7 +724,7 @@ seed(seed_number)
 rm_graph = randint(0, 2, size=(nodes, nodes))
 fill_diagonal(rm_graph, 0)
 
-myRandom = nx.from_numpy_matrix(rm_graph) 
+myRandom = nx.from_numpy_matrix(rm_graph)
 
 nx.draw(myRandom, node_color='y', with_labels=True)
 
@@ -752,7 +751,7 @@ With slightly nicer formatting:
 
 ```python
 for ind, cc in dict(nx.clustering(myRandom)).items():
-    
+
     print(ind, '   ', cc)
 ```
 
@@ -795,13 +794,13 @@ print(nx.average_clustering(myRandom))
 0.6902380952380953
 ```
 
-The number shows that in this graph there is a comparatively high (more than 50%) probability of the neighbours of a node to be connected among themselves. 
+The number shows that in this graph there is a comparatively high (more than 50%) probability of the neighbours of a node to be connected among themselves.
 
 ### **Path length**
 <p style='text-align: justify;'>
 Simply put, the __path length__ refers to the distance between two nodes in a graph, calculated as the number of edges to get from one to the other. More specific information about a graph can be found by measures that build on the path length, such as the _shortest path length_, _average shortest path length_, and the _shortest path length from node to all reachable nodes_.
 </p>
-For illustration, here is how we can find out the shortest path of our graph $myRandom$ from node 0 to node 1. The output is the sequence of nodes along this shortest path. 
+For illustration, here is how we can find out the shortest path of our graph $myRandom$ from node 0 to node 1. The output is the sequence of nodes along this shortest path.
 
 
 ```python
@@ -821,9 +820,8 @@ The shortest path from node 0 to node 1 is via node with index 2. This shows tha
 my_shortest_paths = nx.all_shortest_paths(myRandom, source=0, target=1)
 
 for path in my_shortest_paths:
-    
+
     print(path)
-    
 ```
 
 ```{.output}
@@ -835,7 +833,7 @@ for path in my_shortest_paths:
 [0, 5, 1]
 ```
 
-There are six possibilities to get from node 0 to node 1 via one intermediate node. 
+There are six possibilities to get from node 0 to node 1 via one intermediate node.
 
 As a single summary quantity of a network, we can find the _average shortest path length_:
 
@@ -848,15 +846,15 @@ print(round(nx.average_shortest_path_length(myRandom), 2))
 1.29
 ```
 
-::::::::::::::::::::::::::::::: challenge 
+::::::::::::::::::::::::::::::: challenge
 
 ## Do it Yourself
 
 1. Using the $15\times 15$ matrix you created in Exercise 2.3, calculate the average shortest path length.
 
 2. Using the same matrix, print the shortest path length between nodes 2 and 8.
-	
-	
+
+
 ::::::::::::::::: solution
 ## Q1
 
@@ -877,7 +875,7 @@ print(round(nx.average_shortest_path_length(rm_15_Graph), 2))
 my_shortest_paths = nx.all_shortest_paths(rm_15_Graph, source=2, target=8)
 
 for path in my_shortest_paths:
-    
+
     print(path)
 ```
 
@@ -891,7 +889,7 @@ for path in my_shortest_paths:
 ```
 
 :::::::::::::::::
-::::::::::::::::::::::::::::::: 
+:::::::::::::::::::::::::::::::
 
 ### **Centrality**
 <p style='text-align: justify;'>
@@ -903,7 +901,7 @@ _Centrality_ can be used to determine the most _important_ node or nodes in a gr
 my_centralities = nx.degree_centrality(myRandom)
 
 for index, centr in dict(my_centralities).items():
-    
+
     print(index, '  ', round(centr, 2))
 ```
 
@@ -930,9 +928,9 @@ This produces a dictionary of nodes followed by the centrality value. In this gr
 ### **Getting a network matrix from Dynamic Connectome lab**
 <p style='text-align: justify;'>
 In this final section we want to benefit from network information that is stored in a freely available database.
-There are a number of databases that include information about interactions. In the context of biochemical 
+There are a number of databases that include information about interactions. In the context of biochemical
 reaction networks, two prominent examples are the ([KEGG database](http://www.genome.jp/kegg/pathway.html/))
-and the ([Reactome database](http://www.reactome.org/)). In the previous lesson, we have used an example from the [STRING database](https://string-db.org) which contained data about protein-protein interactions (PPI). Other examples are the [BioGrid Database of Protein, Genetic and Chemical Interactions](https://thebiogrid.org) and the [IntAct Molecular Interaction Database](https://www.ebi.ac.uk/legacy-intact/). 
+and the ([Reactome database](http://www.reactome.org/)). In the previous lesson, we have used an example from the [STRING database](https://string-db.org) which contained data about protein-protein interactions (PPI). Other examples are the [BioGrid Database of Protein, Genetic and Chemical Interactions](https://thebiogrid.org) and the [IntAct Molecular Interaction Database](https://www.ebi.ac.uk/legacy-intact/).
 </p>
 <p style='text-align: justify;'>
 Some researchers also make their data freely available upon publication. In this section we are going to use some simplified data from the [Dynamic Connectome lab](https://www.dynamic-connectome.org/) on the neuronal networks of _C. elegans_. For simplicity, these data have been edited such that only the first 50 of the 131 neurons are included. The Python Pandas library is used to import this data. First, we import the adjacency matrix showing how these neurons connect to each other, and a file containing the name of each neuron.
@@ -952,11 +950,11 @@ neurons     = neurons.to_numpy()
 neuronNames = neuronNames.to_dict()
 
 neuronLabels = neuronNames[0]
-neuronGraph  = nx.from_numpy_matrix(neurons)   
+neuronGraph  = nx.from_numpy_matrix(neurons)
 
 neuronLayout = nx.random_layout(neuronGraph)
 
-nx.draw(neuronGraph, neuronLayout, 
+nx.draw(neuronGraph, neuronLayout,
         node_size=1500,
         node_color='turquoise',
         labels = neuronLabels
@@ -1016,7 +1014,7 @@ Number of Edges
 186
 ```
 
-::::::::::::::::::::: 
+:::::::::::::::::::::
 
 ::::::::::::::::::::: solution
 
@@ -1032,7 +1030,7 @@ print(nx.average_clustering(neuronGraph))
 Clustering Coefficients
 0.3174194694194694
 ```
-::::::::::::::::::::: 
+:::::::::::::::::::::
 
 ::::::::::::::::::::: solution
 
@@ -1048,7 +1046,7 @@ print(nx.degree_centrality(neuronGraph))
 Degree Centrality
 {0: 0.08163265306122448, 1: 0.14285714285714285, 2: 0.26530612244897955, 3: 0.24489795918367346, 4: 0.061224489795918366, 5: 0.061224489795918366, 6: 0.2040816326530612, 7: 0.22448979591836732, 8: 0.32653061224489793, 9: 0.1020408163265306, 10: 0.1020408163265306, 11: 0.16326530612244897, 12: 0.14285714285714285, 13: 0.061224489795918366, 14: 0.22448979591836732, 15: 0.24489795918367346, 16: 0.08163265306122448, 17: 0.08163265306122448, 18: 0.16326530612244897, 19: 0.2040816326530612, 20: 0.12244897959183673, 21: 0.1020408163265306, 22: 0.02040816326530612, 23: 0.02040816326530612, 24: 0.1020408163265306, 25: 0.08163265306122448, 26: 0.1020408163265306, 27: 0.08163265306122448, 28: 0.22448979591836732, 29: 0.24489795918367346, 30: 0.2857142857142857, 31: 0.2857142857142857, 32: 0.22448979591836732, 33: 0.24489795918367346, 34: 0.2040816326530612, 35: 0.24489795918367346, 36: 0.14285714285714285, 37: 0.12244897959183673, 38: 0.18367346938775508, 39: 0.2040816326530612, 40: 0.061224489795918366, 41: 0.1020408163265306, 42: 0.16326530612244897, 43: 0.12244897959183673, 44: 0.12244897959183673, 45: 0.18367346938775508, 46: 0.18367346938775508, 47: 0.1020408163265306, 48: 0.1020408163265306, 49: 0.02040816326530612}
 ```
-::::::::::::::::::::: 
+:::::::::::::::::::::
 
 ::::::::::::::::::::: solution
 
@@ -1064,7 +1062,7 @@ print(nx.average_shortest_path_length(neuronGraph))
 Average shortest path length
 2.3518367346938778
 ```
-::::::::::::::::::::: 
+:::::::::::::::::::::
 
 ::::::::::::::::::::: solution
 
@@ -1080,7 +1078,7 @@ print([p for p in nx.all_shortest_paths(neuronGraph, source=4, target=44)])
 Shortest path length between N4 and N44
 [[4, 15, 42, 44]]
 ```
-::::::::::::::::::::: 
+:::::::::::::::::::::
 
 ::::::::::::::::::::: solution
 
@@ -1122,20 +1120,20 @@ show()
 ```
 
 <img src="fig/02-networks_2-rendered-unnamed-chunk-42-19.png" width="672" style="display: block; margin: auto;" />
-::::::::::::::::::::: 
+:::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::
 
 
 
 
-::::::::::::::::::::::::::::::::::::: keypoints 
+::::::::::::::::::::::::::::::::::::: keypoints
 
 - The function `randint` creates matrices with randomly assigned integers which are represented as edges.
-- NetworkX can produce interesting graphs like: `Petersen`, `lobster` and `caterpillar` graphs. 
-- In a symmetric matrix, the `in degree` and the `out degree` arrays are identical. 
+- NetworkX can produce interesting graphs like: `Petersen`, `lobster` and `caterpillar` graphs.
+- In a symmetric matrix, the `in degree` and the `out degree` arrays are identical.
 - Large networks can be quantified using e.g. ` the degree distribution`.
-- Some of the key graph properties include the clustering coefficient, path length, and centrality. 
+- Some of the key graph properties include the clustering coefficient, path length, and centrality.
 
 :::::::::::::::::::::::::::::::
 

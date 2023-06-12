@@ -229,7 +229,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Networks - Quantification</h1>
-        <p> Last updated on 2023-05-30 | 
+        <p> Last updated on 2023-06-12 | 
         
         <a href="https://github.com/LearnToDiscover/Networks.git/edit/main/episodes/02-networks_2.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -241,8 +241,6 @@
 
         
 
-<p><a href="02-networks_2.md.pdf"><strong>Download Chapter
-pdf</strong></a></p>
 <p><a href="02-networks_2.ipynb"><strong>Download Chapter notebook
 (ipynb)</strong></a></p>
 <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdr0capF7jloJhPH3Pki1B3LZoKOG16poOpuVJ7SL2LkwLHQA/viewform?pli=1" class="external-link"><span style="color: rgb(255, 0, 0);"><strong>Mandatory Lesson Feedback
@@ -337,11 +335,11 @@ function <code>randint</code>.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[[1 0 1 0 0]
- [1 1 1 0 1]
- [0 0 0 1 1]
- [0 0 0 1 1]
- [1 1 1 0 1]]</code></pre>
+<pre class="output" tabindex="0"><code>[[1 1 0 1 1]
+ [0 0 1 1 1]
+ [1 0 1 1 0]
+ [0 1 1 1 1]
+ [1 1 0 0 1]]</code></pre>
 </div>
 <p>Function <span class="math inline">\(randint\)</span> from the numpy
 module <span class="math inline">\(random\)</span> is used to create an
@@ -396,7 +394,7 @@ each time the code is executed. To test this run the following example:
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy.random <span class="im">import</span> seed </span>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy.random <span class="im">import</span> seed</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>seed(<span class="dv">1</span>)</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -470,7 +468,7 @@ players throwing a dice 20 times.</p>
   DIY ANSWER
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -574,7 +572,7 @@ how it changes.
   DIY ANSWER
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -585,7 +583,7 @@ how it changes.
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>nx.draw(tutte, layout,</span>
 <span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>        with_labels<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>show()        </span></code></pre>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="fig/02-networks_2-rendered-unnamed-chunk-9-5.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure></div>
 </div>
@@ -617,16 +615,16 @@ index 1 has a total degree of 4, with an <em>out degree</em> of 2 and an
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>matrixFromArray <span class="op">=</span>  array([[<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>], </span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>                          [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>], </span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>                          [<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>], </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>matrixFromArray <span class="op">=</span>  array([[<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>],</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>                          [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>],</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>                          [<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>],</span>
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>                          [<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>]])</span>
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>my_graph <span class="op">=</span> nx.from_numpy_matrix(matrixFromArray, create_using<span class="op">=</span>nx.DiGraph)</span>
 <span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>my_graphLayout <span class="op">=</span> nx.spring_layout(my_graph, seed<span class="op">=</span><span class="dv">11</span>)</span>
 <span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>nx.draw(my_graph, my_graphLayout, </span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>nx.draw(my_graph, my_graphLayout,</span>
 <span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>        node_size<span class="op">=</span><span class="dv">1000</span>,</span>
 <span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>        arrowsize<span class="op">=</span><span class="dv">20</span>,</span>
 <span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>        with_labels<span class="op">=</span><span class="va">True</span></span>
@@ -641,10 +639,10 @@ following network matrix.</p>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>mymatrix <span class="op">=</span>  array([[<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>], </span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>                   [<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>], </span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>                   [<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>], </span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>                   [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>], </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>mymatrix <span class="op">=</span>  array([[<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>],</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>                   [<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>],</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>                   [<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>],</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>                   [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>],</span>
 <span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>                   [<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>]])</span>
 <span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mymatrix)</span></code></pre>
@@ -724,10 +722,10 @@ documentation.
 <span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>nx.draw(mygraph, mygraphLayout,</span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>        labels <span class="op">=</span> mygraphLabels, </span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>        labels <span class="op">=</span> mygraphLabels,</span>
 <span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>        node_color <span class="op">=</span> <span class="st">'lavender'</span>,</span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>        node_size <span class="op">=</span> <span class="dv">2000</span>, </span>
-<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>        arrowsize<span class="op">=</span><span class="dv">25</span>, </span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>        node_size <span class="op">=</span> <span class="dv">2000</span>,</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>        arrowsize<span class="op">=</span><span class="dv">25</span>,</span>
 <span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>        arrowstyle<span class="op">=</span><span class="st">'-&gt;'</span>)</span>
 <span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
@@ -754,7 +752,7 @@ graph.</p></li>
   Q1
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -797,7 +795,7 @@ graph.</p></li>
   Q2
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -815,7 +813,7 @@ graph.</p></li>
   Q3
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb26">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -824,7 +822,7 @@ graph.</p></li>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Index'</span>, <span class="st">'    In Degree'</span>)</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ind, deg <span class="kw">in</span> rm_15_Graph.in_degree:</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'  '</span>, ind, <span class="st">'       '</span>, deg)</span></code></pre>
 </div>
 <div class="codewrapper">
@@ -854,7 +852,7 @@ graph.</p></li>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Index'</span>, <span class="st">'   Out Degree'</span>)</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ind, deg <span class="kw">in</span> rm_15_Graph.out_degree:</span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'  '</span>, ind, <span class="st">'       '</span>, deg)</span></code></pre>
 </div>
 <div class="codewrapper">
@@ -978,7 +976,7 @@ the NetworkX documentation</a>).
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>&lt;BarContainer object of 8 artists&gt;
-&lt;networkx.classes.graph.Graph object at 0x7facdca95900&gt;
+&lt;networkx.classes.graph.Graph object at 0x7f6e3f500040&gt;
 (0.0, 1.0, 0.0, 1.0)</code></pre>
 </div>
 <figure><img src="fig/02-networks_2-rendered-unnamed-chunk-22-13.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>This example plots the degree distribution, showing, for example,
@@ -1009,7 +1007,7 @@ and the degree distribution change?</p></li>
   Q1
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 <p><code>degree_max = probab / nodes</code></p>
 <div class="codewrapper sourceCode" id="cb35">
@@ -1052,7 +1050,7 @@ and the degree distribution change?</p></li>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>&lt;BarContainer object of 28 artists&gt;
-&lt;networkx.classes.graph.Graph object at 0x7facda6c5600&gt;
+&lt;networkx.classes.graph.Graph object at 0x7f6e3f83d6c0&gt;
 (0.0, 1.0, 0.0, 1.0)</code></pre>
 </div>
 <figure><img src="fig/02-networks_2-rendered-unnamed-chunk-23-15.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure></div>
@@ -1066,7 +1064,7 @@ and the degree distribution change?</p></li>
   Q2
   </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
 <div class="accordion-body">
 <blockquote>
 <p>The edge probability determines how connected a graph is. The higher
@@ -1084,11 +1082,10 @@ above formula.</p>
 <h3 id="clustering-coefficient"><strong>Clustering coefficient</strong><a class="anchor" aria-label="anchor" href="#clustering-coefficient"></a></h3>
 <p style="text-align: justify;">
 As an example of a more complex quantitative measure, we take the
-clustering coefficient.<br>
-We will look at its formula and discuss extreme cases to understand what
-useful information the measure is supposed to convey. We then practice
-the use of creating test matrices and do calculations of clustering
-coefficients of the corresponding networks.
+clustering coefficient. We will look at its formula and discuss extreme
+cases to understand what useful information the measure is supposed to
+convey. We then practice the use of creating test matrices and do
+calculations of clustering coefficients of the corresponding networks.
 </p>
 <div id="callout1" class="callout callout">
 <div class="callout-square">
@@ -1151,7 +1148,7 @@ equal to zero.</p>
 <span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>rm_graph <span class="op">=</span> randint(<span class="dv">0</span>, <span class="dv">2</span>, size<span class="op">=</span>(nodes, nodes))</span>
 <span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>fill_diagonal(rm_graph, <span class="dv">0</span>)</span>
 <span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>myRandom <span class="op">=</span> nx.from_numpy_matrix(rm_graph) </span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>myRandom <span class="op">=</span> nx.from_numpy_matrix(rm_graph)</span>
 <span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>nx.draw(myRandom, node_color<span class="op">=</span><span class="st">'y'</span>, with_labels<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a></span>
@@ -1177,7 +1174,7 @@ formula), we use the function <span class="math inline">\(clustering\)</span>.
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ind, cc <span class="kw">in</span> <span class="bu">dict</span>(nx.clustering(myRandom)).items():</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(ind, <span class="st">'   '</span>, cc)</span></code></pre>
 </div>
 <div class="codewrapper">
@@ -1263,9 +1260,8 @@ shortest paths between a pair of nodes, we can do that too.
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>my_shortest_paths <span class="op">=</span> nx.all_shortest_paths(myRandom, source<span class="op">=</span><span class="dv">0</span>, target<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> path <span class="kw">in</span> my_shortest_paths:</span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(path)</span>
-<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>    </span></code></pre>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(path)</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1314,7 +1310,7 @@ nodes 2 and 8.</p></li>
   Q1
   </h4>
 </button>
-<div id="collapseSolution8" class="accordion-collapse collapse" data-bs-parent="#accordionSolution8" aria-labelledby="headingSolution8">
+<div id="collapseSolution8" class="accordion-collapse collapse" aria-labelledby="headingSolution8" data-bs-parent="#accordionSolution8">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb52">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1337,7 +1333,7 @@ nodes 2 and 8.</p></li>
   Q2
   </h4>
 </button>
-<div id="collapseSolution9" class="accordion-collapse collapse" data-bs-parent="#accordionSolution9" aria-labelledby="headingSolution9">
+<div id="collapseSolution9" class="accordion-collapse collapse" aria-labelledby="headingSolution9" data-bs-parent="#accordionSolution9">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb54">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1345,7 +1341,7 @@ nodes 2 and 8.</p></li>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>my_shortest_paths <span class="op">=</span> nx.all_shortest_paths(rm_15_Graph, source<span class="op">=</span><span class="dv">2</span>, target<span class="op">=</span><span class="dv">8</span>)</span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> path <span class="kw">in</span> my_shortest_paths:</span>
-<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(path)</span></code></pre>
 </div>
 <div class="codewrapper">
@@ -1379,7 +1375,7 @@ connects.
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>my_centralities <span class="op">=</span> nx.degree_centrality(myRandom)</span>
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, centr <span class="kw">in</span> <span class="bu">dict</span>(my_centralities).items():</span>
-<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(index, <span class="st">'  '</span>, <span class="bu">round</span>(centr, <span class="dv">2</span>))</span></code></pre>
 </div>
 <div class="codewrapper">
@@ -1457,11 +1453,11 @@ matrix into the NetworkX format. Finally, we give the graph the layout
 <span id="cb58-7"><a href="#cb58-7" aria-hidden="true" tabindex="-1"></a>neuronNames <span class="op">=</span> neuronNames.to_dict()</span>
 <span id="cb58-8"><a href="#cb58-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb58-9"><a href="#cb58-9" aria-hidden="true" tabindex="-1"></a>neuronLabels <span class="op">=</span> neuronNames[<span class="dv">0</span>]</span>
-<span id="cb58-10"><a href="#cb58-10" aria-hidden="true" tabindex="-1"></a>neuronGraph  <span class="op">=</span> nx.from_numpy_matrix(neurons)   </span>
+<span id="cb58-10"><a href="#cb58-10" aria-hidden="true" tabindex="-1"></a>neuronGraph  <span class="op">=</span> nx.from_numpy_matrix(neurons)</span>
 <span id="cb58-11"><a href="#cb58-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb58-12"><a href="#cb58-12" aria-hidden="true" tabindex="-1"></a>neuronLayout <span class="op">=</span> nx.random_layout(neuronGraph)</span>
 <span id="cb58-13"><a href="#cb58-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb58-14"><a href="#cb58-14" aria-hidden="true" tabindex="-1"></a>nx.draw(neuronGraph, neuronLayout, </span>
+<span id="cb58-14"><a href="#cb58-14" aria-hidden="true" tabindex="-1"></a>nx.draw(neuronGraph, neuronLayout,</span>
 <span id="cb58-15"><a href="#cb58-15" aria-hidden="true" tabindex="-1"></a>        node_size<span class="op">=</span><span class="dv">1500</span>,</span>
 <span id="cb58-16"><a href="#cb58-16" aria-hidden="true" tabindex="-1"></a>        node_color<span class="op">=</span><span class="st">'turquoise'</span>,</span>
 <span id="cb58-17"><a href="#cb58-17" aria-hidden="true" tabindex="-1"></a>        labels <span class="op">=</span> neuronLabels</span>
@@ -1516,7 +1512,7 @@ graph.</p></li>
   Please check these solutions only after submitting the assignments.
   </h4>
 </button>
-<div id="collapseSolution10" class="accordion-collapse collapse" data-bs-parent="#accordionSolution10" aria-labelledby="headingSolution10">
+<div id="collapseSolution10" class="accordion-collapse collapse" aria-labelledby="headingSolution10" data-bs-parent="#accordionSolution10">
 <div class="section level3 accordion-body">
 <h3 id="q1-3">Q1<a class="anchor" aria-label="anchor" href="#q1-3"></a></h3>
 <div class="codewrapper sourceCode" id="cb61">
@@ -1542,7 +1538,7 @@ graph.</p></li>
   Q2
   </h4>
 </button>
-<div id="collapseSolution11" class="accordion-collapse collapse" data-bs-parent="#accordionSolution11" aria-labelledby="headingSolution11">
+<div id="collapseSolution11" class="accordion-collapse collapse" aria-labelledby="headingSolution11" data-bs-parent="#accordionSolution11">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb63">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1567,7 +1563,7 @@ graph.</p></li>
   Q3
   </h4>
 </button>
-<div id="collapseSolution12" class="accordion-collapse collapse" data-bs-parent="#accordionSolution12" aria-labelledby="headingSolution12">
+<div id="collapseSolution12" class="accordion-collapse collapse" aria-labelledby="headingSolution12" data-bs-parent="#accordionSolution12">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb65">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1592,7 +1588,7 @@ graph.</p></li>
   Q4
   </h4>
 </button>
-<div id="collapseSolution13" class="accordion-collapse collapse" data-bs-parent="#accordionSolution13" aria-labelledby="headingSolution13">
+<div id="collapseSolution13" class="accordion-collapse collapse" aria-labelledby="headingSolution13" data-bs-parent="#accordionSolution13">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb67">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1617,7 +1613,7 @@ graph.</p></li>
   Q5
   </h4>
 </button>
-<div id="collapseSolution14" class="accordion-collapse collapse" data-bs-parent="#accordionSolution14" aria-labelledby="headingSolution14">
+<div id="collapseSolution14" class="accordion-collapse collapse" aria-labelledby="headingSolution14" data-bs-parent="#accordionSolution14">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb69">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1642,7 +1638,7 @@ graph.</p></li>
   Q6
   </h4>
 </button>
-<div id="collapseSolution15" class="accordion-collapse collapse" data-bs-parent="#accordionSolution15" aria-labelledby="headingSolution15">
+<div id="collapseSolution15" class="accordion-collapse collapse" aria-labelledby="headingSolution15" data-bs-parent="#accordionSolution15">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb71">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1762,7 +1758,7 @@ any links that you are not going to use.
   "url": "https://learntodiscover.github.io/Networks/02-networks_2.html",
   "identifier": "https://learntodiscover.github.io/Networks/02-networks_2.html",
   "dateCreated": "2023-06-12",
-  "dateModified": "2023-05-30",
+  "dateModified": "2023-06-12",
   "datePublished": "2023-06-12"
 }
 

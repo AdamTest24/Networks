@@ -415,10 +415,10 @@ self-connections in the network.
 <div class="codewrapper sourceCode" id="cb40">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>gutbact      <span class="op">=</span> read_csv(<span class="st">'data/Stool_sparse_adj_matrix.txt'</span>, </span>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>gutbact      <span class="op">=</span> read_csv(<span class="st">'data/Stool_sparse_adj_matrix.txt'</span>,</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>                        header<span class="op">=</span><span class="va">None</span>, delimiter<span class="op">=</span><span class="st">'</span><span class="ch">\t</span><span class="st">'</span>, dtype<span class="op">=</span><span class="st">"float64"</span>)</span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>gutbactNames <span class="op">=</span> read_csv(<span class="st">'data/Stool_sparse_matrix_names.txt'</span>, </span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>gutbactNames <span class="op">=</span> read_csv(<span class="st">'data/Stool_sparse_matrix_names.txt'</span>,</span>
 <span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>                        header<span class="op">=</span><span class="va">None</span>)</span>
 <span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>gutbact<span class="op">=</span> gutbact.to_numpy()</span>
@@ -438,12 +438,12 @@ self-connections in the network.
 <span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">16</span>,<span class="dv">16</span>))</span>
 <span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>nx.draw(gutbactGraph, gutbactLayout, </span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>nx.draw(gutbactGraph, gutbactLayout,</span>
 <span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>        node_size<span class="op">=</span><span class="dv">3000</span>,</span>
 <span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>        node_color<span class="op">=</span><span class="st">'r'</span>,</span>
 <span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>        labels<span class="op">=</span>gutbactLabels)</span>
 <span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>show()        </span></code></pre>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="fig/03-networks_3-rendered-unnamed-chunk-27-21.png" width="1536" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
 This gives us the correlation network from the stool samples, with nodes
@@ -490,12 +490,12 @@ thresholded network matrix to a graph and plot it.
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">16</span>,<span class="dv">16</span>))</span>
 <span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>nx.draw(gutbactGraph, gutbactLayout, </span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>nx.draw(gutbactGraph, gutbactLayout,</span>
 <span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>        node_size<span class="op">=</span><span class="dv">3000</span>,</span>
 <span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>        node_color<span class="op">=</span><span class="st">'r'</span>,</span>
 <span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>        labels<span class="op">=</span>gutbactLabels)</span>
-<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>show()        </span></code></pre>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="fig/03-networks_3-rendered-unnamed-chunk-29-23.png" width="1536" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
 This network only displays edges where strong correlations were found
