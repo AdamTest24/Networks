@@ -3,14 +3,13 @@ title: "Networks - Applications"
 teaching: 60
 exercises: 60
 ---
-[**Download Chapter pdf**](03-networks_3.md.pdf)
 
 [**Download Chapter notebook (ipynb)**](03-networks_3.ipynb)
 
 [<span style="color: rgb(255, 0, 0);">**Mandatory Lesson Feedback Survey**</span>](https://docs.google.com/forms/d/e/1FAIpQLSdr0capF7jloJhPH3Pki1B3LZoKOG16poOpuVJ7SL2LkwLHQA/viewform?pli=1)
 
 
-::::::::::::::::::::::::::::::::::::: questions 
+::::::::::::::::::::::::::::::::::::: questions
 
 - What ways are there to import data into NetworkX?
 - What are the common file import error?
@@ -20,7 +19,7 @@ exercises: 60
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- Reviewing data import 
+- Reviewing data import
 - Understanding troubleshooting of common errors in data import
 - Handling a bipartite network
 - Applying network concepts to real-world datasets
@@ -28,7 +27,7 @@ exercises: 60
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 
-:::::::::::::::::: prereq 
+:::::::::::::::::: prereq
 
 ## Prerequisites
 
@@ -48,7 +47,7 @@ from matplotlib.pyplot import subplots, show
 ```
 
 ## Importing data into NetworkX
-<p style='text-align: justify;'> 
+<p style='text-align: justify;'>
 In the previous lessons we have looked at the basics of NetworkX, created some networks, analysed various network properties, and practised these techniques with the pre-prepared _C. elegans_ dataset. If you want to use NetworkX with data of your own, you'll need to import your data in a compatible way. Specifically, you need to be able to import data from different original data formats.
 </p>
 
@@ -84,17 +83,17 @@ print(neuronLabels)
 ```
 
 <p style='text-align: justify;'>
-Dictionaries associate keys with values.  You may remember we previously created a dictionary to assign labels to nodes. Here we convert the `neuron_Names` dataframe into a dictionary: the neuron (node) indices are the keys and the corresponding neuron (node) names are the values. As the function `to_dict` wraps the dictionary within a dictionary, we obtain the plain labels dictionary by referring to index '0'. 
+Dictionaries associate keys with values.  You may remember we previously created a dictionary to assign labels to nodes. Here we convert the `neuron_Names` dataframe into a dictionary: the neuron (node) indices are the keys and the corresponding neuron (node) names are the values. As the function `to_dict` wraps the dictionary within a dictionary, we obtain the plain labels dictionary by referring to index '0'.
 </p>
 
 Now we can create a graph, specify a layout, and plot the network.
 
 ```{python}
-neuronGraph = nx.from_numpy_matrix(neurons)   
+neuronGraph = nx.from_numpy_matrix(neurons)
 
 neuronLayout = nx.random_layout(neuronGraph, seed=123)
 
-nx.draw_networkx(neuronGraph, neuronLayout, 
+nx.draw_networkx(neuronGraph, neuronLayout,
         node_size=1000,
         labels = neuronLabels)
 
@@ -113,40 +112,40 @@ neuronPositions = neuronPos.values
 nx.draw(neuronGraph, neuronPositions,
         node_size=1000,
         labels = neuronLabels)
-        
-show()        
+
+show()
 ```
 
 The two BAG nodes to the right of the display are the (right and left) [sensory neurons used to monitor oxygen and carbon dioxide](https://www.wormatlas.org/neurons/Individual%20Neurons/BAGframeset.html).
 
-::::::::::::::::::::::::::::::: challenge 
+::::::::::::::::::::::::::::::: challenge
 
 ## Do it Yourself
 
 Find the node indices of the sensory neurons named 'BAGL' and 'BAGR'.
 
 ::::::::::::::::: solution
-	
+
 ## DIY ANSWER
 ```{python}
 for ind, name in enumerate(neuronLabels.values()):
-    
+
     if 'BAG' in name:
-        
+
         print(ind, neuronLabels[ind])
 ```
 
 :::::::::::::::::
 
-::::::::::::::::::::::::::::::: 
+:::::::::::::::::::::::::::::::
 
 
 ### **Networks Repository: List of Edges**
 <p style='text-align: justify;'>
-Network files in the [Network Repository](http://networkrepository.com/index.php) are sourced from publications and provided in the '.edges' format. These are plain text files. Let's have a look at the network of a mouse visual cortex. You can find this at [MOUSE-VISUAL-CORTEX-1](http://networkrepository.com/bn-mouse-visual-cortex-1.php). You can either download the zip file from the database or use the file provided for this Lesson. 
+Network files in the [Network Repository](http://networkrepository.com/index.php) are sourced from publications and provided in the '.edges' format. These are plain text files. Let's have a look at the network of a mouse visual cortex. You can find this at [MOUSE-VISUAL-CORTEX-1](http://networkrepository.com/bn-mouse-visual-cortex-1.php). You can either download the zip file from the database or use the file provided for this Lesson.
 </p>
 <p style='text-align: justify;'>
-Place the file 'bn-mouse_visual-cortex_1.edges' in your working directory. It can be helpful to first open it in any text-editor to see what the data look like. In this case, it is a list of two numbers per row, separated by a space. This is the list of (directed) edges. The first number indicating 'from', the second 'to'. Nodes are not given explicitly but will be inferred from the indices. 
+Place the file 'bn-mouse_visual-cortex_1.edges' in your working directory. It can be helpful to first open it in any text-editor to see what the data look like. In this case, it is a list of two numbers per row, separated by a space. This is the list of (directed) edges. The first number indicating 'from', the second 'to'. Nodes are not given explicitly but will be inferred from the indices.
 </p>
 Being a list of edges, we can import it into NetworkX as an _edgelist_, specifying that the nodes are given as integers. The result is a standard graph object which we can plot using `draw`.
 
@@ -159,22 +158,22 @@ nx.draw(MouseCortex, MouseCortexLayout,
         node_size=1000,
         node_color='r',
         with_labels=True)
-        
-show()        
+
+show()
 ```
 
 To interpret the network, you can check it against the source, [MOUSE-VISUAL-CORTEX-1](http://networkrepository.com/bn-mouse-visual-cortex-1.php).
 
-::::::::::::::::::::::::::::::: challenge 
+::::::::::::::::::::::::::::::: challenge
 
 ## Do it Yourself
 
 Network Repository provides some summary data on all their networks. Obtain the (i) number of nodes, (ii) number of edges, and (iii) average clustering coefficient and compare it to the data in [their network summary](https://networkrepository.com/bn-mouse-visual-cortex-1.php).
 
-	
-	
+
+
 ::::::::::::::::: solution
-	
+
 ## DIY ANSWER
 ```{python, results = "hold"}
 print('Number of nodes:', len(MouseCortex))
@@ -186,7 +185,7 @@ print('Average clustering coefficient:', mean(list(nx.clustering(MouseCortex).va
 
 :::::::::::::::::
 
-::::::::::::::::::::::::::::::: 
+:::::::::::::::::::::::::::::::
 
 
 ### **JSON Format**
@@ -198,9 +197,9 @@ print('Average clustering coefficient:', mean(list(nx.clustering(MouseCortex).va
 import json
 
 with open('data/miserables.json', 'r') as myfile:
-    
+
     data=myfile.read()
-    
+
 
 miserables = json.loads(data)
 
@@ -219,7 +218,7 @@ fig.tight_layout()
 show()
 ```
 
-As you can see, the 'data' variable contains the character names as node names. 
+As you can see, the 'data' variable contains the character names as node names.
 
 If you are curious, open the file with a text editor and check the entries.
 
@@ -241,26 +240,26 @@ There are many other files formats that contain network data. For a list of Netw
 
 ## NetworkX troubleshooting
 
-There are many errors that may occur in the context of dealing with network data.  We exemplify some common problems, to help find out how to diagnose and solve them. 
+There are many errors that may occur in the context of dealing with network data.  We exemplify some common problems, to help find out how to diagnose and solve them.
 
 ### **FileNotFoundError**
 
-Here we try to import a CSV file which contains an adjacency matrix. We have checked that the file is present in the working directory. 
+Here we try to import a CSV file which contains an adjacency matrix. We have checked that the file is present in the working directory.
 
 ```{python}
 neurons = read_csv('data/celegans131mtrix_50.csv', header=None, dtype="float64")
 ```
 
-::::::::::::::::::::::::::::::: challenge 
+::::::::::::::::::::::::::::::: challenge
 
 ## Do it Yourself
 
 
-What has gone wrong, and what is the solution?	
-	
+What has gone wrong, and what is the solution?
+
 ::::::::::::::::: solution
 ## DIY ANSWER
-You'll see this error if something has gone wrong in the way you've instructed Python to find your file. This may be that you've mis-typed the file name, or the file isn't in your working directory. Here, the file is present in the working directory, but there's a typo in the file name.	
+You'll see this error if something has gone wrong in the way you've instructed Python to find your file. This may be that you've mis-typed the file name, or the file isn't in your working directory. Here, the file is present in the working directory, but there's a typo in the file name.
 
 ```{python}
 neurons = read_csv('data/celegans131matrix_50.csv', header=None, dtype='int')
@@ -268,7 +267,7 @@ neurons = read_csv('data/celegans131matrix_50.csv', header=None, dtype='int')
 
 :::::::::::::::::
 
-::::::::::::::::::::::::::::::: 
+:::::::::::::::::::::::::::::::
 
 ### **KeyError**
 
@@ -292,17 +291,17 @@ thisgraphLabels = {
 
 nx.draw(thisgraph, thisgraphLayout,
         labels=thisgraphLabels)
-        
+
 show()
 
 ```
 
-::::::::::::::::::::::::::::::: challenge 
+::::::::::::::::::::::::::::::: challenge
 
 ## Do it Yourself
 
  Why does the call of `draw` throw an error, and what is the solution?
-	
+
 ::::::::::::::::: solution
 ## DIY ANSWER
 If you look at the error message, it first flags **5: 'F',**, and ends with an error about labels. We've included too many node labels: 6 labels for five nodes. This is easily corrected by taking one label out.
@@ -322,7 +321,7 @@ thisgraphLabels = {
     4: 'E',
 }
 
-nx.draw(thisgraph, thisgraphLayout, 
+nx.draw(thisgraph, thisgraphLayout,
         node_size=1000,
         node_color='tomato',
         labels=thisgraphLabels)
@@ -331,7 +330,7 @@ show()
 ```
 :::::::::::::::::
 
-::::::::::::::::::::::::::::::: 
+:::::::::::::::::::::::::::::::
 
 ### **Graph is not bipartite**
 
@@ -345,13 +344,13 @@ thisBipartite.add_nodes_from(['a', 'b', 'c', 'd', 'e', 'f'], bipartite=0)
 thisBipartite.add_nodes_from(['m', 'n', 'o', 'p', 'q', 'r'], bipartite=1)
 
 # Add edges only between nodes of opposite node sets
-thisBipartite.add_edges_from([('a', 'm'), ('a', 'n'), 
-                              ('b', 'n'), ('b', 'o'), 
-                              ('c', 'o'), ('d', 'm'), 
-                              ('a', 'p'), ('a', 'd'), 
-                              ('f', 'p'), ('d', 'r'), 
+thisBipartite.add_edges_from([('a', 'm'), ('a', 'n'),
+                              ('b', 'n'), ('b', 'o'),
+                              ('c', 'o'), ('d', 'm'),
+                              ('a', 'p'), ('a', 'd'),
+                              ('f', 'p'), ('d', 'r'),
                               ('a', 'q'), ('e', 'n')])
-                              
+
 ```
 
 ```{python}
@@ -364,19 +363,19 @@ basegroup = nx.bipartite.sets(thisBipartite)[0]
 
 bipartiteLayout = nx.bipartite_layout(thisBipartite, basegroup)
 
-nx.draw(thisBipartite, bipartiteLayout, 
-        node_size=2000, 
+nx.draw(thisBipartite, bipartiteLayout,
+        node_size=2000,
         with_labels=True)
 show()
 ```
 
-::::::::::::::::::::::::::::::: challenge 
+::::::::::::::::::::::::::::::: challenge
 
 ## Do it Yourself
 
 
-Why did this happen, what check can you do to avoid the problem, and how do you debug it?	
-	
+Why did this happen, what check can you do to avoid the problem, and how do you debug it?
+
 ::::::::::::::::: solution
 ## DIY ANSWER
 In this instance, the error message is very clear: you can't plot a graph with a bipartite layout if the graph isn't bipartite. This would have also been evident if I hadn't just checked that the graph was connected, but also that it was bipartite.
@@ -395,11 +394,11 @@ thisBipartite.add_nodes_from(['a', 'b', 'c', 'd', 'e', 'f'], bipartite=0)
 thisBipartite.add_nodes_from(['m', 'n', 'o', 'p', 'q', 'r'], bipartite=1)
 
 # Add edges only between nodes of opposite node sets
-thisBipartite.add_edges_from([('a', 'm'), ('a', 'n'), 
-                              ('b', 'n'), ('b', 'o'), 
-                              ('c', 'o'), ('d', 'm'), 
-                              ('a', 'p'), ('a', 'n'), 
-                              ('f', 'p'), ('d', 'r'), 
+thisBipartite.add_edges_from([('a', 'm'), ('a', 'n'),
+                              ('b', 'n'), ('b', 'o'),
+                              ('c', 'o'), ('d', 'm'),
+                              ('a', 'p'), ('a', 'n'),
+                              ('f', 'p'), ('d', 'r'),
                               ('a', 'q'), ('e', 'n')])
 
 ```
@@ -413,25 +412,25 @@ basegroup = nx.bipartite.sets(thisBipartite)[0]
 
 bipartiteLayout = nx.bipartite_layout(thisBipartite, basegroup)
 
-fig = nx.draw(thisBipartite, bipartiteLayout, 
-              node_size=2000, 
+fig = nx.draw(thisBipartite, bipartiteLayout,
+              node_size=2000,
               node_color='tomato',
               node_shape='h',
               with_labels=True)
-              
-show()              
+
+show()
 ```
 
 :::::::::::::::::
 
-::::::::::::::::::::::::::::::: 
+:::::::::::::::::::::::::::::::
 
 ## Example: Full _C. elegans_ Neural Network
 
 In the final part, we look at two publicly available networks that are of biomedical interest.
 
 <p style='text-align: justify;'>
-In this first example we return to data about the neuronal connections in _C. elegans_. This time we are using the full 277 neuron dataset, which includes  131 frontal neurons. For the original version of the data, go to the ([Dynamic Connectome](https://www.dynamic-connectome.org/)) website and select the Resources tab. 
+In this first example we return to data about the neuronal connections in _C. elegans_. This time we are using the full 277 neuron dataset, which includes  131 frontal neurons. For the original version of the data, go to the ([Dynamic Connectome](https://www.dynamic-connectome.org/)) website and select the Resources tab.
 </p>
 <p style='text-align: justify;'>
 The data in the $277 \times 277$ network matrix in the celegans277.zip file contain the connections between the 131 neurons in the frontal network, and 146 in the remainder or the network. If the connections _within_ each of these groups are severed, and the only remaining edges are between the two groups, this takes the form of a _bipartite graph_.
@@ -451,7 +450,7 @@ neuronNames= neuronNames.to_dict()
 
 myBipartiteLabels = neuronNames[0]
 
-myBipartite = nx.from_numpy_matrix(neurons) 
+myBipartite = nx.from_numpy_matrix(neurons)
 ```
 
 <p style='text-align: justify;'>
@@ -460,31 +459,31 @@ Here we import the bipartite module from NetworkX, and then import the bipartite
 
 ```{python}
 myBipartite.add_nodes_from([
-  0,   1,   2,   3,  13,  14,  17,  21,  22,  23,  24,  25,  
- 26,  27,  28,  29,  30,  31,  32,  33,  34,  35,  36,  59,  
- 60,  61,  66,  67,  69,  78,  79,  84,  85,  86,  87,  88,  
- 89,  90,  91,  92,  93,  94,  95,  96,  97,  98,  99, 100, 
-101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 
-125, 126, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 
-143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 
-155, 156, 157, 158, 159, 160, 161, 162, 170, 171, 172, 173, 
-180, 195, 196, 203, 204, 205, 206, 207, 235, 236, 237, 238, 
-239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 
-251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 
-263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 
+  0,   1,   2,   3,  13,  14,  17,  21,  22,  23,  24,  25,
+ 26,  27,  28,  29,  30,  31,  32,  33,  34,  35,  36,  59,
+ 60,  61,  66,  67,  69,  78,  79,  84,  85,  86,  87,  88,
+ 89,  90,  91,  92,  93,  94,  95,  96,  97,  98,  99, 100,
+101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112,
+125, 126, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142,
+143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154,
+155, 156, 157, 158, 159, 160, 161, 162, 170, 171, 172, 173,
+180, 195, 196, 203, 204, 205, 206, 207, 235, 236, 237, 238,
+239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250,
+251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262,
+263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274,
 275, 276], bipartite=0)
-                          
+
 myBipartite.add_nodes_from([
-  4,   5,   6,   7,   8,   9,  10,  11,  12,  15,  16, 
- 18,  19,  20,  37,  38,  39,  40,  41,  42,  43,  44,  
- 45,  46,  47,  48,  49,  50,  51,  52,  53,  54,  55,  
- 56,  57,  58,  62,  63,  64,  65,  68,  70,  71,  72,  
- 73,  74,  75,  76,  77,  80,  81,  82,  83, 113, 114, 
-115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 127, 
-128, 129, 130, 131, 132, 163, 164, 165, 166, 167, 168, 
-169, 174, 175, 176, 177, 178, 179, 181, 182, 183, 184, 
-185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 197, 
-198, 199, 200, 201, 202, 208, 209, 210, 211, 212, 213, 
+  4,   5,   6,   7,   8,   9,  10,  11,  12,  15,  16,
+ 18,  19,  20,  37,  38,  39,  40,  41,  42,  43,  44,
+ 45,  46,  47,  48,  49,  50,  51,  52,  53,  54,  55,
+ 56,  57,  58,  62,  63,  64,  65,  68,  70,  71,  72,
+ 73,  74,  75,  76,  77,  80,  81,  82,  83, 113, 114,
+115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 127,
+128, 129, 130, 131, 132, 163, 164, 165, 166, 167, 168,
+169, 174, 175, 176, 177, 178, 179, 181, 182, 183, 184,
+185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 197,
+198, 199, 200, 201, 202, 208, 209, 210, 211, 212, 213,
 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224,
 225, 226, 227, 228, 229, 230, 231, 232, 233, 234], bipartite=1)
 ```
@@ -507,21 +506,21 @@ color_list = [color_dictionary[i[1]] for i in myBipartite.nodes.data('bipartite'
 
 fig, ax = subplots(figsize=(10, 30))
 
-nx.draw(myBipartite, pos, 
-        node_size=1200, 
-        labels=myBipartiteLabels, 
+nx.draw(myBipartite, pos,
+        node_size=1200,
+        labels=myBipartiteLabels,
         node_color=color_list)
 show()
 ```
 
 The graph shows in a preliminary way that there are certain preferred connections between the two sets, in this case between the frontal group and the rest of the neurons.
 
-::::::::::::::::::::::::::::::: challenge 
+::::::::::::::::::::::::::::::: challenge
 
 ## Do it Yourself
 
 Draw the bipartite neural network, coloured by group and positioned using the positional information from Dynamic Connectome in the file 'celegans277positions.csv'.
-	
+
 ::::::::::::::::: solution
 ## DIY ANSWER
 The 2D positions are contained in the file 'celegans277positions.csv'. After the import of the file, they can be extracted into a variable using `values`. The positions then need to replace the original layout values (called 'pos' above).
@@ -533,9 +532,9 @@ neuronPositions = neuronPos.values
 
 fig, ax = subplots(figsize=(10, 20))
 
-nx.draw(myBipartite, neuronPositions, 
-        node_size=3000, 
-        labels=myBipartiteLabels, 
+nx.draw(myBipartite, neuronPositions,
+        node_size=3000,
+        labels=myBipartiteLabels,
         node_color=color_list)
 
 fig.tight_layout()
@@ -544,7 +543,7 @@ show()
 ```
 :::::::::::::::::
 
-::::::::::::::::::::::::::::::: 
+:::::::::::::::::::::::::::::::
 
 ## Example: Microbiome network
 <p style='text-align: justify;'>
@@ -560,10 +559,10 @@ Data are imported from text files. In this case, it is not a CSV file. Rather, t
 If you check the file, you will see that the first entry is '1.0'. This is because all self-correlations are (trivially) equal to one. We replace those diagonal values with 0 to avoid (nonsensical) self-connections in the network. </p>
 
 ```{python}
-gutbact      = read_csv('data/Stool_sparse_adj_matrix.txt', 
+gutbact      = read_csv('data/Stool_sparse_adj_matrix.txt',
                         header=None, delimiter='\t', dtype="float64")
 
-gutbactNames = read_csv('data/Stool_sparse_matrix_names.txt', 
+gutbactNames = read_csv('data/Stool_sparse_matrix_names.txt',
                         header=None)
 
 gutbact= gutbact.to_numpy()
@@ -582,24 +581,24 @@ gutbactLayout = nx.circular_layout(gutbactGraph)
 
 fig, ax = subplots(figsize=(16,16))
 
-nx.draw(gutbactGraph, gutbactLayout, 
+nx.draw(gutbactGraph, gutbactLayout,
         node_size=3000,
         node_color='r',
         labels=gutbactLabels)
 
-show()        
+show()
 ```
 
 <p style='text-align: justify;'>
-This gives us the correlation network from the stool samples, with nodes labelled by the OTU number. However, this doesn't look much like the data from the article, partly as there are so many edges. The reason is that any number in the network matrix that is not equal to zero is interpreted as an edge. Thus, essentially the graph is fully connected. 
+This gives us the correlation network from the stool samples, with nodes labelled by the OTU number. However, this doesn't look much like the data from the article, partly as there are so many edges. The reason is that any number in the network matrix that is not equal to zero is interpreted as an edge. Thus, essentially the graph is fully connected.
 </p>
 
 ### **Functional Networks**
 <p style='text-align: justify;'>
-In the paper, Friedman and Alm (2012), the edges are taken from the correlation coefficients of the correlation matrix. I.e. they define the correlation matrix as a network matrix. But the entries of the correlation matrix are not 0s and 1s as we have used so far. Instead they are real numbers between -1 and 1.  What Friedman and Alm did to obtain meaningful edges was to pick a threshold correlation, e.g. $|cc| = 0.3$ and set any matrix entry with absolute value smaller than the threshold as 0. All other values are left as they are. Because anything non-zero will be interpreted as an edge, this means that they only plot edges where the correlation coefficient is greater than 0.3 or less than -0.3. Such networks are referred to as _functional networks_. 
+In the paper, Friedman and Alm (2012), the edges are taken from the correlation coefficients of the correlation matrix. I.e. they define the correlation matrix as a network matrix. But the entries of the correlation matrix are not 0s and 1s as we have used so far. Instead they are real numbers between -1 and 1.  What Friedman and Alm did to obtain meaningful edges was to pick a threshold correlation, e.g. $|cc| = 0.3$ and set any matrix entry with absolute value smaller than the threshold as 0. All other values are left as they are. Because anything non-zero will be interpreted as an edge, this means that they only plot edges where the correlation coefficient is greater than 0.3 or less than -0.3. Such networks are referred to as _functional networks_.
 </p>
 <p style='text-align: justify;'>
-To threshold the correlation matrix in Python, we select matrix values between -0.3 and 0.3, and replace them with 0. Then we convert this thresholded network matrix to a graph and plot it. 
+To threshold the correlation matrix in Python, we select matrix values between -0.3 and 0.3, and replace them with 0. Then we convert this thresholded network matrix to a graph and plot it.
 </p>
 
 ```{python}
@@ -616,25 +615,25 @@ gutbactGraph = nx.from_numpy_matrix(gutbact_threshold)
 
 fig, ax = subplots(figsize=(16,16))
 
-nx.draw(gutbactGraph, gutbactLayout, 
+nx.draw(gutbactGraph, gutbactLayout,
         node_size=3000,
         node_color='r',
         labels=gutbactLabels)
-        
-show()        
+
+show()
 ```
 
 <p style='text-align: justify;'>
-This network only displays edges where strong correlations were found and this is how Friedman and Alm obtained their graphs. Note that the network structure now is a function of the chosen threshold. Smaller thresholds yield more edges, higher thresholds fewer edges. Choosing the right threshold may be difficult and needs further thought. 
+This network only displays edges where strong correlations were found and this is how Friedman and Alm obtained their graphs. Note that the network structure now is a function of the chosen threshold. Smaller thresholds yield more edges, higher thresholds fewer edges. Choosing the right threshold may be difficult and needs further thought.
 </p>
 <p style='text-align: justify;'>
 The creation of networks from functional data opens a wide field of research: _any_ interrelation matrix obtained with whatever metric can be interpreted as a network matrix and converted into a graph. As an example, see Figure 1 in [The Brain as a Complex System: Using Network Science as a Tool for Understanding the Brain](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3621511/) which describes the procedure for brain imaging.
 </p>
 <p style='text-align: justify;'>
-This concludes our set of Lessons on network handling in Python. For practice, try to find a database that touches on topics of your own interest. As an example, in the context of the human brain, there is a rich database at the [Human Connectome Database](http://www.humanconnectomeproject.org/data/). Each database will present its own challenges and obstacles. Nevertheless, it is worth to overcome those to be able to work with the data in Python. Eventually, all functions and dysfunctions observed in living systems are a consequence of interactions between components. 
+This concludes our set of Lessons on network handling in Python. For practice, try to find a database that touches on topics of your own interest. As an example, in the context of the human brain, there is a rich database at the [Human Connectome Database](http://www.humanconnectomeproject.org/data/). Each database will present its own challenges and obstacles. Nevertheless, it is worth to overcome those to be able to work with the data in Python. Eventually, all functions and dysfunctions observed in living systems are a consequence of interactions between components.
 </p>
 
-::::::::::::::::::::::::::::::::::::: keypoints 
+::::::::::::::::::::::::::::::::::::: keypoints
 
 - `.csv` is a common file format when importing network data.
 - `JSON` is another widely used standard file format which is language independent.
