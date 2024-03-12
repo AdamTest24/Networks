@@ -789,7 +789,8 @@ print(nx.average_shortest_path_length(neuronGraph))
 
 ```{python, results = "hold"}
 print('Shortest path length between N4 and N44')
-print([p for p in nx.all_shortest_paths(neuronGraph, source=4, target=44)])
+print(nx.shortest_path_length(neuronGraph, source=4, target=44))
+
 ```
 :::::::::::::::::::::
 
