@@ -73,11 +73,11 @@ print(rm)
 ```
 
 ```{.output}
-[[0 0 0 1 0]
- [0 1 1 1 0]
- [0 0 1 1 1]
- [0 1 0 0 0]
- [0 1 1 0 1]]
+[[0 1 0 1 1]
+ [1 0 1 1 0]
+ [0 0 1 1 0]
+ [0 0 1 0 1]
+ [0 1 0 0 0]]
 ```
 
 Function $randint$ from the numpy module $random$ is used to create an array or matrix filled with integers.
@@ -601,7 +601,7 @@ show()
 
 ```{.output}
 <BarContainer object of 8 artists>
-<networkx.classes.graph.Graph object at 0x7fe72003cc40>
+<networkx.classes.graph.Graph object at 0x7f60005d3c40>
 (0.0, 1.0, 0.0, 1.0)
 ```
 
@@ -663,7 +663,7 @@ show()
 
 ```{.output}
 <BarContainer object of 28 artists>
-<networkx.classes.graph.Graph object at 0x7fe71ffa4490>
+<networkx.classes.graph.Graph object at 0x7f60005807c0>
 (0.0, 1.0, 0.0, 1.0)
 ```
 
@@ -1071,12 +1071,12 @@ Average shortest path length
 
 ```python
 print('Shortest path length between N4 and N44')
-print([p for p in nx.all_shortest_paths(neuronGraph, source=4, target=44)])
+print(nx.shortest_path_length(neuronGraph, source=4, target=44))
 ```
 
 ```{.output}
 Shortest path length between N4 and N44
-[[4, 15, 42, 44]]
+3
 ```
 :::::::::::::::::::::
 
