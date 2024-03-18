@@ -289,8 +289,8 @@ Here we try to import a CSV file which contains an adjacency matrix. We have che
 neurons = read_csv('data/celegans131mtrix_50.csv', header=None, dtype="float64")
 ```
 
-```{.error}
-Error: FileNotFoundError: [Errno 2] No such file or directory: 'data/celegans131mtrix_50.csv'
+```{.output}
+FileNotFoundError: [Errno 2] No such file or directory: 'data/celegans131mtrix_50.csv'
 ```
 
 ::::::::::::::::::::::::::::::: challenge
@@ -340,11 +340,11 @@ nx.draw(thisgraph, thisgraphLayout,
 show()
 ```
 
-```{.error}
-Error: KeyError: 5
+```{.output}
+KeyError: 5
 ```
 
-<img src="fig/03-networks_3-rendered-unnamed-chunk-12-9.png" width="1152" style="display: block; margin: auto;" />
+<img src="fig/03-networks_3-rendered-unnamed-chunk-12-9.png" width="672" style="display: block; margin: auto;" />
 
 ::::::::::::::::::::::::::::::: challenge
 
@@ -380,7 +380,7 @@ nx.draw(thisgraph, thisgraphLayout,
 show()
 ```
 
-<img src="fig/03-networks_3-rendered-unnamed-chunk-13-11.png" width="1152" style="display: block; margin: auto;" />
+<img src="fig/03-networks_3-rendered-unnamed-chunk-13-11.png" width="672" style="display: block; margin: auto;" />
 :::::::::::::::::
 
 :::::::::::::::::::::::::::::::
@@ -427,19 +427,13 @@ nx.draw(thisBipartite, bipartiteLayout,
 show()
 ```
 
-```{.error}
-Error: networkx.exception.NetworkXError: Graph is not bipartite.
+```{.output}
+networkx.exception.NetworkXError: Graph is not bipartite.
+NameError: name 'basegroup' is not defined
+NameError: name 'bipartiteLayout' is not defined
 ```
 
-```{.error}
-Error: NameError: name 'basegroup' is not defined
-```
-
-```{.error}
-Error: NameError: name 'bipartiteLayout' is not defined
-```
-
-<img src="fig/03-networks_3-rendered-unnamed-chunk-16-13.png" width="1152" style="display: block; margin: auto;" />
+<img src="fig/03-networks_3-rendered-unnamed-chunk-16-13.png" width="672" style="display: block; margin: auto;" />
 
 ::::::::::::::::::::::::::::::: challenge
 
@@ -504,7 +498,7 @@ fig = nx.draw(thisBipartite, bipartiteLayout,
 show()
 ```
 
-<img src="fig/03-networks_3-rendered-unnamed-chunk-20-15.png" width="1152" style="display: block; margin: auto;" />
+<img src="fig/03-networks_3-rendered-unnamed-chunk-20-15.png" width="672" style="display: block; margin: auto;" />
 
 :::::::::::::::::
 

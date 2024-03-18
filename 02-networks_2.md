@@ -73,11 +73,11 @@ print(rm)
 ```
 
 ```{.output}
-[[0 1 0 1 1]
+[[0 1 1 1 0]
  [1 0 1 1 0]
- [0 0 1 1 0]
- [0 0 1 0 1]
- [0 1 0 0 0]]
+ [0 1 1 1 1]
+ [0 1 0 1 0]
+ [0 1 1 1 1]]
 ```
 
 Function $randint$ from the numpy module $random$ is used to create an array or matrix filled with integers.
@@ -221,7 +221,6 @@ Some stochastic graphs can also be generated simply within NetworkX.  A random l
 
 
 ```python
-
 nodes = 50
 
 # p1: Probability of adding an edge to the backbone
@@ -531,7 +530,6 @@ The degree distribution can be plotted using NetworkX and matplotlib, here plott
 
 
 ```python
-
 # xticks, xticklabels as to integers
 
 degs = dict(rm_net.degree()).values()
@@ -600,8 +598,7 @@ show()
 ```
 
 ```{.output}
-<BarContainer object of 8 artists>
-<networkx.classes.graph.Graph object at 0x7f60005d3c40>
+<networkx.classes.graph.Graph object at 0x7f4bd3a9a500>
 (0.0, 1.0, 0.0, 1.0)
 ```
 
@@ -662,8 +659,7 @@ show()
 ```
 
 ```{.output}
-<BarContainer object of 28 artists>
-<networkx.classes.graph.Graph object at 0x7f60005807c0>
+<networkx.classes.graph.Graph object at 0x7f4bd38c26b0>
 (0.0, 1.0, 0.0, 1.0)
 ```
 
@@ -961,6 +957,8 @@ nx.draw(neuronGraph, neuronLayout,
        )
 ```
 
+<img src="fig/02-networks_2-rendered-unnamed-chunk-35-19.png" width="672" style="display: block; margin: auto;" />
+
 We can examine this network similar to the way we did for our earlier, smaller networks.
 
 For instance, we can confirm the (reduced) number of nodes.
@@ -1115,11 +1113,10 @@ show()
 ```
 
 ```{.output}
-<BarContainer object of 14 artists>
 (0.0, 1.0, 0.0, 1.0)
 ```
 
-<img src="fig/02-networks_2-rendered-unnamed-chunk-42-19.png" width="672" style="display: block; margin: auto;" />
+<img src="fig/02-networks_2-rendered-unnamed-chunk-42-21.png" width="672" style="display: block; margin: auto;" />
 :::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::

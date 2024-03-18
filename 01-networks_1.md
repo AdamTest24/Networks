@@ -499,10 +499,13 @@ newLayout = nx.random_layout(new_graph)
 nx.draw(new_graph, newLayout)
 
 show()
-# The layout of this graph changes each time you run the code.
 ```
 
 <img src="fig/01-networks_1-rendered-unnamed-chunk-20-15.png" width="672" style="display: block; margin: auto;" />
+
+```python
+# The layout of this graph changes each time you run the code.
+```
 
 :::::::::::::::::
 
