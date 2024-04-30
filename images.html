@@ -50,7 +50,7 @@
     </div>
   </div>
   <hr></header><nav class="navbar navbar-expand-xl navbar-light bg-white bottom-nav l2d" aria-label="Main Navigation"><div class="container-fluid nav-container">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle Navigation">
       <span class="navbar-toggler-icon"></span>
       <span class="menu-title">Menu</span>
     </button>
@@ -62,7 +62,7 @@
     </div>
     <div class="search-icon-sm">
       <!-- TODO: do not show until we have search
-      <i role="img" aria-label="search button" data-feather="search"></i>
+        <i role="img" aria-label="Search the All In One page" data-feather="search"></i>
       -->
     </div>
     <div class="desktop-nav">
@@ -89,13 +89,17 @@
 </li>
       </ul>
 </div>
+    <!--
     <form class="d-flex col-md-2 search-form">
       <fieldset disabled>
-<input class="form-control me-2 searchbox" type="search" placeholder="Search" aria-label="Search"><button class="btn btn-outline-success tablet-search-button" type="submit">
-          <i class="search-icon" data-feather="search" role="img" aria-label="search button"></i>
+      <input class="form-control me-2 searchbox" type="search" placeholder="" aria-label="">
+        <button class="btn btn-outline-success tablet-search-button"  type="submit">
+          <i class="search-icon" data-feather="search" role="img" aria-label="Search the All In One page"></i>
         </button>
       </fieldset>
-</form>
+    </form>
+    -->
+    <a class="btn btn-primary" href="aio.html" role="button" aria-label="Search the All In One page">Search the All In One page</a>
   </div>
 <!--/div.container-fluid -->
 </nav><div class="col-md-12 mobile-title">
@@ -113,51 +117,51 @@
       <div class="row">
         <!-- START: inst/pkgdown/templates/navbar.html -->
 <div id="sidebar-col" class="col-lg-4">
-  <div id="sidebar" class="sidebar">
-      <nav aria-labelledby="flush-headingEleven"><button role="button" aria-label="close menu" alt="close menu" aria-expanded="true" aria-controls="sidebar" class="collapse-toggle">
-          <i class="search-icon" data-feather="x" role="img"></i>
-        </button>
-        <div class="sidebar-inner">
-          <div class="row mobile-row">
-            <div class="col">
-              <div class="sidenav-view-selector">
-                <div class="accordion accordion-flush" id="accordionFlush9">
-                  <div class="accordion-item">
-                    <h2 class="accordion-header" id="flush-headingNine">
-                      <button class="accordion-button collapsed" id="instructor" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseNine" aria-expanded="false" aria-controls="flush-collapseNine">
-                        <i id="eye" aria-hidden="true" class="icon" data-feather="eye"></i> Learner View
-                      </button>
-                    </h2>
-                    <div id="flush-collapseNine" class="accordion-collapse collapse" aria-labelledby="flush-headingNine" data-bs-parent="#accordionFlush2">
-                      <div class="accordion-body">
-                        <a href="instructor/images.html">Instructor View</a>
-                      </div>
+    <div id="sidebar" class="sidebar">
+        <nav aria-labelledby="flush-headingEleven"><button role="button" aria-label="close menu" alt="close menu" aria-expanded="true" aria-controls="sidebar" class="collapse-toggle" data-collapse="Collapse " data-episodes="Episodes ">
+                <i class="search-icon" data-feather="x" role="img"></i>
+            </button>
+            <div class="sidebar-inner">
+                <div class="row mobile-row">
+                    <div class="col">
+                        <div class="sidenav-view-selector">
+                            <div class="accordion accordion-flush" id="accordionFlush9">
+                                <div class="accordion-item">
+ 
+                                    <h2 class="accordion-header" id="flush-headingNine">
+                                        <button class="accordion-button collapsed" id="instructor" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseNine" aria-expanded="false" aria-controls="flush-collapseNine">
+                                            <i id="eye" aria-hidden="true" class="icon" data-feather="eye"></i>
+                                            Learner View
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseNine" class="accordion-collapse collapse" aria-labelledby="flush-headingNine" data-bs-parent="#accordionFlush2">
+                                        <div class="accordion-body">
+                                            <a href="instructor/images.html">Instructor View</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/div.accordion-item-->
+                            </div>
+                            <!--/div.accordion-flush-->
+                        </div>
+                        <!--div.sidenav-view-selector -->
                     </div>
-                  </div>
-<!--/div.accordion-item-->
-                </div>
-<!--/div.accordion-flush-->
-              </div>
-<!--div.sidenav-view-selector -->
-            </div>
-<!--/div.col -->
-      
-            <hr>
+                    <!--/div.col -->
+                    
+                    <hr>
 </div>
-<!--/div.mobile-row -->
+                <!--/div.mobile-row -->
 
-          <div class="accordion accordion-flush" id="accordionFlush11">
-            <div class="accordion-item">
-
-              <button id="chapters" class="accordion-button show" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseEleven" aria-expanded="false" aria-controls="flush-collapseEleven">
-                <h2 class="accordion-header chapters" id="flush-headingEleven">
-                  EPISODES
-                </h2>
-              </button>
-              <div id="flush-collapseEleven" class="accordion-collapse show collapse" aria-labelledby="flush-headingEleven" data-bs-parent="#accordionFlush11">
-
-                <div class="accordion-body">
-                  <div class="accordion accordion-flush" id="accordionFlush1">
+                <div class="accordion accordion-flush" id="accordionFlush11">
+                    <div class="accordion-item">
+                        <button id="chapters" class="accordion-button show" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseEleven" aria-expanded="false" aria-controls="flush-collapseEleven">
+                            <h2 class="accordion-header chapters" id="flush-headingEleven">
+                                EPISODES
+                            </h2>
+                        </button>
+                        <div id="flush-collapseEleven" class="accordion-collapse show collapse" aria-labelledby="flush-headingEleven" data-bs-parent="#accordionFlush11">
+                            <div class="accordion-body">
+<div class="accordion accordion-flush" id="accordionFlush1">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading1">
         <a href="index.html">Summary and Setup</a>
@@ -204,53 +208,53 @@
 <!--/div.accordion-item-->
 </div>
 <!--/div.accordion-flush-->
-
-                </div>
-              </div>
-            </div>
-
-            <hr class="half-width">
+</div>
+                        </div>
+                    </div>
+                     
+                    <hr class="half-width">
 <div class="accordion accordion-flush resources" id="accordionFlush12">
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingTwelve">
-                  <button class="accordion-button collapsed" id="resources" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwelve" aria-expanded="false" aria-controls="flush-collapseTwelve">
-                    RESOURCES
-                  </button>
-                </h2>
-                <div id="flush-collapseTwelve" class="accordion-collapse collapse" aria-labelledby="flush-headingTwelve" data-bs-parent="#accordionFlush12">
-                  <div class="accordion-body">
-                    <ul>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingTwelve">
+                                <button class="accordion-button collapsed" id="resources" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwelve" aria-expanded="false" aria-controls="flush-collapseTwelve">
+                                    RESOURCES
+                                </button>
+                            </h2>
+                            <div id="flush-collapseTwelve" class="accordion-collapse collapse" aria-labelledby="flush-headingTwelve" data-bs-parent="#accordionFlush12">
+                                <div class="accordion-body">
+                                    <ul>
 <li>
-                        <a href="key-points.html">Key Points</a>
-                      </li>
-                      <li>
-                        <a href="reference.html#glossary">Glossary</a>
-                      </li>
-                      <li>
-                        <a href="profiles.html">Learner Profiles</a>
-                      </li>
-                      
-                    </ul>
+                                            <a href="key-points.html">Key Points</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference.html#glossary">Glossary</a>
+                                        </li>
+                                        <li>
+                                            <a href="profiles.html">Learner Profiles</a>
+                                        </li>
+                                         
+                                    </ul>
 </div>
-                </div>
-              </div>
-            </div>
-            <hr class="half-width resources">
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="half-width resources">
 <a href="aio.html">See all in one page</a>
-            <br><a href="aio.pdf">See all in one page [PDF]</a>
+                    
+                    <br><a href="aio.pdf">See all in one page [PDF]</a> 
 
-            <hr class="d-none d-sm-block d-md-none">
+                    <hr class="d-none d-sm-block d-md-none">
 <div class="d-grid gap-1">
-            
+                        
+                    </div>
+                </div>
+                <!-- /div.accordion -->
             </div>
-          </div>
-<!-- /div.accordion -->
-        </div>
-<!-- /div.sidebar-inner -->
-      </nav>
+            <!-- /div.sidebar-inner -->
+        </nav>
 </div>
-<!-- /div.sidebar -->
-  </div>
+    <!-- /div.sidebar -->
+</div>
 <!-- /div.sidebar-col -->
 <!-- END:   inst/pkgdown/templates/navbar.html-->
 
@@ -361,7 +365,9 @@ familiarise you with the elements and properties of graphs.
 <h3 id="02-networks_2-figure-10">Figure 10</h3>
 <figure><img src="fig/02-networks_2-rendered-unnamed-chunk-24-17.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><hr>
 <h3 id="02-networks_2-figure-11">Figure 11</h3>
-<figure><img src="fig/02-networks_2-rendered-unnamed-chunk-42-19.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><hr></section><section id="03-networks_3"><h2 class="section-heading"><a href="03-networks_3.html">Networks - Applications</a></h2>
+<figure><img src="fig/02-networks_2-rendered-unnamed-chunk-35-19.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><hr>
+<h3 id="02-networks_2-figure-12">Figure 12</h3>
+<figure><img src="fig/02-networks_2-rendered-unnamed-chunk-42-21.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><hr></section><section id="03-networks_3"><h2 class="section-heading"><a href="03-networks_3.html">Networks - Applications</a></h2>
 <hr class="half-width">
 <h3 id="03-networks_3-figure-1">Figure 1</h3>
 <figure><img src="fig/03-networks_3-rendered-unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><hr>
@@ -372,13 +378,13 @@ familiarise you with the elements and properties of graphs.
 <h3 id="03-networks_3-figure-4">Figure 4</h3>
 <figure><img src="fig/03-networks_3-rendered-unnamed-chunk-9-7.png" width="1152" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><hr>
 <h3 id="03-networks_3-figure-5">Figure 5</h3>
-<figure><img src="fig/03-networks_3-rendered-unnamed-chunk-12-9.png" width="1152" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><hr>
+<figure><img src="fig/03-networks_3-rendered-unnamed-chunk-12-9.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><hr>
 <h3 id="03-networks_3-figure-6">Figure 6</h3>
-<figure><img src="fig/03-networks_3-rendered-unnamed-chunk-13-11.png" width="1152" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><hr>
+<figure><img src="fig/03-networks_3-rendered-unnamed-chunk-13-11.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><hr>
 <h3 id="03-networks_3-figure-7">Figure 7</h3>
-<figure><img src="fig/03-networks_3-rendered-unnamed-chunk-16-13.png" width="1152" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><hr>
+<figure><img src="fig/03-networks_3-rendered-unnamed-chunk-16-13.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><hr>
 <h3 id="03-networks_3-figure-8">Figure 8</h3>
-<figure><img src="fig/03-networks_3-rendered-unnamed-chunk-20-15.png" width="1152" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><hr>
+<figure><img src="fig/03-networks_3-rendered-unnamed-chunk-20-15.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><hr>
 <h3 id="03-networks_3-figure-9">Figure 9</h3>
 <figure><img src="fig/03-networks_3-rendered-unnamed-chunk-24-17.png" width="960" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><hr>
 <h3 id="03-networks_3-figure-10">Figure 10</h3>
@@ -414,38 +420,38 @@ is because all self-correlations are (trivially) equal to one. We
 replace those diagonal values with 0 to avoid (nonsensical)
 self-connections in the network.
 </p>
-<div class="codewrapper sourceCode" id="cb40">
+<div class="codewrapper sourceCode" id="cb38">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" tabindex="-1"></a>gutbact      <span class="op">=</span> read_csv(<span class="st">'data/Stool_sparse_adj_matrix.txt'</span>,</span>
-<span id="cb40-2"><a href="#cb40-2" tabindex="-1"></a>                        header<span class="op">=</span><span class="va">None</span>, delimiter<span class="op">=</span><span class="st">'</span><span class="ch">\t</span><span class="st">'</span>, dtype<span class="op">=</span><span class="st">"float64"</span>)</span>
-<span id="cb40-3"><a href="#cb40-3" tabindex="-1"></a></span>
-<span id="cb40-4"><a href="#cb40-4" tabindex="-1"></a>gutbactNames <span class="op">=</span> read_csv(<span class="st">'data/Stool_sparse_matrix_names.txt'</span>,</span>
-<span id="cb40-5"><a href="#cb40-5" tabindex="-1"></a>                        header<span class="op">=</span><span class="va">None</span>)</span>
-<span id="cb40-6"><a href="#cb40-6" tabindex="-1"></a></span>
-<span id="cb40-7"><a href="#cb40-7" tabindex="-1"></a>gutbact<span class="op">=</span> gutbact.to_numpy()</span>
-<span id="cb40-8"><a href="#cb40-8" tabindex="-1"></a></span>
-<span id="cb40-9"><a href="#cb40-9" tabindex="-1"></a>fill_diagonal(gutbact, <span class="dv">0</span>)</span>
-<span id="cb40-10"><a href="#cb40-10" tabindex="-1"></a></span>
-<span id="cb40-11"><a href="#cb40-11" tabindex="-1"></a>gutbactNames<span class="op">=</span> gutbactNames.to_dict()</span>
-<span id="cb40-12"><a href="#cb40-12" tabindex="-1"></a></span>
-<span id="cb40-13"><a href="#cb40-13" tabindex="-1"></a>gutbactLabels <span class="op">=</span> gutbactNames[<span class="dv">0</span>]</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" tabindex="-1"></a>gutbact      <span class="op">=</span> read_csv(<span class="st">'data/Stool_sparse_adj_matrix.txt'</span>,</span>
+<span id="cb38-2"><a href="#cb38-2" tabindex="-1"></a>                        header<span class="op">=</span><span class="va">None</span>, delimiter<span class="op">=</span><span class="st">'</span><span class="ch">\t</span><span class="st">'</span>, dtype<span class="op">=</span><span class="st">"float64"</span>)</span>
+<span id="cb38-3"><a href="#cb38-3" tabindex="-1"></a></span>
+<span id="cb38-4"><a href="#cb38-4" tabindex="-1"></a>gutbactNames <span class="op">=</span> read_csv(<span class="st">'data/Stool_sparse_matrix_names.txt'</span>,</span>
+<span id="cb38-5"><a href="#cb38-5" tabindex="-1"></a>                        header<span class="op">=</span><span class="va">None</span>)</span>
+<span id="cb38-6"><a href="#cb38-6" tabindex="-1"></a></span>
+<span id="cb38-7"><a href="#cb38-7" tabindex="-1"></a>gutbact<span class="op">=</span> gutbact.to_numpy()</span>
+<span id="cb38-8"><a href="#cb38-8" tabindex="-1"></a></span>
+<span id="cb38-9"><a href="#cb38-9" tabindex="-1"></a>fill_diagonal(gutbact, <span class="dv">0</span>)</span>
+<span id="cb38-10"><a href="#cb38-10" tabindex="-1"></a></span>
+<span id="cb38-11"><a href="#cb38-11" tabindex="-1"></a>gutbactNames<span class="op">=</span> gutbactNames.to_dict()</span>
+<span id="cb38-12"><a href="#cb38-12" tabindex="-1"></a></span>
+<span id="cb38-13"><a href="#cb38-13" tabindex="-1"></a>gutbactLabels <span class="op">=</span> gutbactNames[<span class="dv">0</span>]</span></code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb41">
+<div class="codewrapper sourceCode" id="cb39">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" tabindex="-1"></a>gutbactGraph <span class="op">=</span> nx.from_numpy_matrix(gutbact)</span>
-<span id="cb41-2"><a href="#cb41-2" tabindex="-1"></a></span>
-<span id="cb41-3"><a href="#cb41-3" tabindex="-1"></a>gutbactLayout <span class="op">=</span> nx.circular_layout(gutbactGraph)</span>
-<span id="cb41-4"><a href="#cb41-4" tabindex="-1"></a></span>
-<span id="cb41-5"><a href="#cb41-5" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">16</span>,<span class="dv">16</span>))</span>
-<span id="cb41-6"><a href="#cb41-6" tabindex="-1"></a></span>
-<span id="cb41-7"><a href="#cb41-7" tabindex="-1"></a>nx.draw(gutbactGraph, gutbactLayout,</span>
-<span id="cb41-8"><a href="#cb41-8" tabindex="-1"></a>        node_size<span class="op">=</span><span class="dv">3000</span>,</span>
-<span id="cb41-9"><a href="#cb41-9" tabindex="-1"></a>        node_color<span class="op">=</span><span class="st">'r'</span>,</span>
-<span id="cb41-10"><a href="#cb41-10" tabindex="-1"></a>        labels<span class="op">=</span>gutbactLabels)</span>
-<span id="cb41-11"><a href="#cb41-11" tabindex="-1"></a></span>
-<span id="cb41-12"><a href="#cb41-12" tabindex="-1"></a>show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" tabindex="-1"></a>gutbactGraph <span class="op">=</span> nx.from_numpy_matrix(gutbact)</span>
+<span id="cb39-2"><a href="#cb39-2" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="#cb39-3" tabindex="-1"></a>gutbactLayout <span class="op">=</span> nx.circular_layout(gutbactGraph)</span>
+<span id="cb39-4"><a href="#cb39-4" tabindex="-1"></a></span>
+<span id="cb39-5"><a href="#cb39-5" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">16</span>,<span class="dv">16</span>))</span>
+<span id="cb39-6"><a href="#cb39-6" tabindex="-1"></a></span>
+<span id="cb39-7"><a href="#cb39-7" tabindex="-1"></a>nx.draw(gutbactGraph, gutbactLayout,</span>
+<span id="cb39-8"><a href="#cb39-8" tabindex="-1"></a>        node_size<span class="op">=</span><span class="dv">3000</span>,</span>
+<span id="cb39-9"><a href="#cb39-9" tabindex="-1"></a>        node_color<span class="op">=</span><span class="st">'r'</span>,</span>
+<span id="cb39-10"><a href="#cb39-10" tabindex="-1"></a>        labels<span class="op">=</span>gutbactLabels)</span>
+<span id="cb39-11"><a href="#cb39-11" tabindex="-1"></a></span>
+<span id="cb39-12"><a href="#cb39-12" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="fig/03-networks_3-rendered-unnamed-chunk-27-21.png" width="1536" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
 This gives us the correlation network from the stool samples, with nodes
@@ -476,28 +482,28 @@ To threshold the correlation matrix in Python, we select matrix values
 between -0.3 and 0.3, and replace them with 0. Then we convert this
 thresholded network matrix to a graph and plot it.
 </p>
-<div class="codewrapper sourceCode" id="cb42">
+<div class="codewrapper sourceCode" id="cb40">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> where, logical_and</span>
-<span id="cb42-2"><a href="#cb42-2" tabindex="-1"></a></span>
-<span id="cb42-3"><a href="#cb42-3" tabindex="-1"></a>threshold <span class="op">=</span> <span class="fl">0.3</span></span>
-<span id="cb42-4"><a href="#cb42-4" tabindex="-1"></a></span>
-<span id="cb42-5"><a href="#cb42-5" tabindex="-1"></a>gutbact_threshold <span class="op">=</span> where(logical_and(gutbact<span class="op">&gt;=-</span>threshold , gutbact<span class="op">&lt;=</span>threshold), <span class="dv">0</span>, gutbact)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> where, logical_and</span>
+<span id="cb40-2"><a href="#cb40-2" tabindex="-1"></a></span>
+<span id="cb40-3"><a href="#cb40-3" tabindex="-1"></a>threshold <span class="op">=</span> <span class="fl">0.3</span></span>
+<span id="cb40-4"><a href="#cb40-4" tabindex="-1"></a></span>
+<span id="cb40-5"><a href="#cb40-5" tabindex="-1"></a>gutbact_threshold <span class="op">=</span> where(logical_and(gutbact<span class="op">&gt;=-</span>threshold , gutbact<span class="op">&lt;=</span>threshold), <span class="dv">0</span>, gutbact)</span></code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb43">
+<div class="codewrapper sourceCode" id="cb41">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" tabindex="-1"></a>gutbactGraph <span class="op">=</span> nx.from_numpy_matrix(gutbact_threshold)</span>
-<span id="cb43-2"><a href="#cb43-2" tabindex="-1"></a></span>
-<span id="cb43-3"><a href="#cb43-3" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">16</span>,<span class="dv">16</span>))</span>
-<span id="cb43-4"><a href="#cb43-4" tabindex="-1"></a></span>
-<span id="cb43-5"><a href="#cb43-5" tabindex="-1"></a>nx.draw(gutbactGraph, gutbactLayout,</span>
-<span id="cb43-6"><a href="#cb43-6" tabindex="-1"></a>        node_size<span class="op">=</span><span class="dv">3000</span>,</span>
-<span id="cb43-7"><a href="#cb43-7" tabindex="-1"></a>        node_color<span class="op">=</span><span class="st">'r'</span>,</span>
-<span id="cb43-8"><a href="#cb43-8" tabindex="-1"></a>        labels<span class="op">=</span>gutbactLabels)</span>
-<span id="cb43-9"><a href="#cb43-9" tabindex="-1"></a></span>
-<span id="cb43-10"><a href="#cb43-10" tabindex="-1"></a>show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" tabindex="-1"></a>gutbactGraph <span class="op">=</span> nx.from_numpy_matrix(gutbact_threshold)</span>
+<span id="cb41-2"><a href="#cb41-2" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="#cb41-3" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">16</span>,<span class="dv">16</span>))</span>
+<span id="cb41-4"><a href="#cb41-4" tabindex="-1"></a></span>
+<span id="cb41-5"><a href="#cb41-5" tabindex="-1"></a>nx.draw(gutbactGraph, gutbactLayout,</span>
+<span id="cb41-6"><a href="#cb41-6" tabindex="-1"></a>        node_size<span class="op">=</span><span class="dv">3000</span>,</span>
+<span id="cb41-7"><a href="#cb41-7" tabindex="-1"></a>        node_color<span class="op">=</span><span class="st">'r'</span>,</span>
+<span id="cb41-8"><a href="#cb41-8" tabindex="-1"></a>        labels<span class="op">=</span>gutbactLabels)</span>
+<span id="cb41-9"><a href="#cb41-9" tabindex="-1"></a></span>
+<span id="cb41-10"><a href="#cb41-10" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="fig/03-networks_3-rendered-unnamed-chunk-29-23.png" width="1536" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
 This network only displays edges where strong correlations were found
@@ -567,13 +573,13 @@ any links that you are not going to use.
 <!--/div.row-->
       		<footer class="row footer mx-md-3"><hr>
 <div class="col-md-6">
-				<p>This lesson is subject to the <a href="CODE_OF_CONDUCT.html">Code of Conduct</a></p>
+        <p>This lesson is subject to the <a href="CODE_OF_CONDUCT.html">Code of Conduct</a></p>
         <p>
         
         <a href="https://github.com/LearnToDiscover/Networks.git/edit/main/README.md" class="external-link">Edit on GitHub</a>
         
 	
-        | <a href="https://github.com/LearnToDiscover/Networks.git/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a> 
+        | <a href="https://github.com/LearnToDiscover/Networks.git/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a>
         | <a href="https://github.com/LearnToDiscover/Networks.git/" class="external-link">Source</a></p>
 				<p><a href="https://github.com/LearnToDiscover/Networks.git/blob/main/CITATION" class="external-link">Cite</a> | <a href="mailto:team@carpentries.org">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
 			</div>
@@ -581,16 +587,14 @@ any links that you are not going to use.
         
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
-        <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/LearnToDiscover/sandpaper/tree/l2d" class="external-link">sandpaper (0.16.2)</a>,
-        <a href="https://github.com/carpentries/pegboard/tree/1bc5753e917d515c3d888ce6cc013c0a680eacfc" class="external-link">pegboard (0.7.3)</a>,
-      and <a href="https://github.com/LearnToDiscover/varnish/tree/aeffaff05b65bf7180c5154928fb2e3f42f9ec28" class="external-link">varnish (0.3.0)</a>.</p>
+        <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
+        <p>Built with <a href="https://github.com/LearnToDiscover/sandpaper/tree/l2d" class="external-link">sandpaper (0.16.4)</a>, <a href="https://github.com/carpentries/pegboard/tree/a32a7836d4455f407c3cafe8ab95edc636e5e919" class="external-link">pegboard (0.7.5)</a>, and <a href="https://github.com/LearnToDiscover/varnish/tree/7ac5e27a3dfed3a59ec1e5fcb0b719d430806598" class="external-link">varnish (1.0.2)</a></p>
 			</div>
 		</footer>
 </div> <!-- / div.container -->
 	<div id="to-top">
 		<a href="#top">
-			<i class="search-icon" data-feather="arrow-up" role="img" aria-label="Back to top"></i><br><span class="d-none d-sm-none d-md-none d-lg-none d-xl-block">Back</span> To Top
+      <i class="search-icon" data-feather="arrow-up" role="img" aria-label="Back To Top"></i><br><!-- <span class="d-none d-sm-none d-md-none d-lg-none d-xl-block">Back</span> To Top --><span class="d-none d-sm-none d-md-none d-lg-none d-xl-block">Back</span> To Top
 		</a>
 	</div>
   <script type="application/ld+json">
@@ -606,9 +610,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://learntodiscover.github.io/Networks/images.html",
   "identifier": "https://learntodiscover.github.io/Networks/images.html",
-  "dateCreated": "2023-06-21",
-  "dateModified": "2024-03-05",
-  "datePublished": "2024-03-05"
+  "dateCreated": "2024-03-18",
+  "dateModified": "2024-04-30",
+  "datePublished": "2024-04-30"
 }
 
   </script><script>

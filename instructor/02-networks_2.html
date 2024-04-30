@@ -32,7 +32,7 @@
     </div>
   </div>
   <hr></header><nav class="navbar navbar-expand-xl navbar-light bg-white bottom-nav l2d" aria-label="Main Navigation"><div class="container-fluid nav-container">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle Navigation">
       <span class="navbar-toggler-icon"></span>
       <span class="menu-title">Menu</span>
     </button>
@@ -43,7 +43,7 @@
     </div>
     <div class="search-icon-sm">
       <!-- TODO: do not show until we have search
-      <i role="img" aria-label="search button" data-feather="search"></i>
+        <i role="img" aria-label="Search the All In One page" data-feather="search"></i>
       -->
     </div>
     <div class="desktop-nav">
@@ -67,11 +67,17 @@
           </button>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown"><hr></ul></li>
       </ul></div>
+    <!--
     <form class="d-flex col-md-2 search-form">
-      <fieldset disabled><input class="form-control me-2 searchbox" type="search" placeholder="Search" aria-label="Search"><button class="btn btn-outline-success tablet-search-button" type="submit">
-          <i class="search-icon" data-feather="search" role="img" aria-label="search button"></i>
+      <fieldset disabled>
+      <input class="form-control me-2 searchbox" type="search" placeholder="" aria-label="">
+        <button class="btn btn-outline-success tablet-search-button"  type="submit">
+          <i class="search-icon" data-feather="search" role="img" aria-label="Search the All In One page"></i>
         </button>
-      </fieldset></form>
+      </fieldset>
+    </form>
+    -->
+    <a class="btn btn-primary" href="../aio.html" role="button" aria-label="Search the All In One page">Search the All In One page</a>
   </div><!--/div.container-fluid -->
 </nav><div class="col-md-12 mobile-title">
   Networks
@@ -88,45 +94,48 @@
       <div class="row">
         <!-- START: inst/pkgdown/templates/navbar.html -->
 <div id="sidebar-col" class="col-lg-4">
-  <div id="sidebar" class="sidebar">
-      <nav aria-labelledby="flush-headingEleven"><button role="button" aria-label="close menu" alt="close menu" aria-expanded="true" aria-controls="sidebar" class="collapse-toggle">
-          <i class="search-icon" data-feather="x" role="img"></i>
-        </button>
-        <div class="sidebar-inner">
-          <div class="row mobile-row">
-            <div class="col">
-              <div class="sidenav-view-selector">
-                <div class="accordion accordion-flush" id="accordionFlush9">
-                  <div class="accordion-item">
-                    <h2 class="accordion-header" id="flush-headingNine">
-                      <button class="accordion-button collapsed" id="instructor" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseNine" aria-expanded="false" aria-controls="flush-collapseNine">
-                        <i id="eye" aria-hidden="true" class="icon" data-feather="eye"></i> Instructor View
-                      </button>
-                    </h2>
-                    <div id="flush-collapseNine" class="accordion-collapse collapse" aria-labelledby="flush-headingNine" data-bs-parent="#accordionFlush2">
-                      <div class="accordion-body">
-                        <a href="../02-networks_2.html">Learner View</a>
-                      </div>
+    <div id="sidebar" class="sidebar">
+        <nav aria-labelledby="flush-headingEleven"><button role="button" aria-label="close menu" alt="close menu" aria-expanded="true" aria-controls="sidebar" class="collapse-toggle" data-collapse="Collapse " data-episodes="Episodes ">
+                <i class="search-icon" data-feather="x" role="img"></i>
+            </button>
+            <div class="sidebar-inner">
+                <div class="row mobile-row">
+                    <div class="col">
+                        <div class="sidenav-view-selector">
+                            <div class="accordion accordion-flush" id="accordionFlush9">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingNine">
+                                        <button class="accordion-button collapsed" id="instructor" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseNine" aria-expanded="false" aria-controls="flush-collapseNine">
+                                            <i id="eye" aria-hidden="true" class="icon" data-feather="eye"></i>
+                                            Instructor View
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseNine" class="accordion-collapse collapse" aria-labelledby="flush-headingNine" data-bs-parent="#accordionFlush2">
+                                        <div class="accordion-body">
+                                            <a href="../02-networks_2.html">Learner View</a>
+                                        </div>
+                                    </div>
+                                                                     </div>
+                                <!--/div.accordion-item-->
+                            </div>
+                            <!--/div.accordion-flush-->
+                        </div>
+                        <!--div.sidenav-view-selector -->
                     </div>
-                  </div><!--/div.accordion-item-->
-                </div><!--/div.accordion-flush-->
-              </div><!--div.sidenav-view-selector -->
-            </div><!--/div.col -->
-      
-            <hr></div><!--/div.mobile-row -->
+                    <!--/div.col -->
+                    
+                    <hr></div>
+                <!--/div.mobile-row -->
 
-          <div class="accordion accordion-flush" id="accordionFlush11">
-            <div class="accordion-item">
-
-              <button id="chapters" class="accordion-button show" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseEleven" aria-expanded="false" aria-controls="flush-collapseEleven">
-                <h2 class="accordion-header chapters" id="flush-headingEleven">
-                  EPISODES
-                </h2>
-              </button>
-              <div id="flush-collapseEleven" class="accordion-collapse show collapse" aria-labelledby="flush-headingEleven" data-bs-parent="#accordionFlush11">
-
-                <div class="accordion-body">
-                  <div class="accordion accordion-flush" id="accordionFlush1">
+                <div class="accordion accordion-flush" id="accordionFlush11">
+                    <div class="accordion-item">
+                        <button id="chapters" class="accordion-button show" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseEleven" aria-expanded="false" aria-controls="flush-collapseEleven">
+                            <h2 class="accordion-header chapters" id="flush-headingEleven">
+                                EPISODES
+                            </h2>
+                        </button>
+                        <div id="flush-collapseEleven" class="accordion-collapse show collapse" aria-labelledby="flush-headingEleven" data-bs-parent="#accordionFlush11">
+                            <div class="accordion-body"><div class="accordion accordion-flush" id="accordionFlush1">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading1">
         <a href="index.html">Summary and Schedule</a>
@@ -178,43 +187,47 @@
         
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
+</div>
+                        </div>
+                    </div>
+                     
+                    <hr class="half-width"><div class="accordion accordion-flush resources" id="accordionFlush12">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingTwelve">
+                                <button class="accordion-button collapsed" id="resources" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwelve" aria-expanded="false" aria-controls="flush-collapseTwelve">
+                                    RESOURCES
+                                </button>
+                            </h2>
+                            <div id="flush-collapseTwelve" class="accordion-collapse collapse" aria-labelledby="flush-headingTwelve" data-bs-parent="#accordionFlush12">
+                                <div class="accordion-body">
+                                    <ul><li>
+                                            <a href="../instructor/key-points.html">Key Points</a>
+                                        </li>
+                                        <li>
+                                            <a href="../instructor/instructor-notes.html">Instructor Notes</a>
+                                        </li>
+                                        <li>
+                                            <a href="../instructor/images.html">Extract All Images</a>
+                                        </li>
+                                           <hr></ul></div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="half-width resources"><a href="../instructor/aio.html">See all in one page</a>
+                    
+                    <br><a href="../instructor/aio.pdf">See all in one page [PDF]</a> 
 
+                    <hr class="d-none d-sm-block d-md-none"><div class="d-grid gap-1">
+                        
+                    </div>
                 </div>
-              </div>
+                <!-- /div.accordion -->
             </div>
-
-            <hr class="half-width"><div class="accordion accordion-flush resources" id="accordionFlush12">
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingTwelve">
-                  <button class="accordion-button collapsed" id="resources" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwelve" aria-expanded="false" aria-controls="flush-collapseTwelve">
-                    RESOURCES
-                  </button>
-                </h2>
-                <div id="flush-collapseTwelve" class="accordion-collapse collapse" aria-labelledby="flush-headingTwelve" data-bs-parent="#accordionFlush12">
-                  <div class="accordion-body">
-                    <ul><li>
-                        <a href="../instructor/key-points.html">Key Points</a>
-                      </li>
-                      <li>
-                        <a href="../instructor/instructor-notes.html">Instructor Notes</a>
-                      </li>
-                      <li>
-                        <a href="../instructor/images.html">Extract All Images</a>
-                      </li>
-                      <hr></ul></div>
-                </div>
-              </div>
-            </div>
-            <hr class="half-width resources"><a href="../instructor/aio.html">See all in one page</a>
-            <br><a href="../instructor/aio.pdf">See all in one page [PDF]</a>
-
-            <hr class="d-none d-sm-block d-md-none"><div class="d-grid gap-1">
-            
-            </div>
-          </div><!-- /div.accordion -->
-        </div><!-- /div.sidebar-inner -->
-      </nav></div><!-- /div.sidebar -->
-  </div><!-- /div.sidebar-col -->
+            <!-- /div.sidebar-inner -->
+        </nav></div>
+    <!-- /div.sidebar -->
+</div>
+<!-- /div.sidebar-col -->
 <!-- END:   inst/pkgdown/templates/navbar.html-->
 
         <!-- START: inst/pkgdown/templates/content-instructor.html -->
@@ -236,16 +249,16 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Networks - Quantification</h1>
-        <p> Last updated on 2024-02-27 | 
+        <p>Last updated on 2024-03-18 |
         
         <a href="https://github.com/LearnToDiscover/Networks.git/edit/main/episodes/02-networks_2.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
         
         
-        <p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 120 minutes </p>
+        <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 120 minutes</p>
         
         <div class="text-end">
-          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right"> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
 
         
@@ -344,11 +357,11 @@ function <code>randint</code>.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[[1 0 0 1 1]
- [1 0 1 0 1]
- [1 0 0 1 1]
- [1 0 1 1 1]
- [0 0 0 1 0]]</code></pre>
+<pre class="output" tabindex="0"><code>[[0 1 1 1 0]
+ [1 0 1 1 0]
+ [0 1 1 1 1]
+ [0 1 0 1 0]
+ [0 1 1 1 1]]</code></pre>
 </div>
 <p>Function <span class="math inline">\(randint\)</span> from the numpy
 module <span class="math inline">\(random\)</span> is used to create an
@@ -537,21 +550,20 @@ all leaf nodes are removed.</p>
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a></span>
-<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>nodes <span class="op">=</span> <span class="dv">50</span></span>
-<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a><span class="co"># p1: Probability of adding an edge to the backbone</span></span>
-<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a><span class="co"># p2: Probability of adding an edge one level beyond backbone</span></span>
-<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a>p1 <span class="op">=</span> <span class="fl">0.9</span></span>
-<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a>p2 <span class="op">=</span> <span class="fl">0.5</span></span>
-<span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a></span>
-<span id="cb13-9"><a href="#cb13-9" tabindex="-1"></a>lobster <span class="op">=</span> nx.random_lobster(nodes, <span class="fl">0.9</span>, <span class="fl">0.5</span>)</span>
-<span id="cb13-10"><a href="#cb13-10" tabindex="-1"></a></span>
-<span id="cb13-11"><a href="#cb13-11" tabindex="-1"></a>layout <span class="op">=</span> nx.spiral_layout(lobster)</span>
-<span id="cb13-12"><a href="#cb13-12" tabindex="-1"></a></span>
-<span id="cb13-13"><a href="#cb13-13" tabindex="-1"></a>nx.draw(lobster, layout, with_labels<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb13-14"><a href="#cb13-14" tabindex="-1"></a></span>
-<span id="cb13-15"><a href="#cb13-15" tabindex="-1"></a>show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>nodes <span class="op">=</span> <span class="dv">50</span></span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a><span class="co"># p1: Probability of adding an edge to the backbone</span></span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a><span class="co"># p2: Probability of adding an edge one level beyond backbone</span></span>
+<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a>p1 <span class="op">=</span> <span class="fl">0.9</span></span>
+<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a>p2 <span class="op">=</span> <span class="fl">0.5</span></span>
+<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a>lobster <span class="op">=</span> nx.random_lobster(nodes, <span class="fl">0.9</span>, <span class="fl">0.5</span>)</span>
+<span id="cb13-9"><a href="#cb13-9" tabindex="-1"></a></span>
+<span id="cb13-10"><a href="#cb13-10" tabindex="-1"></a>layout <span class="op">=</span> nx.spiral_layout(lobster)</span>
+<span id="cb13-11"><a href="#cb13-11" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="#cb13-12" tabindex="-1"></a>nx.draw(lobster, layout, with_labels<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb13-13"><a href="#cb13-13" tabindex="-1"></a></span>
+<span id="cb13-14"><a href="#cb13-14" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="../fig/02-networks_2-rendered-unnamed-chunk-8-3.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
 The first argument is the number of nodes in the graph backbone, the
@@ -905,23 +917,22 @@ here plotted simply with the <code>hist</code> plot.</p>
 <div class="codewrapper sourceCode" id="cb31">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" tabindex="-1"></a></span>
-<span id="cb31-2"><a href="#cb31-2" tabindex="-1"></a><span class="co"># xticks, xticklabels as to integers</span></span>
-<span id="cb31-3"><a href="#cb31-3" tabindex="-1"></a></span>
-<span id="cb31-4"><a href="#cb31-4" tabindex="-1"></a>degs <span class="op">=</span> <span class="bu">dict</span>(rm_net.degree()).values()</span>
-<span id="cb31-5"><a href="#cb31-5" tabindex="-1"></a></span>
-<span id="cb31-6"><a href="#cb31-6" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots()</span>
-<span id="cb31-7"><a href="#cb31-7" tabindex="-1"></a></span>
-<span id="cb31-8"><a href="#cb31-8" tabindex="-1"></a>ax.hist(degs, bins<span class="op">=</span><span class="dv">10</span>)<span class="op">;</span></span>
-<span id="cb31-9"><a href="#cb31-9" tabindex="-1"></a></span>
-<span id="cb31-10"><a href="#cb31-10" tabindex="-1"></a>ax.set_title(<span class="st">"Degree Distribution"</span>, fontsize<span class="op">=</span><span class="dv">20</span>)</span>
-<span id="cb31-11"><a href="#cb31-11" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Count"</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
-<span id="cb31-12"><a href="#cb31-12" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Degree"</span>, fontsize<span class="op">=</span><span class="dv">16</span>)<span class="op">;</span></span>
-<span id="cb31-13"><a href="#cb31-13" tabindex="-1"></a></span>
-<span id="cb31-14"><a href="#cb31-14" tabindex="-1"></a>ax.set_xticks([d <span class="cf">for</span> d <span class="kw">in</span> degs])</span>
-<span id="cb31-15"><a href="#cb31-15" tabindex="-1"></a>ax.set_xticklabels(degs)</span>
-<span id="cb31-16"><a href="#cb31-16" tabindex="-1"></a></span>
-<span id="cb31-17"><a href="#cb31-17" tabindex="-1"></a>show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" tabindex="-1"></a><span class="co"># xticks, xticklabels as to integers</span></span>
+<span id="cb31-2"><a href="#cb31-2" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" tabindex="-1"></a>degs <span class="op">=</span> <span class="bu">dict</span>(rm_net.degree()).values()</span>
+<span id="cb31-4"><a href="#cb31-4" tabindex="-1"></a></span>
+<span id="cb31-5"><a href="#cb31-5" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots()</span>
+<span id="cb31-6"><a href="#cb31-6" tabindex="-1"></a></span>
+<span id="cb31-7"><a href="#cb31-7" tabindex="-1"></a>ax.hist(degs, bins<span class="op">=</span><span class="dv">10</span>)<span class="op">;</span></span>
+<span id="cb31-8"><a href="#cb31-8" tabindex="-1"></a></span>
+<span id="cb31-9"><a href="#cb31-9" tabindex="-1"></a>ax.set_title(<span class="st">"Degree Distribution"</span>, fontsize<span class="op">=</span><span class="dv">20</span>)</span>
+<span id="cb31-10"><a href="#cb31-10" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Count"</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb31-11"><a href="#cb31-11" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Degree"</span>, fontsize<span class="op">=</span><span class="dv">16</span>)<span class="op">;</span></span>
+<span id="cb31-12"><a href="#cb31-12" tabindex="-1"></a></span>
+<span id="cb31-13"><a href="#cb31-13" tabindex="-1"></a>ax.set_xticks([d <span class="cf">for</span> d <span class="kw">in</span> degs])</span>
+<span id="cb31-14"><a href="#cb31-14" tabindex="-1"></a>ax.set_xticklabels(degs)</span>
+<span id="cb31-15"><a href="#cb31-15" tabindex="-1"></a></span>
+<span id="cb31-16"><a href="#cb31-16" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="../fig/02-networks_2-rendered-unnamed-chunk-20-11.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
 For a more complex example, we can generate a network with 100 nodes and
@@ -974,8 +985,7 @@ the NetworkX documentation</a>).
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>&lt;BarContainer object of 8 artists&gt;
-&lt;networkx.classes.graph.Graph object at 0x7f7d834104f0&gt;
+<pre class="output" tabindex="0"><code>&lt;networkx.classes.graph.Graph object at 0x7f4bd3a9a500&gt;
 (0.0, 1.0, 0.0, 1.0)</code></pre>
 </div>
 <figure><img src="../fig/02-networks_2-rendered-unnamed-chunk-22-13.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>This example plots the degree distribution, showing, for example,
@@ -1046,8 +1056,7 @@ and the degree distribution change?</p></li>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>&lt;BarContainer object of 28 artists&gt;
-&lt;networkx.classes.graph.Graph object at 0x7f7d8363fe50&gt;
+<pre class="output" tabindex="0"><code>&lt;networkx.classes.graph.Graph object at 0x7f4bd38c26b0&gt;
 (0.0, 1.0, 0.0, 1.0)</code></pre>
 </div>
 <figure><img src="../fig/02-networks_2-rendered-unnamed-chunk-23-15.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure></div>
@@ -1086,8 +1095,9 @@ calculations of clustering coefficients of the corresponding networks.
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div class="section level3 callout-title callout-inner">
-<h3 class="callout-title">Callout</h3>
+<div class="callout-inner">
+<h3 class="callout-title">Callout<a class="anchor" aria-label="anchor" href="#callout1"></a>
+</h3>
 <div class="callout-content">
 <p>##Definition</p>
 <p>The clustering coefficient is defined by the formula:</p>
@@ -1453,7 +1463,7 @@ matrix into the NetworkX format. Finally, we give the graph the layout
 <span id="cb58-17"><a href="#cb58-17" tabindex="-1"></a>        labels <span class="op">=</span> neuronLabels</span>
 <span id="cb58-18"><a href="#cb58-18" tabindex="-1"></a>       )</span></code></pre>
 </div>
-<p>We can examine this network similar to the way we did for our
+<figure><img src="../fig/02-networks_2-rendered-unnamed-chunk-35-19.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>We can examine this network similar to the way we did for our
 earlier, smaller networks.</p>
 <p>For instance, we can confirm the (reduced) number of nodes.</p>
 <div class="codewrapper sourceCode" id="cb59">
@@ -1599,13 +1609,13 @@ graph.</p></li>
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Shortest path length between N4 and N44'</span>)</span>
-<span id="cb69-2"><a href="#cb69-2" tabindex="-1"></a><span class="bu">print</span>([p <span class="cf">for</span> p <span class="kw">in</span> nx.all_shortest_paths(neuronGraph, source<span class="op">=</span><span class="dv">4</span>, target<span class="op">=</span><span class="dv">44</span>)])</span></code></pre>
+<span id="cb69-2"><a href="#cb69-2" tabindex="-1"></a><span class="bu">print</span>(nx.shortest_path_length(neuronGraph, source<span class="op">=</span><span class="dv">4</span>, target<span class="op">=</span><span class="dv">44</span>))</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>Shortest path length between N4 and N44
-[[4, 15, 42, 44]]</code></pre>
+3</code></pre>
 </div>
 </div>
 </div>
@@ -1651,10 +1661,9 @@ graph.</p></li>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>&lt;BarContainer object of 14 artists&gt;
-(0.0, 1.0, 0.0, 1.0)</code></pre>
+<pre class="output" tabindex="0"><code>(0.0, 1.0, 0.0, 1.0)</code></pre>
 </div>
-<figure><img src="../fig/02-networks_2-rendered-unnamed-chunk-42-19.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure></div>
+<figure><img src="../fig/02-networks_2-rendered-unnamed-chunk-42-21.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure></div>
 </div>
 </div>
 </div>
@@ -1704,29 +1713,27 @@ any links that you are not going to use.
 
       </div><!--/div.row-->
       		<footer class="row footer mx-md-3"><hr><div class="col-md-6">
-				<p>This lesson is subject to the <a href="CODE_OF_CONDUCT.html">Code of Conduct</a></p>
+        <p>This lesson is subject to the <a href="CODE_OF_CONDUCT.html">Code of Conduct</a></p>
         <p>
         
         <a href="https://github.com/LearnToDiscover/Networks.git/edit/main/episodes/02-networks_2.Rmd" class="external-link">Edit on GitHub</a>
         
 	
-        | <a href="https://github.com/LearnToDiscover/Networks.git/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a> 
+        | <a href="https://github.com/LearnToDiscover/Networks.git/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a>
         | <a href="https://github.com/LearnToDiscover/Networks.git/" class="external-link">Source</a></p>
 				<p><a href="https://github.com/LearnToDiscover/Networks.git/blob/main/CITATION" class="external-link">Cite</a> | <a href="mailto:team@carpentries.org">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
 			</div>
 			<div class="col-md-6">
         
-        <p>Materials licensed under <a href="../LICENSE.html">CC-BY 4.0</a> by the authors</p>
+        <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
-        <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/LearnToDiscover/sandpaper/tree/l2d" class="external-link">sandpaper (0.16.2)</a>,
-        <a href="https://github.com/carpentries/pegboard/tree/1bc5753e917d515c3d888ce6cc013c0a680eacfc" class="external-link">pegboard (0.7.3)</a>,
-      and <a href="https://github.com/LearnToDiscover/varnish/tree/aeffaff05b65bf7180c5154928fb2e3f42f9ec28" class="external-link">varnish (0.3.0)</a>.</p>
+        <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
+        <p>Built with <a href="https://github.com/LearnToDiscover/sandpaper/tree/l2d" class="external-link">sandpaper (0.16.4)</a>, <a href="https://github.com/carpentries/pegboard/tree/a32a7836d4455f407c3cafe8ab95edc636e5e919" class="external-link">pegboard (0.7.5)</a>, and <a href="https://github.com/LearnToDiscover/varnish/tree/7ac5e27a3dfed3a59ec1e5fcb0b719d430806598" class="external-link">varnish (1.0.2)</a></p>
 			</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
 		<a href="#top">
-			<i class="search-icon" data-feather="arrow-up" role="img" aria-label="Back to top"></i><br><span class="d-none d-sm-none d-md-none d-lg-none d-xl-block">Back</span> To Top
+      <i class="search-icon" data-feather="arrow-up" role="img" aria-label="Back To Top"></i><br><!-- <span class="d-none d-sm-none d-md-none d-lg-none d-xl-block">Back</span> To Top --><span class="d-none d-sm-none d-md-none d-lg-none d-xl-block">Back</span> To Top
 		</a>
 	</div>
   <script type="application/ld+json">
@@ -1742,9 +1749,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://learntodiscover.github.io/Networks/instructor/02-networks_2.html",
   "identifier": "https://learntodiscover.github.io/Networks/instructor/02-networks_2.html",
-  "dateCreated": "2023-06-21",
-  "dateModified": "2024-02-27",
-  "datePublished": "2024-03-05"
+  "dateCreated": "2024-03-18",
+  "dateModified": "2024-03-18",
+  "datePublished": "2024-04-30"
 }
 
   </script><script>
