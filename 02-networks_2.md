@@ -73,11 +73,11 @@ print(rm)
 ```
 
 ```{.output}
-[[0 1 1 1 0]
- [1 0 1 1 0]
+[[1 1 1 0 1]
+ [1 1 0 1 1]
  [0 1 1 1 1]
- [0 1 0 1 0]
- [0 1 1 1 1]]
+ [1 0 0 1 1]
+ [1 0 0 1 1]]
 ```
 
 Function $randint$ from the numpy module $random$ is used to create an array or matrix filled with integers.
@@ -598,7 +598,7 @@ show()
 ```
 
 ```{.output}
-<networkx.classes.graph.Graph object at 0x7f4bd3a9a500>
+<networkx.classes.graph.Graph object at 0x7fb7db171030>
 (0.0, 1.0, 0.0, 1.0)
 ```
 
@@ -659,7 +659,7 @@ show()
 ```
 
 ```{.output}
-<networkx.classes.graph.Graph object at 0x7f4bd38c26b0>
+<networkx.classes.graph.Graph object at 0x7fb7dd4ea500>
 (0.0, 1.0, 0.0, 1.0)
 ```
 
