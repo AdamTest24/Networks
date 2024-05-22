@@ -86,7 +86,7 @@ We shall see below how we can build, modify and represent networks in Python.
 To use NetworkX and visualise your networks, you can import the whole package.
 
 
-```python
+``` python
 import networkx as nx
 from matplotlib.pyplot import show
 ```
@@ -99,7 +99,7 @@ Nodes are a basic unit of network data, and are linked to other nodes by edges, 
 Let's start by creating an empty graph object and then add some nodes to it.
 
 
-```python
+``` python
 firstGraph = nx.Graph()
 
 firstGraph.add_node('Node A')
@@ -112,7 +112,7 @@ print(firstGraph.nodes)
 print('')
 ```
 
-```{.output}
+``` output
 <class 'networkx.classes.graph.Graph'>
 
 ['Node A', 'Node B', 'Node C']
@@ -123,7 +123,7 @@ We have created a graph called _firstGraph_, added three nodes, and then printed
 </p>
 
 
-```python
+``` python
 firstGraph.add_edge('Node A', 'Node B')
 firstGraph.add_edge('Node A', 'Node C')
 firstGraph.add_edge('Node B', 'Node C')
@@ -131,7 +131,7 @@ firstGraph.add_edge('Node B', 'Node C')
 print(firstGraph.edges)
 ```
 
-```{.output}
+``` output
 [('Node A', 'Node B'), ('Node A', 'Node C'), ('Node B', 'Node C')]
 ```
 
@@ -140,20 +140,20 @@ Here we created edges between Nodes A and B, A and C, and B and C, and printed a
 </p>
 
 
-```python
+``` python
 firstGraph.number_of_nodes()
 ```
 
-```{.output}
+``` output
 3
 ```
 
 
-```python
+``` python
 firstGraph.number_of_edges()
 ```
 
-```{.output}
+``` output
 3
 ```
 
@@ -162,7 +162,7 @@ firstGraph.number_of_edges()
 We have a basic graph  called `firstGraph`, so let's visualise it. In NetworkX, we can use function `draw`.
 
 
-```python
+``` python
 nx.draw(firstGraph)
 show()
 ```
@@ -180,7 +180,7 @@ Through NetworkX we can also dictate the way the nodes are positioned by setting
 </p>
 
 
-```python
+``` python
 firstGraphLayout = nx.spiral_layout(firstGraph)
 
 firstGraphLabels = {
@@ -209,12 +209,12 @@ If you want to save a network graph to a file, you can use function `savefig`. H
 ::::::::::::::::::
 
 
-```python
+``` python
 from matplotlib.pyplot import savefig
 ```
 
 
-```python
+``` python
 firstGraphLayout = nx.spiral_layout(firstGraph)
 
 firstGraphLabels = {
@@ -238,7 +238,7 @@ You may want to alter the appearance of your graph in different ways. Let's say 
 </p>
 
 
-```python
+``` python
 nx.draw(firstGraph, firstGraphLayout,
         labels=firstGraphLabels,
         node_color='r')
@@ -259,7 +259,7 @@ For our purpose a matrix is a collection of numbers. Let us start by creating a 
 </p>
 
 
-```python
+``` python
 from numpy import zeros
 
 nodes = 3
@@ -269,7 +269,7 @@ my_matrix = zeros((nodes, nodes))
 print(my_matrix)
 ```
 
-```{.output}
+``` output
 [[0. 0. 0.]
  [0. 0. 0.]
  [0. 0. 0.]]
@@ -282,11 +282,11 @@ To check the dimensions of a Numpy array, you can use `shape`. Since in the abov
 </p>
 
 
-```python
+``` python
 my_matrix.shape
 ```
 
-```{.output}
+``` output
 (3, 3)
 ```
 
@@ -300,14 +300,14 @@ We can now access each element of `my_matrix` and change its value. To change th
 </p>
 
 
-```python
+``` python
 my_matrix[2, 0] = 1
 my_matrix[1, 0] = 1
 
 print(my_matrix)
 ```
 
-```{.output}
+``` output
 [[0. 0. 0.]
  [1. 0. 0.]
  [1. 0. 0.]]
@@ -324,7 +324,7 @@ Create a 4x4 matrix called $n$ and set the elements $n_{0,1}=1$, $n_{1,2}=1$ and
 ## DIY ANSWER
 
 
-```python
+``` python
 n = zeros((4,4))
 
 n[0, 1] = 1
@@ -334,7 +334,7 @@ n[1, 3] = 1
 print(n)
 ```
 
-```{.output}
+``` output
 [[0. 1. 0. 0.]
  [0. 0. 1. 1.]
  [0. 0. 0. 0.]
@@ -396,7 +396,7 @@ First, we set up the network (or: adjacency) matrix in the above table from scra
 </p>
 
 
-```python
+``` python
 new_matrix = zeros((3,3))
 
 new_matrix[1, 2] = 1
@@ -418,18 +418,18 @@ show()
 We haven't specified labels. We can specify the labels using a dictionary. Let us first see how the nodes are stored to find their Python names.
 
 
-```python
+``` python
 list(new_graph.nodes)
 ```
 
-```{.output}
+``` output
 [0, 1, 2]
 ```
 
 By default, the nodes are given the names of their indices. We can refer to these indices and assign labels.
 
 
-```python
+``` python
 newLabels = {
 # key : value
     0: 'A',
@@ -441,7 +441,7 @@ newLabels = {
 We can now draw the graph again, and specify the new labels A, B, and C.
 
 
-```python
+``` python
 nx.draw(new_graph, newLayout,
         labels=newLabels)
 
@@ -475,7 +475,7 @@ Some graph layout algorithms have a random component such as the initial positio
 ### Q1
 
 
-```python
+``` python
 newLayout = nx.shell_layout(new_graph)
 
 nx.draw(new_graph, newLayout,
@@ -493,7 +493,7 @@ show()
 ### Q2
 
 
-```python
+``` python
 newLayout = nx.random_layout(new_graph)
 
 nx.draw(new_graph, newLayout)
@@ -503,7 +503,7 @@ show()
 
 <img src="fig/01-networks_1-rendered-unnamed-chunk-20-15.png" width="672" style="display: block; margin: auto;" />
 
-```python
+``` python
 # The layout of this graph changes each time you run the code.
 ```
 
@@ -515,7 +515,7 @@ show()
 ### Q3
 
 
-```python
+``` python
 n = zeros((4,4))
 
 n[0, 1] = 1
@@ -551,7 +551,7 @@ Now we are going to look at some ways to access and change some properties, or a
 </p>
 
 
-```python
+``` python
 new_graph = nx.from_numpy_matrix(new_matrix)
 
 newLayout = nx.random_layout(new_graph)
@@ -577,13 +577,13 @@ You may want to add another node, but only have it connected to one of the exist
 </p>
 
 
-```python
+``` python
 new_graph.add_node(3)
 
 print(new_graph.nodes)
 ```
 
-```{.output}
+``` output
 [0, 1, 2, 3]
 ```
 
@@ -592,7 +592,7 @@ We may want to set a new layout for this graph and update the labels to call the
 </p>
 
 
-```python
+``` python
 newLayout = nx.random_layout(new_graph)
 newLabels = {
     0: 'A',
@@ -628,7 +628,7 @@ Add an edge to the network to connect the isolated node D to e.g. node A.
 ## DIY ANSWER
 
 
-```python
+``` python
 new_graph.add_edge(3, 0)
 
 nx.draw(new_graph, newLayout,
@@ -651,7 +651,7 @@ Instead of altering individual elements of a matrix with zeroes (as we have done
 </p>
 
 
-```python
+``` python
 from numpy import array
 
 matrixFromArray =  array([[0, 1, 0, 0],
@@ -681,7 +681,7 @@ Set all the nodes in this graph to turquoise diamonds. By turquoise we mean the 
 ## DIY ANSWER
 
 
-```python
+``` python
 nx.draw(my_graph, newLayout,
         labels=newLabels,
         node_color=[[0, 1, 1]],
@@ -707,7 +707,7 @@ In NetworkX, directed graphs are handled using the class `DiGraph`. We can make 
 </p>
 
 
-```python
+``` python
 directedMatrix =  array([[0, 1, 0, 1],
                          [0, 1, 1, 0],
                          [0, 0, 0, 1],
@@ -752,7 +752,7 @@ Change  directedMatrix$_{3,2}$  to 1. What does this change about the graph?
 ## DIY ANSWER
 
 
-```python
+``` python
 directedMatrix =  array([[0, 1, 0, 1],
                          [0, 1, 1, 0],
                          [0, 0, 0, 1],
@@ -788,7 +788,7 @@ Bipartite graphs are another graph type supported by NetworkX. These are network
 </p>
 
 
-```python
+``` python
 from networkx.algorithms import bipartite
 
 myBipartite = nx.Graph()
@@ -812,11 +812,11 @@ Here, we set up a bipartite network with 8 nodes. The 0 group has nodes $'h', 'i
 </p>
 
 
-```python
+``` python
 nx.is_connected(myBipartite)
 ```
 
-```{.output}
+``` output
 True
 ```
 
@@ -825,11 +825,11 @@ This will return either true or false. Be cautious though, this only tests for c
 </p>
 
 
-```python
+``` python
 bipartite.is_bipartite(myBipartite)
 ```
 
-```{.output}
+``` output
 True
 ```
 
@@ -838,7 +838,7 @@ We can now plot the bipartite graph, using the layout of your choice. if we incl
 </p>
 
 
-```python
+``` python
 myBipartiteLayout = nx.spiral_layout(myBipartite)
 
 nx.draw(myBipartite, myBipartiteLayout,
@@ -855,7 +855,7 @@ This might not look like a bipartite network! But if you check the edges you set
 </p>
 
 
-```python
+``` python
 groupzero = nx.bipartite.sets(myBipartite)[0]
 
 bipartitePos = nx.bipartite_layout(myBipartite, groupzero)
@@ -874,7 +874,7 @@ Using the bipartite convention of giving one group of nodes the attribute 0 and 
 </p>
 
 
-```python
+``` python
 color_dictionary = {0: 'gold', 1: 'lavender'}
 
 color_list = list()
@@ -886,12 +886,12 @@ for attr in myBipartite.nodes.data('bipartite'):
 print(color_list)
 ```
 
-```{.output}
+``` output
 ['gold', 'gold', 'gold', 'gold', 'lavender', 'lavender', 'lavender', 'lavender']
 ```
 
 
-```python
+``` python
 nx.draw(myBipartite, bipartitePos,
         node_size=2000,
         font_size=20,
@@ -937,7 +937,7 @@ To save the graph as an image file, use `savefig` as we did earlier.
 
 
 
-```python
+``` python
 import networkx as nx
 
 from numpy import zeros

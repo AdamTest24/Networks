@@ -45,7 +45,7 @@ exercises: 60
 ::::::::::::::::::
 
 
-```python
+``` python
 import networkx as nx
 
 from matplotlib.pyplot import subplots, show
@@ -62,7 +62,7 @@ However, to test network code we would like to be able to easily create test mat
 Here is a way to create matrices with randomly assigned edges using function `randint`.
 
 
-```python
+``` python
 from numpy.random import randint
 
 nodes = 5
@@ -72,12 +72,12 @@ rm = randint(0, 2, size=(nodes, nodes))
 print(rm)
 ```
 
-```{.output}
-[[1 1 1 0 1]
- [1 1 0 1 1]
- [0 1 1 1 1]
- [1 0 0 1 1]
- [1 0 0 1 1]]
+``` output
+[[1 1 1 1 0]
+ [1 0 1 1 0]
+ [0 0 1 0 0]
+ [1 1 1 0 0]
+ [0 1 1 1 0]]
 ```
 
 Function $randint$ from the numpy module $random$ is used to create an array or matrix filled with integers.
@@ -102,7 +102,7 @@ When we specify a starting seed value for the number generator it still produces
 </p>
 
 
-```python
+``` python
 from numpy.random import seed
 
 seed(1)
@@ -112,7 +112,7 @@ rm1 = randint(0, 2, size=(nodes, nodes))
 print(rm1)
 ```
 
-```{.output}
+``` output
 [[1 1 0 0 1]
  [1 1 1 1 0]
  [0 1 0 1 1]
@@ -123,7 +123,7 @@ print(rm1)
 And repeated:
 
 
-```python
+``` python
 seed(1)
 
 rm2 = randint(0, 2, size=(nodes, nodes))
@@ -131,7 +131,7 @@ rm2 = randint(0, 2, size=(nodes, nodes))
 print(rm2)
 ```
 
-```{.output}
+``` output
 [[1 1 0 0 1]
  [1 1 1 1 0]
  [0 1 0 1 1]
@@ -142,11 +142,11 @@ print(rm2)
 Since we set the same (arbitrary) seed for both of these function calls, both produce the same pattern of 1s and 0s. The results are identical:
 
 
-```python
+``` python
 rm1 == rm2
 ```
 
-```{.output}
+``` output
 array([[ True,  True,  True,  True,  True],
        [ True,  True,  True,  True,  True],
        [ True,  True,  True,  True,  True],
@@ -164,7 +164,7 @@ Create a $n\times m$ matrix with randomly distributed integers from 1 to 6 to si
 
 ## DIY ANSWER
 
-```python
+``` python
 players = 3
 rounds  = 20
 
@@ -173,7 +173,7 @@ throws = randint(1, 7, size=(rounds, players))
 print(throws)
 ```
 
-```{.output}
+``` output
 [[5 3 5]
  [6 3 5]
  [2 2 1]
@@ -205,7 +205,7 @@ print(throws)
 NetworkX has built-in function to produce classic graphs. For example, a [Petersen graph](https://en.wikipedia.org/wiki/Petersen_graph) has 10 nodes and 15 edges.
 
 
-```python
+``` python
 petersen = nx.petersen_graph()
 
 layout = nx.spectral_layout(petersen)
@@ -220,7 +220,7 @@ show()
 Some stochastic graphs can also be generated simply within NetworkX.  A random lobster graph is a graph which becomes a caterpillar graph if all leaf nodes are removed.
 
 
-```python
+``` python
 nodes = 50
 
 # p1: Probability of adding an edge to the backbone
@@ -255,7 +255,7 @@ Look up the NetworkX documentation, and use the tutorial to plot a [Tutte graph]
 ## DIY ANSWER
 
 
-```python
+``` python
 tutte = nx.tutte_graph()
 
 layout = nx.spring_layout(tutte, seed=1)
@@ -284,7 +284,7 @@ Furthermore the degree in directed graphs (or digraphs) can be split into the **
 </p>
 
 
-```python
+``` python
 from numpy import array
 
 matrixFromArray =  array([[0, 1, 0, 0],
@@ -309,7 +309,7 @@ show()
 As we discussed in the previous lesson, an edge is set up in a network matrix in the direction (from) row $\rightarrow$ (to) column. Consider the following network matrix.
 
 
-```python
+``` python
 from numpy import array
 
 mymatrix =  array([[0, 1, 1, 0, 0],
@@ -321,7 +321,7 @@ mymatrix =  array([[0, 1, 1, 0, 0],
 print(mymatrix)
 ```
 
-```{.output}
+``` output
 [[0 1 1 0 0]
  [1 0 0 1 1]
  [1 0 0 0 0]
@@ -340,22 +340,22 @@ The in degree is calculated, which is the sum over all columns, and the out degr
 
 
 
-```python
+``` python
 mygraph = nx.from_numpy_matrix(mymatrix, create_using=nx.DiGraph)
 
 mygraph.in_degree
 ```
 
-```{.output}
+``` output
 InDegreeView({0: 3, 1: 1, 2: 2, 3: 1, 4: 2})
 ```
 
 
-```python
+``` python
 mygraph.out_degree
 ```
 
-```{.output}
+``` output
 OutDegreeView({0: 2, 1: 3, 2: 1, 3: 1, 4: 2})
 ```
 
@@ -367,7 +367,7 @@ This graph can also be visualised to confirm the in and out degree of each node.
 </p>
 
 
-```python
+``` python
 mygraphLayout = nx.spectral_layout(mygraph)
 
 mygraphLabels = {
@@ -403,7 +403,7 @@ show()
 ::::::::::::::::: solution
 ## Q1
 
-```python
+``` python
 nodes = 15
 
 seed(100)
@@ -413,7 +413,7 @@ rm_15 = randint(0, 2, size=(nodes, nodes))
 print(rm_15)
 ```
 
-```{.output}
+``` output
 [[0 0 1 1 1 1 0 0 0 0 0 1 0 0 0]
  [0 1 0 0 1 0 1 0 0 0 1 1 1 0 0]
  [1 0 0 1 1 1 1 1 0 0 1 1 1 1 1]
@@ -438,7 +438,7 @@ print(rm_15)
 ::::::::::::::::: solution
 ## Q2
 
-```python
+``` python
 rm_15_Graph = nx.from_numpy_matrix(rm_15, create_using=nx.DiGraph)
 ```
 
@@ -449,7 +449,7 @@ rm_15_Graph = nx.from_numpy_matrix(rm_15, create_using=nx.DiGraph)
 ::::::::::::::::: solution
 ## Q3
 
-```python
+``` python
 # Printing in-degrees
 print('Index', '    In Degree')
 
@@ -458,7 +458,7 @@ for ind, deg in rm_15_Graph.in_degree:
     print('  ', ind, '       ', deg)
 ```
 
-```{.output}
+``` output
 Index     In Degree
    0         6
    1         9
@@ -478,7 +478,7 @@ Index     In Degree
 ```
 
 
-```python
+``` python
 # Printing out-degrees
 print('Index', '   Out Degree')
 
@@ -487,7 +487,7 @@ for ind, deg in rm_15_Graph.out_degree:
     print('  ', ind, '       ', deg)
 ```
 
-```{.output}
+``` output
 Index    Out Degree
    0         5
    1         6
@@ -518,7 +518,7 @@ The degree distribution is normally presented as a histogram showing how many ti
 As an example, for a random $10\times 10$ matrix:
 
 
-```python
+``` python
 seed(4)
 
 rm_mat = randint(0, 2, size=(10, 10))
@@ -529,7 +529,7 @@ rm_net = nx.from_numpy_matrix(rm_mat)
 The degree distribution can be plotted using NetworkX and matplotlib, here plotted simply with the `hist` plot.
 
 
-```python
+``` python
 # xticks, xticklabels as to integers
 
 degs = dict(rm_net.degree()).values()
@@ -555,7 +555,7 @@ For a more complex example, we can generate a network with 100 nodes and display
 </p>
 
 
-```python
+``` python
 nodes = 100
 probab = 0.02
 
@@ -563,7 +563,7 @@ G = nx.gnp_random_graph(nodes, probab, seed=1)
 ```
 
 
-```python
+``` python
 from matplotlib.pyplot import axes, axis, title
 
 import collections
@@ -597,8 +597,8 @@ nx.draw_networkx_edges(G, pos);
 show()
 ```
 
-```{.output}
-<networkx.classes.graph.Graph object at 0x7fb7db171030>
+``` output
+<networkx.classes.graph.Graph object at 0x7f28c0328700>
 (0.0, 1.0, 0.0, 1.0)
 ```
 
@@ -623,7 +623,7 @@ Note how the degree with highest probability (2) reflects the choice of edge pro
 ``` degree_max = probab / nodes```
 
 
-```python
+``` python
 nodes = 1000
 probab = 0.02
 
@@ -658,8 +658,8 @@ nx.draw_networkx_edges(G, pos);
 show()
 ```
 
-```{.output}
-<networkx.classes.graph.Graph object at 0x7fb7dd4ea500>
+``` output
+<networkx.classes.graph.Graph object at 0x7f28c014ddb0>
 (0.0, 1.0, 0.0, 1.0)
 ```
 
@@ -709,7 +709,7 @@ We can use random test graphs, as we made earlier, to explore clustering coeffic
 To avoid any self-connections, we put the diagonal of the matrix equal to zero.
 
 
-```python
+``` python
 from numpy import fill_diagonal
 
 seed_number = 4
@@ -734,24 +734,24 @@ We can now use NetworkX to learn more about this graph. To print a list of the c
 </p>
 
 
-```python
+``` python
 print(nx.clustering(myRandom))
 ```
 
-```{.output}
+``` output
 {0: 0.5714285714285714, 1: 0.5238095238095238, 2: 0.8, 3: 0.6666666666666666, 4: 0.8, 5: 0.6, 6: 0.8095238095238095, 7: 0.7142857142857143, 8: 0.6071428571428571, 9: 0.8095238095238095}
 ```
 
 With slightly nicer formatting:
 
 
-```python
+``` python
 for ind, cc in dict(nx.clustering(myRandom)).items():
 
     print(ind, '   ', cc)
 ```
 
-```{.output}
+``` output
 0     0.5714285714285714
 1     0.5238095238095238
 2     0.8
@@ -767,7 +767,7 @@ for ind, cc in dict(nx.clustering(myRandom)).items():
 To extract the clustering coefficients from the result as a Python list:
 
 
-```python
+``` python
 from numpy import around
 
 clustcoeffs = list(dict(nx.clustering(myRandom)).values())
@@ -775,18 +775,18 @@ clustcoeffs = list(dict(nx.clustering(myRandom)).values())
 print(around(clustcoeffs, 2))
 ```
 
-```{.output}
+``` output
 [0.57 0.52 0.8  0.67 0.8  0.6  0.81 0.71 0.61 0.81]
 ```
 
 You can also obtain the average clustering coefficient across your graph directly from NetworkX:
 
 
-```python
+``` python
 print(nx.average_clustering(myRandom))
 ```
 
-```{.output}
+``` output
 0.6902380952380953
 ```
 
@@ -799,11 +799,11 @@ Simply put, the __path length__ refers to the distance between two nodes in a gr
 For illustration, here is how we can find out the shortest path of our graph $myRandom$ from node 0 to node 1. The output is the sequence of nodes along this shortest path.
 
 
-```python
+``` python
 print(nx.shortest_path(myRandom, source=0, target=1))
 ```
 
-```{.output}
+``` output
 [0, 2, 1]
 ```
 
@@ -812,7 +812,7 @@ The shortest path from node 0 to node 1 is via node with index 2. This shows tha
 </p>
 
 
-```python
+``` python
 my_shortest_paths = nx.all_shortest_paths(myRandom, source=0, target=1)
 
 for path in my_shortest_paths:
@@ -820,7 +820,7 @@ for path in my_shortest_paths:
     print(path)
 ```
 
-```{.output}
+``` output
 [0, 2, 1]
 [0, 3, 1]
 [0, 4, 1]
@@ -834,11 +834,11 @@ There are six possibilities to get from node 0 to node 1 via one intermediate no
 As a single summary quantity of a network, we can find the _average shortest path length_:
 
 
-```python
+``` python
 print(round(nx.average_shortest_path_length(myRandom), 2))
 ```
 
-```{.output}
+``` output
 1.29
 ```
 
@@ -854,11 +854,11 @@ print(round(nx.average_shortest_path_length(myRandom), 2))
 ::::::::::::::::: solution
 ## Q1
 
-```python
+``` python
 print(round(nx.average_shortest_path_length(rm_15_Graph), 2))
 ```
 
-```{.output}
+``` output
 1.54
 ```
 
@@ -867,7 +867,7 @@ print(round(nx.average_shortest_path_length(rm_15_Graph), 2))
 ::::::::::::::::: solution
 ## Q2
 
-```python
+``` python
 my_shortest_paths = nx.all_shortest_paths(rm_15_Graph, source=2, target=8)
 
 for path in my_shortest_paths:
@@ -875,7 +875,7 @@ for path in my_shortest_paths:
     print(path)
 ```
 
-```{.output}
+``` output
 [2, 4, 8]
 [2, 5, 8]
 [2, 6, 8]
@@ -893,7 +893,7 @@ _Centrality_ can be used to determine the most _important_ node or nodes in a gr
 </p>
 
 
-```python
+``` python
 my_centralities = nx.degree_centrality(myRandom)
 
 for index, centr in dict(my_centralities).items():
@@ -901,7 +901,7 @@ for index, centr in dict(my_centralities).items():
     print(index, '  ', round(centr, 2))
 ```
 
-```{.output}
+``` output
 0    0.78
 1    0.78
 2    0.67
@@ -936,7 +936,7 @@ Then, we convert the adjacency matrix to the Numpy format, and the labels into a
 </p>
 
 
-```python
+``` python
 from pandas import read_csv
 
 neurons     = read_csv('data/celegans131matrix_50.csv', header = None, dtype = "float64")
@@ -964,11 +964,11 @@ We can examine this network similar to the way we did for our earlier, smaller n
 For instance, we can confirm the (reduced) number of nodes.
 
 
-```python
+``` python
 neuronGraph.number_of_nodes()
 ```
 
-```{.output}
+``` output
 50
 ```
 
@@ -1002,12 +1002,12 @@ Using the techniques we introduced above, we can interrogate various aspects of 
 ### Q1
 
 
-```python
+``` python
 print('Number of Edges')
 print(neuronGraph.number_of_edges())
 ```
 
-```{.output}
+``` output
 Number of Edges
 186
 ```
@@ -1019,12 +1019,12 @@ Number of Edges
 ### Q2
 
 
-```python
+``` python
 print('Clustering Coefficients')
 print(nx.average_clustering(neuronGraph))
 ```
 
-```{.output}
+``` output
 Clustering Coefficients
 0.3174194694194694
 ```
@@ -1035,12 +1035,12 @@ Clustering Coefficients
 ### Q3
 
 
-```python
+``` python
 print('Degree Centrality')
 print(nx.degree_centrality(neuronGraph))
 ```
 
-```{.output}
+``` output
 Degree Centrality
 {0: 0.08163265306122448, 1: 0.14285714285714285, 2: 0.26530612244897955, 3: 0.24489795918367346, 4: 0.061224489795918366, 5: 0.061224489795918366, 6: 0.2040816326530612, 7: 0.22448979591836732, 8: 0.32653061224489793, 9: 0.1020408163265306, 10: 0.1020408163265306, 11: 0.16326530612244897, 12: 0.14285714285714285, 13: 0.061224489795918366, 14: 0.22448979591836732, 15: 0.24489795918367346, 16: 0.08163265306122448, 17: 0.08163265306122448, 18: 0.16326530612244897, 19: 0.2040816326530612, 20: 0.12244897959183673, 21: 0.1020408163265306, 22: 0.02040816326530612, 23: 0.02040816326530612, 24: 0.1020408163265306, 25: 0.08163265306122448, 26: 0.1020408163265306, 27: 0.08163265306122448, 28: 0.22448979591836732, 29: 0.24489795918367346, 30: 0.2857142857142857, 31: 0.2857142857142857, 32: 0.22448979591836732, 33: 0.24489795918367346, 34: 0.2040816326530612, 35: 0.24489795918367346, 36: 0.14285714285714285, 37: 0.12244897959183673, 38: 0.18367346938775508, 39: 0.2040816326530612, 40: 0.061224489795918366, 41: 0.1020408163265306, 42: 0.16326530612244897, 43: 0.12244897959183673, 44: 0.12244897959183673, 45: 0.18367346938775508, 46: 0.18367346938775508, 47: 0.1020408163265306, 48: 0.1020408163265306, 49: 0.02040816326530612}
 ```
@@ -1051,12 +1051,12 @@ Degree Centrality
 ### Q4
 
 
-```python
+``` python
 print('Average shortest path length')
 print(nx.average_shortest_path_length(neuronGraph))
 ```
 
-```{.output}
+``` output
 Average shortest path length
 2.3518367346938778
 ```
@@ -1067,12 +1067,12 @@ Average shortest path length
 ### Q5
 
 
-```python
+``` python
 print('Shortest path length between N4 and N44')
 print(nx.shortest_path_length(neuronGraph, source=4, target=44))
 ```
 
-```{.output}
+``` output
 Shortest path length between N4 and N44
 3
 ```
@@ -1083,7 +1083,7 @@ Shortest path length between N4 and N44
 ### Q6
 
 
-```python
+``` python
 degree_sequence = sorted([d for n, d in neuronGraph.degree()], reverse=True)  # degree sequence
 degreeCount = collections.Counter(degree_sequence)
 deg, cnt = zip(*degreeCount.items())
@@ -1112,7 +1112,7 @@ nx.draw_networkx_edges(neuronGraph, pos);
 show()
 ```
 
-```{.output}
+``` output
 (0.0, 1.0, 0.0, 1.0)
 ```
 

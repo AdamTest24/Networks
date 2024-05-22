@@ -36,7 +36,7 @@ exercises: 60
 ::::::::::::::::::
 
 
-```python
+``` python
 import networkx as nx
 
 from pandas import read_csv
@@ -63,7 +63,7 @@ The network data 'celegans131matrix_50.csv' is simply a large adjacency matrix o
 Here is the import of the data for the first 50 neurons.
 
 
-```python
+``` python
 neurons=read_csv('data/celegans131matrix_50.csv', header=None, dtype = "int")
 
 neurons=neurons.to_numpy()
@@ -71,7 +71,7 @@ neurons=neurons.to_numpy()
 print(len(neurons))
 ```
 
-```{.output}
+``` output
 50
 ```
 <p style='text-align: justify;'>
@@ -79,7 +79,7 @@ We import the CSV network file as before. We specify with a keyword argument tha
 </p>
 
 
-```python
+``` python
 neuron_Names = read_csv('data/celegans131labels_50.csv', header=None)
 
 neuronNames = neuron_Names.to_dict()
@@ -89,7 +89,7 @@ neuronLabels = neuronNames[0]
 print(neuronLabels)
 ```
 
-```{.output}
+``` output
 {0: 'ADFL', 1: 'ADFR', 2: 'ADLL', 3: 'ADLR', 4: 'AFDL', 5: 'AFDR', 6: 'AIAL', 7: 'AIAR', 8: 'AIBR', 9: 'AINL', 10: 'AINR', 11: 'AIZL', 12: 'AIZR', 13: 'ALA', 14: 'ASEL', 15: 'ASER', 16: 'ASGL', 17: 'ASGR', 18: 'ASHL', 19: 'ASHR', 20: 'ASIL', 21: 'ASIR', 22: 'ASJL', 23: 'ASJR', 24: 'ASKL', 25: 'ASKR', 26: 'AUAL', 27: 'AUAR', 28: 'AVAL', 29: 'AVAR', 30: 'AVBL', 31: 'AVBR', 32: 'AVDL', 33: 'AVDR', 34: 'AVEL', 35: 'AVER', 36: 'AVHL', 37: 'AVHR', 38: 'AVJL', 39: 'AVJR', 40: 'AVL', 41: 'AWAL', 42: 'AWAR', 43: 'AWBL', 44: 'AWBR', 45: 'AWCL', 46: 'AWCR', 47: 'BAGL', 48: 'BAGR', 49: 'CEPDL'}
 ```
 
@@ -100,7 +100,7 @@ Dictionaries associate keys with values.  You may remember we previously created
 Now we can create a graph, specify a layout, and plot the network.
 
 
-```python
+``` python
 neuronGraph = nx.from_numpy_matrix(neurons)
 
 neuronLayout = nx.random_layout(neuronGraph, seed=123)
@@ -119,7 +119,7 @@ In this particular case, we also have other metadata that can be used for visual
 </p>
 
 
-```python
+``` python
 neuronPos = read_csv('data/celegans131positions_50.csv', header=None)
 
 neuronPositions = neuronPos.values
@@ -145,7 +145,7 @@ Find the node indices of the sensory neurons named 'BAGL' and 'BAGR'.
 
 ## DIY ANSWER
 
-```python
+``` python
 for ind, name in enumerate(neuronLabels.values()):
 
     if 'BAG' in name:
@@ -153,7 +153,7 @@ for ind, name in enumerate(neuronLabels.values()):
         print(ind, neuronLabels[ind])
 ```
 
-```{.output}
+``` output
 47 BAGL
 48 BAGR
 ```
@@ -173,7 +173,7 @@ Place the file 'bn-mouse_visual-cortex_1.edges' in your working directory. It ca
 Being a list of edges, we can import it into NetworkX as an _edgelist_, specifying that the nodes are given as integers. The result is a standard graph object which we can plot using `draw`.
 
 
-```python
+``` python
 MouseCortex = nx.read_edgelist("data/bn-mouse_visual-cortex_1.edges", nodetype=int)
 
 MouseCortexLayout = nx.random_layout(MouseCortex, seed=111)
@@ -202,7 +202,7 @@ Network Repository provides some summary data on all their networks. Obtain the 
 
 ## DIY ANSWER
 
-```python
+``` python
 print('Number of nodes:', len(MouseCortex))
 print('')
 print('Number of edges:', len(MouseCortex.edges))
@@ -210,7 +210,7 @@ print('')
 print('Average clustering coefficient:', mean(list(nx.clustering(MouseCortex).values())))
 ```
 
-```{.output}
+``` output
 Number of nodes: 29
 
 Number of edges: 44
@@ -229,7 +229,7 @@ Average clustering coefficient: 0.04942528735632184
 </p>
 
 
-```python
+``` python
 import json
 
 with open('data/miserables.json', 'r') as myfile:
@@ -285,11 +285,11 @@ There are many errors that may occur in the context of dealing with network data
 Here we try to import a CSV file which contains an adjacency matrix. We have checked that the file is present in the working directory.
 
 
-```python
+``` python
 neurons = read_csv('data/celegans131mtrix_50.csv', header=None, dtype="float64")
 ```
 
-```{.output}
+``` output
 FileNotFoundError: [Errno 2] No such file or directory: 'data/celegans131mtrix_50.csv'
 ```
 
@@ -305,7 +305,7 @@ What has gone wrong, and what is the solution?
 You'll see this error if something has gone wrong in the way you've instructed Python to find your file. This may be that you've mis-typed the file name, or the file isn't in your working directory. Here, the file is present in the working directory, but there's a typo in the file name.
 
 
-```python
+``` python
 neurons = read_csv('data/celegans131matrix_50.csv', header=None, dtype='int')
 ```
 
@@ -318,7 +318,7 @@ neurons = read_csv('data/celegans131matrix_50.csv', header=None, dtype='int')
 Here we generate a random adjacency matrix, specify how it should be plotted, and try to visualise it.
 
 
-```python
+``` python
 rm = randint(0, 2, size=(5, 5))
 
 thisgraph = nx.from_numpy_matrix(rm)
@@ -340,7 +340,7 @@ nx.draw(thisgraph, thisgraphLayout,
 show()
 ```
 
-```{.output}
+``` output
 KeyError: 5
 ```
 
@@ -357,7 +357,7 @@ KeyError: 5
 If you look at the error message, it first flags **5: 'F',**, and ends with an error about labels. We've included too many node labels: 6 labels for five nodes. This is easily corrected by taking one label out.
 
 
-```python
+``` python
 rm = randint(0, 2, size=(5, 5))
 
 thisgraph = nx.from_numpy_matrix(rm)
@@ -390,7 +390,7 @@ show()
 Here we generate a bipartite graph and try to plot it.
 
 
-```python
+``` python
 thisBipartite = nx.Graph()
 
 # Add nodes with the node attribute "bipartite"
@@ -407,16 +407,16 @@ thisBipartite.add_edges_from([('a', 'm'), ('a', 'n'),
 ```
 
 
-```python
+``` python
 nx.is_connected(thisBipartite)
 ```
 
-```{.output}
+``` output
 True
 ```
 
 
-```python
+``` python
 basegroup = nx.bipartite.sets(thisBipartite)[0]
 
 bipartiteLayout = nx.bipartite_layout(thisBipartite, basegroup)
@@ -427,7 +427,7 @@ nx.draw(thisBipartite, bipartiteLayout,
 show()
 ```
 
-```{.output}
+``` output
 networkx.exception.NetworkXError: Graph is not bipartite.
 NameError: name 'basegroup' is not defined
 NameError: name 'bipartiteLayout' is not defined
@@ -447,18 +447,18 @@ Why did this happen, what check can you do to avoid the problem, and how do you 
 In this instance, the error message is very clear: you can't plot a graph with a bipartite layout if the graph isn't bipartite. This would have also been evident if I hadn't just checked that the graph was connected, but also that it was bipartite.
 
 
-```python
+``` python
 nx.bipartite.is_bipartite(thisBipartite)
 ```
 
-```{.output}
+``` output
 False
 ```
 
 There is one edge connecting two nodes within one group. If we either remove that edge, or change one of the nodes to the other group, it will be bipartite.
 
 
-```python
+``` python
 thisBipartite = nx.Graph()
 
 # Add nodes with the node attribute "bipartite"
@@ -475,16 +475,16 @@ thisBipartite.add_edges_from([('a', 'm'), ('a', 'n'),
 ```
 
 
-```python
+``` python
 nx.bipartite.is_bipartite(thisBipartite)
 ```
 
-```{.output}
+``` output
 True
 ```
 
 
-```python
+``` python
 basegroup = nx.bipartite.sets(thisBipartite)[0]
 
 bipartiteLayout = nx.bipartite_layout(thisBipartite, basegroup)
@@ -519,7 +519,7 @@ We have made available this modified version of the 277 neuron matrix, with no e
 </p>
 
 
-```python
+``` python
 neurons = read_csv('data/celegans277matrix_bipartite.csv', header=None, dtype="int")
 
 neuronNames = read_csv('data/celegans277labels.csv', header=None)
@@ -538,7 +538,7 @@ Here we import the bipartite module from NetworkX, and then import the bipartite
 </p>
 
 
-```python
+``` python
 myBipartite.add_nodes_from([
   0,   1,   2,   3,  13,  14,  17,  21,  22,  23,  24,  25,
  26,  27,  28,  29,  30,  31,  32,  33,  34,  35,  36,  59,
@@ -572,18 +572,18 @@ myBipartite.add_nodes_from([
 We can confirm that the network is bipartite.
 
 
-```python
+``` python
 nx.bipartite.is_bipartite(myBipartite)
 ```
 
-```{.output}
+``` output
 True
 ```
 
 Next, we continue to use the bipartite convention introduced above to define the two bipartite groups, and set up a custom colouring list by group.
 
 
-```python
+``` python
 top = nx.bipartite.sets(myBipartite)[0]
 pos = nx.bipartite_layout(myBipartite, top)
 
@@ -615,7 +615,7 @@ Draw the bipartite neural network, coloured by group and positioned using the po
 The 2D positions are contained in the file 'celegans277positions.csv'. After the import of the file, they can be extracted into a variable using `values`. The positions then need to replace the original layout values (called 'pos' above).
 
 
-```python
+``` python
 neuronPos = read_csv('data/celegans277positions.csv', header=None)
 
 neuronPositions = neuronPos.values
@@ -651,7 +651,7 @@ Data are imported from text files. In this case, it is not a CSV file. Rather, t
 If you check the file, you will see that the first entry is '1.0'. This is because all self-correlations are (trivially) equal to one. We replace those diagonal values with 0 to avoid (nonsensical) self-connections in the network. </p>
 
 
-```python
+``` python
 gutbact      = read_csv('data/Stool_sparse_adj_matrix.txt',
                         header=None, delimiter='\t', dtype="float64")
 
@@ -668,7 +668,7 @@ gutbactLabels = gutbactNames[0]
 ```
 
 
-```python
+``` python
 gutbactGraph = nx.from_numpy_matrix(gutbact)
 
 gutbactLayout = nx.circular_layout(gutbactGraph)
@@ -698,7 +698,7 @@ To threshold the correlation matrix in Python, we select matrix values between -
 </p>
 
 
-```python
+``` python
 from numpy import where, logical_and
 
 threshold = 0.3
@@ -707,7 +707,7 @@ gutbact_threshold = where(logical_and(gutbact>=-threshold , gutbact<=threshold),
 ```
 
 
-```python
+``` python
 gutbactGraph = nx.from_numpy_matrix(gutbact_threshold)
 
 fig, ax = subplots(figsize=(16,16))
