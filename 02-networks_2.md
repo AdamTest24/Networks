@@ -73,10 +73,10 @@ print(rm)
 ```
 
 ``` output
-[[0 0 1 1 1]
+[[1 0 1 0 1]
+ [1 1 0 1 1]
+ [1 1 0 0 0]
  [0 1 1 0 1]
- [0 0 0 1 1]
- [0 0 1 1 1]
  [1 1 0 0 0]]
 ```
 
@@ -598,7 +598,7 @@ show()
 ```
 
 ``` output
-<networkx.classes.graph.Graph object at 0x7f224ad3f6a0>
+<networkx.classes.graph.Graph object at 0x7f32e1646e60>
 (0.0, 1.0, 0.0, 1.0)
 ```
 
@@ -659,7 +659,7 @@ show()
 ```
 
 ``` output
-<networkx.classes.graph.Graph object at 0x7f224ab85900>
+<networkx.classes.graph.Graph object at 0x7f32e1a6c190>
 (0.0, 1.0, 0.0, 1.0)
 ```
 
