@@ -1,4 +1,4 @@
 "file" "checksum" "built" "date"
-"episodes/01-networks_1.Rmd" "1cbb36eefe20f5e426b0668eac490fb7" "site/built/01-networks_1.ipynb" "2024-06-25"
-"episodes/02-networks_2.Rmd" "a9678888a18a81cdfec4734d1447a5fc" "site/built/02-networks_2.ipynb" "2024-06-25"
-"episodes/03-networks_3.Rmd" "10867b819731ab6e4fbfc679d0e2567e" "site/built/03-networks_3.ipynb" "2024-06-25"
+"episodes/01-networks_1.Rmd" "1cbb36eefe20f5e426b0668eac490fb7" "site/built/01-networks_1.ipynb" "2024-08-05"
+"episodes/02-networks_2.Rmd" "a9678888a18a81cdfec4734d1447a5fc" "site/built/02-networks_2.ipynb" "2024-08-05"
+"episodes/03-networks_3.Rmd" "10867b819731ab6e4fbfc679d0e2567e" "site/built/03-networks_3.ipynb" "2024-08-05"
