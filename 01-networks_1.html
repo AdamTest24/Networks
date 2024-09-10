@@ -336,8 +336,7 @@ Survey</strong></span></a></p>
 <i class="callout-icon" data-feather="check"></i>
 </div>
 <div id="prerequisites" class="callout-inner">
-<h3 class="callout-title">Prerequisites<a class="anchor" aria-label="anchor" href="#prerequisites"></a>
-</h3>
+<h3 class="callout-title">Prerequisites</h3>
 <div class="callout-content">
 <ul><li><a href="https://learntodiscover.github.io/Basic_Python/" class="external-link">Basic
 Python</a></li>
@@ -345,8 +344,7 @@ Python</a></li>
 </ul></div>
 </div>
 </div>
-<section><h2 class="section-heading" id="example-protein-protein-interactions">Example: Protein-protein interactions<a class="anchor" aria-label="anchor" href="#example-protein-protein-interactions"></a>
-<a class="anchor" aria-label="anchor" href="#example-protein-protein-interactions"></a></h2>
+<section><h2 class="section-heading" id="example-protein-protein-interactions">Example: Protein-protein interactions<a class="anchor" aria-label="anchor" href="#example-protein-protein-interactions"></a></h2>
 <hr class="half-width"><p style="text-align: justify;">
 Protein-protein interactions (PPIs) (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2891586/" class="external-link">PLoS:
 Protein–Protein Interactions</a>) refer to specific functional or
@@ -376,8 +374,7 @@ At the end of this lesson we are going to use Python to draw this PPI
 network. Before this however, we shall begin with some examples to
 familiarise you with the elements and properties of graphs.
 </p>
-</section><section><h2 class="section-heading" id="an-introduction-to-networks">An Introduction to Networks<a class="anchor" aria-label="anchor" href="#an-introduction-to-networks"></a>
-<a class="anchor" aria-label="anchor" href="#an-introduction-to-networks"></a></h2>
+</section><section><h2 class="section-heading" id="an-introduction-to-networks">An Introduction to Networks<a class="anchor" aria-label="anchor" href="#an-introduction-to-networks"></a></h2>
 <hr class="half-width"><div class="section level3">
 <h3 id="what-is-a-graph"><strong>What is a graph?</strong><a class="anchor" aria-label="anchor" href="#what-is-a-graph"></a></h3>
 <p style="text-align: justify;">
@@ -544,8 +541,7 @@ documentation</a>.
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="note" class="callout-inner">
-<h3 class="callout-title">Note<a class="anchor" aria-label="anchor" href="#note"></a>
-</h3>
+<h3 class="callout-title">Note</h3>
 <div class="callout-content">
 <p>We use <code>draw</code> providing the graph object followed by the
 (optional) layout as positional arguments. Other keyword arguments (here
@@ -558,8 +554,7 @@ the labels) are then added, separated by comma.</p>
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="saving-figures" class="callout-inner">
-<h3 class="callout-title">Saving Figures<a class="anchor" aria-label="anchor" href="#saving-figures"></a>
-</h3>
+<h3 class="callout-title">Saving Figures</h3>
 <div class="callout-content">
 <p>If you want to save a network graph to a file, you can use function
 <code>savefig</code>. Here is an example that will save the figure in
@@ -606,8 +601,7 @@ keyword argument <code>node_color</code>.
 </div>
 <figure><img src="fig/01-networks_1-rendered-unnamed-chunk-10-7.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Note that, as always, the spelling is the US version, ‘color’.</p>
 </div>
-</section><section><h2 class="section-heading" id="creating-a-network-matrix">Creating a Network Matrix<a class="anchor" aria-label="anchor" href="#creating-a-network-matrix"></a>
-<a class="anchor" aria-label="anchor" href="#creating-a-network-matrix"></a></h2>
+</section><section><h2 class="section-heading" id="creating-a-network-matrix">Creating a Network Matrix<a class="anchor" aria-label="anchor" href="#creating-a-network-matrix"></a></h2>
 <hr class="half-width"><p style="text-align: justify;">
 A generic way to define graphs is via a two dimensional array known as
 the <strong>network matrix</strong> or <strong>adjacency
@@ -666,8 +660,7 @@ to the variable <code>my_matrix</code> we can call it as follows.
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="note-1" class="callout-inner">
-<h3 class="callout-title">Note<a class="anchor" aria-label="anchor" href="#note-1"></a>
-</h3>
+<h3 class="callout-title">Note</h3>
 <div class="callout-content">
 <p>Note that <code>shape</code> does not take arguments. It returns the
 dimensions of the matrix as an array of length 2; the first element is
@@ -701,8 +694,7 @@ row index and the column index second, separated by a comma.
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="do-it-yourself" class="callout-inner">
-<h3 class="callout-title">Do it Yourself<a class="anchor" aria-label="anchor" href="#do-it-yourself"></a>
-</h3>
+<h3 class="callout-title">Do it Yourself</h3>
 <div class="callout-content">
 <p>Create a 4x4 matrix called <span class="math inline">\(n\)</span> and
 set the elements <span class="math inline">\(n_{0,1}=1\)</span>, <span class="math inline">\(n_{1,2}=1\)</span> and <span class="math inline">\(n_{1,3}=1\)</span>.</p>
@@ -741,8 +733,7 @@ set the elements <span class="math inline">\(n_{0,1}=1\)</span>, <span class="ma
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="representing-graphs">Representing graphs<a class="anchor" aria-label="anchor" href="#representing-graphs"></a>
-<a class="anchor" aria-label="anchor" href="#representing-graphs"></a></h2>
+</section><section><h2 class="section-heading" id="representing-graphs">Representing graphs<a class="anchor" aria-label="anchor" href="#representing-graphs"></a></h2>
 <hr class="half-width"><p style="text-align: justify;">
 Now we shall see how a <span class="math inline">\(3 \times 3\)</span>
 square matrix can represent a graph with three nodes which we call <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>
@@ -768,8 +759,7 @@ position indicates the node that the edge ends on.
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="do-it-yourself-1" class="callout-inner">
-<h3 class="callout-title">Do it Yourself<a class="anchor" aria-label="anchor" href="#do-it-yourself-1"></a>
-</h3>
+<h3 class="callout-title">Do it Yourself</h3>
 <div class="callout-content">
 <p>For the matrix, <span class="math inline">\(n\)</span>, created in
 Exercise 1.1, is a network matrix representing a graph, use code to
@@ -794,8 +784,7 @@ $n_{1,3}$ or $n[1][3]$ is an edge from node 1 to node 3.</code></pre>
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="different-layouts-for-visualisation">Different Layouts for Visualisation<a class="anchor" aria-label="anchor" href="#different-layouts-for-visualisation"></a>
-<a class="anchor" aria-label="anchor" href="#different-layouts-for-visualisation"></a></h2>
+</section><section><h2 class="section-heading" id="different-layouts-for-visualisation">Different Layouts for Visualisation<a class="anchor" aria-label="anchor" href="#different-layouts-for-visualisation"></a></h2>
 <hr class="half-width">
 Now that we know how to create a matrix which can represent the graph,
 we want to know what the graph coming from this matrix looks like.
@@ -882,8 +871,7 @@ the layouts will not be identical.</p>
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="do-it-yourself-2" class="callout-inner">
-<h3 class="callout-title">Do it Yourself<a class="anchor" aria-label="anchor" href="#do-it-yourself-2"></a>
-</h3>
+<h3 class="callout-title">Do it Yourself</h3>
 <div class="callout-content">
 <ol style="list-style-type: decimal"><li><p>Use the graph layout algorithm called <code>shell_layout</code>
 to plot <code>new_graph</code>.</p></li>
@@ -985,8 +973,7 @@ and <span class="math inline">\(Z\)</span>.</p></li>
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="customising-nodes-and-edges">Customising nodes and edges<a class="anchor" aria-label="anchor" href="#customising-nodes-and-edges"></a>
-<a class="anchor" aria-label="anchor" href="#customising-nodes-and-edges"></a></h2>
+</section><section><h2 class="section-heading" id="customising-nodes-and-edges">Customising nodes and edges<a class="anchor" aria-label="anchor" href="#customising-nodes-and-edges"></a></h2>
 <hr class="half-width"><p style="text-align: justify;">
 Now we are going to look at some ways to access and change some
 properties, or attributes, of the nodes in the graph. We have already
@@ -1074,8 +1061,7 @@ specified via <span class="math inline">\([[1, 0, 0]]\)</span>, blue via
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="do-it-yourself-3" class="callout-inner">
-<h3 class="callout-title">Do it Yourself<a class="anchor" aria-label="anchor" href="#do-it-yourself-3"></a>
-</h3>
+<h3 class="callout-title">Do it Yourself</h3>
 <div class="callout-content">
 <p>Add an edge to the network to connect the isolated node D to
 e.g. node A.</p>
@@ -1137,8 +1123,7 @@ array. You set up a nested list and convert it to a Numpy array using
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="do-it-yourself-4" class="callout-inner">
-<h3 class="callout-title">Do it Yourself<a class="anchor" aria-label="anchor" href="#do-it-yourself-4"></a>
-</h3>
+<h3 class="callout-title">Do it Yourself</h3>
 <div class="callout-content">
 <p>Set all the nodes in this graph to turquoise diamonds. By turquoise
 we mean the RGB colour <span class="math inline">\([[0, 1,
@@ -1175,8 +1160,7 @@ this Lesson.</p>
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="directed-graphs">Directed graphs<a class="anchor" aria-label="anchor" href="#directed-graphs"></a>
-<a class="anchor" aria-label="anchor" href="#directed-graphs"></a></h2>
+</section><section><h2 class="section-heading" id="directed-graphs">Directed graphs<a class="anchor" aria-label="anchor" href="#directed-graphs"></a></h2>
 <hr class="half-width"><p style="text-align: justify;">
 So far, we have been working with <em>undirected</em> graphs: all the
 edges between the nodes were independent of the direction in which they
@@ -1238,8 +1222,7 @@ node B.</p>
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="do-it-yourself-5" class="callout-inner">
-<h3 class="callout-title">Do it Yourself<a class="anchor" aria-label="anchor" href="#do-it-yourself-5"></a>
-</h3>
+<h3 class="callout-title">Do it Yourself</h3>
 <div class="callout-content">
 <p>Change directedMatrix<span class="math inline">\(_{3,2}\)</span> to
 1. What does this change about the graph?</p>
@@ -1284,8 +1267,7 @@ node B.</p>
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="bipartite-graphs">Bipartite graphs<a class="anchor" aria-label="anchor" href="#bipartite-graphs"></a>
-<a class="anchor" aria-label="anchor" href="#bipartite-graphs"></a></h2>
+</section><section><h2 class="section-heading" id="bipartite-graphs">Bipartite graphs<a class="anchor" aria-label="anchor" href="#bipartite-graphs"></a></h2>
 <hr class="half-width"><p style="text-align: justify;">
 Bipartite graphs are another graph type supported by NetworkX. These are
 networks which are made up of two groups of nodes which connect to nodes
@@ -1435,15 +1417,13 @@ gene-disease networks can be found in section 2.7 of the online textbook
 <a href="http://networksciencebook.com/chapter/2#bipartite-networks" class="external-link">Network
 Science by A.L. Barabási</a>.
 </p>
-</section><section><h2 class="section-heading" id="exercises">Exercises<a class="anchor" aria-label="anchor" href="#exercises"></a>
-<a class="anchor" aria-label="anchor" href="#exercises"></a></h2>
+</section><section><h2 class="section-heading" id="exercises">Exercises<a class="anchor" aria-label="anchor" href="#exercises"></a></h2>
 <hr class="half-width"><div id="assignment-the-toxin-antitoxin-network" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="assignment-the-toxin-antitoxin-network" class="callout-inner">
-<h3 class="callout-title">Assignment: the Toxin-Antitoxin Network<a class="anchor" aria-label="anchor" href="#assignment-the-toxin-antitoxin-network"></a>
-</h3>
+<h3 class="callout-title">Assignment: the Toxin-Antitoxin Network</h3>
 <div class="callout-content">
 <p>Use code to create the (undirected) toxin-antitoxin PPI network given
 at the start of this example. Experiment with the different layout
@@ -1547,8 +1527,7 @@ did earlier.</p>
 <i class="callout-icon" data-feather="key"></i>
 </div>
 <div class="callout-inner">
-<h3 class="callout-title">Key Points<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
-</h3>
+<h3 class="callout-title">Key Points</h3>
 <div class="callout-content">
 <ul><li>A Python package <code>NetworkX</code> is used for studying
 undirected and directed graphs.</li>
@@ -1591,7 +1570,7 @@ any links that you are not going to use.
       </div><!--/div.row-->
       		<footer class="row footer mx-md-3"><hr><div class="col-md-6">
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/LearnToDiscover/sandpaper/tree/l2d" class="external-link">sandpaper (0.16.5.90000.1)</a>, <a href="https://github.com/carpentries/pegboard/tree/ad2542f7f7b9c3f90cc871b355ff81ec14a09ca9" class="external-link">pegboard (0.7.6)</a>, and <a href="https://github.com/LearnToDiscover/varnish/tree/ef687d476fd8ae2bb8eb288a25e69130004f4f7b" class="external-link">varnish (1.0.3.9000.1)</a></p>
+        <p>Built with <a href="https://github.com/LearnToDiscover/sandpaper/tree/l2d" class="external-link">sandpaper (0.16.6.1)</a>, <a href="https://github.com/carpentries/pegboard/tree/ad2542f7f7b9c3f90cc871b355ff81ec14a09ca9" class="external-link">pegboard (0.7.6)</a>, and <a href="https://github.com/LearnToDiscover/varnish/tree/ef687d476fd8ae2bb8eb288a25e69130004f4f7b" class="external-link">varnish (1.0.3.9000.1)</a></p>
 			</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -1614,7 +1593,7 @@ any links that you are not going to use.
   "identifier": "https://learntodiscover.github.io/Networks/01-networks_1.html",
   "dateCreated": "2024-08-06",
   "dateModified": "2024-08-06",
-  "datePublished": "2024-09-03"
+  "datePublished": "2024-09-10"
 }
 
   </script><script>
